@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>56 个路演项目，一个人，一晚上 · demo-day-dossier 实战记</title>
+<meta name="description" content="一面展厅墙、一篇微信文章、22 张项目卡截图，30 分钟后变成全景网页 + DD 表 + Word 报告 — 这是一份 AI 怎么把以前不可能的事变成日常的实战记录。">
+<style>
+  :root {
+    --bg: #0a0f1e;
+    --bg-2: #111835;
+    --card: rgba(255,255,255,0.04);
+    --card-hover: rgba(255,255,255,0.08);
+    --text: #e8ecf5;
+    --muted: #8b94b3;
+    --soft: #c2c9dc;
+    --line: rgba(255,255,255,0.10);
+    --accent: #5eead4;
+    --gold: #fbbf24;
+    --rose: #fb7185;
+    --blue: #60a5fa;
+    --green: #34d399;
+    --orange: #fb923c;
+    --purple: #c084fc;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.85;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background:
+      radial-gradient(1100px 600px at 12% -8%, rgba(94,234,212,0.10), transparent 60%),
+      radial-gradient(1000px 500px at 110% 12%, rgba(192,132,252,0.10), transparent 55%),
+      linear-gradient(180deg, #0a0f1e 0%, #0a0f1e 100%);
+    min-height: 100vh;
+  }
+  /* Top bar */
+  header.top {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(10,15,30,0.78);
+    border-bottom: 1px solid var(--line);
+  }
+  header.top .inner {
+    max-width: 1080px; margin: 0 auto;
+    padding: 14px 24px;
+    display: flex; align-items: center; gap: 14px;
+    flex-wrap: wrap;
+  }
+  header.top a {
+    color: var(--soft); text-decoration: none;
+    font-size: 13px; padding: 6px 12px;
+    border: 1px solid var(--line); border-radius: 999px;
+    transition: all .15s ease;
+  }
+  header.top a:hover { color: var(--accent); border-color: var(--accent); }
+  header.top a.cta { color: var(--rose); border-color: rgba(251,113,133,0.35); }
+  header.top .spacer { flex: 1; }
+
+  /* Hero */
+  .hero {
+    max-width: 900px; margin: 60px auto 36px; padding: 0 24px;
+    text-align: center;
+  }
+  .hero .badge {
+    display: inline-block;
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--accent); font-weight: 600;
+    padding: 6px 14px; border: 1px solid rgba(94,234,212,0.35);
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 38px; line-height: 1.3;
+    margin: 0 0 18px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff 0%, #c2c9dc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero .meta {
+    color: var(--muted); font-size: 13px; letter-spacing: 1px;
+  }
+  .hero .dot { margin: 0 8px; color: var(--line); }
+
+  /* TL;DR */
+  .tldr {
+    max-width: 780px;
+    margin: 18px auto 60px;
+    padding: 22px 28px;
+    background: rgba(94,234,212,0.06);
+    border: 1px solid rgba(94,234,212,0.2);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    color: var(--soft);
+    font-size: 15px; line-height: 1.85;
+  }
+  .tldr strong { color: var(--accent); }
+
+  /* Article body */
+  article {
+    max-width: 780px; margin: 0 auto 80px;
+    padding: 0 24px;
+  }
+  article h2 {
+    font-size: 26px; line-height: 1.35;
+    margin: 72px 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    font-weight: 700;
+  }
+  article h2:first-child { margin-top: 0; }
+  article h3 {
+    font-size: 19px;
+    margin: 36px 0 10px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  article p {
+    margin: 0 0 18px;
+    color: #d6dceb;
+  }
+  article strong { color: var(--text); font-weight: 700; }
+  article em { color: var(--gold); font-style: normal; }
+  article a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px dashed rgba(94,234,212,0.4);
+    transition: color .15s ease;
+  }
+  article a:hover { color: #fff; border-bottom-color: #fff; }
+
+  article ul, article ol { padding-left: 24px; margin: 0 0 18px; }
+  article li { margin-bottom: 8px; color: #d6dceb; }
+  article li::marker { color: var(--muted); }
+
+  article blockquote {
+    margin: 22px 0;
+    padding: 14px 22px;
+    background: rgba(255,255,255,0.04);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    color: var(--soft);
+    font-style: normal;
+    font-size: 16px;
+  }
+  article blockquote p:last-child { margin-bottom: 0; }
+
+  article pre {
+    background: #06091a;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 20px;
+    overflow-x: auto;
+    font-size: 13.5px; line-height: 1.65;
+    color: #c2c9dc;
+    margin: 0 0 22px;
+  }
+  article code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: rgba(255,255,255,0.07);
+    padding: 1px 6px; border-radius: 4px;
+    font-size: 14px;
+    color: var(--accent);
+  }
+  article pre code { background: transparent; padding: 0; color: inherit; font-size: 13.5px; }
+
+  article table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 22px;
+    font-size: 14px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  article th, article td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    color: #d6dceb;
+  }
+  article th {
+    background: rgba(255,255,255,0.05);
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  article td code { font-size: 12.5px; }
+  article tr:last-child td { border-bottom: none; }
+
+  article hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 60px auto;
+    max-width: 200px;
+  }
+
+  /* Section divider with phase number */
+  .phase-tag {
+    display: inline-block;
+    font-size: 11px; letter-spacing: 2px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    color: var(--accent);
+    background: rgba(94,234,212,0.1);
+    border: 1px solid rgba(94,234,212,0.3);
+    margin-bottom: 10px;
+  }
+
+  /* CTA box near end */
+  .cta-box {
+    margin: 50px 0;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(94,234,212,0.08), rgba(251,191,36,0.06));
+    border: 1px solid rgba(94,234,212,0.25);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .cta-box h3 {
+    color: #fff !important;
+    margin: 0 0 14px !important;
+    font-size: 22px;
+  }
+  .cta-box p { font-size: 15px; color: var(--soft); margin-bottom: 18px; }
+  .cta-box .links {
+    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+  }
+  .cta-box .links a {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 999px;
+    color: var(--text); border: 1px solid var(--line);
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .cta-box .links a:hover {
+    color: var(--accent); border-color: var(--accent);
+  }
+
+  footer {
+    max-width: 780px; margin: 60px auto 40px;
+    padding: 28px 24px;
+    border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 13px;
+    text-align: center;
+    line-height: 1.95;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 720px) {
+    .hero { margin-top: 36px; }
+    .hero h1 { font-size: 28px; }
+    article { padding: 0 18px; }
+    article h2 { font-size: 22px; margin-top: 56px; }
+    article h3 { font-size: 17px; }
+    article pre { font-size: 12.5px; padding: 14px; }
+    article table { font-size: 12.5px; }
+    article th, article td { padding: 8px 10px; }
+    header.top .inner { padding: 10px 16px; gap: 8px; }
+    header.top a { font-size: 12px; padding: 5px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="inner">
+    <a href="./">🌐 全景页</a>
+    <a href="dd">🔍 DD 表</a>
+    <span class="spacer"></span>
+    <a href="https://github.com/zhanglunet/demo-day-dossier" target="_blank" rel="noopener">📦 GitHub</a>
+    <a class="cta" href="https://github.com/zhanglunet/demo-day-dossier#readme" target="_blank" rel="noopener">⌥ 用在你的 demo day</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="badge">DEMO DAY DOSSIER · 实战记</div>
+  <h1>56 个路演项目，一个人，一晚上：<br>我怎么用 Claude Skill + 7 路 AI 调研团跑完了一份投资级 DD</h1>
+  <div class="meta">2026-06-07 <span class="dot">·</span> 奇绩创坛 2026 春季路演日 <span class="dot">·</span> 12 分钟阅读</div>
+</section>
+
+<div class="tldr">
+  <strong>TL;DR ——</strong> 一张展厅墙、一篇微信文章、22 张项目卡截图，30 分钟后变成全景网页、可排序的 DD 表、89KB 的 Word 深度报告、和一份 Excel 表 —— 整套上线 Cloudflare。本文记录这是怎么发生的：核心是一个叫 <code>demo-day-dossier</code> 的 Claude Code Skill，把 5 阶段流程 + 8 维 DD 框架 + 7 路并行 agent 编排打包，下次跑 YC、红杉、经纬都能复用。
+</div>
+
+<article>
+
+<h2>一面墙 / 一篇文章 / 22 张截图</h2>
+
+<p>2026 年 6 月 7 日下午，奇绩创坛 2026 春季路演日。</p>
+
+<p>展厅里一面巨大的墙，被切成四个色块：</p>
+
+<ul>
+  <li><strong>A 区</strong>：前沿科技，11 个项目 —— 核聚变、重力储能、EDA Agent、AI4Science 化学引擎</li>
+  <li><strong>B 区</strong>：具身智能与硬件，19 个 —— 机器人灵巧手、智能眼镜、群体机器人 OS</li>
+  <li><strong>E 区</strong>：Agent toB，12 个 —— 企业级 SaaS、出海销冠 Agent、工业 RaaS</li>
+  <li><strong>F 区</strong>：Agent toC，12 个 —— AI 心理陪伴、二次元硬件、AI 视频生产</li>
+</ul>
+
+<p>每张卡片贴着项目名、创始人、一句话定位，还有一个小程序二维码。扫进去能看到完整的团队 bio、融资金额、出让股权。</p>
+
+<p>走完一圈，我手机里有了：22 张项目卡截图、1 张全景的展区墙照片、1 篇官方微信公众号长文（陆奇博士开场分享 + 56 个项目介绍）。</p>
+
+<p>然后问题来了：</p>
+
+<p><strong>这 56 个项目，怎么一个个搞清楚？</strong></p>
+
+<p>如果我是 VC，应该派 5 个分析师，每人花一周做 DD。如果我是一个手作研究的好奇之人，按一个项目 30 分钟算（看官网、查创始人、找竞品、估个估值），56 个项目大概 <em>28 小时</em>。</p>
+
+<p>但我想做的是另一件事：</p>
+
+<p><strong>把这 56 个项目，今晚就做完一份 DD。</strong></p>
+
+<p>不是粗扫，是带 8 维度、有估值锚定、有竞品分析、有推荐度的、可发布的投资级别 DD。</p>
+
+<p>听上去不可能。但 AI 让"不可能"变成了"30 分钟"。</p>
+
+<h2>这件事，本质上是一个调度问题</h2>
+
+<p>为什么一个人对 56 个项目无解？</p>
+
+<p>因为人是<strong>串行</strong>的。你看一个项目、做完、再看下一个。28 小时是串行结构强加的下限。</p>
+
+<p>但如果有 7 个分析师同时干呢？56 ÷ 7 ≈ 8 个项目每人，每人 30 分钟做完，<em>总共还是 30 分钟</em>。</p>
+
+<p>VC 派 5 个分析师就是这个道理。问题是我没有 5 个分析师。</p>
+
+<p>但我有 Claude。</p>
+
+<p>Claude Code 的一个关键特性：<strong>你可以在一条消息里同时发起多个 sub-agent 调用，它们真的并发执行</strong>。这意味着：</p>
+
+<ul>
+  <li>我可以一次性派 7 个 AI 调研员（subagents）出去</li>
+  <li>每个 AI 调研员都拿着同一份 SOP、同一份估值对标表、同一份 Prompt 模板</li>
+  <li>30 分钟后，7 份 JSON 同时回收</li>
+  <li>我作为 Lead，合并、互链、出报告</li>
+</ul>
+
+<p><strong>等于在我的笔记本里塞了一个 7 人调研团。</strong></p>
+
+<p>剩下的问题只有一个：<strong>怎么把这套流程标准化，让它下次也能跑？</strong></p>
+
+<p>答案叫 <strong>Claude Code Skill</strong>。</p>
+
+<h2>Skill 不是 prompt 模板，是 AI 的 SOP</h2>
+
+<p>很多人对"提示词模板"很熟悉 —— 你写一段 prompt，下次复制粘贴改改参数。</p>
+
+<p><strong>Skill 是给 AI 用的 SOP</strong>。它打包了：</p>
+
+<table>
+  <thead><tr><th>资产</th><th>角色</th></tr></thead>
+  <tbody>
+    <tr><td><code>SKILL.md</code></td><td>流程定义 —— 告诉 AI"这个任务分 5 个阶段，每个阶段做什么"</td></tr>
+    <tr><td><code>templates/</code></td><td>HTML 落地页模板、DD agent prompt、估值对标表、JSON Schema</td></tr>
+    <tr><td><code>scripts/</code></td><td>构建 HTML、构建 CSV、构建 markdown 报告、部署</td></tr>
+    <tr><td><code>examples/</code></td><td>跑过一次的参考数据集，让 AI 知道目标长什么样</td></tr>
+    <tr><td>触发条件</td><td>写在 SKILL.md 顶部的 description，Claude 自己识别"该调我"</td></tr>
+  </tbody>
+</table>
+
+<p>我把这套流程封装成了一个叫 <code>demo-day-dossier</code> 的 Skill。它的"职位描述"是：</p>
+
+<blockquote>
+  <p>给定一个工作目录，里面有项目卡截图、展区现场照、和/或官方文章 URL，自动产出全景式可交互 HTML 落地页、可排序 / 可筛选的 DD 表（由 7 路并行调研 agent 驱动）、Word 深度报告、CSV、并一键部署到 Cloudflare Pages。</p>
+</blockquote>
+
+<p><strong>关键特性</strong>：写一次，下次 YC 路演、红杉 demo day、经纬路演 —— 同一个命令搞定。AI 自己理解流程、自己拆任务、自己调度 agent。输出一致：所有跑出来的项目卷宗结构都相同，可比对、可归档。</p>
+
+<p>下面是这个 skill 5 个阶段的展开。</p>
+
+<h2><span class="phase-tag">PHASE 0</span><br>盘点 —— 在素材堆里找路线图</h2>
+
+<p>每次跑 skill，第一步是清点你给了它什么。skill 会找三类东西：</p>
+
+<p><strong>① 展区墙照片</strong> —— 这是骨架。一张宽角度照片，上面写着 A11、B19、E12、F12 字样的 ID 和粗略项目名。AI 用 Read 工具直接读图，把 ID-名映射抽出来，作为后续的"主索引"。</p>
+
+<p><strong>② 官方文章</strong> —— 通常是微信公众号 / Substack / 加速器博客的长文，里面有完整的团队介绍段。命名规范化时<strong>以文章为准</strong>，因为图片 OCR 有错。</p>
+
+<p><strong>③ 项目卡截图</strong> —— 加速器的小程序截图是金矿。每张卡片包含创始人姓名、学历、前雇主、融资意向、出让股权 —— 整齐的中文表单。</p>
+
+<p>这里有个小坑值得说：<strong>微信公众号 mp.weixin.qq.com 用默认 User-Agent 抓回来的是「环境异常」验证页</strong>。需要伪装成 iPhone 微信浏览器才能拿到正文：</p>
+
+<pre><code>curl -sL "https://mp.weixin.qq.com/s/..." \
+  -H "User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) ... \
+      MicroMessenger/8.0.49 ..."</code></pre>
+
+<p>skill 把这个常见陷阱写进了 SOP，下次跑 YC 的 Substack 文章时不会再栽。</p>
+
+<h2><span class="phase-tag">PHASE 1</span><br>抽取 —— 把图片堆变成一个 JSON</h2>
+
+<p>skill 把所有抽出来的项目数据合并成一个规范化 JSON：</p>
+
+<pre><code>{
+  "id": "A01",
+  "name": "VibeChip",
+  "tagline": "AI 让 EDA 像写代码一样简单",
+  "founder": "李 X · 清华 EE / 前 Cadence 高级工程师",
+  "company": "VibeChip 北京",
+  "site": "https://vibechip.ai",
+  "github": "https://github.com/...",
+  "funding": "种子轮 150 万美元",
+  "star": true
+}</code></pre>
+
+<p>JSON Schema 跟着 skill 走，确保每次产出的字段一致。</p>
+
+<p><strong>关键决策</strong>：命名优先级。当三个来源（展区墙、项目卡、文章）冲突时，<em>永远以官方文章为准</em>。比如：</p>
+
+<table>
+  <thead><tr><th>OCR 识别</th><th>文章真名</th><th>选谁</th></tr></thead>
+  <tbody>
+    <tr><td>田阳</td><td>田阳川</td><td>田阳川</td></tr>
+    <tr><td>摩泽分子</td><td>摩湃分子 MolplusAI</td><td>摩湃分子</td></tr>
+    <tr><td>郜进飞</td><td>郜迪飞</td><td>郜迪飞</td></tr>
+    <tr><td>段泽泽</td><td>段西泽</td><td>段西泽</td></tr>
+  </tbody>
+</table>
+
+<p>这听上去像小事，但 56 个项目里有 5-8 个会踩到名字错配。一次性写进 SOP 之后，下次再跑就不用再想。</p>
+
+<h2><span class="phase-tag">PHASE 2</span><br>全景页 + 首份 Word 报告</h2>
+
+<p>JSON 装好之后，灌进一个 950 行的 HTML 模板，生成全景落地页：</p>
+
+<ul>
+  <li>4 色分区 Tab（蓝 A / 绿 B / 橙 E / 紫 F）</li>
+  <li>创始人金色卡片框，TOP 推荐打星</li>
+  <li>顶部 sticky 导航 + 一键跳转 DD 表</li>
+  <li>移动端响应式</li>
+</ul>
+
+<p>同时跑 <code>build_panoramic.py</code> → 输出 markdown → pandoc 转 Word，<strong>首版报告 v1.0 生成完毕</strong>。</p>
+
+<p>到这里，已经超出了"普通展厅笔记"的 95%。但只是热身 —— 重头戏在下一步。</p>
+
+<h2><span class="phase-tag">PHASE 3</span><br>7 路 AI 调研团出发</h2>
+
+<p>这是整个 skill 最关键的一步。</p>
+
+<h3>调度</h3>
+
+<p>把 56 个项目按分区切成 7 批：</p>
+
+<pre><code>A:  A01-A11   (11 个)
+B1: B01-B10   (10 个)
+B2: B11-B19   (9 个)
+E1: E01-E06   (6 个)
+E2: E07-E12   (6 个)
+F1: F01-F06   (6 个)
+F2: F07-F12   (6 个)</code></pre>
+
+<p>每个 batch 的项目子集写到 <code>/tmp/dd_batch_&lt;id&gt;.json</code>，agent 通过 Read 读取。</p>
+
+<h3>发车</h3>
+
+<p><strong>一条消息里发 7 个 Agent 调用</strong>。这是关键 —— 一条消息发 7 个，就是并发；7 条消息每条 1 个，就是串行。</p>
+
+<p>每个 agent 都拿到同一份 prompt 模板，模板里告诉它：</p>
+
+<ul>
+  <li>你是 2026 年 xx 路演项目的 DD 研究员</li>
+  <li>本批负责以下 N 个项目（列表）</li>
+  <li>输入数据在 <code>/tmp/dd_batch_X.json</code></li>
+  <li>输出请写到 <code>/tmp/dd_results_X.json</code></li>
+  <li>8 维度框架（下一节展开）</li>
+  <li>预算：30 分钟、25 次 WebSearch、15 次 Bash（curl）</li>
+  <li>估值要参考下面这张对标表（注入 prompt）</li>
+</ul>
+
+<h3>等待 + 回收</h3>
+
+<p>harness 会在每个 agent 完成时主动通知 —— 我不需要轮询。等待期间我可以开始搭 DD 表的 HTML 骨架，结果一到就能填进去。当 7 份 JSON 都回来，merge 成一个 <code>dd_data.json</code>，进入阶段 4。</p>
+
+<h2>DD 是怎么填出来的：8 维度框架</h2>
+
+<p>每个 agent 对每个项目要填这 8 个字段。每一项都有可验证的方法。</p>
+
+<p><strong>1. 站点状态</strong> —— <code>curl -sI -L --max-time 8 &lt;url&gt;</code>，查 HTTP 状态码和重定向链。结果像「200 OK / 站点活跃，标题 X」、「站点离线」、「无公开站点」。</p>
+
+<p><strong>2. Repo 活跃度</strong> —— <code>curl -s https://api.github.com/repos/&lt;owner&gt;/&lt;repo&gt;</code>。GitHub API 不需要 token（注意速率），拿到 stars / forks / pushed_at，判断代码是否活跃。</p>
+
+<p><strong>3. 团队评分 1-5</strong> —— 综合学历 + 前雇主 + 经验深度 + 角色覆盖度。</p>
+
+<p><strong>4. 技术护城河 ≤40 字</strong> —— 一句话：网络效应？数据壁垒？专利？客户合同？</p>
+
+<p><strong>5. 竞品 3-5 个</strong> —— 结构化 <code>[{name, stage, note}]</code>。stage 用 WebSearch 核实融资轮次。</p>
+
+<p><strong>6. 市场 TAM</strong> —— TAM + CAGR，一句话写完。</p>
+
+<p><strong>7. 估值区间</strong> —— pre-money USD 区间 + 类比 X 项目做依据。</p>
+
+<p><strong>8. 风险 / 优势 / 推荐度 / 一句话判断</strong> —— 风险 3 条、优势 3 条、推荐度 1-5、verdict ≤30 字。</p>
+
+<h3>最重要的小动作：估值不能让 agent 在真空里报价</h3>
+
+<p>所以 skill 把一张"按行业的 Pre-money 估值对标表"作为 prompt 的一部分注入：</p>
+
+<table>
+  <thead><tr><th>赛道</th><th>Seed Pre-money</th><th>备注</th></tr></thead>
+  <tbody>
+    <tr><td>早期 AI Agent SaaS</td><td>$10-50M</td><td>Coze / Dify 类</td></tr>
+    <tr><td>硬科技 / 前沿能源</td><td>$20-100M</td><td>核聚变 / 重力储能</td></tr>
+    <tr><td>具身硬件 / 灵巧手</td><td>$20-200M</td><td>关键部件 vs 本体</td></tr>
+    <tr><td>AI4Science</td><td>$30-100M</td><td>药物设计 / 分子力场</td></tr>
+    <tr><td>EDA / 模拟芯片 Agent</td><td>$30-100M</td><td>Cadence 替代</td></tr>
+    <tr><td>智能眼镜 / 可穿戴</td><td>$30-300M</td><td>Ray-Ban / Brilliant Labs</td></tr>
+    <tr><td>实时语音 AI</td><td>$30-150M</td><td>Sesame / Sindarin</td></tr>
+    <tr><td>...（共 25 个赛道）</td><td>...</td><td>...</td></tr>
+  </tbody>
+</table>
+
+<p>Agent 报价时必须类比表里的某个邻居，不能凭空。这一个细节，把 hallucination 概率压低了一大半。</p>
+
+<h3>还有一条铁律</h3>
+
+<blockquote>
+  <p>不要捏造创始人姓名、融资金额、客户证言。证据不明时写「未公开」「待核实」。</p>
+</blockquote>
+
+<p>skill 把这条写进 <code>SKILL.md</code> 的"语气与文风约束"。Agent 出错的时候，宁可空着，不要瞎编。</p>
+
+<h2><span class="phase-tag">PHASE 4</span><br>合并 + DD 表 + Word + CSV</h2>
+
+<p>7 份 JSON 回到本地，merge 成一个 <code>dd_data.json</code>。然后跑：</p>
+
+<ul>
+  <li><code>build_dd_html.py</code> → 生成 <strong>DD 表页面</strong>（8 列可排序 + 顶部搜索框 + 分区筛选 + 推荐度筛选 + 行点开右侧抽屉详情）</li>
+  <li><code>build_dd_csv.py</code> → 生成 <strong>CSV</strong>（21 列，Excel/Numbers 可打开）</li>
+  <li><code>build_dd_report_md.py</code> → 生成 <strong>markdown 报告</strong>（按分区分组、带执行摘要表、推荐度分布、TOP5、高风险预警）</li>
+  <li><code>pandoc</code> → markdown 转 docx，<strong>89KB 的 DD Word 深度报告</strong></li>
+</ul>
+
+<p>54 个项目（剩下 2 个信息不足未入 DD）的推荐度分布最终是：</p>
+
+<table>
+  <thead><tr><th>推荐度</th><th>含义</th><th>项目数</th></tr></thead>
+  <tbody>
+    <tr><td>★★★★★</td><td>强烈推荐</td><td>11</td></tr>
+    <tr><td>★★★★</td><td>关注</td><td>20</td></tr>
+    <tr><td>★★★</td><td>可观察</td><td>18</td></tr>
+    <tr><td>★★</td><td>高风险</td><td>4</td></tr>
+    <tr><td>★</td><td>信息不足</td><td>1</td></tr>
+  </tbody>
+</table>
+
+<p>这是一个<strong>健康的金字塔</strong>：11 个强烈推荐 + 20 个关注 = 31 个上层意向，占比 57%。剩下 43% 落到可观察或更低 —— <em>不是粉丝信，是诚实的画像</em>。如果 56 个项目全部 rec=5，那就不是 DD，是软文。</p>
+
+<h2><span class="phase-tag">PHASE 5</span><br>发布 —— 先 git push，再让 Cloudflare 自动接管</h2>
+
+<p>最初我用 wrangler 直接从本地推 Cloudflare Pages，部署很快。</p>
+
+<p>但后来约定了一条新流程：<strong>先推 GitHub → Cloudflare 自动监听 → 触发部署</strong>。</p>
+
+<p>理由很简单 —— <code>git commit</code> 是 source of truth，每个上线版本都对应一个 commit SHA。本地直推没有审计点，协作者推 PR 也不能预览。</p>
+
+<p>接线只需要一次：</p>
+
+<ol>
+  <li>CF Dashboard 进 <code>qiji-roadshow-2026</code> 项目 → Settings → Builds &amp; deployments → Connect to Git</li>
+  <li>选 GitHub 仓库 <code>zhanglunet/demo-day-dossier</code></li>
+  <li><strong>Build output directory 填 <code>output</code></strong>（注意：默认是 repo 根，必须改成 <code>output</code>）</li>
+</ol>
+
+<p>之后 <code>git push</code> 就直接触发自动 build &amp; deploy，30-60 秒内上线，连 GitHub Actions 都不需要。</p>
+
+<p>要让这个设置自动化，我直接把 <code>wrangler.toml</code> 提交到 repo 里：</p>
+
+<pre><code>name = "qiji-roadshow-2026"
+pages_build_output_dir = "output"
+compatibility_date = "2026-06-07"</code></pre>
+
+<p>之后任何人 fork 这个 repo，连上 CF Pages，配置自动生效，不用再点 Dashboard 选选项。</p>
+
+<h2>最终产出清单</h2>
+
+<table>
+  <thead><tr><th>资产</th><th>用途</th></tr></thead>
+  <tbody>
+    <tr><td><code>projects.json</code></td><td>56 项目的规范化结构数据集</td></tr>
+    <tr><td><code>index.html</code></td><td>全景式可交互落地页</td></tr>
+    <tr><td><code>dd_data.json</code></td><td>54 项目的 8 维度 DD 数据</td></tr>
+    <tr><td><code>dd.html</code></td><td>DD 表页面（可排序 + 抽屉详情）</td></tr>
+    <tr><td><code>DD_table.csv</code></td><td>Excel / Numbers 可打开</td></tr>
+    <tr><td>奇绩路演项目全景深度调研报告 v4.0.docx</td><td>全景 Word 深度报告</td></tr>
+    <tr><td>奇绩路演项目尽职调查报告 v1.0.docx</td><td>DD Word 深度报告（89KB）</td></tr>
+    <tr><td>Cloudflare Pages 部署</td><td>全景页 + DD 表线上版</td></tr>
+  </tbody>
+</table>
+
+<h2>这件事的意义</h2>
+
+<h3>1. 让一个人具备一个调研团的产能</h3>
+
+<p>这套流程之前需要：1 个 PM 负责盘点、5 个分析师做 DD、1 个总编排报告、1 周。</p>
+
+<p>现在需要：1 个人 + Claude Code、30 分钟。</p>
+
+<p>不是减员增效那种话术。是<strong>让以前不可能的事变成日常</strong>。</p>
+
+<h3>2. 把"项目选择"从凭感觉变成凭数据</h3>
+
+<p>如果你是一个想关注早期 AI 创业的人，传统做法是：看朋友圈推荐、看 PR 稿、凭印象。</p>
+
+<p>新做法是：跑一遍 demo-day-dossier、看推荐度排序的 TOP10、翻每一个 verdict 一句话、决定要不要深聊。</p>
+
+<h3>3. 模板化的 DD 可复用</h3>
+
+<p>这套 skill 不只是为奇绩准备的。下一次 YC W26 demo day、红杉 Pioneer Day、经纬创享会 —— 拿到项目卡和官方文章，命令一行：</p>
+
+<pre><code>/demo-day-dossier ~/Downloads/yc-w26 https://www.ycombinator.com/blog/yc-winter-2026</code></pre>
+
+<p>skill 自己跑完五个阶段。</p>
+
+<h3>4. 开源 = 共建</h3>
+
+<p>仓库已经在 GitHub 公开。里面包括：完整 skill（<code>SKILL.md</code>、<code>templates/</code>、<code>scripts/</code>）、奇绩 2026 春的首跑参考数据（<code>projects.json</code> + <code>dd_data.json</code>）、真实产出（HTML、CSV、Word 报告）。</p>
+
+<p>clone 下来，拷贝到 <code>~/.claude/skills/demo-day-dossier</code>，就能用在自己的 demo day 上。</p>
+
+<h2>下一次 demo day，你不必再蹲展区</h2>
+
+<p>把项目卡照片扔进 skill。</p>
+
+<p>30 分钟后，所有项目都摆在你面前 —— 一句话定位、创始人简介、估值区间、推荐度、风险摘要、官网状态、GitHub 活跃度，都在一个表里。</p>
+
+<p><strong>你只需要做一件事</strong>：看完 TOP10 的 verdict，决定下周想约谁喝咖啡。</p>
+
+<p>这是 AI 真正改变工作方式的方式 —— 不是替你思考，是把"思考前必须先做的脏活"全部接走。</p>
+
+<div class="cta-box">
+  <h3>🔗 现在就看 / 试一试</h3>
+  <p>本文档配套的全景页、DD 表、源码都已经开放。</p>
+  <div class="links">
+    <a href="./">🌐 全景页</a>
+    <a href="dd">🔍 DD 表</a>
+    <a href="https://github.com/zhanglunet/demo-day-dossier" target="_blank" rel="noopener">📦 GitHub 源码</a>
+    <a href="https://github.com/zhanglunet/demo-day-dossier/blob/main/docs/story.md" target="_blank" rel="noopener">📝 Markdown 原文</a>
+  </div>
+</div>
+
+</article>
+
+<footer>
+  写于 2026-06-07 · 奇绩创坛 2026 春季路演日当晚<br>
+  源码：<a href="https://github.com/zhanglunet/demo-day-dossier" target="_blank" rel="noopener">github.com/zhanglunet/demo-day-dossier</a><br><br>
+  <em>仅供学习研究参考。DD 中的估值 / 推荐度是基于公开信息的二手分析，不构成投资建议。</em>
+</footer>
+
+</body>
+</html>

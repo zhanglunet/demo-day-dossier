@@ -12,6 +12,7 @@
 🌐 **首跑线上版**：
 - 全景页：<https://qiji-roadshow-2026.pages.dev/>
 - DD 表：<https://qiji-roadshow-2026.pages.dev/dd>
+- 📝 实战记（怎么做的）：<https://qiji-roadshow-2026.pages.dev/story> · [markdown 原文](./docs/story.md)
 
 ---
 
