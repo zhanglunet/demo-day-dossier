@@ -13,6 +13,7 @@
 - 全景页：<https://qiji-roadshow-2026.pages.dev/>
 - DD 表：<https://qiji-roadshow-2026.pages.dev/dd>
 - 📝 实战记（怎么做的）：<https://qiji-roadshow-2026.pages.dev/story> · [markdown 原文](./docs/story.md)
+- 📰 **微信公众号推文版**：<https://mp.weixin.qq.com/s/oqPryhI-V3VOOmmoo-hFYg>（2026-06-08 发布于「张路的碎碎念」）
 
 ---
 
