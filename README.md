@@ -1,5 +1,7 @@
 # demo-day-dossier
 
+[![deploy](https://img.shields.io/badge/Cloudflare%20Pages-auto--deploy%20on%20push-orange)](https://qiji-roadshow-2026.pages.dev/)
+
 > 把加速器 / Demo Day 的素材一次跑完，产出一份可发布、可查询、达到投资级别的项目卷宗。
 
 这是一个 Claude Code Skill + 首跑案例的合集仓库：
