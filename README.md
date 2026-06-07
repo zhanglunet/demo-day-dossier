@@ -144,9 +144,41 @@ cd ~/myrun/output
 pandoc report_v1.md  -o "路演项目全景调研报告_v1.0.docx" --standalone
 pandoc dd_report.md  -o "路演项目尽职调查报告_v1.0.docx" --standalone
 
-# 阶段 5：部署（需 wrangler login）
+# 阶段 5：本地直推（仅作首跑实验，正式发布请走 GitHub → CF）
 skill/scripts/deploy_cloudflare.sh ~/myrun my-cohort-slug "v1.0 首发"
 ```
+
+---
+
+## 发布流程：先 GitHub，再 Cloudflare 自动部署
+
+本仓库的标准发布次序固定为 **`git push` → Cloudflare Pages 自动触发部署**。不要再从本地直接 `wrangler pages deploy`。
+
+### 一次性接线（Cloudflare Dashboard）
+
+1. 打开 **Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git**。
+2. 选 GitHub 账号下的 `zhanglunet/demo-day-dossier` 仓库，授权 CF 读取。
+3. 配置：
+   - **Project name**：`demo-day-dossier`
+   - **Production branch**：`main`
+   - **Build command**：留空（纯静态站点）
+   - **Build output directory**：`output`
+   - **Root directory**：留空
+4. 保存并触发首次 deploy。线上 URL：`https://demo-day-dossier.pages.dev/`。
+
+### 此后每次发布
+
+```bash
+# 本地编辑 → 推到 GitHub
+git add -A
+git commit -m "update v5.0: ..."
+git push
+# Cloudflare 监听到 main 分支 push 后自动 build & deploy（30-60 秒）
+```
+
+无需 GitHub Secret、无需 `wrangler login`、无需 GitHub Actions —— CF 原生 Git 集成全包。
+
+> 历史项目 `qiji-roadshow-2026.pages.dev` 是首跑时用本地 `wrangler pages deploy` 上线的，保留作快照。后续案例一律走「先推 GitHub」的新流程。`skill/scripts/deploy_cloudflare.sh` 仅用于无 GitHub 环境的应急直推。
 
 ---
 

@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# 为 demo-day-dossier 工作目录做幂等的 Cloudflare Pages 部署。
+# 为 demo-day-dossier 工作目录做幂等的 Cloudflare Pages 部署（本地直推路径）。
+#
+# ⚠️ 旧路径：正式发布请走「git push → Cloudflare 原生 Git 集成」自动部署
+#     （见根目录 README 的「发布流程」一节）。本脚本仅用于：
+#       - 首跑实验或离线 demo；
+#       - 无 GitHub 环境的应急直推。
 #
 # 用法：
 #   deploy_cloudflare.sh <workdir> <project-name> [commit-msg]
