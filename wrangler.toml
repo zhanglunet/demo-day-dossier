@@ -1,0 +1,6 @@
+# Cloudflare Pages build configuration（Git 集成模式）
+# 让 CF Pages 把 output/ 当作站点根目录，而不是 repo 根。
+# 这样线上 https://qiji-roadshow-2026.pages.dev/ 直接命中 output/index.html。
+name = "qiji-roadshow-2026"
+pages_build_output_dir = "output"
+compatibility_date = "2026-06-07"
