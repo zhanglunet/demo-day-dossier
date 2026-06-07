@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --accent: #5eead4; --gold: #fbbf24; --rose: #fb7185;
+    --A: #60a5fa; --B: #34d399; --E: #fb923c; --F: #c084fc;
+  }
+  html, body { width: 1200px; height: 700px; overflow: hidden;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #e8ecf5;
+    background:
+      radial-gradient(700px 400px at 50% -10%, rgba(94,234,212,0.12), transparent 60%),
+      radial-gradient(500px 300px at 50% 110%, rgba(251,191,36,0.06), transparent 60%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { padding: 40px 60px; height: 100%; display: flex; flex-direction: column; }
+  .title { font-size: 13px; letter-spacing: 4px; color: var(--accent); font-weight: 700; }
+  h2 { font-size: 32px; font-weight: 800; margin: 6px 0 20px;
+    background: linear-gradient(135deg, #fff, #c2c9dc);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .container { flex: 1; display: grid; grid-template-columns: 1fr 1.4fr; gap: 32px; }
+
+  /* Left: parallel agents */
+  .lead {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .lead-box {
+    padding: 14px 22px; border: 2px solid var(--gold);
+    background: rgba(251,191,36,0.1);
+    border-radius: 12px; font-weight: 700; font-size: 15px; color: var(--gold);
+    text-align: center;
+  }
+  .lead-box .lbl { display: block; font-size: 10px; letter-spacing: 3px; opacity: 0.8; margin-bottom: 2px; }
+  .fanout { color: rgba(255,255,255,0.3); font-size: 14px; letter-spacing: 4px; margin: 2px 0; }
+  .agents { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; width: 100%; }
+  .agent {
+    padding: 8px 6px; border-radius: 8px; text-align: center;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    font-size: 12px; font-weight: 600; line-height: 1.3;
+  }
+  .agent .nm { font-size: 14px; color: var(--accent); }
+  .agent .n { font-size: 10px; color: rgba(255,255,255,0.5); }
+  .agent.A { border-color: rgba(96,165,250,0.4); }
+  .agent.A .nm { color: var(--A); }
+  .agent.B { border-color: rgba(52,211,153,0.4); }
+  .agent.B .nm { color: var(--B); }
+  .agent.E { border-color: rgba(251,146,60,0.4); }
+  .agent.E .nm { color: var(--E); }
+  .agent.F { border-color: rgba(192,132,252,0.4); }
+  .agent.F .nm { color: var(--F); }
+  .note {
+    text-align: center; color: rgba(255,255,255,0.45);
+    font-size: 12px; margin-top: 12px; line-height: 1.6;
+  }
+  .note b { color: var(--accent); }
+
+  /* Right: 8-dim framework */
+  .dims {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 22px 26px;
+    display: flex; flex-direction: column;
+  }
+  .dims h3 {
+    font-size: 16px; color: var(--accent); margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+  .dim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 22px; }
+  .dim { display: flex; gap: 10px; align-items: baseline; font-size: 13px; }
+  .dim .ix {
+    color: var(--gold); font-weight: 800; font-size: 13px; min-width: 18px;
+  }
+  .dim .lbl { color: #e8ecf5; font-weight: 600; }
+  .dim .desc { color: rgba(255,255,255,0.45); font-size: 11.5px; }
+  .dims-foot {
+    margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 11.5px; color: rgba(255,255,255,0.5); line-height: 1.7;
+  }
+  .dims-foot b { color: var(--rose); font-weight: 700; }
+  .timing {
+    text-align: center; padding: 12px; margin-top: 14px;
+    background: rgba(94,234,212,0.06); border: 1px solid rgba(94,234,212,0.25);
+    border-radius: 10px; font-size: 14px;
+  }
+  .timing .vs {
+    font-size: 11px; letter-spacing: 3px; color: var(--accent); margin-bottom: 4px;
+  }
+  .timing s { color: rgba(255,255,255,0.4); text-decoration-color: var(--rose); }
+  .timing b { color: var(--gold); }
+</style></head><body>
+<div class="frame">
+  <div class="title">PHASE 3 · CORE</div>
+  <h2>7 路 AI 调研团 · 一条消息发车，30 分钟回收</h2>
+  <div class="container">
+    <div class="lead">
+      <div class="lead-box"><span class="lbl">LEAD AGENT</span>Claude（你）</div>
+      <div class="fanout">↓ ↓ ↓ ↓ ↓ ↓ ↓</div>
+      <div class="agents">
+        <div class="agent A"><div class="nm">A</div><div>前沿科技</div><div class="n">11 项目</div></div>
+        <div class="agent B"><div class="nm">B1</div><div>具身硬件</div><div class="n">10 项目</div></div>
+        <div class="agent B"><div class="nm">B2</div><div>具身硬件</div><div class="n">9 项目</div></div>
+        <div class="agent E"><div class="nm">E1</div><div>Agent toB</div><div class="n">6 项目</div></div>
+        <div class="agent E"><div class="nm">E2</div><div>Agent toB</div><div class="n">6 项目</div></div>
+        <div class="agent F"><div class="nm">F1</div><div>Agent toC</div><div class="n">6 项目</div></div>
+        <div class="agent F"><div class="nm">F2</div><div>Agent toC</div><div class="n">6 项目</div></div>
+      </div>
+      <div class="timing">
+        <div class="vs">SERIAL VS PARALLEL</div>
+        <s>28 小时</s> &nbsp;→&nbsp; <b>30 分钟</b>
+      </div>
+      <div class="note">每个 agent <b>30 min</b> · <b>25</b> WebSearch · <b>15</b> Bash<br>harness 自动通知，无需轮询</div>
+    </div>
+    <div class="dims">
+      <h3>8 维度 DD 框架（每项目）</h3>
+      <div class="dim-grid">
+        <div class="dim"><span class="ix">1</span><div><div class="lbl">站点状态</div><div class="desc">curl -sI -L HTTP 码 + 重定向</div></div></div>
+        <div class="dim"><span class="ix">2</span><div><div class="lbl">Repo 活跃度</div><div class="desc">GitHub API: stars / pushed_at</div></div></div>
+        <div class="dim"><span class="ix">3</span><div><div class="lbl">团队评分 1-5</div><div class="desc">学历 + 雇主 + 经验深度</div></div></div>
+        <div class="dim"><span class="ix">4</span><div><div class="lbl">技术护城河</div><div class="desc">≤40 字一句话</div></div></div>
+        <div class="dim"><span class="ix">5</span><div><div class="lbl">竞品 3-5 个</div><div class="desc">{name, stage, note}</div></div></div>
+        <div class="dim"><span class="ix">6</span><div><div class="lbl">市场 TAM</div><div class="desc">TAM + CAGR 一句话</div></div></div>
+        <div class="dim"><span class="ix">7</span><div><div class="lbl">估值区间</div><div class="desc">pre-money + 类比对标表</div></div></div>
+        <div class="dim"><span class="ix">8</span><div><div class="lbl">风险 / 优势 / 推荐</div><div class="desc">3+3 + rec 1-5 + verdict</div></div></div>
+      </div>
+      <div class="dims-foot">
+        ⚠ <b>铁律</b>：不要捏造创始人 / 融资 / 客户证言。证据不明时写「未公开」「待核实」。<br>
+        估值不能在真空里报价 —— skill 注入 <b>25 个赛道</b>的 pre-money 对标表。
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

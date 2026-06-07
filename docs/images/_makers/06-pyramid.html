@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --accent: #5eead4; --gold: #fbbf24; --rose: #fb7185;
+    --green: #34d399; --orange: #fb923c; --blue: #60a5fa;
+  }
+  html, body { width: 1200px; height: 600px; overflow: hidden;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #e8ecf5;
+    background:
+      radial-gradient(700px 400px at 50% -10%, rgba(94,234,212,0.1), transparent 60%),
+      radial-gradient(500px 300px at 50% 110%, rgba(251,113,133,0.06), transparent 60%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { padding: 44px 70px; height: 100%; display: flex; flex-direction: column; }
+  .title { font-size: 13px; letter-spacing: 4px; color: var(--accent); font-weight: 700; }
+  h2 { font-size: 32px; font-weight: 800; margin: 6px 0 8px;
+    background: linear-gradient(135deg, #fff, #c2c9dc);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .sub { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 26px; }
+  .pyramid { flex: 1; display: flex; flex-direction: column; gap: 7px; align-items: center; justify-content: center; }
+  .row {
+    display: flex; align-items: center; gap: 18px;
+    padding: 14px 24px; border-radius: 999px;
+    font-weight: 700;
+    border: 1px solid currentColor;
+    box-shadow: 0 0 24px 0 currentColor;
+  }
+  .row .stars { font-size: 18px; letter-spacing: 2px; min-width: 130px; }
+  .row .lbl { font-size: 14px; color: rgba(255,255,255,0.85); min-width: 110px; font-weight: 600; }
+  .row .bar {
+    height: 8px; background: currentColor; border-radius: 4px;
+    min-width: 18px;
+  }
+  .row .n { font-size: 26px; font-weight: 800; color: #fff; min-width: 36px; text-align: right; }
+  .row.r5 { color: var(--gold); width: 78%; }
+  .row.r5 .bar { width: 280px; }
+  .row.r4 { color: var(--green); width: 86%; }
+  .row.r4 .bar { width: 360px; }
+  .row.r3 { color: var(--accent); width: 84%; }
+  .row.r3 .bar { width: 330px; }
+  .row.r2 { color: var(--orange); width: 60%; }
+  .row.r2 .bar { width: 90px; }
+  .row.r1 { color: var(--rose); width: 55%; }
+  .row.r1 .bar { width: 26px; }
+
+  .summary {
+    margin-top: 22px; padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+    color: rgba(255,255,255,0.7); font-size: 13px;
+  }
+  .summary b { color: var(--accent); }
+  .summary .right { color: var(--gold); font-weight: 700; }
+</style></head><body>
+<div class="frame">
+  <div class="title">DD RESULTS · 54 PROJECTS</div>
+  <h2>推荐度分布是一个健康的金字塔</h2>
+  <div class="sub">不是粉丝信，是诚实的画像 — 11 个强烈推荐 + 20 个关注 = 57% 上层意向</div>
+  <div class="pyramid">
+    <div class="row r5"><span class="stars">★★★★★</span><span class="lbl">强烈推荐</span><span class="bar"></span><span class="n">11</span></div>
+    <div class="row r4"><span class="stars">★★★★</span><span class="lbl">关注</span><span class="bar"></span><span class="n">20</span></div>
+    <div class="row r3"><span class="stars">★★★</span><span class="lbl">可观察</span><span class="bar"></span><span class="n">18</span></div>
+    <div class="row r2"><span class="stars">★★</span><span class="lbl">高风险</span><span class="bar"></span><span class="n">4</span></div>
+    <div class="row r1"><span class="stars">★</span><span class="lbl">信息不足</span><span class="bar"></span><span class="n">1</span></div>
+  </div>
+  <div class="summary">
+    <span>奇绩 2026 春季 · <b>54</b> 个项目入 DD · 7 路并行 agent 产出</span>
+    <span class="right">如果全部 rec=5，那不是 DD，是软文 →</span>
+  </div>
+</div>
+</body></html>

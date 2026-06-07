@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  :root {
+    --bg: #0a0f1e;
+    --accent: #5eead4;
+    --gold: #fbbf24;
+    --rose: #fb7185;
+    --A: #60a5fa; --B: #34d399; --E: #fb923c; --F: #c084fc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 675px; overflow: hidden;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #e8ecf5;
+    background:
+      radial-gradient(800px 500px at 12% 8%, rgba(94,234,212,0.18), transparent 60%),
+      radial-gradient(700px 450px at 92% 88%, rgba(192,132,252,0.18), transparent 55%),
+      radial-gradient(600px 400px at 50% 50%, rgba(251,191,36,0.08), transparent 60%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { position: absolute; inset: 0; padding: 64px 72px; display: flex; flex-direction: column; justify-content: space-between; }
+  .top { display: flex; align-items: center; gap: 18px; }
+  .badge {
+    display: inline-block;
+    font-size: 13px; letter-spacing: 4px; font-weight: 700;
+    padding: 9px 16px; border-radius: 999px;
+    background: rgba(94,234,212,0.12);
+    color: var(--accent);
+    border: 1px solid rgba(94,234,212,0.4);
+  }
+  .date {
+    color: rgba(232,236,245,0.45); font-size: 13px; letter-spacing: 2px;
+  }
+  .center { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  h1 {
+    font-size: 64px; line-height: 1.18; font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #c2c9dc 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+  }
+  h1 .accent { background: linear-gradient(135deg, var(--accent), var(--gold));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .sub {
+    font-size: 22px; line-height: 1.5; color: #c2c9dc;
+    max-width: 920px;
+  }
+  .sub em { color: var(--gold); font-style: normal; font-weight: 700; }
+  .bottom { display: flex; align-items: center; justify-content: space-between; }
+  .pills { display: flex; gap: 10px; }
+  .pill {
+    padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
+    border: 1px solid currentColor;
+  }
+  .pA { color: var(--A); }
+  .pB { color: var(--B); }
+  .pE { color: var(--E); }
+  .pF { color: var(--F); }
+  .meta {
+    text-align: right;
+    color: rgba(232,236,245,0.5);
+    font-size: 13px; line-height: 1.7;
+  }
+  .meta b { color: var(--accent); font-weight: 700; }
+</style></head>
+<body>
+<div class="frame">
+  <div class="top">
+    <div class="badge">DEMO DAY DOSSIER · 实战记</div>
+    <div class="date">2026 · 06 · 07</div>
+  </div>
+  <div class="center">
+    <h1>56 个路演项目，一个人，<span class="accent">一晚上</span></h1>
+    <div class="sub">我怎么用 <em>Claude Skill</em> + <em>7 路 AI 调研团</em> 跑完了<br>一份投资级 DD —— 一张展厅墙、一篇微信文章、22 张截图，30 分钟后变成网页 + 表 + 报告。</div>
+  </div>
+  <div class="bottom">
+    <div class="pills">
+      <span class="pill pA">A · 前沿科技 · 11</span>
+      <span class="pill pB">B · 具身硬件 · 19</span>
+      <span class="pill pE">E · Agent toB · 12</span>
+      <span class="pill pF">F · Agent toC · 12</span>
+    </div>
+    <div class="meta">
+      奇绩创坛 2026 春季 · 录取率 <b>1%</b><br>
+      qiji-roadshow-2026.pages.dev
+    </div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0f1e;
+    --accent: #5eead4; --gold: #fbbf24;
+    --A: #60a5fa; --B: #34d399; --E: #fb923c; --F: #c084fc;
+  }
+  html, body { width: 1200px; height: 600px; overflow: hidden;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #e8ecf5;
+    background:
+      radial-gradient(700px 400px at 50% -10%, rgba(94,234,212,0.1), transparent 60%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { padding: 48px 60px; height: 100%; display: flex; flex-direction: column; }
+  .title { font-size: 14px; letter-spacing: 4px; color: var(--accent); font-weight: 700; }
+  h2 { font-size: 36px; font-weight: 800; margin: 8px 0 36px;
+    background: linear-gradient(135deg, #fff, #c2c9dc);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stages { display: flex; gap: 10px; align-items: stretch; flex: 1; }
+  .stage {
+    flex: 1; padding: 22px 18px;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; display: flex; flex-direction: column; gap: 10px;
+    position: relative;
+  }
+  .stage .num { font-size: 11px; letter-spacing: 3px; color: var(--accent); font-weight: 700; }
+  .stage h3 { font-size: 18px; font-weight: 700; }
+  .stage p { font-size: 13px; line-height: 1.55; color: #b8bfd1; }
+  .stage.s0 { border-left: 3px solid var(--A); }
+  .stage.s1 { border-left: 3px solid var(--B); }
+  .stage.s2 { border-left: 3px solid var(--gold); }
+  .stage.s3 { border-left: 3px solid var(--accent); background: rgba(94,234,212,0.06); border-color: rgba(94,234,212,0.3); }
+  .stage.s3 .num { color: var(--accent); }
+  .stage.s4 { border-left: 3px solid var(--E); }
+  .stage.s5 { border-left: 3px solid var(--F); }
+  .arrow {
+    align-self: center; color: rgba(255,255,255,0.25); font-size: 22px;
+    padding: 0 2px;
+  }
+  .stage.s3 .star {
+    position: absolute; top: -10px; right: -10px;
+    background: var(--gold); color: #0a0f1e;
+    font-size: 11px; font-weight: 800; letter-spacing: 1px;
+    padding: 4px 8px; border-radius: 999px;
+  }
+  .foot {
+    margin-top: 26px; padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(232,236,245,0.5); font-size: 12px; letter-spacing: 1px;
+    display: flex; justify-content: space-between;
+  }
+  .foot b { color: var(--accent); }
+</style></head><body>
+<div class="frame">
+  <div class="title">CLAUDE CODE SKILL · DEMO-DAY-DOSSIER</div>
+  <h2>5 阶段流水线</h2>
+  <div class="stages">
+    <div class="stage s0">
+      <div class="num">PHASE 0</div>
+      <h3>盘点素材</h3>
+      <p>展区墙照片 + 官方文章 URL + 项目卡截图</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage s1">
+      <div class="num">PHASE 1</div>
+      <h3>抽取结构数据</h3>
+      <p>图片 + 文章交叉对照 → 规范化 JSON</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage s2">
+      <div class="num">PHASE 2</div>
+      <h3>全景落地页</h3>
+      <p>4 色分区 Tab + 创始人金框 + 首版 Word</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage s3">
+      <span class="star">CORE</span>
+      <div class="num">PHASE 3</div>
+      <h3>7 路并行 DD</h3>
+      <p>7 个 sub-agent 并发，30 分钟跑完 8 维度</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage s4">
+      <div class="num">PHASE 4</div>
+      <h3>合并 / 表 / 报告</h3>
+      <p>DD 表 HTML + CSV + Word 报告</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage s5">
+      <div class="num">PHASE 5</div>
+      <h3>自动部署</h3>
+      <p>git push → Cloudflare Pages 自动 build &amp; deploy</p>
+    </div>
+  </div>
+  <div class="foot">
+    <span>SKILL.md · templates/ · scripts/ · examples/</span>
+    <span><b>30 分钟</b>完成全套 · 可复用到 YC / 红杉 / 经纬 demo day</span>
+  </div>
+</div>
+</body></html>
