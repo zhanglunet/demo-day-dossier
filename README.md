@@ -158,15 +158,18 @@ skill/scripts/deploy_cloudflare.sh ~/myrun my-cohort-slug "v1.0 首发"
 
 ### 一次性接线（Cloudflare Dashboard）
 
-1. 打开 **Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git**。
+实际做法是 **直接在既有的 `qiji-roadshow-2026` Pages 项目上挂 Git 集成**，保持线上域名不变（`qiji-roadshow-2026.pages.dev`），首跑历史 deploy 与新 GitHub-source deploy 都在同一个 project 的部署列表里。
+
+1. 打开 **Cloudflare Dashboard → Workers & Pages → `qiji-roadshow-2026` → Settings → Builds & deployments → Connect to Git**。
 2. 选 GitHub 账号下的 `zhanglunet/demo-day-dossier` 仓库，授权 CF 读取。
 3. 配置：
-   - **Project name**：`demo-day-dossier`
    - **Production branch**：`main`
    - **Build command**：留空（纯静态站点）
    - **Build output directory**：`output`
    - **Root directory**：留空
-4. 保存并触发首次 deploy。线上 URL：`https://demo-day-dossier.pages.dev/`。
+4. 保存。首次自动触发 deploy 后，每条 `main` 上的新 commit 都会自动跑一次部署。
+
+> 如果是全新项目，也可以走 **Create → Pages → Connect to Git** 流程新建一个 `demo-day-dossier` project，URL 会是 `demo-day-dossier.pages.dev`。两种做法等价 —— 选哪种取决于你想不想保留旧 URL。
 
 ### 此后每次发布
 
@@ -180,7 +183,17 @@ git push
 
 无需 GitHub Secret、无需 `wrangler login`、无需 GitHub Actions —— CF 原生 Git 集成全包。
 
-> 历史项目 `qiji-roadshow-2026.pages.dev` 是首跑时用本地 `wrangler pages deploy` 上线的，保留作快照。后续案例一律走「先推 GitHub」的新流程。`skill/scripts/deploy_cloudflare.sh` 仅用于无 GitHub 环境的应急直推。
+### 部署验证（可选）
+
+```bash
+# 看最近 deployment 的 Source 是否匹配最新 commit SHA
+npx wrangler pages deployment list --project-name=qiji-roadshow-2026 | head -8
+
+# 直接 curl 看线上是否反映了改动
+curl -s https://qiji-roadshow-2026.pages.dev/README.md | head -5
+```
+
+> `skill/scripts/deploy_cloudflare.sh` 仅保留作离线 / 无 GitHub 环境下的应急直推。
 
 ---
 
