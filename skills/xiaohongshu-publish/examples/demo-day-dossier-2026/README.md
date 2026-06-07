@@ -13,9 +13,9 @@
 | 配图 | 5 张 1080×1440 @2x = 2160×2880 |
 | 整体耗时 | 约 90 分钟（首跑，含模板调色 + 校对） |
 
-## 上线 URL（发完回填）
+## 上线 URL
 
-- 📰 小红书笔记：（发完回填）
+- 📕 小红书笔记：<https://www.xiaohongshu.com/discovery/item/6a2601120000000022009de4>（2026-06-08 发布于「林雷」）
 - 📰 公众号原文：<https://mp.weixin.qq.com/s/oqPryhI-V3VOOmmoo-hFYg>
 - 🌐 项目主站：<https://qiji-roadshow-2026.pages.dev/story>
 - 📦 项目仓库：<https://github.com/zhanglunet/demo-day-dossier>

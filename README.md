@@ -14,6 +14,7 @@
 - DD 表：<https://qiji-roadshow-2026.pages.dev/dd>
 - 📝 实战记（怎么做的）：<https://qiji-roadshow-2026.pages.dev/story> · [markdown 原文](./docs/story.md)
 - 📰 **微信公众号推文版**：<https://mp.weixin.qq.com/s/oqPryhI-V3VOOmmoo-hFYg>（2026-06-08 发布于「张路的碎碎念」）
+- 📕 **小红书图文笔记版**：<https://www.xiaohongshu.com/discovery/item/6a2601120000000022009de4>（2026-06-08 发布于「林雷」，19 字标题 + 695 字正文 + 5 张 3:4 竖图）
 
 ---
 
