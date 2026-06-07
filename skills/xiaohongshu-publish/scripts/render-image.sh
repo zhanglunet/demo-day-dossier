@@ -1,0 +1,1 @@
+../../wechat-article-publish/scripts/render-image.sh

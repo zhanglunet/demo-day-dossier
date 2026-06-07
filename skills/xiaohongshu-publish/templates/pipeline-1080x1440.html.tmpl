@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  :root { --accent: #fbbf24; --teal: #5eead4; --pink: #fb7185; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1440px; overflow: hidden;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #fff;
+    background:
+      radial-gradient(900px 700px at 50% 0%, rgba(94,234,212,0.18), transparent 60%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { position: absolute; inset: 0; padding: 80px 70px; display: flex; flex-direction: column; }
+  .num { font-size: 32px; letter-spacing: 6px; color: var(--accent); font-weight: 700; }
+  h2 { font-size: 78px; line-height: 1.15; font-weight: 900; margin: 12px 0 0; color: #fff; }
+  .sub { font-size: 30px; line-height: 1.5; color: rgba(255,255,255,0.7); margin-top: 14px; font-weight: 600; }
+
+  .steps { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 22px; margin: 30px 0; }
+  .step {
+    display: flex; align-items: center; gap: 26px;
+    padding: 26px 30px;
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    position: relative;
+  }
+  .step.core {
+    background: linear-gradient(135deg, rgba(251,191,36,0.14), rgba(94,234,212,0.06));
+    border-color: var(--accent);
+    box-shadow: 0 0 40px rgba(251,191,36,0.2);
+  }
+  .step .ix {
+    width: 80px; height: 80px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 44px; font-weight: 900;
+    background: rgba(94,234,212,0.18); color: var(--teal); flex-shrink: 0;
+  }
+  .step.core .ix { background: var(--accent); color: #0a0f1e; }
+  .step .txt { flex: 1; }
+  .step h3 { font-size: 42px; font-weight: 800; line-height: 1.2; margin-bottom: 6px; }
+  .step p { font-size: 26px; color: rgba(255,255,255,0.6); line-height: 1.45; font-weight: 500; }
+  .step .badge {
+    position: absolute; top: -16px; right: 20px;
+    padding: 8px 16px; border-radius: 999px;
+    background: var(--pink); color: #0a0f1e;
+    font-size: 22px; font-weight: 900; letter-spacing: 2px;
+  }
+
+  .foot { color: rgba(255,255,255,0.4); font-size: 24px; letter-spacing: 2px; text-align: right; font-weight: 600; }
+</style></head>
+<body>
+<div class="frame">
+  <div class="num">METHOD · 03</div>
+  <h2>5 步搞定全套<br><span style="color:var(--accent)">不需要写代码</span></h2>
+  <div class="sub">把流程封装成 Claude Skill，下次复用</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="ix">0</div>
+      <div class="txt">
+        <h3>盘点素材 📸</h3>
+        <p>展区墙 + 项目卡 + 官方文章</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="ix">1</div>
+      <div class="txt">
+        <h3>抽数据 → JSON 🧱</h3>
+        <p>图片 + 文章交叉对照命名</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="ix">2</div>
+      <div class="txt">
+        <h3>全景落地页 🌐</h3>
+        <p>4 色分区 Tab + Word 报告 v1</p>
+      </div>
+    </div>
+    <div class="step core">
+      <div class="badge">CORE</div>
+      <div class="ix">3</div>
+      <div class="txt">
+        <h3>7 路 AI 并发 ⚡</h3>
+        <p>每个 agent 拿 8 项目 跑 8 维 DD</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="ix">4-5</div>
+      <div class="txt">
+        <h3>合并 + 自动部署 🚀</h3>
+        <p>DD 表 + CSV + Word + Cloudflare 上线</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">SLIDE 03 / 05</div>
+</div>
+</body></html>

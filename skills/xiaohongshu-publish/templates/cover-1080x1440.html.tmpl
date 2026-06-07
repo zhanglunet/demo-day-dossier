@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  :root {
+    --bg: #0a0f1e;
+    --accent: #fbbf24;
+    --accent-2: #5eead4;
+    --pink: #fb7185;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1440px; overflow: hidden;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #fff;
+    background:
+      radial-gradient(900px 700px at 20% 10%, rgba(94,234,212,0.22), transparent 60%),
+      radial-gradient(800px 600px at 85% 95%, rgba(251,113,133,0.18), transparent 55%),
+      radial-gradient(700px 500px at 50% 50%, rgba(251,191,36,0.10), transparent 60%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { position: absolute; inset: 0; padding: 80px 70px; display: flex; flex-direction: column; }
+  .tag-row { display: flex; gap: 14px; align-items: center; }
+  .tag {
+    font-size: 22px; letter-spacing: 4px; font-weight: 800;
+    padding: 12px 24px; border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.2);
+    color: var(--accent-2);
+  }
+  .tag.pink { color: var(--pink); border-color: rgba(251,113,133,0.5); background: rgba(251,113,133,0.1); }
+
+  .hook {
+    margin-top: 40px;
+    font-size: 38px; line-height: 1.4; color: rgba(255,255,255,0.6); font-weight: 600;
+  }
+
+  .center { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 30px 0; }
+  h1 {
+    font-size: 140px; line-height: 1.05; font-weight: 900;
+    letter-spacing: -3px;
+    background: linear-gradient(135deg, #fff 0%, #c2c9dc 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+  }
+  h1 .glow {
+    background: linear-gradient(135deg, var(--accent), var(--pink));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(251,191,36,0.6));
+  }
+  h1 .emoji { -webkit-text-fill-color: initial; background: none; }
+
+  .sub {
+    font-size: 44px; line-height: 1.5; color: #e8ecf5;
+    font-weight: 600;
+    margin-top: 24px;
+  }
+  .sub em {
+    background: linear-gradient(120deg, transparent 60%, rgba(251,191,36,0.4) 60%);
+    font-style: normal; color: var(--accent); font-weight: 800;
+    padding: 0 8px;
+  }
+
+  .bottom {
+    display: flex; justify-content: space-between; align-items: end;
+    color: rgba(255,255,255,0.5); font-size: 26px; font-weight: 600;
+  }
+  .bottom .lhs { display: flex; flex-direction: column; gap: 12px; }
+  .bottom .lhs b { color: var(--accent); font-size: 32px; }
+  .bottom .rhs {
+    padding: 14px 24px; border: 2px solid rgba(255,255,255,0.2); border-radius: 999px;
+    background: rgba(255,255,255,0.05); color: #fff; font-size: 28px; font-weight: 800;
+  }
+</style></head>
+<body>
+<div class="frame">
+  <div class="tag-row">
+    <span class="tag">⚡ 实操干货</span>
+    <span class="tag pink">🔥 AI x 创业</span>
+  </div>
+  <div class="hook">2026 路演日实测</div>
+  <div class="center">
+    <h1>一晚 DD 完<br><span class="glow">56 个</span> VC 项目<br><span class="emoji">🤯</span></h1>
+    <div class="sub">我用 <em>Claude Skill + 7 路 AI</em><br>替代 5 人调研团 30 分钟跑完</div>
+  </div>
+  <div class="bottom">
+    <div class="lhs">
+      奇绩 2026 春季 · 录取率 1%<br>
+      <b>54 / 56 个项目入 DD</b>
+    </div>
+    <div class="rhs">点开看 →</div>
+  </div>
+</div>
+</body></html>

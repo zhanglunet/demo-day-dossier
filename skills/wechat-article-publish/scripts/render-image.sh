@@ -32,7 +32,15 @@ else
     echo "ERROR: 找不到 $INPUT" >&2
     exit 1
   fi
-  URL="file://$(cd "$(dirname "$INPUT")" && pwd)/$(basename "$INPUT")"
+  # 如果输入是 .tmpl 或没有 .html 后缀，Chrome 会当纯文本显示。
+  # 复制到 /tmp 强制 .html 后缀。
+  if [[ "$INPUT" != *.html ]]; then
+    TMP_HTML="/tmp/_render-$(basename "$INPUT" | tr -c 'A-Za-z0-9._-' '_').html"
+    cp "$INPUT" "$TMP_HTML"
+    URL="file://$TMP_HTML"
+  else
+    URL="file://$(cd "$(dirname "$INPUT")" && pwd)/$(basename "$INPUT")"
+  fi
 fi
 
 mkdir -p "$(dirname "$OUTPUT")"

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  :root {
+    --accent: #fbbf24; --teal: #5eead4; --pink: #fb7185;
+    --green: #34d399; --orange: #fb923c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1440px; overflow: hidden;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #fff;
+    background:
+      radial-gradient(900px 700px at 50% 0%, rgba(251,191,36,0.16), transparent 60%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { position: absolute; inset: 0; padding: 80px 70px; display: flex; flex-direction: column; }
+  .num { font-size: 32px; letter-spacing: 6px; color: var(--accent); font-weight: 700; }
+  h2 { font-size: 78px; line-height: 1.15; font-weight: 900; margin: 12px 0 0; color: #fff; }
+  .sub { font-size: 28px; line-height: 1.5; color: rgba(255,255,255,0.7); margin-top: 14px; font-weight: 600; }
+
+  .pyramid {
+    flex: 1; display: flex; flex-direction: column; gap: 16px;
+    align-items: center; justify-content: center; margin: 30px 0;
+  }
+  .row {
+    display: flex; align-items: center; gap: 22px;
+    padding: 26px 36px; border-radius: 999px;
+    font-weight: 800;
+    border: 3px solid currentColor;
+  }
+  .row .stars { font-size: 30px; letter-spacing: 4px; min-width: 220px; }
+  .row .lbl { font-size: 28px; color: rgba(255,255,255,0.85); min-width: 180px; font-weight: 700; }
+  .row .bar { height: 14px; background: currentColor; border-radius: 7px; min-width: 30px; }
+  .row .n { font-size: 56px; font-weight: 900; color: #fff; min-width: 80px; text-align: right; }
+
+  .r5 { color: var(--accent); width: 78%; }
+  .r5 .bar { width: 350px; box-shadow: 0 0 30px currentColor; }
+  .r4 { color: var(--green); width: 90%; }
+  .r4 .bar { width: 470px; }
+  .r3 { color: var(--teal); width: 86%; }
+  .r3 .bar { width: 410px; }
+  .r2 { color: var(--orange); width: 56%; }
+  .r2 .bar { width: 100px; }
+  .r1 { color: var(--pink); width: 48%; }
+  .r1 .bar { width: 30px; }
+
+  .takeaway {
+    margin-top: 20px; padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(251,191,36,0.12), rgba(94,234,212,0.06));
+    border-left: 6px solid var(--accent); border-radius: 16px;
+    font-size: 34px; line-height: 1.5; color: #fff; font-weight: 700;
+  }
+  .takeaway em { font-style: normal; color: var(--accent); font-weight: 900; }
+  .takeaway s { color: rgba(255,255,255,0.4); text-decoration-color: var(--pink); }
+
+  .foot { color: rgba(255,255,255,0.4); font-size: 24px; letter-spacing: 2px; text-align: right; font-weight: 600; }
+</style></head>
+<body>
+<div class="frame">
+  <div class="num">RESULT · 04</div>
+  <h2>54 个项目<br>诚实的金字塔</h2>
+  <div class="sub">不是粉丝信 ✋ 是 VC 视角的真实分布</div>
+
+  <div class="pyramid">
+    <div class="row r5"><span class="stars">★★★★★</span><span class="lbl">强烈推荐</span><span class="bar"></span><span class="n">11</span></div>
+    <div class="row r4"><span class="stars">★★★★</span><span class="lbl">关注</span><span class="bar"></span><span class="n">20</span></div>
+    <div class="row r3"><span class="stars">★★★</span><span class="lbl">可观察</span><span class="bar"></span><span class="n">18</span></div>
+    <div class="row r2"><span class="stars">★★</span><span class="lbl">高风险</span><span class="bar"></span><span class="n">4</span></div>
+    <div class="row r1"><span class="stars">★</span><span class="lbl">信息不足</span><span class="bar"></span><span class="n">1</span></div>
+  </div>
+
+  <div class="takeaway">
+    💡 如果 56 个项目全 ★★★★★<br>
+    那就 <s>不是 DD</s> 是 <em>软文</em> 🚫
+  </div>
+
+  <div class="foot">SLIDE 04 / 05</div>
+</div>
+</body></html>

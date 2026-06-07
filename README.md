@@ -76,19 +76,26 @@
 .
 ├── README.md                                ← 当前文件
 ├── LICENSE                                  ← MIT
-├── skills/                                  ← 仓库自带的两个 Claude Code Skill
+├── skills/                                  ← 仓库自带的三个 Claude Code Skill
 │   ├── demo-day-dossier/                   ← Skill 1：路演项目卷宗流水线
 │   │   ├── SKILL.md                        ← 5 阶段流水线 SOP
 │   │   ├── README.md
 │   │   ├── templates/                      ← HTML 模板 + DD agent prompt + 估值对标
 │   │   └── scripts/                        ← build_panoramic/dd_html/dd_csv/dd_report/deploy
-│   └── wechat-article-publish/             ← Skill 2：项目到公众号推文的半自动管道
-│       ├── SKILL.md                        ← 5 阶段 SOP（写文 / 配图 / 转 HTML / 贴 / 发）
+│   ├── wechat-article-publish/             ← Skill 2：项目到公众号推文的半自动管道
+│   │   ├── SKILL.md                        ← 5 阶段 SOP（写文 / 配图 / 转 HTML / 贴 / 发）
+│   │   ├── README.md
+│   │   ├── templates/                      ← article.md + 4 个插图 HTML 模板（16:9）
+│   │   ├── scripts/                        ← md2wechat / wechat_publish / render-image
+│   │   │                                     / set-clipboard-html / send-cmd-v
+│   │   └── examples/demo-day-dossier-2026/ ← 首跑案例：实战记 4200 字
+│   └── xiaohongshu-publish/                ← Skill 3：长文到小红书图文笔记的半自动管道
+│       ├── SKILL.md                        ← 4 阶段 SOP（改写 / 5 张竖图 / 贴 / 人工发）
 │       ├── README.md
-│       ├── templates/                      ← article.md + 4 个插图 HTML 模板
-│       ├── scripts/                        ← md2wechat / wechat_publish / render-image
-│       │                                     / set-clipboard-html / send-cmd-v
-│       └── examples/demo-day-dossier-2026/ ← 首跑案例：实战记 4200 字
+│       ├── templates/                      ← post.md + 5 个 3:4 竖屏插图模板
+│       ├── scripts/                        ← md2xhs / xhs_publish / set-clipboard-text
+│       │                                     ＋ symlink 复用 wechat 的 render-image/send-cmd-v
+│       └── examples/demo-day-dossier-2026/ ← 首跑案例：xhs 笔记 19 字标题 + 5 图
 ├── examples/                                ← demo-day-dossier 的参考数据集
 │   ├── projects.qiji-2026.json
 │   └── dd_data.qiji-2026.json
@@ -112,7 +119,7 @@
 
 ### 1. 当作 Claude Code Skill 使用（推荐）
 
-本仓库自带 **两个** skill，分别拷贝到 Claude Code 的 skills 目录：
+本仓库自带 **三个** skill，分别拷贝到 Claude Code 的 skills 目录：
 
 ```bash
 # 路演项目卷宗流水线
@@ -120,6 +127,9 @@ cp -r skills/demo-day-dossier ~/.claude/skills/demo-day-dossier
 
 # 项目到公众号推文的半自动管道
 cp -r skills/wechat-article-publish ~/.claude/skills/wechat-article-publish
+
+# 长文到小红书图文笔记的半自动管道
+cp -r skills/xiaohongshu-publish ~/.claude/skills/xiaohongshu-publish
 ```
 
 之后在 Claude Code 里直接调用：
@@ -127,10 +137,16 @@ cp -r skills/wechat-article-publish ~/.claude/skills/wechat-article-publish
 ```
 /demo-day-dossier ~/Downloads/yc-demo-day-w26 https://www.ycombinator.com/blog/yc-winter-2026-batch
 /wechat-article-publish ~/dev/my-finished-project
+/xiaohongshu-publish ~/dev/my-finished-project/docs/story.md
 ```
 
-`/demo-day-dossier` 会按 [`skills/demo-day-dossier/SKILL.md`](./skills/demo-day-dossier/SKILL.md) 的 5 阶段流水线把全套资产跑出来。
-`/wechat-article-publish` 会按 [`skills/wechat-article-publish/SKILL.md`](./skills/wechat-article-publish/SKILL.md) 把项目写成公众号长文 + 配图 + 半自动贴进编辑器。
+| Skill | 任务 |
+|-------|------|
+| [`demo-day-dossier`](./skills/demo-day-dossier/SKILL.md) | 路演素材 → 全景页 + DD 表 + Word 报告 + 部署（5 阶段） |
+| [`wechat-article-publish`](./skills/wechat-article-publish/SKILL.md) | 项目 → 公众号长文 + 7 张 16:9 配图 + 半自动贴（5 阶段） |
+| [`xiaohongshu-publish`](./skills/xiaohongshu-publish/SKILL.md) | 长文 → 小红书 3 段式 + 5 张 3:4 竖图 + 半自动贴（4 阶段） |
+
+**一次写作，多平台分发** —— 第三个 skill 设计为消费第二个 skill 的产出（公众号 markdown），用更短的标题、emoji 化的正文、3:4 竖图、跳过外链。
 
 ### 2. 手动跑脚本
 
