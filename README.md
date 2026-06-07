@@ -5,7 +5,7 @@
 > 把加速器 / Demo Day 的素材一次跑完，产出一份可发布、可查询、达到投资级别的项目卷宗。
 
 这是一个 Claude Code Skill + 首跑案例的合集仓库：
-- 📦 [`skill/`](./skill/) —— 通用流水线（Claude Code Skill 形式，5 阶段端到端编排）
+- 📦 [`skills/demo-day-dossier/`](./skills/demo-day-dossier/) —— 通用流水线（Claude Code Skill 形式，5 阶段端到端编排）
 - 🎬 [`examples/`](./examples/) —— 标准数据集示例（首跑：奇绩 2026 春，56 个项目）
 - 📊 [`output/`](./output/) —— 首跑案例真实产出（HTML / JSON / CSV / Word）
 
@@ -49,7 +49,7 @@
 [阶段 5] 部署到 Cloudflare Pages
 ```
 
-详细执行细节、Prompt 模板、估值参考表见 [`skill/SKILL.md`](./skill/SKILL.md)。
+详细执行细节、Prompt 模板、估值参考表见 [`skills/demo-day-dossier/SKILL.md`](./skills/demo-day-dossier/SKILL.md)。
 
 ---
 
@@ -65,7 +65,7 @@
 | 4 | 技术护城河 | ≤40 字一句话 |
 | 5 | 竞品 (3-5 个) | `[{name, stage, note}]`，WebSearch 核实融资轮次 |
 | 6 | 市场 TAM | TAM + CAGR 一句话 |
-| 7 | 估值区间 | Pre-money USD 区间 + 对标依据（参考 [`valuation_hints.md`](./skill/templates/valuation_hints.md)） |
+| 7 | 估值区间 | Pre-money USD 区间 + 对标依据（参考 [`valuation_hints.md`](./skills/demo-day-dossier/templates/valuation_hints.md)） |
 | 8 | 风险 / 优势 (各 3) + 推荐度 (1-5) + 一句话判断 | DD 结论 |
 
 ---
@@ -76,35 +76,34 @@
 .
 ├── README.md                                ← 当前文件
 ├── LICENSE                                  ← MIT
-├── skill/                                   ← Claude Code Skill
-│   ├── SKILL.md                             ← Skill 入口（5 阶段流水线）
-│   ├── README.md                            ← Skill 使用说明
-│   ├── templates/
-│   │   ├── index.html.tmpl                  ← 全景落地页模板
-│   │   ├── dd.html.tmpl                     ← DD 表页面模板
-│   │   ├── dd_agent_prompt.md               ← DD 调研 agent 的 Prompt 模板
-│   │   ├── valuation_hints.md               ← 按行业的 Pre-money 估值对标
-│   │   └── projects.schema.json             ← 规范化数据集 JSON Schema
-│   └── scripts/
-│       ├── build_panoramic.py               ← projects.json + 模板 → index.html
-│       ├── build_dd_html.py                 ← projects.json + dd_data.json → dd.html
-│       ├── build_dd_csv.py                  ← dd_data.json → DD_table.csv
-│       ├── build_dd_report_md.py            ← dd_data.json → dd_report.md
-│       └── deploy_cloudflare.sh             ← 幂等部署到 Cloudflare Pages
-├── examples/                                ← 标准示例数据集（可直接复用）
+├── skills/                                  ← 仓库自带的两个 Claude Code Skill
+│   ├── demo-day-dossier/                   ← Skill 1：路演项目卷宗流水线
+│   │   ├── SKILL.md                        ← 5 阶段流水线 SOP
+│   │   ├── README.md
+│   │   ├── templates/                      ← HTML 模板 + DD agent prompt + 估值对标
+│   │   └── scripts/                        ← build_panoramic/dd_html/dd_csv/dd_report/deploy
+│   └── wechat-article-publish/             ← Skill 2：项目到公众号推文的半自动管道
+│       ├── SKILL.md                        ← 5 阶段 SOP（写文 / 配图 / 转 HTML / 贴 / 发）
+│       ├── README.md
+│       ├── templates/                      ← article.md + 4 个插图 HTML 模板
+│       ├── scripts/                        ← md2wechat / wechat_publish / render-image
+│       │                                     / set-clipboard-html / send-cmd-v
+│       └── examples/demo-day-dossier-2026/ ← 首跑案例：实战记 4200 字
+├── examples/                                ← demo-day-dossier 的参考数据集
 │   ├── projects.qiji-2026.json
 │   └── dd_data.qiji-2026.json
-└── output/                                  ← 首跑案例实际产出
-    ├── index.html                           ← 全景页（4.0 版）
-    ├── dd.html                              ← DD 表（1.0 版）
-    ├── projects.json                        ← 56 项目结构化数据
-    ├── dd_data.json                         ← 54 项目的 DD 8 维度数据
-    ├── DD_table.csv
-    ├── report_v4.md                         ← 全景 markdown 源
-    ├── dd_report_v1.md                      ← DD markdown 源
-    └── docs/
-        ├── 奇绩路演项目全景深度调研报告_v4.0.docx
-        └── 奇绩路演项目尽职调查报告_v1.0.docx
+├── docs/                                    ← 项目文档
+│   ├── story.md                            ← 公众号实战记 markdown 源
+│   ├── wechat-images.md                    ← 配图清单 + 排版指南
+│   ├── wechat-publish.md                   ← 发文流程速查
+│   └── images/                             ← 7 张配图（CF Pages 公开访问）
+└── output/                                  ← 首跑案例真实产出（CF Pages 部署根）
+    ├── index.html                          ← 全景页
+    ├── dd.html                             ← DD 表
+    ├── story.html                          ← 实战记网页版
+    ├── images/                             ← 镜像 7 张配图（被 wechat 编辑器拉走）
+    ├── projects.json / dd_data.json / DD_table.csv
+    └── docs/*.docx                         ← Word 深度报告
 ```
 
 ---
@@ -113,18 +112,25 @@
 
 ### 1. 当作 Claude Code Skill 使用（推荐）
 
+本仓库自带 **两个** skill，分别拷贝到 Claude Code 的 skills 目录：
+
 ```bash
-# 拷贝 skill 到 Claude Code 的 skills 目录
-cp -r skill ~/.claude/skills/demo-day-dossier
+# 路演项目卷宗流水线
+cp -r skills/demo-day-dossier ~/.claude/skills/demo-day-dossier
+
+# 项目到公众号推文的半自动管道
+cp -r skills/wechat-article-publish ~/.claude/skills/wechat-article-publish
 ```
 
 之后在 Claude Code 里直接调用：
 
 ```
 /demo-day-dossier ~/Downloads/yc-demo-day-w26 https://www.ycombinator.com/blog/yc-winter-2026-batch
+/wechat-article-publish ~/dev/my-finished-project
 ```
 
-Claude 会按 [`SKILL.md`](./skill/SKILL.md) 的 5 阶段流水线把全套资产跑出来。
+`/demo-day-dossier` 会按 [`skills/demo-day-dossier/SKILL.md`](./skills/demo-day-dossier/SKILL.md) 的 5 阶段流水线把全套资产跑出来。
+`/wechat-article-publish` 会按 [`skills/wechat-article-publish/SKILL.md`](./skills/wechat-article-publish/SKILL.md) 把项目写成公众号长文 + 配图 + 半自动贴进编辑器。
 
 ### 2. 手动跑脚本
 
@@ -134,14 +140,14 @@ mkdir -p ~/myrun/output
 # 把 projects.json 放进 ~/myrun/output/
 
 # 阶段 2：全景落地页
-python3 skill/scripts/build_panoramic.py ~/myrun
+python3 skills/demo-day-dossier/scripts/build_panoramic.py ~/myrun
 
 # 你需要自己启动 7 个 DD agent（或一个一个调），把它们的输出合并为 dd_data.json
 
 # 阶段 4：DD 页 + CSV + markdown 报告
-python3 skill/scripts/build_dd_html.py      ~/myrun
-python3 skill/scripts/build_dd_csv.py       ~/myrun
-python3 skill/scripts/build_dd_report_md.py ~/myrun
+python3 skills/demo-day-dossier/scripts/build_dd_html.py      ~/myrun
+python3 skills/demo-day-dossier/scripts/build_dd_csv.py       ~/myrun
+python3 skills/demo-day-dossier/scripts/build_dd_report_md.py ~/myrun
 
 # 阶段 5：Word（需 pandoc）
 cd ~/myrun/output
@@ -149,7 +155,7 @@ pandoc report_v1.md  -o "路演项目全景调研报告_v1.0.docx" --standalone
 pandoc dd_report.md  -o "路演项目尽职调查报告_v1.0.docx" --standalone
 
 # 阶段 5：本地直推（仅作首跑实验，正式发布请走 GitHub → CF）
-skill/scripts/deploy_cloudflare.sh ~/myrun my-cohort-slug "v1.0 首发"
+skills/demo-day-dossier/scripts/deploy_cloudflare.sh ~/myrun my-cohort-slug "v1.0 首发"
 ```
 
 ---
@@ -195,7 +201,7 @@ npx wrangler pages deployment list --project-name=qiji-roadshow-2026 | head -8
 curl -s https://qiji-roadshow-2026.pages.dev/README.md | head -5
 ```
 
-> `skill/scripts/deploy_cloudflare.sh` 仅保留作离线 / 无 GitHub 环境下的应急直推。
+> `skills/demo-day-dossier/scripts/deploy_cloudflare.sh` 仅保留作离线 / 无 GitHub 环境下的应急直推。
 
 ---
 

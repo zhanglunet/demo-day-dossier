@@ -31,7 +31,7 @@ which pbcopy  # macOS 自带
 
 ```bash
 cd /path/to/demo-day-dossier
-python3 scripts/wechat_publish.py
+python3 skills/wechat-article-publish/scripts/wechat_publish.py
 ```
 
 它会做这些：
@@ -100,11 +100,11 @@ python3 scripts/wechat_publish.py
 
 ```bash
 # 让 Playwright 在 inspector 模式下跑，可在浏览器里实时看 selector
-PWDEBUG=1 python3 scripts/wechat_publish.py
+PWDEBUG=1 python3 skills/wechat-article-publish/scripts/wechat_publish.py
 ```
 
 或者直接用 Chrome DevTools 打开公众号后台，右键标题输入框 → Inspect →
-看 `name` 或 `id` 属性是否变了，对应改 `scripts/wechat_publish.py` 顶部
+看 `name` 或 `id` 属性是否变了，对应改 `skills/wechat-article-publish/scripts/wechat_publish.py` 顶部
 的元数据常量上方的 selector 列表。
 
 ---
@@ -115,9 +115,9 @@ PWDEBUG=1 python3 scripts/wechat_publish.py
 
 ```bash
 # 转 HTML + 进剪贴板
-python3 scripts/md2wechat.py docs/story.md | pbcopy
+python3 skills/wechat-article-publish/scripts/md2wechat.py docs/story.md | pbcopy
 # 也可以输出到文件预览
-python3 scripts/md2wechat.py docs/story.md > /tmp/preview.html
+python3 skills/wechat-article-publish/scripts/md2wechat.py docs/story.md > /tmp/preview.html
 open /tmp/preview.html  # 在浏览器里看效果
 ```
 
@@ -164,8 +164,8 @@ open /tmp/preview.html  # 在浏览器里看效果
 
 | 文件 | 用途 |
 |------|------|
-| `scripts/md2wechat.py` | markdown → 公众号 inline-style HTML 转换器 |
-| `scripts/wechat_publish.py` | Playwright 半自动浏览器流程 |
+| `skills/wechat-article-publish/scripts/md2wechat.py` | markdown → 公众号 inline-style HTML 转换器 |
+| `skills/wechat-article-publish/scripts/wechat_publish.py` | Playwright 半自动浏览器流程 |
 | `docs/story.md` | 文章源（已内嵌 7 张图引用） |
 | `docs/images/` + `output/images/` | 7 张配图（CF Pages 公开访问） |
 | `docs/wechat-images.md` | 一图一位的对应说明（手动贴图时参考） |

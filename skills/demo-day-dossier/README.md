@@ -36,12 +36,12 @@ skill/
 
 ```bash
 # 阶段 2：构建全景落地页
-python3 skill/scripts/build_panoramic.py /path/to/workdir
+python3 skills/demo-day-dossier/scripts/build_panoramic.py /path/to/workdir
 
 # 阶段 4（在 7 个 agent 回完之后）：构建 DD 页 + CSV + markdown 报告
-python3 skill/scripts/build_dd_html.py      /path/to/workdir
-python3 skill/scripts/build_dd_csv.py       /path/to/workdir
-python3 skill/scripts/build_dd_report_md.py /path/to/workdir
+python3 skills/demo-day-dossier/scripts/build_dd_html.py      /path/to/workdir
+python3 skills/demo-day-dossier/scripts/build_dd_csv.py       /path/to/workdir
+python3 skills/demo-day-dossier/scripts/build_dd_report_md.py /path/to/workdir
 
 # Word 报告（需先装 pandoc）
 cd /path/to/workdir/output
@@ -49,14 +49,14 @@ pandoc report_v1.md  -o "路演项目全景调研报告_v1.0.docx" --standalone
 pandoc dd_report.md  -o "路演项目尽职调查报告_v1.0.docx" --standalone
 
 # 阶段 5：部署
-skill/scripts/deploy_cloudflare.sh /path/to/workdir my-cohort-slug "v1.0 first publish"
+skills/demo-day-dossier/scripts/deploy_cloudflare.sh /path/to/workdir my-cohort-slug "v1.0 first publish"
 ```
 
 但通常你不需要手动跑这些脚本 —— 用 Claude Code 直接调用本 skill，按 `SKILL.md` 的阶段流走就行。
 
 ## 安装为 Claude Code Skill
 
-把 `skill/` 目录拷贝到 Claude Code 的 skills 目录：
+把 `skills/demo-day-dossier/` 目录拷贝到 Claude Code 的 skills 目录：
 
 ```bash
 cp -r skill ~/.claude/skills/demo-day-dossier
