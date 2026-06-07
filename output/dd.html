@@ -1,0 +1,3400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>奇绩创坛 2026 春季 · 56 项目尽职调查（DD）表 v1.0</title>
+<style>
+  :root {
+    --bg: #08101e;
+    --card: rgba(255,255,255,0.04);
+    --hover: rgba(255,255,255,0.08);
+    --text: #e8ecf5;
+    --muted: #8b94b3;
+    --line: rgba(255,255,255,0.10);
+    --accent: #5eead4;
+    --gold: #fbbf24;
+    --rose: #fb7185;
+    --green: #34d399;
+    --orange: #fb923c;
+    --blue: #60a5fa;
+    --purple: #c084fc;
+    --A: #60a5fa;
+    --B: #34d399;
+    --E: #fb923c;
+    --F: #c084fc;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background:
+      radial-gradient(900px 500px at 20% -8%, rgba(96,165,250,0.10), transparent 60%),
+      radial-gradient(900px 500px at 80% -8%, rgba(192,132,252,0.08), transparent 60%),
+      var(--bg);
+    min-height: 100vh;
+  }
+  header {
+    padding: 36px 4vw 22px;
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+  .badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 999px;
+    background: rgba(94, 234, 212, 0.12);
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(94, 234, 212, 0.25);
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 800;
+    margin: 0 0 8px;
+    background: linear-gradient(135deg, #fff 0%, #93c5fd 50%, #c4b5fd 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 880px;
+    margin: 0 auto 6px;
+  }
+  .back-link {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 14px;
+    border: 1px solid rgba(94, 234, 212, 0.3);
+    border-radius: 999px;
+    margin-top: 10px;
+    transition: all .2s;
+  }
+  .back-link:hover { background: rgba(94, 234, 212, 0.1); transform: translateY(-1px); }
+
+  /* Toolbar */
+  .toolbar {
+    position: sticky; top: 0; z-index: 100;
+    backdrop-filter: blur(14px);
+    background: rgba(8, 16, 30, 0.86);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 3vw;
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  }
+  .toolbar .search {
+    flex: 1; min-width: 220px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: var(--text);
+    font-size: 13px;
+    outline: none;
+  }
+  .toolbar .search:focus { border-color: var(--accent); }
+  .toolbar select {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: var(--text);
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+  }
+  .stats-bar {
+    color: var(--muted);
+    font-size: 12px;
+    padding: 0 12px;
+    border-left: 1px solid var(--line);
+  }
+
+  /* Table */
+  .table-wrap {
+    padding: 16px 3vw 80px;
+    max-width: 1700px;
+    margin: 0 auto;
+  }
+  table.dd {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 12.5px;
+  }
+  table.dd thead th {
+    position: sticky;
+    top: 64px;
+    background: rgba(8, 16, 30, 0.96);
+    backdrop-filter: blur(12px);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  table.dd thead th:hover { color: var(--text); }
+  table.dd thead th.sort-asc::after { content: " ▲"; color: var(--accent); }
+  table.dd thead th.sort-desc::after { content: " ▼"; color: var(--accent); }
+  table.dd tbody tr {
+    border-bottom: 1px solid var(--line);
+    transition: background .15s;
+    cursor: pointer;
+  }
+  table.dd tbody tr:hover { background: rgba(255,255,255,0.04); }
+  table.dd td {
+    padding: 12px 8px;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .pill {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .pill-A { background: rgba(96,165,250,0.15); color: var(--A); }
+  .pill-B { background: rgba(52,211,153,0.15); color: var(--B); }
+  .pill-E { background: rgba(251,146,60,0.15); color: var(--E); }
+  .pill-F { background: rgba(192,132,252,0.15); color: var(--F); }
+  .proj-name { font-weight: 600; color: #fff; font-size: 13px; }
+  .proj-tag { color: var(--muted); font-size: 11px; margin-top: 3px; }
+  .founder { color: var(--gold); font-weight: 500; }
+  .rec {
+    display: inline-flex; align-items: center; gap: 2px;
+    font-size: 12px;
+  }
+  .rec.r5 { color: #fb7185; }
+  .rec.r4 { color: var(--gold); }
+  .rec.r3 { color: var(--accent); }
+  .rec.r2 { color: #94a3b8; }
+  .rec.r1 { color: #64748b; }
+  .val-range {
+    color: var(--accent);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11.5px;
+    white-space: nowrap;
+  }
+  .status-ok { color: var(--green); }
+  .status-warn { color: var(--gold); }
+  .status-err { color: var(--rose); }
+  .status-na { color: var(--muted); }
+
+  /* Drawer */
+  .drawer-mask {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    display: none;
+  }
+  .drawer-mask.show { display: block; }
+  .drawer {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: min(680px, 92vw);
+    background: #0c1424;
+    border-left: 1px solid var(--line);
+    z-index: 201;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+    padding: 24px 28px 60px;
+  }
+  .drawer.show { transform: translateX(0); }
+  .drawer h2 {
+    font-size: 22px;
+    color: #fff;
+    margin: 4px 0 4px;
+  }
+  .drawer .close {
+    position: absolute; top: 14px; right: 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--line);
+    color: var(--text);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .drawer .close:hover { background: rgba(255,255,255,0.14); }
+  .drawer section {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .drawer section:first-of-type { border-top: none; padding-top: 8px; }
+  .drawer section h3 {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    font-weight: 600;
+  }
+  .drawer section p { margin: 0 0 8px; font-size: 13.5px; line-height: 1.65; color: rgba(232,236,245,0.92); }
+  .drawer ul { margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.7; }
+  .drawer ul li { margin-bottom: 4px; }
+  .drawer .kv {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 6px 14px;
+    font-size: 13px;
+  }
+  .drawer .kv b { color: var(--muted); font-weight: 500; }
+  .drawer .comp-row {
+    display: flex; gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 12.5px;
+  }
+  .drawer .comp-row:last-child { border-bottom: none; }
+  .drawer .comp-row b { color: #fff; min-width: 130px; }
+  .drawer .comp-row .stage { color: var(--gold); font-family: ui-monospace; }
+  .drawer .links-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+  .drawer .links-row a {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 11px; font-size: 12px;
+    background: rgba(94,234,212,0.13);
+    color: var(--accent);
+    border: 1px solid rgba(94,234,212,0.22);
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .drawer .links-row a.repo {
+    background: rgba(251,191,36,0.13);
+    color: var(--gold);
+    border-color: rgba(251,191,36,0.22);
+  }
+  .drawer .badge-row {
+    display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0;
+  }
+  .drawer .badge-row span {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--line);
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 4vw;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--line);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 720px) {
+    table.dd thead th, table.dd td { padding: 8px 5px; font-size: 11.5px; }
+    .col-tagline, .col-tam, .col-team { display: none; }
+    .drawer { padding: 20px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">MIRACLE PLUS · DUE DILIGENCE v1.0</div>
+  <h1>奇绩创坛 2026 春季 · 56 项目尽职调查表</h1>
+  <p class="subtitle">8 维度 DD：站点验证 / Repo 活跃度 / 团队评分 / 技术护城河 / 竞品 / TAM / 估值区间 / 推荐度 — 由 7 路调研 agent 并行产出</p>
+  <a class="back-link" href="./">← 回到全景主页</a>
+</header>
+
+<div class="toolbar">
+  <input class="search" id="search" placeholder="🔍 搜索项目名/创始人/赛道...">
+  <select id="zoneFilter">
+    <option value="">全部分区</option>
+    <option value="A">A 区 · 前沿科技</option>
+    <option value="B">B 区 · 具身与硬件</option>
+    <option value="E">E 区 · Agent toB</option>
+    <option value="F">F 区 · Agent toC</option>
+  </select>
+  <select id="recFilter">
+    <option value="">全部推荐度</option>
+    <option value="5">★★★★★ 强烈推荐</option>
+    <option value="4">★★★★ 关注</option>
+    <option value="3">★★★ 可观察</option>
+    <option value="2">★★ 高风险</option>
+    <option value="1">★ 信息不足</option>
+  </select>
+  <span class="stats-bar" id="statsBar">载入中...</span>
+</div>
+
+<div class="table-wrap">
+  <table class="dd" id="ddTable">
+    <thead>
+      <tr>
+        <th data-sort="id">ID</th>
+        <th data-sort="name">项目 · 创始人</th>
+        <th data-sort="tagline" class="col-tagline">一句话定位</th>
+        <th data-sort="team_score" class="col-team">团队</th>
+        <th data-sort="market_tam" class="col-tam">TAM</th>
+        <th data-sort="valuation_num">估值区间</th>
+        <th data-sort="recommendation">推荐</th>
+        <th data-sort="verdict">一句话判断</th>
+      </tr>
+    </thead>
+    <tbody id="ddBody">
+      <tr><td colspan="8" style="text-align:center;padding:60px;color:var(--muted);">⏳ DD 数据载入中...</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="drawer-mask" id="drawerMask"></div>
+<div class="drawer" id="drawer">
+  <button class="close" id="drawerClose" aria-label="Close">×</button>
+  <div id="drawerContent"></div>
+</div>
+
+<footer>
+  数据源：奇绩创坛官方项目卡 + 微信文章 + 7 路 DD agent 并行调研 ｜
+  报告版本 v1.0 · 2026-06-07 ｜
+  <a href="./">🌐 回到全景主页</a> ｜
+  <a href="https://mp.weixin.qq.com/s/03QbrGJc1zmpe94_51EQmA" target="_blank">官方文章</a>
+  <br><br>
+  仅供学习研究参考。估值/推荐度是基于公开信息的二手分析，不构成投资建议。
+</footer>
+
+<script>
+const DD_DATA = [
+  {
+    "id": "A01",
+    "name": "VibeChip / 芯辰启源",
+    "website_status": "无公开站点",
+    "repo_status": "无公开仓库",
+    "team_score": 4,
+    "tech_moat": "清华IC实验室 AI+模拟射频数据集 + 模型/Agent/平台三位一体；数据标注壁垒",
+    "competitors": [
+      {
+        "name": "Synopsys DSO.ai",
+        "stage": "Public（巨头模块）",
+        "note": "EDA 巨头 AI 子产品，主要面向数字设计，模拟/RF 是其薄弱环节"
+      },
+      {
+        "name": "Cadence Cerebrus",
+        "stage": "Public（巨头模块）",
+        "note": "巨头 AI EDA，模拟侧亦薄弱"
+      },
+      {
+        "name": "InstaChip",
+        "stage": "Seed",
+        "note": "美国 AI 模拟设计 Agent，YC W24"
+      },
+      {
+        "name": "DeepChip / 立芯科技",
+        "stage": "Pre-A",
+        "note": "国内 AI EDA 早期玩家，偏数字布局布线"
+      },
+      {
+        "name": "Astrus",
+        "stage": "Seed",
+        "note": "Y Combinator 出身，AI for analog design"
+      }
+    ],
+    "market_tam": "全球 EDA ~$18B；AI EDA 子赛道 CAGR 30%+，模拟/RF EDA 约 $3-4B 子细分",
+    "valuation_range": "$15-30M pre-money（类比 InstaChip / Astrus 同期 Seed $10-25M post），考虑清华教授 IP 与博士+连续创业者 CEO 可上 $30M",
+    "risks": [
+      "巨头 Synopsys/Cadence 收购式反击",
+      "模拟数据标注成本高且依赖客户授权",
+      "AI EDA 商业化周期长，单 PoC 数月起"
+    ],
+    "strengths": [
+      "清华 IC 教授+博士 CEO 学术深度强",
+      "数据为护城河，先发标注积累有意义",
+      "模型/Agent/平台一体化，闭环价值高"
+    ],
+    "recommendation": 4,
+    "verdict": "国内 AI 模拟 EDA 稀缺标的，建议重点跟进 PoC 客户"
+  },
+  {
+    "id": "A02",
+    "name": "鸿鹄聚变",
+    "website_status": "无公开站点",
+    "repo_status": "无公开仓库",
+    "team_score": 4,
+    "tech_moat": "国内唯一商业高温超导仿星器路线 + 圣湘董事长戴立忠个人资金+人脉+上海交大联合实验室",
+    "competitors": [
+      {
+        "name": "Proxima Fusion",
+        "stage": "Series A €200M",
+        "note": "德国 Max Planck 系，欧洲领头仿星器，2025 年 €130M+€15M 扩展，估值约 $1B+"
+      },
+      {
+        "name": "Type One Energy",
+        "stage": "Series A $82.4M",
+        "note": "美国仿星器，MIT/ORNL 系"
+      },
+      {
+        "name": "Renaissance Fusion",
+        "stage": "Seed €15M",
+        "note": "法国 HTS 仿星器"
+      },
+      {
+        "name": "东昇聚变",
+        "stage": "早期",
+        "note": "国内氦三路线，不同路线但同赛道"
+      },
+      {
+        "name": "能量奇点",
+        "stage": "B 轮",
+        "note": "国内 HTS 托卡马克头部，间接竞争"
+      }
+    ],
+    "market_tam": "全球聚变私募融资 2024 累计 >$8B；商业化电力 TAM 万亿美元级；2030s 才到收入端",
+    "valuation_range": "$50-150M pre-money（类比 Proxima Fusion 种子→A 跃迁与 Type One 早期，结合戴立忠个人投入与上市公司背书可上 $200M）",
+    "risks": [
+      "仿星器线圈工艺难度高于托卡马克",
+      "10+ 年商业回收周期，资金消耗巨大",
+      "戴立忠个人持股 99%，治理与下轮稀释存疑"
+    ],
+    "strengths": [
+      "国内仿星器唯一商业玩家，稀缺性极高",
+      "上市公司董事长背书+持续资金能力",
+      "上海交大合作给学术与人才补强"
+    ],
+    "recommendation": 4,
+    "verdict": "中国仿星器独苗，国家战略叙事强，估值锚 Proxima"
+  },
+  {
+    "id": "A03",
+    "name": "LorentzKracht 洛伦原力",
+    "website_status": "无公开站点",
+    "repo_status": "无公开仓库",
+    "team_score": 4,
+    "tech_moat": "AI-native 6G 模组 + 墨大博士团队 + ITU-T 标准参与；具身智能云边算力卸载场景定位清晰",
+    "competitors": [
+      {
+        "name": "Qualcomm Dragonwing Robotics",
+        "stage": "Public（业务线）",
+        "note": "高通 Physical AI+6G 平台，2026 重点推动"
+      },
+      {
+        "name": "Nokia Bell Labs / Ericsson",
+        "stage": "Public（研究）",
+        "note": "AI-RAN 工程化与标准玩家"
+      },
+      {
+        "name": "NVIDIA Aerial AI-RAN",
+        "stage": "Public（业务线）",
+        "note": "GPU+RAN，云边一体"
+      },
+      {
+        "name": "DeepSig",
+        "stage": "Series A",
+        "note": "AI for wireless PHY 早期独立玩家"
+      }
+    ],
+    "market_tam": "6G 模组 2030+ TAM 数百亿美元；具身机器人通信模组细分 2030 约 $5-10B",
+    "valuation_range": "$20-60M pre-money（前沿无线 Seed-A 类比，澳洲澳籍创始团队估值通常打 0.8-1.0 折）",
+    "risks": [
+      "6G 标准 Release 21 才正式定义，节奏过早",
+      "客户教育期长，机器人侧买单意愿待验证",
+      "澳洲团队中国落地与监管复杂"
+    ],
+    "strengths": [
+      "国际化团队，标准参与+学术深度",
+      "具身智能场景与 6G 卸载切入点新颖",
+      "诺基亚贝尔/中移动 R&D 履历背书"
+    ],
+    "recommendation": 3,
+    "verdict": "前瞻命题强，商业化节奏需谨慎，可观察"
+  },
+  {
+    "id": "A04",
+    "name": "石岱重储",
+    "website_status": "无公开站点",
+    "repo_status": "无公开仓库",
+    "team_score": 4,
+    "tech_moat": "废弃矿井天然落差+单通道循环大功率发电专利；全国唯一并网装备；英伟达 AIDC 生态合作",
+    "competitors": [
+      {
+        "name": "Energy Vault (NRGV)",
+        "stage": "Public 纽交所",
+        "note": "中国如东 25MW/100MWh 已并网，B-VAULT 2GWh，主要塔式"
+      },
+      {
+        "name": "Gravitricity",
+        "stage": "Series B £40M",
+        "note": "英国矿井路线，与石岱最直接对标"
+      },
+      {
+        "name": "Green Gravity",
+        "stage": "Pre-A",
+        "note": "澳洲矿井路线，175 个候选场地"
+      },
+      {
+        "name": "中国天楹",
+        "stage": "上市",
+        "note": "国内塔式重力储能商业化龙头"
+      },
+      {
+        "name": "ARES North America",
+        "stage": "Pre-revenue",
+        "note": "美国轨道重力，少量落地"
+      }
+    ],
+    "market_tam": "全球重力储能 2024 $42.2M → 2034 $3.2B，CAGR 61.5%；AIDC 长时储能 TAM 2030 达 $20B+",
+    "valuation_range": "$30-80M pre-money（类比 Gravitricity 早期与天楹拆分子公司，国内并网首台+毕马威 50 强加分）",
+    "risks": [
+      "地理依赖：合适矿井地理资源稀缺",
+      "Energy Vault/Gravitricity 海外先发+资本充裕",
+      "AIDC 客户 PPA 谈判周期长"
+    ],
+    "strengths": [
+      "国内首台并网，工程验证已过关",
+      "英伟达 AIDC 生态绑定切入点精准",
+      "成本下降 60%、功率提升 10× 数据亮眼"
+    ],
+    "recommendation": 4,
+    "verdict": "长时储能稀缺标的，AIDC 叙事+并网先发优势"
+  },
+  {
+    "id": "A05",
+    "name": "慧化科技 InsightChemy",
+    "website_status": "无公开站点",
+    "repo_status": "无公开仓库",
+    "team_score": 4,
+    "tech_moat": "5 万种化学品数据 + GPCR/抗体/环肽复杂分子设计 Agent + 已有创新药销售利润 700 万元",
+    "competitors": [
+      {
+        "name": "晶泰科技 (2228.HK)",
+        "stage": "港股上市",
+        "note": "市值 ~$1B，与辉瑞深化合作"
+      },
+      {
+        "name": "Insilico Medicine",
+        "stage": "港股 IPO 2025-12",
+        "note": "市值 $2.7B，行业标杆"
+      },
+      {
+        "name": "Iktos",
+        "stage": "Series B $21M",
+        "note": "法国生成式分子设计"
+      },
+      {
+        "name": "Schrödinger (SDGR)",
+        "stage": "Nasdaq 上市",
+        "note": "物理+ML 双引擎"
+      },
+      {
+        "name": "智化科技 Chemiscal",
+        "stage": "B 轮",
+        "note": "国内 AI+合成化学头部"
+      }
+    ],
+    "market_tam": "AI 制药 2029 $6.89B；合成化学子赛道 $2-3B；中国 AI4D 投融 2024 >￥50 亿",
+    "valuation_range": "$30-60M pre-money（A 轮 2000 万 RMB 已完成 → 下轮 A+/B；已有营收，可比晶泰早期 Series B-C 折算）",
+    "risks": [
+      "在读博士 CEO 投入度与全职度问题",
+      "GPCR/环肽难度高，技术验证周期长",
+      "二代产品销售利润仅 700 万，规模化未证"
+    ],
+    "strengths": [
+      "AI+化学已有现金流，A 轮完成",
+      "清华+中科院纳米中心硬核学术配置",
+      "复杂分子（GPCR/环肽）切入差异化"
+    ],
+    "recommendation": 4,
+    "verdict": "已有营收的 AI4Chem 早期标的，团队学历过硬"
+  },
+  {
+    "id": "A06",
+    "name": "心片科技",
+    "website_status": "无公开站点",
+    "repo_status": "无公开仓库（创始人 GitHub @sequencer 个人活跃，Chisel 主开发者已确认）",
+    "team_score": 5,
+    "tech_moat": "Chisel 主开发者+RocketChip 维护者+ex-SiFive 团队；Scala eDSL+MLIR+RVV IP 全自研栈；Chip Agent 全自动设计",
+    "competitors": [
+      {
+        "name": "SiFive",
+        "stage": "Series G $400M @ $3.65B",
+        "note": "RISC-V 头部，Nvidia 入股，准 IPO"
+      },
+      {
+        "name": "Tenstorrent",
+        "stage": "$800M @ $3.2B pre",
+        "note": "Jim Keller，RISC-V AI 芯片"
+      },
+      {
+        "name": "Synopsys/Cadence",
+        "stage": "Public",
+        "note": "EDA 巨头，AI 增强中"
+      },
+      {
+        "name": "进迭时空",
+        "stage": "B 轮",
+        "note": "国内 RISC-V AI CPU 已量产 K1"
+      },
+      {
+        "name": "蓝芯算力",
+        "stage": "天使数亿元",
+        "note": "RISC-V 服务器 CPU 新势力"
+      }
+    ],
+    "market_tam": "RISC-V 2024 $1.76B → 2030 $8.57B (CAGR 30.7%)；AI EDA $3-5B 子赛道",
+    "valuation_range": "$30-100M pre-money（团队 SiFive 系+Chisel 开源资本，可类比 Astrus/InstaChip 高端 Seed-A，国内 RISC-V 创业平均估值参考蓝芯）",
+    "risks": [
+      "国内 RISC-V 商业化路径未跑通",
+      "EDA + IP + Agent 三件套战线过宽",
+      "团队偏开源/工程，BD 与销售能力未验证"
+    ],
+    "strengths": [
+      "Chisel 主开发者，世界级开源声誉",
+      "SiFive 量产经验，14/28nm 已证",
+      "AI-native 芯片设计平台具备稀缺性"
+    ],
+    "recommendation": 5,
+    "verdict": "RISC-V+AI EDA 顶级技术团队，强推关注"
+  },
+  {
+    "id": "A07",
+    "name": "RustFS",
+    "website_status": "200 OK / 站点活跃，阿里云 OSS CDN 加速",
+    "repo_status": "GitHub 28,496 stars（远超数据卡 27K，活跃度高）；Apache 2.0；MinIO AGPLv3 替代叙事",
+    "team_score": 5,
+    "tech_moat": "Rust 重写 S3 兼容存储 + DPU/NVIDIA STX 加速 + 100% S3 兼容 + 4KB 小对象吞吐 2.3× MinIO；开源 28K stars + 70% 美国部署",
+    "competitors": [
+      {
+        "name": "MinIO",
+        "stage": "Series B $1B valuation (2022)",
+        "note": "AGPLv3 转型，二级市场估值已回落约 $0.3B"
+      },
+      {
+        "name": "Amazon S3",
+        "stage": "AWS 业务线",
+        "note": "云存储标准"
+      },
+      {
+        "name": "Ceph / SUSE",
+        "stage": "开源/企业",
+        "note": "传统分布式存储"
+      },
+      {
+        "name": "SeaweedFS",
+        "stage": "开源",
+        "note": "小对象优化，社区较小"
+      },
+      {
+        "name": "VAST Data",
+        "stage": "Late stage $9.1B",
+        "note": "AI 原生存储独角兽，高端市场"
+      }
+    ],
+    "market_tam": "全球对象存储 2030 ~$60B；AI 存储子赛道 CAGR 26%；MinIO 替代窗口数十亿美元",
+    "valuation_range": "$50-200M pre-money（500 万美元已到账，28K stars+企业客户+S3 alternative 叙事，参考 MinIO Series A 折算与 VAST 早期）",
+    "risks": [
+      "MinIO/AWS 价格战压制商业化",
+      "Rust 生态在企业存储仍属早期",
+      "中国创始团队美国市场销售挑战"
+    ],
+    "strengths": [
+      "28K stars 是 RustFS 阶段稀缺标志",
+      "中移动/国网+Twin Labs 双边客户验证",
+      "性能数据硬实力（323GB/s 读）"
+    ],
+    "recommendation": 5,
+    "verdict": "AI 存储 MinIO 替代窗口期最佳标的，强推"
+  },
+  {
+    "id": "A08",
+    "name": "灵泷 LynnReal",
+    "website_status": "无公开站点",
+    "repo_status": "无公开仓库",
+    "team_score": 5,
+    "tech_moat": "Nature 648 (2025-11) 独立一作裸眼 3D 突破 SBP 极限 + 复旦特奖 + 中科院上海创智学院联培 + AI 算法替代特制光学",
+    "competitors": [
+      {
+        "name": "Looking Glass Factory",
+        "stage": "$30M+ 累计",
+        "note": "Hololuminescent 新品类，27\" Light Field"
+      },
+      {
+        "name": "CREAL",
+        "stage": "Series 累计 $32M",
+        "note": "AR 光场，Zeiss 投资+合作"
+      },
+      {
+        "name": "Light Field Lab",
+        "stage": "Series B $50M+",
+        "note": "全息墙，B2B 落地慢"
+      },
+      {
+        "name": "Avegant / 3DCS",
+        "stage": "早期",
+        "note": "AR 微显示"
+      }
+    ],
+    "market_tam": "光场显示 2025-2032 CAGR 30%+；空间智能 3D I/O 2030 $10-20B；具身机器人交互场景潜在 $5B+",
+    "valuation_range": "$50-150M pre-money（天使 3000 万 RMB 已到位，Nature 正刊+复旦特奖罕见组合，类比 CREAL 早期+Looking Glass 累计，加 Nature 估值溢价）",
+    "risks": [
+      "Nature 论文到量产之间巨大鸿沟",
+      "硬件供应链与产品化经验不足",
+      "面向 C 端市场教育期长"
+    ],
+    "strengths": [
+      "Nature 正刊独立一作技术深度极强",
+      "无需特制光学，BOM 与量产潜力大",
+      "天使 3000 万已完成，资本背书"
+    ],
+    "recommendation": 5,
+    "verdict": "AI4Display 顶级科研落地标的，估值锚 CREAL"
+  },
+  {
+    "id": "A09",
+    "name": "力场采样",
+    "website_status": "无公开站点",
+    "repo_status": "无公开仓库",
+    "team_score": 4,
+    "tech_moat": "与 John Jumper（AlphaFold/诺奖）合作过 Upside ML 力场；精度同等下 5× 速度；环肽/抗体/GPCR 难分子专攻",
+    "competitors": [
+      {
+        "name": "OpenMM + AI 增强",
+        "stage": "开源",
+        "note": "学术界主流 MD 引擎"
+      },
+      {
+        "name": "TorchMD / DeepMD",
+        "stage": "开源",
+        "note": "ML 力场学术代表"
+      },
+      {
+        "name": "晶泰科技 XFF",
+        "stage": "港股上市",
+        "note": "与辉瑞共建 XFF，商业化先行"
+      },
+      {
+        "name": "Schrödinger FEP+",
+        "stage": "Nasdaq",
+        "note": "物理力场金标准"
+      },
+      {
+        "name": "Iambic Therapeutics",
+        "stage": "Series B $50M+",
+        "note": "ML 力场+生成模型一体化"
+      }
+    ],
+    "market_tam": "AI 制药 CADD 子赛道 2029 ~$2B；MD 模拟全球 $500M-1B；可外溢到材料",
+    "valuation_range": "$15-40M pre-money（早期已签 2 单 + 诺奖合作背书，AI4Science Seed 平均；与 Iambic 早期可比但规模小）",
+    "risks": [
+      "团队规模小（彭+2 工程师），人才密度待补",
+      "ML 力场红海，差异化需持续证明",
+      "CRO/SaaS 模式收入天花板有限"
+    ],
+    "strengths": [
+      "与 AlphaFold 主笔合作的稀缺背书",
+      "已有订单+实战 4 年沉淀",
+      "环肽/抗体难分子市场切入差异化"
+    ],
+    "recommendation": 4,
+    "verdict": "AI4Science 小而精团队，诺奖背书加分"
+  },
+  {
+    "id": "A10",
+    "name": "摩湃分子 MolplusAI",
+    "website_status": "无公开站点",
+    "repo_status": "无公开仓库",
+    "team_score": 4,
+    "tech_moat": "All Modality（小分子/抗体/酶/融合蛋白）AI 科学家 + 企业级记忆大脑；STAT6 命中 3 天、纳抗成熟 6 小时",
+    "competitors": [
+      {
+        "name": "Insilico Medicine",
+        "stage": "港股 IPO $2.7B",
+        "note": "AI 制药全流程标杆"
+      },
+      {
+        "name": "晶泰科技",
+        "stage": "港股上市",
+        "note": "国内 AI4D 龙头"
+      },
+      {
+        "name": "Iktos",
+        "stage": "Series B $21M",
+        "note": "生成式分子设计"
+      },
+      {
+        "name": "Schrödinger",
+        "stage": "Nasdaq",
+        "note": "物理+ML 平台"
+      },
+      {
+        "name": "Owkin K Pro",
+        "stage": "Late stage",
+        "note": "AI Scientist agentic"
+      },
+      {
+        "name": "Isomorphic Labs",
+        "stage": "Alphabet 子公司",
+        "note": "AI4Drug 王者级"
+      }
+    ],
+    "market_tam": "AI 制药 $6.89B by 2029；AI 科学家+CRO 替代 TAM $20B+",
+    "valuation_range": "$20-60M pre-money（未披露融资，连续创业者+Silicon Therapeutics 系 CTO，类比 Iktos 早期与晶泰 Pre-A）",
+    "risks": [
+      "STAT6/纳抗结果尚需第三方独立验证",
+      "AI 科学家叙事拥挤，Isomorphic/Owkin 压顶",
+      "All Modality 战线过宽，PMF 风险"
+    ],
+    "strengths": [
+      "All Modality 是国内罕见技术广度",
+      "CTO 化学计算硬背景（Silicon Therapeutics）",
+      "演示数据（3 天命中靶点）若属实极强"
+    ],
+    "recommendation": 3,
+    "verdict": "AI 科学家叙事强，但需独立验证数据"
+  },
+  {
+    "id": "A11",
+    "name": "芯引力",
+    "website_status": "无公开站点",
+    "repo_status": "无公开仓库",
+    "team_score": 2,
+    "tech_moat": "公开信息不足，方向推测为芯片/AI 硬件",
+    "competitors": [
+      {
+        "name": "未知",
+        "stage": "—",
+        "note": "需补充项目卡才能给出有效对标"
+      }
+    ],
+    "market_tam": "依赖最终细分方向，无法估算",
+    "valuation_range": "信息不足，建议要求公司补充材料后再估值",
+    "risks": [
+      "公开信息空白，DD 无法展开",
+      "无团队/产品/融资披露",
+      "可能为占位项目或重命名"
+    ],
+    "strengths": [
+      "命名暗示芯片赛道，与奇绩 A 区前沿科技匹配",
+      "—",
+      "—"
+    ],
+    "recommendation": 1,
+    "verdict": "信息空白，建议等更多披露再判断"
+  },
+  {
+    "id": "B01",
+    "name": "HiveMind/拓恳",
+    "website_status": "无公开站点（未提供 URL）",
+    "repo_status": "无公开 GitHub",
+    "team_score": 5,
+    "tech_moat": "异构跨品牌协同协议层 + 边缘大模型轻量化（VDA5050+ROS2 之上的厂商抽象）",
+    "competitors": [
+      {
+        "name": "Shield AI Hivemind",
+        "stage": "Series G $12.7B 估值（2026.3）",
+        "note": "对标但偏军用无人机集群，民用机器人群体智能仍空白"
+      },
+      {
+        "name": "NVIDIA Isaac Swarm",
+        "stage": "大厂平台",
+        "note": "底层 SDK，无厂商落地心智"
+      },
+      {
+        "name": "VDA5050 联盟",
+        "stage": "标准组织",
+        "note": "仅 AGV 协议，覆盖窄"
+      },
+      {
+        "name": "国地中心/亦庄机器人 4S",
+        "stage": "园区级",
+        "note": "客户而非竞品"
+      },
+      {
+        "name": "Open-RMF (新加坡)",
+        "stage": "开源",
+        "note": "学术导向"
+      }
+    ],
+    "market_tam": "全球多机器人协同/RMOS 2030 年 $80-150 亿，CAGR 35%+；中国具身机器人本体 2026 出货预计破 10 万台",
+    "valuation_range": "Pre-money $40-80M（约 ¥3-6 亿）。8 厂商 10 型号已适配 + 中国移动 6G 战略合作 + 营收能见度，给到群体智能 OS 上限带；对比 Shield AI 早期 A 轮 $40M，本项目民用赛道折半上修",
+    "risks": [
+      "异构协同需厂商配合，若头部本体厂自建 OS（宇树/智元已有动作），适配价值被边缘化",
+      "交警机器人/啦啦队 demo 性强，是否能转化为可复制 SOW 待验证",
+      "团队基因偏电信/通信，不是机器人本体出身，能否在 ROS/运动控制深水区与原生玩家硬碰待观察"
+    ],
+    "strengths": [
+      "CEO 陈明爱立信中国 CTO + 5G NTN 卫星实证，'通信网络管亿万节点'方法论与多机器人协同同构",
+      "已有 2026 年营收 +中国移动研究院 6G 战略合作，B2B2G 通道清晰",
+      "群体智能 OS 是少数有可能成为'安卓'卡位的赛道"
+    ],
+    "recommendation": 4,
+    "verdict": "强推。卡位明确、商务落地早，赌通信派打机器人 OS 的差异路径"
+  },
+  {
+    "id": "B02",
+    "name": "影控机器人",
+    "website_status": "无公开站点",
+    "repo_status": "无公开 GitHub",
+    "team_score": 4,
+    "tech_moat": "1.2㎡ 大尺度全身 53DoF 操控压缩 + 双足/上肢协同数据采集",
+    "competitors": [
+      {
+        "name": "1X Technologies",
+        "stage": "拟 $10B 估值融资",
+        "note": "自身既是本体厂也是数据用户，遥操是策略而非业务"
+      },
+      {
+        "name": "宇树科技全身遥操平台",
+        "stage": "C 轮 ¥120 亿",
+        "note": "本体厂自建，免费给客户"
+      },
+      {
+        "name": "优必选数据采集中心",
+        "stage": "上市公司",
+        "note": "已中标惠阳 5962 万订单，G 端通道更强"
+      },
+      {
+        "name": "Sanctuary AI",
+        "stage": "海外早期",
+        "note": "技术派、商业化弱"
+      },
+      {
+        "name": "智元机器人/银河通用 自建数采",
+        "stage": "百亿估值",
+        "note": "都在自研，外采意愿低"
+      }
+    ],
+    "market_tam": "全球人形操控数据 2030 年 $30-60 亿（VLA 训练数据稀缺成最大瓶颈）",
+    "valuation_range": "Pre-money $20-50M（¥1.5-3.5 亿）。数据平台型 TaaS 给 $20-150M 区间下限带，团队无大厂背书 + 客户全是本体厂客户取下半段；上限假设拿到 2-3 家头部本体厂续约合同",
+    "risks": [
+      "买方都是本体厂，而宇树/智元/优必选都已自建遥操台，TAM 实际收窄到二线本体厂和科研院所",
+      "53DoF 全身数据的标准化/通用性存疑，不同本体形态难复用",
+      "CEO 王子峣首次创业、博士直接毕业即创业，团队工程化与商务能力待验"
+    ],
+    "strengths": [
+      "大尺度空间→1.2㎡ 压缩是真实痛点，对小空间科研团队/义肢厂吸引力强",
+      "TaaS+数据资产双轮模式想象空间大",
+      "东南大学控制方向梯队齐整，技术 PR 12 项"
+    ],
+    "recommendation": 3,
+    "verdict": "中性偏多。数据资产愿景大，但买方自建是结构性风险"
+  },
+  {
+    "id": "B03",
+    "name": "SoftSync 柔偕科技",
+    "website_status": "无公开站点",
+    "repo_status": "无公开 GitHub",
+    "team_score": 4,
+    "tech_moat": "软体结构+线驱+弹性材料，让手吸收误差实现千元级 BOM",
+    "competitors": [
+      {
+        "name": "灵心巧手 Linker Hand",
+        "stage": "B+轮，百亿独角兽，月出货 4000 台",
+        "note": "已把 O7 价格打到 ¥8800，覆盖低端"
+      },
+      {
+        "name": "帕西尼感知 PaXini",
+        "stage": "百亿独角兽，4 月 10 亿元",
+        "note": "触觉+灵巧手双线"
+      },
+      {
+        "name": "傲意 OYMotion",
+        "stage": "成熟商用",
+        "note": "义肢市场份额头部"
+      },
+      {
+        "name": "Shadow Robot",
+        "stage": "海外学术金标",
+        "note": "¥100 万级，避其锋"
+      },
+      {
+        "name": "因时机器人/Festo BionicSoftHand",
+        "stage": "工业/科研",
+        "note": "刚性派/气动派各占一格"
+      }
+    ],
+    "market_tam": "全球灵巧手 2030 年 $50-100 亿（占人形机器人 BOM 30%+），CAGR 40%+；义肢市场 $20 亿基本盘",
+    "valuation_range": "Pre-money $15-40M（¥1-3 亿）。Linker Hand 已把价格战打到 ¥8800、月出货 4000 台，给后来者估值天花板压制；CEO 港大博士单点突破，团队尚未量产验证，取低位段；如能义肢端拿到二类证则可上 $40M",
+    "risks": [
+      "灵心巧手 O7 ¥8800 已贴脸打千元级心智，留给 SoftSync 的差异空间是软体/安全性 narrative，市场是否买账存疑",
+      "义肢切入需医疗器械证（NMPA 二类至少 2-3 年），现金流压力大",
+      "软体材料一致性、寿命、控制非线性是工程化深坑，林森源单点强但团队薄"
+    ],
+    "strengths": [
+      "千元级软体 + 真实世界自适应抓取是差异化叙事",
+      "义肢→机器人训练数据→机器人本体的迁移路径合理",
+      "林森源 10 岁做机器人 + 港大软体方向 + 顾问陈永华，技术血统硬"
+    ],
+    "recommendation": 3,
+    "verdict": "中性。技术派单兵突出，但赛道已被独角兽贴身价格战"
+  },
+  {
+    "id": "B04",
+    "name": "星荧科技",
+    "website_status": "无公开站点",
+    "repo_status": "无公开 GitHub",
+    "team_score": 5,
+    "tech_moat": "前铁甲钢拳+科大讯飞医疗 CTO 双重二类证落地经验 + 三甲私有数据集",
+    "competitors": [
+      {
+        "name": "傅利叶智能",
+        "stage": "¥80 亿估值独角兽，E 轮 ¥8 亿，筹备 IPO",
+        "note": "上肢康复市占率全国第一，B 端通吃"
+      },
+      {
+        "name": "傲鲨智能",
+        "stage": "B 轮 ¥数千万，累计¥数亿",
+        "note": "工业起家、向消费转型，¥6900 起售"
+      },
+      {
+        "name": "司羿智能",
+        "stage": "C 轮",
+        "note": "卒中康复，三甲渠道"
+      },
+      {
+        "name": "迈步机器人",
+        "stage": "B 轮",
+        "note": "下肢康复直接竞品"
+      },
+      {
+        "name": "程天科技",
+        "stage": "B+ 轮",
+        "note": "下肢外骨骼 G 端"
+      }
+    ],
+    "market_tam": "中国康复医疗器械 2030 年 ¥2000 亿（CAGR 16%）；家用 AI 健康终端长尾 $200 亿+",
+    "valuation_range": "Pre-money $25-60M（¥2-4.5 亿）。CTO 团队带 2 张二类证 + 50 项专利的资产价值高，但赛道头部傅利叶已 ¥80 亿压制空间；千元级家用切入若能拿到二类证则升上限。对比傲鲨成立 7 年累计 ¥数亿、傅利叶累计近 ¥10 亿，本轮天使早期合理位 ¥2-4.5 亿",
+    "risks": [
+      "医疗器械二类证 18-24 个月周期 + 三甲临床数据合规边界（私有数据集敏感）",
+      "千元级硬件成本结构与严肃医疗精度要求矛盾，需精确权衡",
+      "睡眠/慢病/精神调理摊得过宽，早期资源能否聚焦下肢主线待证"
+    ],
+    "strengths": [
+      "陈博宇双 CTO 履历是赛道稀缺资产，落地节奏可预判",
+      "三甲临床→社区康养→家用三阶通路完整，可形成数据飞轮",
+      "10 年外骨骼经验、50+ 专利、2 张二类证，硬基本盘"
+    ],
+    "recommendation": 4,
+    "verdict": "强推。最稳的'医疗+硬件'团队，下注落地确定性"
+  },
+  {
+    "id": "B05",
+    "name": "雪梦未来 Snow Origin",
+    "website_status": "https://snoworigin.tech 200 OK（中文站，已上线）",
+    "repo_status": "无公开 GitHub",
+    "team_score": 4,
+    "tech_moat": "EMG 神经信号解码 + 全景头环多模态人类操控数据采集",
+    "competitors": [
+      {
+        "name": "Meta (CTRL-labs)",
+        "stage": "2019 收购 ~$5-10 亿；2025 Nature 论文 + 2025 神经腕带产品化",
+        "note": "巨头护城河深"
+      },
+      {
+        "name": "Rool'in EMG/AlterEgo (MIT)",
+        "stage": "研究阶段",
+        "note": "学术派"
+      },
+      {
+        "name": "Brink Bionics/Pison",
+        "stage": "B 轮",
+        "note": "EMG 消费级游戏方向"
+      },
+      {
+        "name": "脑虎科技/强脑科技",
+        "stage": "B/C 轮",
+        "note": "侵入式/非侵入式 BCI 强势国内对手"
+      },
+      {
+        "name": "宇树/智元自建数采",
+        "stage": "百亿独角兽",
+        "note": "已自建遥操数据通道"
+      }
+    ],
+    "market_tam": "全球 Physical AI 操控数据层 2030 年 $20-50 亿；EMG/HCI 消费 $30 亿+",
+    "valuation_range": "Pre-money $15-35M（¥1-2.5 亿）。CTRL-labs 1 亿美金被收购可作长期出口锚，但当前 Snow Origin 仍在 PoC 早期。北大编解码实验室背书 + 早期种子估值合理位 ¥1-2.5 亿；如能拿到 1-2 家本体厂数据合同则可至 ¥3-5 亿",
+    "risks": [
+      "Meta 2025 神经腕带消费化后，B 端用户做 EMG 输入会被巨头标准吸虹",
+      "EMG 解码精度对个体差异大、20 分钟个性化数据是工程苦活",
+      "数据资产变现路径长（先做硬件→获数据→再卖数据/模型），现金流模式重"
+    ],
+    "strengths": [
+      "高文院士/智源黄铁军院长所在北大编解码实验室出身，学术血统硬",
+      "官网已上线（含中文版），早期可见执行力",
+      "可穿戴+EMG 数据是 VLA 模型未来稀缺燃料，长期叙事大"
+    ],
+    "recommendation": 3,
+    "verdict": "中性偏多。叙事大但 Meta 阴影下需找到 niche 差异"
+  },
+  {
+    "id": "B06",
+    "name": "小鹰锐视",
+    "website_status": "无公开站点",
+    "repo_status": "无公开 GitHub",
+    "team_score": 3,
+    "tech_moat": "SMA 紧凑型主动防抖模组 + 世界模型 Diffusion 生成式防抖",
+    "competitors": [
+      {
+        "name": "Cambridge Mechatronics (CML)",
+        "stage": "成熟商用，手机 SMA OIS 领头",
+        "note": "技术专利护城河深"
+      },
+      {
+        "name": "Insta360",
+        "stage": "上市公司",
+        "note": "EIS 算法派，已布消费"
+      },
+      {
+        "name": "新思考/比亚迪电子等 VCM/OIS 模组厂",
+        "stage": "成熟",
+        "note": "供应链规模优势"
+      },
+      {
+        "name": "DJI 云台体系",
+        "stage": "成熟",
+        "note": "机械稳像方案主导"
+      },
+      {
+        "name": "AI 视频稳像（Diffusion）学术派",
+        "stage": "研究",
+        "note": "World Model 防抖尚无商用先例"
+      }
+    ],
+    "market_tam": "摄像头模组防抖全球 $60-100 亿（手机为主）；机器人/穿戴细分 $5-10 亿小众",
+    "valuation_range": "Pre-money $10-25M（¥7000 万-¥1.8 亿）。SMA 模组上游被 CML 等海外卡专利、下游被手机大厂垂直整合，独立模组商难成大。前庭反射闭环+生成式防抖是新角度但商用未验，估值下限带；如能拿到一家头部机器人/穿戴定点订单可上 ¥3 亿",
+    "risks": [
+      "SMA 防抖核心专利已被 CML 把持十余年，IP 突围难",
+      "客户结构：机器人/AI 穿戴出货量级远低于手机，单价低，难撑大业务",
+      "World Model 防抖是研究 sketch，工程化路径不清"
+    ],
+    "strengths": [
+      "VOR 生物反射 narrative 在机器人语境下是新切入",
+      "团队有 CES/红点奖+千万级出货经验，工程经验扎实",
+      "防抖模组是真实细节痛点，机器人头部相机晃动确为感知瓶颈"
+    ],
+    "recommendation": 2,
+    "verdict": "中性偏空。赛道太窄、巨头压顶，难做独立大业务"
+  },
+  {
+    "id": "B07",
+    "name": "Elecholic Tech 异核科技",
+    "website_status": "无公开站点",
+    "repo_status": "无公开 GitHub",
+    "team_score": 4,
+    "tech_moat": "4 立方米毫米级低成本空间定位（替代 Vicon/OptiTrack 高端方案）",
+    "competitors": [
+      {
+        "name": "Vicon/OptiTrack",
+        "stage": "海外成熟，单台 5-20 万",
+        "note": "毫米级金标但贵"
+      },
+      {
+        "name": "度量科技 NOKOV",
+        "stage": "成熟国产光学动捕",
+        "note": "已占领国内高校市场"
+      },
+      {
+        "name": "瑞立视 Realis",
+        "stage": "成熟",
+        "note": "毫米级国产替代"
+      },
+      {
+        "name": "品铂/全迹 UWB",
+        "stage": "成熟",
+        "note": "厘米级低成本，精度落差大"
+      },
+      {
+        "name": "HTC Vive Lighthouse",
+        "stage": "消费",
+        "note": "亚毫米但绑定 VR 生态"
+      }
+    ],
+    "market_tam": "全球动捕/室内定位 2030 年 $40-80 亿（含 XR/科研/具身数采）",
+    "valuation_range": "Pre-money $10-30M（¥7000 万-¥2 亿）。'零门槛毫米级'是大叙事但毫米级是 NOKOV/瑞立视的护城河；如确能做到 4㎡ 毫米级且成本对比 Vicon 降一个量级，则可至 ¥3-5 亿。CEO 是 RM2018 冠军（华工华南虎卫冕）、CTO 华为 FPGA 背景，团队工程底子扎实但首创业",
+    "risks": [
+      "毫米级精度+4 立方米的工程难度极高，UWB 物理上限制约（10-30cm），需新原理（视觉/激光/混合）",
+      "国内 NOKOV/瑞立视已占领科研高校市场，B 端突围需差异化场景",
+      "消费 XR 市场被 Meta/HTC 标准统治，2C 路径艰难"
+    ],
+    "strengths": [
+      "RM 全国冠军团队，机器人+控制+硬件复合工程能力强",
+      "切具身数采+遥操做 Scaling law 数据采集卡位，赛道方向正",
+      "华为 FPGA CTO + 哈工大/斯图加特 CMO，团队结构整齐"
+    ],
+    "recommendation": 4,
+    "verdict": "推荐。RM 冠军班底+具身数采赛道，技术上限存疑但赔率高"
+  },
+  {
+    "id": "B08",
+    "name": "MirrorSpace 映界科技",
+    "website_status": "无公开站点",
+    "repo_status": "无公开 GitHub",
+    "team_score": 4,
+    "tech_moat": "RGB+LiDAR+热成像三模态融合 4D 时空表征，复杂工况下机器人空间大脑",
+    "competitors": [
+      {
+        "name": "群核科技 (Manycore)",
+        "stage": "拟 IPO",
+        "note": "3D 空间智能商业化先发"
+      },
+      {
+        "name": "李飞飞 World Labs",
+        "stage": "$10 亿估值",
+        "note": "学术派世界模型方向"
+      },
+      {
+        "name": "宇树/智元自带感知栈",
+        "stage": "百亿独角兽",
+        "note": "本体厂自建空间感知"
+      },
+      {
+        "name": "速腾聚创/禾赛 LiDAR 厂",
+        "stage": "上市",
+        "note": "硬件派+轻软件"
+      },
+      {
+        "name": "蘑菇车联/银河通用 等空间智能创业",
+        "stage": "B-C 轮",
+        "note": "汽车/机器人多场景"
+      }
+    ],
+    "market_tam": "空间智能 SaaS+硬件 2030 年 $100-200 亿；机器人感知细分 $30 亿+",
+    "valuation_range": "Pre-money $25-60M（¥2-4.5 亿）。麦吉尔+Mila 顶会团队 + 已签石油央企/物理 AI 模型方/头部本体厂三类客户，比纯学术型估值上修；天使+轮合理 ¥2-4.5 亿；若拿到央企正式 PO 可至 ¥6-8 亿",
+    "verdict": "推荐。麦吉尔学术团队+央企+物理 AI 客户矩阵罕见",
+    "risks": [
+      "本体厂自建感知是结构性威胁，独立空间感知中间层位置脆弱",
+      "三模态硬件成本/标定难度高，规模化复制有限",
+      "团队学术派偏强、工程/商务薄，深圳公司初创管理待磨"
+    ],
+    "strengths": [
+      "金依力 Mila 博士+顶会一作+引用千次，学术 IP 硬",
+      "石油央企+物理 AI 模型方+头部本体厂三类客户矩阵罕见",
+      "热成像加入是工业巡检差异化卖点（与潇湘智控等垂直方互补）"
+    ],
+    "recommendation": 4
+  },
+  {
+    "id": "B09",
+    "name": "潇湘智控",
+    "website_status": "https://aiagent2025.com/projects/3ci83ytqb3tk 200 OK（奇绩项目页，非独立官网）",
+    "repo_status": "无公开 GitHub",
+    "team_score": 5,
+    "tech_moat": "中铝/魏桥/国家电投央国企客户矩阵 + 3105 台电解槽 10 万+小时私有生产数据",
+    "competitors": [
+      {
+        "name": "中铝集团内部数智化",
+        "stage": "央企自建",
+        "note": "客户也是潜在竞品"
+      },
+      {
+        "name": "宝武智慧冶炼",
+        "stage": "钢铁标杆",
+        "note": "跨行业方法论可降维"
+      },
+      {
+        "name": "广域 428",
+        "stage": "工业巡检中游",
+        "note": "巡检机器人成熟玩家"
+      },
+      {
+        "name": "亿嘉和/优艾智合",
+        "stage": "上市/C 轮",
+        "note": "通用巡检巨头，可下沉冶金"
+      },
+      {
+        "name": "国自机器人",
+        "stage": "上市",
+        "note": "工业 AGV+巡检"
+      }
+    ],
+    "market_tam": "中国电解铝 ¥8970 亿基本盘，智能化渗透率 3-5%；扩展至铜/铅/锌/镍火法冶金 ¥2000 亿+",
+    "valuation_range": "Pre-money $50-120M（¥3.5-9 亿）。Pre A ¥2000 万 + 已挂湖南股交所 + 央国企真实客户 + 3105 台电解槽数据，给到工业垂直机器人上限带；对比亿嘉和早期估值，本轮 ¥3.5-9 亿合理；如签订单饱满可至 ¥10 亿+",
+    "risks": [
+      "客户高度集中于电解铝央企，账期与回款压力大",
+      "央企自建/数智化部内卷化是结构威胁（中铝自有研究院）",
+      "出海'海外铝厂'声称需具体合同支撑，否则估值难撑"
+    ],
+    "strengths": [
+      "客户矩阵 + 真实生产数据是真正护城河，VC 视角最难得",
+      "中南大学陈晓方+桂卫华院士师承体系是行业准入门票",
+      "苏畅（清华朱军组 NeurIPS 一作）+ 何骄阳（RM 金奖）AI/工程团队结构罕见，远超同类垂直机器人公司"
+    ],
+    "recommendation": 5,
+    "verdict": "强推。垂直行业+真实客户+硬学术，最确定的 B 区项目"
+  },
+  {
+    "id": "B10",
+    "name": "Kynooe",
+    "website_status": "无公开站点",
+    "repo_status": "无公开 GitHub",
+    "team_score": 4,
+    "tech_moat": "可重构运动单元 + 开放 Robot Skills 平台",
+    "competitors": [
+      {
+        "name": "Cubelets (Modular Robotics)",
+        "stage": "教育市场成熟",
+        "note": "STEM 玩具，未跨入个人 AI"
+      },
+      {
+        "name": "Cellrobot (Keyi Tech)",
+        "stage": "2017 已折戟",
+        "note": "前车之鉴，叙事难复用"
+      },
+      {
+        "name": "Eilik / Living.AI",
+        "stage": "消费爆款",
+        "note": "小型桌面机器人，月销百万级，单形态"
+      },
+      {
+        "name": "ANYbotics",
+        "stage": "Series B €127M",
+        "note": "蓝国伟师承体系，工业四足，非可重构 2C"
+      },
+      {
+        "name": "Moxie (Embodied Inc)",
+        "stage": "2024 倒闭",
+        "note": "对话陪伴方向已被证伪"
+      }
+    ],
+    "market_tam": "消费机器人/教育机器人 2030 年 $400-600 亿；模块化可重构细分 $30-50 亿（含 STEM/玩具）",
+    "valuation_range": "Pre-money $15-40M（¥1-3 亿）。ETH+ANYbotics 师承背书强，但可重构+个人 AI 机器人历史上 Cubelets/Cellrobot/Moxie 全军覆没；早期天使估值 ¥1-3 亿合理；如能跑出爆款单品突破 10 万台月销可至 ¥5 亿+",
+    "risks": [
+      "'机器人乐高'叙事已被多次验证为低 ROI 市场，Cellrobot/Moxie 等先烈在前",
+      "可重构架构在工程上意味妥协性能/成本/可靠性，三难兼顾",
+      "Skills 平台需要开发者生态，单点公司难启动正反馈"
+    ],
+    "strengths": [
+      "蓝国伟 ETH+ANYbotics+Amazon RIVR 师承体系是欧洲机器人最硬血统之一",
+      "刘佳桥德国国家自动驾驶中心+大众背景，技术深度足",
+      "可重构思路在 Agent 时代有新机会（Robot Skills app store 类比早期 iPhone）"
+    ],
+    "recommendation": 3,
+    "verdict": "中性。团队顶配但赛道有'乐高'诅咒，需看是否能突破历史循环"
+  },
+  {
+    "id": "B11",
+    "name": "Oki Home",
+    "website_status": "okihome.ai HTTP/2 200（Vercel/Next.js，正常运行）。但站点定位与基础数据描述存在严重不一致：根据 YC W25 官方公司页面与公开报道，Oki 实际产品已 pivot 至 B2B 工程管理 SaaS（'Personalized Updates on Company Progress' — 让工程 leader 自动看到项目进度），而非'本地 AI 个人记忆硬件'。okihome.ai 域名沿用旧品牌，可能在硬件 pivot 软件后未完全更新对外口径。",
+    "repo_status": "github.com/oki-apps/okihome-angular（API 限流未取到数据，但仓库存在）。注意：oki-apps 是一个同名但不相关的开源 Angular 项目（来自波兰开发者），与 YC W25 Oki AI 团队无关。本项目实际 GitHub 入口在 Oki AI 公司账号下，未公开列出，工程产物以闭源 SaaS 形式存在。",
+    "team_score": 4,
+    "tech_moat": "本地推理 + 隐私优先硬件叙事，但当前实际产品形态已偏向 B2B SaaS，硬件壁垒未验证",
+    "competitors": [
+      "Limitless AI Pendant / 量产 / 已发售 $99 项链",
+      "Humane Ai Pin / 已倒闭 / 警示性失败案例",
+      "Friend.com / 已发售 / 颈挂硬件",
+      "Rabbit R1 / 出货 10 万+ / 口碑滑坡",
+      "Plaud Note / 现金流正 / 录音 AI"
+    ],
+    "market_tam": "全球 personal AI 硬件 2030 年 TAM $50B，CAGR 30%+；但赛道死亡率极高，Humane、Rabbit 已警示市场",
+    "valuation_range": "$25-60M pre-money（YC W25 + UC Berkeley + 团队 7 年合伙是加分项；扣除 pivot 风险与 personal AI 硬件赛道阴霾，给中位区间）",
+    "risks": [
+      "产品已从消费硬件 pivot 到 B2B 工程 SaaS，路演 deck 与实际业务存在错位，奇绩 DD 须重新确认方向",
+      "Personal AI 硬件赛道前车之鉴 Humane Ai Pin 全军覆没、Rabbit R1 口碑崩塌，叙事红利已透支",
+      "本地 LLM 推理算力 + BOM 成本约束下，硬件难做出对 iPhone/Vision Pro 的差异化"
+    ],
+    "strengths": [
+      "团队 7 年合伙史 + YC W25 + Berkeley M.E.T.，创始人质量在批次中处第一梯队",
+      "CTO Aayush 在 Robinhood 从 50 到 4000 人见证全周期，工程组织经验稀缺",
+      "Designer Noah ETH Zürich + Berkeley 背景，品牌与工业设计基础扎实"
+    ],
+    "recommendation": 3,
+    "verdict": "团队强但产品方向待核实；建议 DD 时直接对齐 CEO 当前真实业务"
+  },
+  {
+    "id": "B12",
+    "name": "增元造物",
+    "website_status": "无公开站点。无官网、无官方社媒披露，仅有路演 PPT 与早鸟价格（2499 元）信息。早期项目，对外品牌建设尚未启动。",
+    "repo_status": "无 GitHub 链接。3D 打印硬件项目通常以闭源固件 + 开源切片插件形式存在，未提供任何代码或社区入口。换墨囊技术、换色算法均无技术 demo 公开。",
+    "team_score": 3,
+    "tech_moat": "「换墨囊」多色方案 + 性状替换模型 + 换色算法，工艺路线可行但壁垒不高，易被拓竹复制",
+    "competitors": [
+      "Bambu Lab 拓竹 / 一年百亿营收 / AMS 已成事实标准",
+      "Voron Design / 开源社区 / DIY 玩家圣杯",
+      "Prusa MMU / 量产 / 欧美口碑长青",
+      "Creality Hi Combo / 量产 / 性价比红海",
+      "Snapmaker U1 / Kickstarter 2000 万美金 / 多色新锐"
+    ],
+    "market_tam": "全球消费级 3D 打印 2026 年市场 $50 亿，CAGR 23%；多色 FDM 子市场约 $8-12 亿",
+    "valuation_range": "$8-25M pre-money（DIY 切入、价格仅竞品 1/2，硬件创业最低估值区间；缺乏技术壁垒证据扣 20%）",
+    "risks": [
+      "正面硬刚拓竹 — 拓竹 AMS+H2C 已建立工艺/供应链/品牌三重护城河，新创业公司打入欧美渠道极难",
+      "团队学历背景（宿州学院 + 复旦 MEM）与硬科技叙事不完全匹配，吸引 A 轮机构难度大",
+      "DIY 用户群天花板低（年活跃 50-100 万人），转向主流消费市场需重新建产品定义能力"
+    ],
+    "strengths": [
+      "三位合伙人均深度沉浸 3D 打印 6-10 年，行业 Know-how 与玩家洞察扎实",
+      "早鸟价 2499 元打入入门级 DIY 玩家心智，性价比标签清晰",
+      "「换墨囊」式多色方案若专利布局到位，可能跳过拓竹 AMS 多色喷头切换的工艺路径"
+    ],
+    "recommendation": 2,
+    "verdict": "红海硬刚拓竹，团队背景与技术壁垒难撑高估值"
+  },
+  {
+    "id": "B13",
+    "name": "歌渡科技",
+    "website_status": "无公开站点。处于早期 stealth 阶段，符合具身智能数据公司常规节奏（数据资产先于品牌）。",
+    "repo_status": "无 GitHub 链接。指套采集硬件 + 多模态采集 SDK 为核心资产，倾向闭源；学术背景两篇论文 470+ 引用，可在 Google Scholar 检索。",
+    "team_score": 5,
+    "tech_moat": "可穿戴视觉+触觉+全身位姿+VSLAM 多模态指套数据采集，触觉数据稀缺壁垒",
+    "competitors": [
+      "戴盟机器人 / 已融资 / 触觉传感器",
+      "穹彻智能 Noematrix / 已融资 / 仿真+具身数据",
+      "Skild AI / $300M+ 估值 / 通用机器人基础模型",
+      "Physical Intelligence (π) / $2.4B 估值 / 数据飞轮代表",
+      "DreamZero / 早期 / 具身数据采集"
+    ],
+    "market_tam": "具身智能数据服务 2030 年 TAM $30-50B，CAGR 50%+；触觉细分赛道 $5-8B",
+    "valuation_range": "$30-80M pre-money（清华 AI 硕士 + 智元一号应届生 + CMU 全奖 PhD offer + 智元灵犀技术合伙人，团队学术与产业背书顶配；具身数据为 2026 年最热赛道）",
+    "risks": [
+      "智元/π/Skild 等大厂都在自建数据采集团队，外部数据服务商商业模式（卖数据 vs SaaS vs 模型即服务）尚需验证",
+      "指套采集方案需大量标注劳动力 + 场景泛化设计，从 demo 到规模生产存在工程鸿沟",
+      "白纯歌从智元出来，是否带走核心 IP/人才存在潜在法律/伦理风险（智元背书也可能反向收紧）"
+    ],
+    "strengths": [
+      "白纯歌：清华 AI 硕 + 拒 CMU PhD 全奖 + 智元第一个应届生 + xlab 感知定位负责人，履历稀缺度极高",
+      "技术合伙人臧煜：智元灵犀事业线动作生成全链路负责人，2024 年 3 个具身 Benchmark SOTA",
+      "解决具身智能最核心瓶颈——真实触觉数据稀缺，方向价值确定性高"
+    ],
+    "recommendation": 5,
+    "verdict": "团队 + 赛道 + 卡位三重稀缺，强推星标项目"
+  },
+  {
+    "id": "B14",
+    "name": "Monako Glass",
+    "website_status": "monako.ai HTTP/2 200（Vercel/Next.js，地理定位识别 US/INTL，多市场已上线）。/order 路径已开放预售。6 月 3 日发布、6 月 4-5 日 Digital Trends/Yanko Design/Times of AI/CIOL/Newsbytes/Breezyscroll/Startup Fortune 七家国际科技媒体集中报道，48 小时百万级浏览 + 1000+ 预付订单的叙事得到强力交叉验证。",
+    "repo_status": "无 GitHub 链接。MonoOS（Buildroot Linux 定制）+ Lua 应用层 + Rive 动画运行时为核心闭源资产；公开 X 上承诺 Agent 可生成 Lua app on the fly，技术叙事高密度但代码未开源。",
+    "team_score": 5,
+    "tech_moat": "全球首款 48g 可穿戴 Linux 电脑 + MonoOS + Claude Code/Codex 端侧 Agent 接口",
+    "competitors": [
+      "Meta Ray-Ban / 量产数百万 / 消费霸主",
+      "Brilliant Labs Frame / 已发售 / 开发者向",
+      "Even Realities G1 / 量产 / 极简显示派",
+      "XREAL / 上市公司 / AR 显示派",
+      "Friend AI / 已发售 / 陪伴硬件派"
+    ],
+    "market_tam": "全球智能眼镜 2027 年市场 $120 亿，CAGR 45%；开发者/极客细分约 $5-10 亿",
+    "valuation_range": "$80-200M pre-money（薛来 Thiel Fellowship + 英特尔最年轻工程师 + Passthrough AR 发明者 + Lingo3D 2000 stars，叠加 Percy Lau 时尚设计 + Candy Liu LVMH/牛津 MBA 渠道 + Zisu 工程 + 张纪翔西湖博士，团队配置接近顶级；6 月 3 日发布即破圈，公关势能可支撑高估值）",
+    "risks": [
+      "ARM Cortex A7 + 300mAh 电池跑 Linux + AI Agent 持续推理，续航与发热在实机端可能崩塌——Humane Ai Pin 死于同一陷阱",
+      "Candy Yue/Liu 作为公开发声口径与 CEO 薛来对外身份分工需澄清；国际媒体多数以 Candy 为创始人面孔，薛来 IP 是否兑现存疑",
+      "$399 预售 + 8 月深圳量产节奏对硬件初创极激进，量产良率与 BOM 价格压力可能导致延期或砍配置"
+    ],
+    "strengths": [
+      "薛来个人 IP 厚度 = 16 岁小行星 + Thiel Fellowship + 英特尔最年轻工程师 + WAIC 50 万人体验，是批次内单点品牌势能最强者",
+      "6 月 3 日 0 投放 X 百万浏览 + 七家国际媒体（Digital Trends/Yanko Design 等）报道，公关势能与产品话题度获双重外部验证",
+      "Vibe coding + Claude Code 端侧化叙事精准击中开发者 + AI 极客早期采用者，可绕开消费市场红海"
+    ],
+    "recommendation": 5,
+    "verdict": "团队 IP + 公关势能 + 叙事三重领先，强推但盯紧续航良率"
+  },
+  {
+    "id": "B15",
+    "name": "溯洄智能",
+    "website_status": "无公开站点。处于硬件 PMF 早期，符合医疗器械+消费硬件公司未到 PR 阶段的常规节奏。",
+    "repo_status": "无 GitHub 链接。AI 刷牙机器人为闭源硬件 + 嵌入式系统 + 算法栈，无开源社区入口。",
+    "team_score": 3,
+    "tech_moat": "全自动刷牙机器人感知-决策-执行闭环 + 60+ 项专利 + 医疗器械注册证经验",
+    "competitors": [
+      "babahu X1 / 已发售 / 全口式刷牙仪",
+      "Y-Brush / 法国 / 已发售十秒刷牙",
+      "Philips Sonicare / 飞利浦 / 电动牙刷霸主",
+      "Oral-B AI / 宝洁 / AI 牙刷",
+      "Foreo Issa / 瑞典 / 高端电动牙刷"
+    ],
+    "market_tam": "全球电动牙刷 2026 年市场 $35 亿 CAGR 8%；AI/机器人化口腔护理子赛道 $5-10 亿",
+    "valuation_range": "$15-40M pre-money（团队拥有医疗器械注册证 + 百台销售验证产能，加分；但儿童刷牙机器人 PMF 与全口式形态市场教育成本高，扣 20%）",
+    "risks": [
+      "全口式刷牙仪 babahu/Y-Brush 已尝试多年未爆发，儿童使用更涉及安全与家长信任双重门槛",
+      "团队营销总监 10 年日用品经验偏快消，与医疗器械+硬件机器人销售模式存在错配",
+      "60+ 专利数量可观但质量需 DD，康复机器人迁移到口腔机器人是否真有技术延续性需验证"
+    ],
+    "strengths": [
+      "刘欢博士已在康复机器人取得医疗器械注册证 + 百台销售，硬件落地能力得到第三方验证",
+      "切入儿童赛道避开成年人电动牙刷红海，家长付费意愿高、复购+耗材模型清晰",
+      "技术合伙人 10 年厂龄 + 全栈硬件能力，团队工程交付确定性较高"
+    ],
+    "recommendation": 3,
+    "verdict": "团队工程力强但全口式形态市场教育周期长"
+  },
+  {
+    "id": "B16",
+    "name": "Sportix AI",
+    "website_status": "sportix.ai 域名当前 302 跳转至 atom.com（域名转售平台），且被 Cloudflare 拦截访问。但公开报道（Dealroom/MEXC News）显示 Sportix 已完成 $3.2-3.5M 融资，Animoca Brands 领投，Coininvestor Ventures/Becker Ventures/X21 Digital/Alpha Capital 跟投；2026 年 Q2 计划正式发布（瞄准 FIFA 世界杯）。注意：国际报道把 Sportix 定位为足球分析平台（Match Intelligence Engine + Player Intelligence System 与基础数据完全吻合），而非国内描述的射箭 Top1，可能是从射箭起家正出海足球。",
+    "repo_status": "无 GitHub 链接。Match Intelligence Engine + Player Intelligence System + 链上分析师声誉系统为核心闭源资产；Animoca 背景暗示有 Web3/链上模块。",
+    "team_score": 4,
+    "tech_moat": "Match Intelligence + Player Intelligence + Simulation + 链上声誉系统四模块；国家体育总局合作未独立验证",
+    "competitors": [
+      "Sportradar / Nasdaq 上市 / 体育数据霸主",
+      "Stats Perform / 已被并购 / 老牌体育数据",
+      "Genius Sports / 上市 / 博彩数据",
+      "Hudl / 私募 / 教练 SaaS",
+      "Second Spectrum / 被 Genius 收购 / 篮球数据"
+    ],
+    "market_tam": "全球体育数据分析 2028 年 TAM $80 亿，CAGR 22%；AI 运动训练子赛道 $15-20 亿",
+    "valuation_range": "$40-120M pre-money（已完成 $3.2-3.5M 天使 + Animoca 领投 + FIFA 世界杯节点 + 5 万 C 端 + 460+ B 端教练，按国际媒体口径估值可能已落定 $30-50M post-money；上限给到 FIFA 流量爆发预期）",
+    "risks": [
+      "网站域名实际处于转售/Cloudflare 拦截状态，公开品牌建设与国际媒体披露存在落差，DD 须确认实际流量入口",
+      "Sportradar/Stats Perform 在足球数据已深耕 20 年，B 端俱乐部/转播商关系网难撼动",
+      "从射箭迁移到足球+射击+高尔夫，多线作战可能稀释焦点；2000 台硬件订单 + 2 天 157 模型实验数据需独立交叉验证"
+    ],
+    "strengths": [
+      "团队 10 多年深度链接 + 最强大脑 IP + CVPR 一作 + 射击射箭冠军，组合稀缺",
+      "Animoca Brands 领投 + $3.2-3.5M 天使已落地，且瞄准 FIFA 2026 时间窗",
+      "国家体育总局合作 + 奥运金牌世界第一背书（若属实）为 B 端切入提供顶级背书"
+    ],
+    "recommendation": 4,
+    "verdict": "团队+融资+赛道俱佳但官网状态与多线战略需深入 DD"
+  },
+  {
+    "id": "B17",
+    "name": "肆爱科技",
+    "website_status": "无公开站点。室内数据采集 + 骑手众包业务模式偏 B2B，前期不需要 C 端品牌曝光，符合 stealth 阶段节奏。",
+    "repo_status": "无 GitHub 链接。世界模型架构、Ego Video 仿真栈、多模态 SLAM 均为闭源核心资产；100TB 数据资产是壁垒主体。",
+    "team_score": 5,
+    "tech_moat": "外卖骑手众包 + Ego Video 100TB 数据飞轮 + 北上多商圈高精地图",
+    "competitors": [
+      "Skydio / 估值数十亿 / 无人机自主导航",
+      "Waymo Lidar 路网 / Alphabet 子公司 / 户外路网",
+      "Anduril Vision / 已上市 / 国防视觉",
+      "美团/饿了么内部数据 / 业内最强骑手网络但数据不外流",
+      "高德/百度地图 / 室内地图覆盖中低密度"
+    ],
+    "market_tam": "具身智能 + AR 室内数据服务 2030 年 TAM $40-60B，CAGR 50%+；室内高精地图细分 $5-10B",
+    "valuation_range": "$40-100M pre-money（前 Tesla + Amazon Go Robotics 团队稀缺，导师师承图灵奖得主背书顶级；100TB 数据资产 + 北上商圈覆盖已成形可作为估值锚）",
+    "risks": [
+      "骑手众包数据采集涉及商场/写字楼隐私授权与城管合规，监管风险长期悬而未决",
+      "美团/饿了么自建数据团队可能复刻甚至屏蔽该模式，存在被平台方反向夹击风险",
+      "Ego Video 数据如何商业化（卖给具身智能厂 vs 自建模型 vs AR 应用）路径未定，营收节奏可能慢于估值预期"
+    ],
+    "strengths": [
+      "张哲宁前 Tesla 工程师 + 前 Amazon Go Robotics Applied Scientist，硬科技 0-1 能力稀缺",
+      "100TB Ego Video 数据 + 北上核心商圈高精地图已成形，先发壁垒明显",
+      "数据飞轮逻辑自洽（数据→算法→工具→骑手效率→更多骑手→更多数据），单点商业模式美感强"
+    ],
+    "recommendation": 4,
+    "verdict": "团队+数据资产稀缺，强推但盯紧平台方与监管风险"
+  },
+  {
+    "id": "B18",
+    "name": "Oryn Tech 向原科技",
+    "website_status": "oryn.tech HTTP/2 200（Shopify 店铺，AU 地区初始化，已上线澳元购物），说明已经具备 D2C 出海销售能力，比同批次多数项目品牌建设更成熟。",
+    "repo_status": "无 GitHub 链接。多模态生理语义 LLM + 可穿戴硬件均为闭源资产；学术合伙人王娴 16 篇 IEEE/ACM 论文为间接 IP 证据。",
+    "team_score": 4,
+    "tech_moat": "可穿戴生理信号 + 多模态语义 LLM + 共情对话；学术+硬件复合团队",
+    "competitors": [
+      "Friend.com / 已发售 $99 / 颈挂陪伴",
+      "Plaud Note / 现金流正 / 录音 AI",
+      "Replika / 上千万用户 / 软件陪伴",
+      "Pi (Inflection) / 已被微软并购 / 共情对话 LLM",
+      "Bee Computer / Y Combinator / 健康可穿戴"
+    ],
+    "market_tam": "全球 AI 陪伴 + 心理健康可穿戴 2030 年 TAM $20-30B，CAGR 35%+；高端共情硬件细分 $5-8B",
+    "valuation_range": "$20-60M pre-money（港科大博士 + 前大疆 PM + 港理工 16 篇 SCI 学术合伙人 + RoboMaster 全国季军硬件工程师，团队配置较强；已上线 Shopify D2C 通道是加分项）",
+    "risks": [
+      "AI 陪伴硬件赛道死亡率极高（Humane/Rabbit 警示），用户长期复购与情感粘性需大量数据验证",
+      "生理信号采集涉及医疗合规边界，从'共情陪伴'迈向'情绪健康干预'路径长且监管严",
+      "Shopify 已建站但实际销量未公开，D2C 出海获客成本（CAC）在 2026 年明显抬升"
+    ],
+    "strengths": [
+      "杨思敏港科大博士 + 前大疆 PM 主导 10 万+ 用户产品，复合背景在 AI 硬件创业稀缺",
+      "王娴 16 篇 IEEE TVCG/CHI/IEEE Haptics 等 SCI/CCF-A 论文，触觉与多模态学术积累深",
+      "Shopify D2C 已上线（AU 地区初始化），团队从产品到销售通路已闭环，执行力胜过同批次同类项目"
+    ],
+    "recommendation": 4,
+    "verdict": "团队+执行力强，看实际销量与生理信号合规进展"
+  },
+  {
+    "id": "B19",
+    "name": "LYNOOK 灵诺科技",
+    "website_status": "lynook.com HTTP/2 200（Vercel/Next.js，已上线品牌站，Project L 桌面陪伴盒子作为首款产品有清晰故事；目标欧美 + 英国 + 欧洲市场，海外定位明确）。Discord 社区已存在且作为早期用户聚集地。",
+    "repo_status": "无 GitHub 链接。AI 内容驱动 + 空间计算 + 渲染技术 + 状态机均闭源；二次元 IP 与角色资产是核心壁垒。",
+    "team_score": 4,
+    "tech_moat": "自研空间计算+三维渲染 + 独立生活状态机 + 多设备磁吸堆叠形成角色生态",
+    "competitors": [
+      "Tamagotchi / 万代上市公司 / 经典电子宠物",
+      "Looi Robot / Kickstarter 走红 / 桌面陪伴机器人",
+      "Vector / Anki 倒闭后复活 / 桌面机器人",
+      "Ropet AI / 早期 / AI 陪伴宠物",
+      "Friend.com / 已发售 / AI 陪伴硬件"
+    ],
+    "market_tam": "全球 ACG 周边硬件 2027 年 TAM $30-40B；二次元桌面陪伴细分 $2-4B，欧美男性核心用户付费力强",
+    "valuation_range": "$15-45M pre-money（团队复合背景较好——视觉算法 + 资深二次元 + 太古 CVC 商业经验 + 二次元从业者；Project L 尚未发布但 Discord 社区已聚集，海外定位清晰；扣除消费硬件量产风险给中位）",
+    "risks": [
+      "二次元桌面陪伴市场教育成本高（Tamagotchi-Vector-Anki 多次失败教训），用户付费转化需在 Discord 早期数据验证",
+      "海外 ACG 核心用户对 IP 版权敏感，自创角色 vs 联名 IP 路线选择影响商业天花板",
+      "多设备磁吸堆叠 BOM 成本高，硬件量产良率与定价区间需 Project L 实物验证"
+    ],
+    "strengths": [
+      "罗镜民武大 + 腾讯 AI Lab + 初中二次元社区站长 + Discuz! 插件版版主，技术 + 圈层双背景在 ACG 硬件创业稀缺",
+      "联创张佳怡悉尼大学本硕 + 太古 CVC + 30 年消费电子渠道 + IF 奖背景，商业与渠道能力补足创始人短板",
+      "Discord 已落地海外社区 + 欧美男性二次元核心用户精准定位，避开国内红海"
+    ],
+    "recommendation": 3,
+    "verdict": "团队配置好、定位清晰，看 Project L 实物与 Discord 转化"
+  },
+  {
+    "id": "E01",
+    "name": "点漾科技",
+    "website_status": "未提供官网。dyearn.com 疑似关联域，但页面几乎空白，仅显示公司名，无产品介绍/Demo/Roadmap 等信息，对外触点几乎为零。说明公司仍处于隐身模式或刚转型 PCB 方向，官方品牌曝光为 0。这与团队'5 人深入工厂 1.5 年'的工程驱动姿态一致，但对路演后投资人尽调和招聘是明显劣势：没有可点开的 product page、没有 demo video、没有 changelog 入口。建议路演后 30 天内上线最小化的 landing page + PCB 生成 demo 视频。",
+    "repo_status": "未提供 GitHub。在 PCB Agent / EDA 这种'懂硬件的人才稀缺'赛道，开源 demo（即使是小型电路自动生成）是最有效的招聘和技术信誉手段。Flux.ai 早期靠 YC + Twitter demo 出圈，JITX 靠 Stanford EE 圈子；点漾若全闭源，将很难绕开 Flux/JITX 已建立的开发者信仰。短期建议至少开源 PCB 训练集格式或解析工具，建立技术 mindshare。",
+    "team_score": 4,
+    "tech_moat": "百度系工程班底 + 5 人工厂驻场 1.5 年（PCB 制造数据闭环）",
+    "competitors": [
+      "Flux.ai (Copilot)",
+      "JITX (代码即电路)",
+      "CELUS (欧洲 PCB Agent)",
+      "Quilter.ai (布线)",
+      "华秋 KiCad Copilot (国产)"
+    ],
+    "market_tam": "全球 PCB 设计软件 ~$25 亿，硬件设计自动化 ~$80 亿；国内 PCB 产值 ~$400 亿，AI 渗透率 <2%。若做到设计-制造一体化，TAM 可叠加桌面级硬件原型（类 Markforged 路径）至 $200 亿。中国 PCB 工厂数量全球第一，但 EDA 软件 90% 用 Cadence/Altium，国产替代 + AI 是双重叙事。早期市场以中小硬件团队和高校实验室为切入点更现实。",
+    "valuation_range": "$30-70M pre-money（早期、未公开融资、Agentic EDA 赛道、Flux.ai 类比但中国地域折扣）",
+    "risks": [
+      "Flux.ai 已融 $32M C 轮、JITX 已融 $15M，先发优势 + 海外开发者社区难以追赶",
+      "'制造反推设计'闭环目标过于宏大，需要同时啃下数据-模型-机械 3 块硬骨头，资金消耗速率高",
+      "PCB 工厂多为传统制造商，决策慢、付费意愿低，B 端商业化周期可能 12-18 个月"
+    ],
+    "strengths": [
+      "团队驻场 1.5 年沉淀的 PCB 工艺数据是稀缺资产，海外对标公司没有中国工厂场景数据",
+      "百度系架构师 + Agent 专家配置在工程实现上扎实",
+      "CMO 60 天覆盖 Top50 工厂 80% 管理层，渠道能力反常规强"
+    ],
+    "recommendation": 3,
+    "verdict": "赛道好且海外有标杆，但官网/开源 0 输出是减分项，可观察。"
+  },
+  {
+    "id": "E02",
+    "name": "奇点引擎 Singularity Engine（Video Harness）",
+    "website_status": "未提供官网。已是 Delaware 注册的 C 公司、已完成 $5M Seed (post-$40M)、还做了 A11 路演日 80% 视频投放，但对外仍无 landing page，这种'拿了钱不挂牌'在 FDE 模式公司里常见（Palantir 早期也几乎无官网），合理但仍建议至少做 1 页 case study 站点，便于品牌客户 BD。Post-money $40M 出让 12.5% 的条款偏温和，说明 lead 投资人对团队和早期客户有较强信心。",
+    "repo_status": "未提供 GitHub。Video Harness 属企业内部交付系统，闭源合理。但视频生产领域开源生态活跃（ComfyUI、Open-Sora），若不释放任何技术博客/HuggingFace demo，技术品牌建立较慢，FDE 模式下技术 PR 反而是销售杠杆，建议至少有 1 个公开技术 case writeup。",
+    "team_score": 3,
+    "tech_moat": "FDE 模式 + 印刷家族工业系统真实 SOP/质检经验沉淀进 video pipeline",
+    "competitors": [
+      "Runway (Gen-3)",
+      "OpenAI Sora",
+      "Pika",
+      "Kling (快手)",
+      "Synthesia (企业 video Agent)"
+    ],
+    "market_tam": "全球数字广告 ~$7000 亿，企业品牌 video 制作 ~$200 亿（含外包代理商），AI 视频生产渗透率 <5% 但增速 100%+。FDE 切口聚焦中大型品牌客户的'广告生产中心'，单客户年付 $100K-1M 合理。中国对应市场 ~600 亿人民币，主要竞争来自 Kling/即梦/可灵的工具流，FDE 模式差异化在'交付 + 沉淀'，可避开纯模型价格战。",
+    "valuation_range": "$40-80M pre-money（已有 $40M post Seed，FDE+品牌客户验证；下一轮 A 估值常见 2-3x，即 $80-120M post-A 区间合理）",
+    "risks": [
+      "Sora 2/Veo 3/Kling 2 等通用视频模型能力快速逼近，'品牌级'差异化窗口可能 12 个月内被压缩",
+      "FDE 模式人均产能受限，规模化需要大量 PM/视频导演型混合人才，招聘瓶颈明显",
+      "创始人背景是印刷制造非视频/广告/科技，缺乏行业渠道与品牌客户原始网络"
+    ],
+    "strengths": [
+      "已有付费交付 + A11 路演日 80% 投放实际产出，PMF 信号比同类项目硬",
+      "$5M Seed + Delaware 架构便于美元市场扩展",
+      "印刷工业 SOP 经验罕见地适配'批量交付 + 质量稳定'的企业需求"
+    ],
+    "recommendation": 4,
+    "verdict": "FDE 模式 + 真实付费交付，是该批稀有的已验证项目，可参与跟投。"
+  },
+  {
+    "id": "E03",
+    "name": "飞咔",
+    "website_status": "数据中标注的 nextbanker.cn 实际是 ShadowGlow（AI 项目情报引擎），与飞咔无关，可能是基础数据错挂。飞咔本体是移动端 App，无官网是 C 端工具型应用的常见选择（剪映/CapCut 早期也无官网），但 130 万用户 + 8% 出让的 1000 万 Pre-A 估值已不低，建议补一个落地页用于品牌信任度和投资人转化。",
+    "repo_status": "未提供 GitHub。C 端内容工具闭源合理，无需开源。但 FFmpeg 深度定制的技术栈若能输出 1-2 个开源工具（如视频后处理库），有助于技术招聘。",
+    "team_score": 3,
+    "tech_moat": "FFmpeg 深度自研视频管线 + 内容理解-用户匹配-表达生成全链路闭环",
+    "competitors": [
+      "剪映/CapCut (字节)",
+      "Canva",
+      "Adobe Express",
+      "美图秀秀",
+      "必剪 (B 站)"
+    ],
+    "market_tam": "全球内容创作工具市场 ~$500 亿，中国短视频/图文创作工具 ~600 亿人民币。剪映/CapCut MAU 数亿，飞咔 130 万累计用户在该赛道属早期，但 30 天新增 80 万的增速强（可能依赖买量），增长可持续性需观察留存数据。'专业表达'差异化定位若锁定特定垂类（如金融/教育/B 端 KOC）可有 10-30 亿 niche 市场。",
+    "valuation_range": "$15-35M pre-money（1000 万人民币融 8% 已隐含 ~$17M post-money，C 端内容工具早期估值，下一轮需要 DAU/留存/付费转化数据支撑）",
+    "risks": [
+      "字节剪映、Adobe Express、Canva 三面夹击，C 端工具差异化窗口小",
+      "30 天新增 80 万 vs 累计 130 万说明用户基本盘很新，留存/付费率未验证，DAU/MAU 可能很低",
+      "南京大学博士 + 服务'新华社、人民网'背景偏 G 端关系，与消费级互联网产品的快速迭代基因不完全契合"
+    ],
+    "strengths": [
+      "增长速度真实可观（30 天 80 万新增），抓到了某条短视频/内容渠道的红利",
+      "FFmpeg 深度自研是同类轻量级工具少有的技术深度",
+      "团队从 2017 年共同创业，配合时间长，稳定性强"
+    ],
+    "recommendation": 2,
+    "verdict": "C 端工具赛道拥挤，增长有真实数据但留存存疑，谨慎观察。"
+  },
+  {
+    "id": "E04",
+    "name": "明悉科技 InsightSec",
+    "website_status": "未提供官网。安全公司（尤其面向公共安全/国家级客户）保持低调甚至无官网在国内是常态（玄武实验室、长亭科技早期都很低调），符合行业规律。但'天枢'作为产品品牌已无任何公开搜索结果，对企业客户 BD 不利，建议至少做一个最小化的资质/案例展示页（脱敏）用于政企合规对接。",
+    "repo_status": "未提供 GitHub。安全攻防研究通常会有 CVE 公告页 + BlackHat 议题录像 + 个人技术博客作为信誉背书；沈明航有数百枚 CVE 是硬通货，建议团队个人账号统一指向公司 brand，提升技术 mindshare。",
+    "team_score": 5,
+    "tech_moat": "玄武实验室基因 + 数百 CVE + BlackHat/CCS 顶会战绩 + GeekPwn 双冠",
+    "competitors": [
+      "Mandiant (Google)",
+      "CrowdStrike (Falcon)",
+      "奇安信",
+      "深信服",
+      "长亭科技 (阿里)"
+    ],
+    "market_tam": "全球网络安全 ~$2000 亿，AI 安全垂类 ~$300 亿且高速增长（AI Agent 安全是 2025-2027 最热细分）。中国网络安全 ~1000 亿人民币，奇安信/深信服/启明星辰为主，AI Agent 风险捕获方向几乎空白，明悉切入时机精准。10+ 公共安全/国家级任务说明 G 端高客单价路径已打通，单客户年付 ~500 万合理。",
+    "valuation_range": "$60-120M pre-money（玄武 + CVE 数百 + 国家级合同 10+，对标 Adlumin/Vectra AI Series A 在 $80-150M post）",
+    "risks": [
+      "国家级/公共安全客户回款周期长（6-18 个月），现金流压力大，1500 万天使可能撑不到 PMF 验证",
+      "奇安信/深信服/360 在政企渠道根深蒂固，新厂商进入头部客户需 18-36 个月渠道建设",
+      "AI Agent 安全是新兴赛道，监管/合规标准尚未成型，客户预算分类困难"
+    ],
+    "strengths": [
+      "团队是国内安全攻防最顶级班底之一（玄武 + 阿里安全 + 字节），技术信誉满分",
+      "10+ 国家级任务已签 = G 端订单与品牌背书双重打通，进入门槛已跨过",
+      "'攻防一体化'切入 AI Agent 安全空白市场，时点和叙事都对"
+    ],
+    "strengths_total": 3,
+    "recommendation": 5,
+    "verdict": "团队顶配 + 时点精准 + G 端订单已落地，本批首推。"
+  },
+  {
+    "id": "E05",
+    "name": "ArcherSmart.AI",
+    "website_status": "数据中的 site 字段实际指向 github.com/archersmart（不是官网）。该 GitHub 组织页面仅有 3 个空壳仓库：archersmart.github.io（Archer Website 模板，0 star，2026-06-04 更新）、website（已 archived）、archer-go-template（Go 项目模板），无任何产品代码、无任何 contributor 活跃度，与'船舶焊接机器人 Harness 驾驶舱已部署 2 家千人级工厂'的叙事严重不符。可能真实代码在私有仓库，但对外品牌触点几乎为 0，对工业客户做技术尽调时是减分项。",
+    "repo_status": "github.com/archersmart 组织存在但实质为空：3 个 repo 全部 0 star，最新活跃仅是 website 模板的 commit，无 issue/PR 互动。Rancher 系团队应该深谙开源运营（Rancher 本身就是 K8s 顶级开源项目），如此空白只可能说明：(a) 产品强度依赖私有代码，(b) 团队尚未把开源策略 priority 提上来。对一家融资 1500 万、自称'AI Infra+制造业'的公司，与 Rancher 同期相比这是显著落后。",
+    "team_score": 4,
+    "tech_moat": "Rancher 系 AI Infra 班底 + 共事 5 年 + BBA/施耐德制造业 know-how",
+    "competitors": [
+      "GE Predix",
+      "Siemens MindSphere",
+      "Rockwell FactoryTalk",
+      "海尔卡奥斯",
+      "用友/金蝶 AI 制造"
+    ],
+    "market_tam": "全球工业互联网平台 ~$1200 亿，离散制造数字化 ~$400 亿；中国离散制造数字化 ~3000 亿人民币（含 MES/ERP/IoT 集成），AI 驾驶舱属新增量。GE/西门子过去 10 年在工业互联网烧掉 $50 亿+ 仍未盈利，市场教育艰难是公认事实。'Harness'命名借鉴自 K8s 生态，技术叙事新但客户认知门槛高。船舶焊接 niche 单价高（千万级），但工厂数量有限（全国 ~50 家大型船厂），天花板需多行业扩展。",
+    "valuation_range": "$30-60M pre-money（连续创业者 + Rancher 退出经历 + 2 家工厂落地，工业 SaaS 早期估值惯例）",
+    "risks": [
+      "GE Predix 烧 $40 亿仍失败的前车之鉴说明工业互联网 SaaS 极难规模化",
+      "GitHub 空壳与团队 Rancher 开源基因严重不匹配，对外信任度建设缺位",
+      "船舶/汽车零部件/PCBA 三个行业 PoC 同时推进，5 人核心团队精力分散风险高"
+    ],
+    "strengths": [
+      "创始人有 Misfit→Fossil + Rancher→SUSE 两次成功并购退出，资本运作经验罕见",
+      "2 家千人级工厂 6+ 月部署 + PoC 客户 2 月 4 倍增长，落地能力得到验证",
+      "Rancher 系 K8s 工程文化 + 制造业 know-how 的组合在中国工业 AI 赛道稀缺"
+    ],
+    "recommendation": 3,
+    "verdict": "团队履历强、PoC 数据真，但工业 SaaS 历来难做且开源/品牌缺位，谨慎跟进。"
+  },
+  {
+    "id": "E06",
+    "name": "Meridian 子午线",
+    "website_status": "未提供官网。出海销售 AI 工具面向的客户主要是中国 B 轮+ 出海企业销售 VP，决策人会先做 LinkedIn + 官网背景调查，无官网在该客群严重影响信任度建设。Gong.io/Salesloft 都极重官网内容营销（thought leadership 是主销售管线），Meridian 必须尽快补齐至少 LP + 1-2 篇 case study。",
+    "repo_status": "未提供 GitHub。销售 Agent 闭源合理，但建议团队个人 GitHub 公开（蒋正兴 2024 中国计算机学会 AI+工业制造全国第三的赛事成果若有开源代码可放出），增强技术信誉。",
+    "team_score": 3,
+    "tech_moat": "硅谷 B2B SaaS 销冠实战 + Equals.app 创始销售 + 中英双母语 + 中国出海 B 轮 KA 销售 VP 经验",
+    "competitors": [
+      "Gong.io",
+      "Salesloft",
+      "Clari",
+      "11x.ai (AI SDR)",
+      "Apollo.io + AI"
+    ],
+    "market_tam": "全球销售 Tech 市场 ~$300 亿，AI Sales Agent ~$50 亿且 2024-2027 CAGR 60%+。中国出海企业（DTC/SaaS/跨境电商/硬件出海）数 ~5 万家，付费意愿强烈但客单价分化大。Meridian 切'本地销冠判断力'差异化避开 Gong 的会议分析红海，niche 但天花板可见——若锁定 200-500 家头部出海客户，单客户 5-20 万人民币/年 = 1-10 亿 ARR 天花板。需扩展至全球（非中国出海客户）才能撑起独角兽估值。",
+    "valuation_range": "$20-50M pre-money（未公开融资、Gong 类比、中国出海 GTM 细分，对标 11x.ai 早期 $50M post Seed 但中国地域折扣）",
+    "risks": [
+      "Gong/Salesloft 已开始原生支持中文 + 海外市场情报，正面竞争窗口期可能 12-18 个月",
+      "中国出海企业付费 SaaS 习惯弱，客单价天花板低，单纯卖中国客户难撑独角兽规模",
+      "2 人团队（CEO + 技术 VP）过于精简，缺少海外本地 BD/PMM/客户成功，规模化时招聘挑战大"
+    ],
+    "strengths": [
+      "周玉林是少数同时具备硅谷 SaaS 销售实战 + 中国出海 KA 经验 + 中英双母语的 founder，差异化人才稀缺",
+      "Equals.app 创始销售经验意味着对 PLG + 销售辅助的早期建设有 hands-on 认知",
+      "切口'本地销冠判断力'比泛 AI SDR 更聚焦，方便讲清楚价值"
+    ],
+    "recommendation": 4,
+    "verdict": "Founder-market fit 强、定位聚焦，但需观察产品+海外扩张节奏，可参与早期。"
+  },
+  {
+    "id": "E07",
+    "name": "NextBanker",
+    "website_status": "HTTP 200 OK，nextbanker.cn 已上线运营。站点品牌名实为 ShadowGlow，定位\"水下高潜项目线索发现引擎\"，宣传100+监控渠道、每日发现735个高潜项目线索，覆盖AI硬件/具身智能/AI4S/AI Agent等赛道，并提供\"Founder Agent\"创始人AI分身对话功能。底层采用 Express+Nginx，部署在 EO CDN，前端SSR渲染。从产品形态看是一个面向投资机构与FA的AI Sourcing+创始人触达SaaS，而非传统投行系统。商务路径清晰但与官方对外宣传的'AI埃森哲+高盛'宏大叙事存在显著落差。",
+    "repo_status": "项目无公开GitHub仓库；产品为闭源SaaS，代码资产风险全部集中于团队内部，外部无法独立评估工程质量与代码安全。建议尽调阶段要求查看技术架构图、数据爬取合规说明与核心算法演示。",
+    "team_score": 4,
+    "tech_moat": "AI爬虫+雷达+创始人Agent闭环，金融×CS铁三角执行力强",
+    "competitors": [
+      "IT桔子+AI改造",
+      "鲸准/烯牛/睿兽",
+      "Crunchbase/PitchBook",
+      "Harmonic.ai",
+      "Specter.dev"
+    ],
+    "market_tam": "中国早期一级股权市场年规模~1.2万亿，FA+投资机构sourcing工具SaaS可触达TAM约30-50亿RMB；若延伸到中后期投行咨询则可对标百亿。但中国LP冷、机构降本、SaaS付费意愿弱，3-5年现实SAM更可能在3-8亿RMB量级。",
+    "valuation_range": "$40-80M pre-money。星项目+清华金融+字节工程铁三角溢价合理，但产品已上线尚未跑出付费验证，按早期AI sourcing天使轮中位偏上给。",
+    "risks": [
+      "宣传定位\"AI埃森哲+高盛\"过大，实际产品仅是sourcing雷达，长期演化路径需重证；",
+      "数据来源依赖小红书/招聘等公开信号爬取，合规与数据稳定性长期承压，且易被同类工具复制；",
+      "中国VC市场降温，付费方ICP预算紧缩，PMF与LTV兑现需2-3年观察期。"
+    ],
+    "strengths": [
+      "团队结构完整：CEO中金五年投行+清华金融+CTO字节SRE+COO国际设计奖，金融认知与工程交付都能闭环；",
+      "产品已上线且有自发传播，从公开站点看打磨度高于同期天使项目；",
+      "切入水下早期项目线索这一痛点真实存在，FA与早期VC普遍缺乏系统化工具。"
+    ],
+    "recommendation": 4,
+    "verdict": "团队A、产品已跑通，估值愿景需收敛到sourcing工具本位"
+  },
+  {
+    "id": "E08",
+    "name": "TocLean 万象智能体",
+    "website_status": "无独立官网，疑似复用其母公司\"拨云见日\"（See The Silver Lining/STSL）。BD与品牌曝光主要走36氪、阿里云创新中心等渠道。从公开报道看，拨云见日2021年成立于深圳，已完成preA轮（范式基金+迅京科技）与A轮（科大讯飞），现金流与背书较强但缺乏toClean品牌独立的官网/产品视频。建议要求其披露\"万象智能体\"是否为新立项独立子品牌或原产品线升级。",
+    "repo_status": "无公开GitHub仓库。考虑到主要交付是行业Know-how+控制器+RaaS对赌，代码闭源合理，但需在尽调中查看其TOC+LEAN算法的专利布局、与科大讯飞的技术合作边界及RaaS对赌合同样本。",
+    "team_score": 5,
+    "tech_moat": "福耀全球CIO+TOC/LEAN方法论+RaaS对赌交付，软硬件一体可复制",
+    "competitors": [
+      "西门子MindSphere",
+      "海尔卡奥斯",
+      "树根互联",
+      "用友/金蝶AI",
+      "蓝卓supOS",
+      "黑湖智造"
+    ],
+    "market_tam": "中国制造业数字化转型市场年规模~3000亿RMB，AI Agent切入制造SOP/排产/质量环节TAM可达500-800亿。但实际可被RaaS对赌覆盖的高价值场景集中在头部500家制造集团，前5年SAM~50-100亿。",
+    "valuation_range": "$50-100M pre-money。福耀CIO背景+已落地行业数据+RaaS模式天然押注交付结果，议价能力高。若A轮估值参照科大讯飞此前进入价已经偏高。",
+    "risks": [
+      "制造业客户决策链长、回款慢，RaaS对赌如收益归属与数据归属界定不清，会出现纠纷；",
+      "TOC/LEAN方法论本身非专利壁垒，竞品（西门子/海尔/黑湖）可复制框架，长期moat在Know-how沉淀速度；",
+      "夏乐冰个人IP重，二号位与组织梯队需补，规模化复制存在'明星CIO天花板'风险。"
+    ],
+    "strengths": [
+      "创始人为福耀全球CIO，百厂落地经验是行业稀缺资产；",
+      "RaaS对赌模式与企业利益强对齐，付费意愿与续约率天然占优；",
+      "已获科大讯飞A轮背书，资源协同（讯飞星火大模型+渠道）形成飞轮。"
+    ],
+    "recommendation": 5,
+    "verdict": "创始人级A，工业Agent最具RaaS可兑现性的项目之一"
+  },
+  {
+    "id": "E09",
+    "name": "树为智能",
+    "website_status": "无独立官网；公开搜索引擎对'树为智能 张鑫 接触动力学'未返回独立网站或微信公众号入口，对外曝光极低。对一家面向具身智能数据引擎赛道的早期项目尚可理解，但相较帕西尼、星海图、光轮智能等同赛道竞品的高曝光度，PR/品牌建设明显滞后。建议要求团队披露当前合作机器人本体厂商名单。",
+    "repo_status": "无公开GitHub仓库；接触动力学与物理因果仿真核心代码闭源，需在尽调中验证'物理真值标注引擎'是真自研还是基于Mujoco/Isaac Sim/Genesis等开源框架二开。",
+    "team_score": 4,
+    "tech_moat": "接触动力学博士+50篇顶刊+物理真值数据引擎，AI4Physics垂直纵深",
+    "competitors": [
+      "光轮智能(合成数据)",
+      "群核科技/Coohom",
+      "帕西尼(触觉)",
+      "穹彻智能",
+      "NVIDIA Isaac Lab",
+      "Genesis-Embodied-AI"
+    ],
+    "market_tam": "具身智能仿真数据+真值标注市场2026年TAM~50-100亿RMB，2030年伴随机器人本体放量可达千亿；但当前付费方主要是机器人厂商，前5年SAM~10-30亿。光轮、群核等已占领部分赛道。",
+    "valuation_range": "$30-80M pre-money。具身世界模型/数据引擎赛道2026年Q1头部估值已抬至200亿RMB（星海图），早期数据引擎方向团队学术背景过硬可给到天使中位上沿。",
+    "risks": [
+      "数据引擎为'卖水人'路径，但客户（机器人本体厂商）现金流自身紧张，付费节奏弱于预期；",
+      "物理因果赛道学术氛围浓，与穹彻智能(力觉+视觉融合)、光轮智能(合成数据)直接重合，差异化叙事需重做；",
+      "副教授兼职创业的精力分配与团队全职化进度，是早期落地速度的关键瓶颈。"
+    ],
+    "strengths": [
+      "张鑫接触动力学博士+985副教授+50余篇顶刊，是少有'真懂物理'的具身创业者；",
+      "郭金宇剑桥联培博士+王效愚ABB/GE 20年销售，研发-商务搭配相对完整；",
+      "切入物理因果数据这一被VLA路线长期忽视的环节，技术叙事有独到性。"
+    ],
+    "recommendation": 4,
+    "verdict": "硬科技纵深好，需快速跑出标杆客户与差异化叙事"
+  },
+  {
+    "id": "E10",
+    "name": "天穹智算",
+    "website_status": "无独立官网，对外品牌曝光极低，公开搜索未返回有效结果。对地理空间另类数据赛道的早期项目，缺乏官网与case study会显著拖慢机构客户（CTA、宏观对冲基金）的KYC流程。建议6个月内补齐英文站点与样例报告。",
+    "repo_status": "无公开GitHub仓库；Agent工作流与遥感算法均闭源。需在尽调中重点验证：1)卫星数据源是否自购或合作（成本结构）；2)是否复用Earth-Agent、SkySense等开源遥感大模型。",
+    "team_score": 4,
+    "tech_moat": "卫星遥感+GeoAI+金融另类数据三角，董戈教授为学术锚",
+    "competitors": [
+      "Orbital Insight",
+      "Planet Labs",
+      "Kensho",
+      "国内长光卫星",
+      "中科星睿/星图测控",
+      "BlackSky",
+      "Descartes Labs"
+    ],
+    "market_tam": "全球另类数据市场~150亿USD（2026），其中地理空间~25亿USD；中国侧由于商品交易、宏观与产业研究买方付费意愿提升，本土SAM~10-20亿RMB，但需面对Orbital Insight 2023年估值崩盘到$50M的赛道警示。",
+    "valuation_range": "$30-80M pre-money。董戈教授真实存在（清华航天航空学院研究员可查证）支撑首席科学家背书；但赛道海外标杆Orbital Insight已大幅减值，估值上沿应受压制。",
+    "risks": [
+      "海外标杆Orbital Insight从$430M峰值跌至$50M，说明地理空间另类数据赛道商业化天花板存在严重不确定性；",
+      "中国对冲基金/商品交易商付费意愿弱，TAM理论上诱人但SAM有限，3-5年难以做到$10M ARR；",
+      "高分辨率卫星数据采购成本高，若无自有卫星合作，毛利结构将被Planet等海外数据源持续压制。"
+    ],
+    "strengths": [
+      "首席科学家董戈为清华航天航空学院在编研究员+博导，学术信誉可核验；",
+      "团队覆盖康奈尔系统工程+港理工GeoAI+康奈尔土壤遥感，专业搭配完整；",
+      "Agent工作流自动完成事件拆解→数据源选择→证据提取→报告生成，叙事符合2026年Agent2B主流。"
+    ],
+    "risks_2": null,
+    "recommendation": 3,
+    "verdict": "团队靠谱但赛道商业化已被海外验证证伪一半"
+  },
+  {
+    "id": "E11",
+    "name": "枢宇科技",
+    "website_status": "无公开独立官网；公开搜索引擎未返回汪嘉成或Orvix Pilot公开介绍页面，PR极度克制。模拟/光电子EDA赛道客户全部是B端芯片设计公司，不依赖C端流量，低调可理解，但建议补充客户case study/POC数据白皮书。",
+    "repo_status": "无公开GitHub仓库；自研多智能体框架+垂直LLM均闭源。需在尽调中验证：1)Orvix LLM训练数据来源与版权；2)与Cadence/Synopsys工具链耦合方式是否会触发IP风险；3)'联合华为九天'实际指华大九天(Empyrean)还是华为内部团队，需澄清。",
+    "team_score": 5,
+    "tech_moat": "清华EE博士+Agentic RL自研垂直LLM+宋健IEEE Fellow光电学术锚",
+    "competitors": [
+      "Cadence Cerebrus AI/ChipStack",
+      "Synopsys DSO.ai",
+      "Siemens EDA AI",
+      "Flux.ai",
+      "Silimate",
+      "华大九天Andes AMS",
+      "合见工软UDA 2.0"
+    ],
+    "market_tam": "全球EDA市场~150亿USD（2026），其中模拟EDA~25亿USD；Agentic AI驱动的设计自动化是Cadence/Synopsys 2026最大增长引擎，中国国产模拟EDA SAM~20-40亿RMB，国产替代政策强催化。",
+    "valuation_range": "$80-180M pre-money。清华博士+IEEE Fellow首席科学家+4家头部客户POC验证+对Cadence/Synopsys的模拟EDA替代叙事，估值上沿可参照Agentic EDA国际同行。天使1000万RMB估值偏低，下一轮抬估值空间大。",
+    "risks": [
+      "Cadence ChipStack/InnoStack已在Computex 2026推出L5级自主AI设计工程师，国际巨头时间窗口正在关闭；",
+      "POC转付费合同周期12-18个月，紫光展锐/卓胜微等头部客户决策链长，现金流会在2026下半年面临考验；",
+      "宣传'联合华为九天'若实指华大九天合作，需厘清是技术合作还是渠道合作，避免投资人理解偏差。"
+    ],
+    "strengths": [
+      "拓扑一次成功率提升127%是可量化的硬指标，POC通过率高，技术moat真实存在；",
+      "宋健教授(IEEE Fellow)首席科学家+清华EE的电路与LLM复合背景，是国内极少数兼具EDA与Agentic能力的团队；",
+      "天使轮估值偏低，4家头部客户POC已通过，A轮估值跳跃空间大。"
+    ],
+    "recommendation": 5,
+    "verdict": "Agentic EDA国内最具替代叙事的纵深项目，强推"
+  },
+  {
+    "id": "E12",
+    "name": "合睿智信",
+    "website_status": "无独立官网，对外曝光主要走中科院他山学科交叉创新协会社群。对一家AI落地咨询公司，无官网意味着inbound线索全部依赖创始人IP与社群，规模化天花板明显，需3-6个月内补齐品牌资产。",
+    "repo_status": "无公开GitHub仓库；咨询交付以专家诊断+员工内化为主，技术资产较轻。'1专家+3学员/项目'的方法论是否可复制为标准化SOP，需在尽调中验证。",
+    "team_score": 3,
+    "tech_moat": "中科院1500+硕博专家社群+1专家带3学员的内化交付方法",
+    "competitors": [
+      "埃森哲",
+      "麦肯锡QuantumBlack",
+      "贝恩Vector",
+      "毕马威",
+      "波士顿AlphaSights",
+      "BCG Gamma",
+      "及国内众多AI咨询初创"
+    ],
+    "market_tam": "中国企业数字化+AI咨询年市场规模~600-800亿RMB，但90%被埃森哲/麦肯锡/华为咨询/阿里云等占据；早期'AI落地+学员内化'差异化SAM约30-60亿，但客单价低、利润率薄。",
+    "valuation_range": "$15-40M pre-money。种子+轮已完成600万RMB+7个项目交付，估值参考FDE/AI咨询早期天使中位下沿。中科院社群+童之磊(中文在线CEO)等跨界顾问关系对早期获客有帮助，但商业模式天花板限制估值上沿。",
+    "risks": [
+      "AI咨询是高度依赖人头的劳动密集型业务，毛利率与规模化都受限，难做高估值倍数；",
+      "竞争极度拥挤，埃森哲/麦肯锡/华为咨询/阿里云均已下场，初创品牌力弱；",
+      "童之磊跨界顾问关系尚未公开验证为合作伙伴或战略股东，仅作为社群嘉宾的实际背书价值有限。"
+    ],
+    "strengths": [
+      "中科院1500+硕博专家社群是真实可调用的低成本交付资源，是同期咨询初创少有的供给端壁垒；",
+      "已完成7个项目交付，PMF初步验证，从0到1能力已证明；",
+      "1专家+3学员的'授人以渔'模式与企业'AI素养内化'需求强对齐，复购与口碑潜力较好。"
+    ],
+    "recommendation": 3,
+    "verdict": "PMF已验但天花板偏低，建议作为关注非强投"
+  },
+  {
+    "id": "F01",
+    "name": "时空码头 KsanaDock",
+    "website_status": "HTTP 308 -> 200 OK (重定向 ksanadock.ai -> www.ksanadock.ai/en，Vercel+Cloudflare 部署，平台已上线)。配套官网 ksanadock.com 也已上线，作为 AI World Editor 入口。说明 ksanadock.ai 资产平台从'计划'到'已运行'状态闭环验证成功，是 toC 团队中少数把 Web 产品推到公开可访问的。技术栈采用现代 Serverless 部署，运维成本低。从落地页能确认核心功能（AI 角色生成、像素风地图构建、可导出 Godot 工程包）已上线，部分高级功能（音乐/道具/多模态 Agent 交互）渐进开放中，研发节奏务实。",
+    "repo_status": "GitHub KsanaDock/Microverse 抓取确认 2353 stars（aria-label='2353 users starred'），完全验证 PRD 中'2.3K+ 星标'描述真实。MIT 协议开源，基于 Godot 4 引擎的多智能体 AI 社交模拟沙盒（god-simulation），AI 角色具备独立思维+长期记忆+自主社交。GitHub Trending '新星项目'榜单收录，被 CSDN/腾讯云开发者社区报道为'本地实现斯坦福小镇'的代表项目。开源运营 + 自媒体（小红书 5.9K+ 粉、X 海外英文运营、YouTube 频道）形成完整 GTM 飞轮，独立开发者社区影响力扎实。",
+    "team_score": 4,
+    "tech_moat": "斯坦福 AI 小镇思路 + Godot 引擎深度打通 + 开源生态 2.3K stars + 多模态 AI 资产 pipeline",
+    "competitors": [
+      "Inworld AI（角色 AI）",
+      "a16z AI Town（开源参照）",
+      "Rosebud AI（游戏生成）",
+      "Buildbox AI",
+      "Roblox AI Studio"
+    ],
+    "market_tam": "全球游戏开发工具市场 $30B+（Unity/Unreal 占主导），AI 游戏 Agent 细分赛道 $2-5B（2026 估算）。独立游戏开发者全球约 30 万人，AIGC 游戏资产工具的可寻址市场约 $500M-1B。中长期想象力在于'AI Native 游戏生产'颠覆传统美术/关卡/叙事工作流，TAM 可放大至游戏引擎层级。",
+    "valuation_range": "$30-80M pre-money",
+    "risks": [
+      "Inworld AI / Rosebud AI 等海外玩家融资数亿美元、生态领先，KsanaDock 资源差距显著",
+      "Godot 引擎生态规模远小于 Unity/Unreal，工具锁定在小众引擎可能限制 TAM 上限",
+      "'用爱发电'开源到商业化转化路径不清晰，PMF 和付费意愿需要验证"
+    ],
+    "strengths": [
+      "2.3K+ GitHub stars 实证产品力，独立完成美术/音乐/特效/代码的全栈型创始人极稀缺",
+      "ksanadock.ai 平台已上线，从开源项目到 SaaS 产品形成完整闭环",
+      "小红书+X+YouTube 多平台自媒体阵地，独立开发者社区认可度高，GTM 自带流量"
+    ],
+    "recommendation": 4,
+    "verdict": "稀缺的全栈型独立开发者，开源到商业化路径清晰"
+  },
+  {
+    "id": "F02",
+    "name": "UseIt AI",
+    "website_status": "未提供独立官网（PRD site 字段为空）。仅 GitHub 仓库作为对外门面，对 toB 设计师群体而言官网缺失是明显短板。新加坡注册（USEIT PTE. LTD.），美元架构，海外融资/出海路径已铺垫，但缺少 product landing page 或 demo 视频意味着 GTM 阶段尚未启动公开市场动作，可能正处于 stealth + 客户试点阶段。Pre-A $2M 已到位说明融资先于产品公开发布，机构信任团队学术背景。",
+    "repo_status": "GitHub UseIt-AI/use-it-agent 抓取到仅 27 stars，与创始人个人学术项目 GitHub 7K+ Stars 的影响力对比悬殊，说明商业项目仍处早期/未公开主推开源。仓库存在但社区热度未启动。郜迪飞作为 Computer Use Agent 方向最早期开拓学者、顶会论文 40+ 篇这一学术 credential 较硬，但'比 Claude Computer Use 早 2 个月'的说法 WebSearch 未找到独立第三方证据。从公开搜索可见 Manus / Lovart / OpenAI Operator 等同赛道玩家叙事已占领认知。",
+    "team_score": 5,
+    "tech_moat": "Agent Harness 自研 + 输出可编辑 PSD/AI/SVG 工程文件（差异于通用 Computer Use）+ 学术沉淀",
+    "competitors": [
+      "Anthropic Claude Computer Use",
+      "OpenAI Operator",
+      "Lovart AI（设计 Agent）",
+      "Manus（通用 Agent）",
+      "Adobe Firefly Agent"
+    ],
+    "market_tam": "全球设计师工作流软件市场（Adobe Creative Cloud）$25B+，AI Design Agent 细分赛道 2026 估算 $3-8B，Lovart 等已验证设计师对 AI Agent 的付费意愿。'交付即源文件'切入专业设计师付费心智，ARPU 上限较高（参照 Adobe $60/月）。中长期可扩展到工业设计/CAD/视频剪辑等专业软件场景。",
+    "valuation_range": "$40-120M pre-money（Pre-A $2M 已落地）",
+    "risks": [
+      "Anthropic/OpenAI/Google 三大厂 Computer Use 通用 Agent 持续升级，垂类窗口期可能被压缩",
+      "Lovart 等已获大额融资 + 用户认知领先，UseIt 缺少官网/demo 公开 GTM 滞后",
+      "4 位联创学术/技术背景重，缺少明确销售/设计师社区运营基因，B 端获客挑战大"
+    ],
+    "strengths": [
+      "创始人 Computer Use Agent 学术先发性 + 顶会论文 40+ 篇 + 学术开源 7K+ stars 极硬",
+      "新加坡美元架构 + Pre-A $2M 已到位，海外路径与资本结构清晰",
+      "'交付可编辑源文件'差异化定位精准，避开通用 Computer Use Agent 的'像素级模拟'弱点"
+    ],
+    "recommendation": 4,
+    "verdict": "学术背景最硬的 Computer Use 垂类，需要快速 GTM 验证"
+  },
+  {
+    "id": "F03",
+    "name": "Lulula AI",
+    "website_status": "无官网，无 GitHub，处于真正的极早期 stealth 状态。注意：WebSearch 命中的 lulula.com 是另一个面向女性的互动幻想音频平台，并非本项目，需要严格隔离避免混淆。本项目（孙长昊创立）目前公开足迹为零，只能依赖团队 credential 评估。这种极早期状态下缺少 demo 视频或 alpha 版本意味着技术风险无法通过产品验证，估值与判断完全押注团队。",
+    "repo_status": "无公开 GitHub。WebSearch 未能独立验证孙长昊'字节 Coze 早期核心成员、百度文心一言创始团队核心成员'的具体职级与贡献（公开报道中 Coze 业务带头人为朱文佳、技术负责人洪定坤），需在尽调环节通过推荐人/前同事进一步交叉确认。Dr.Sam（首席语音科学家，论文 20+ 篇）+ 前滴滴语音工程负责人 Brick + 前百度 MEG AIGC 核心 + 字节豆包 Agent 平台成员，团队成分配置完整（科学家+工程+Agent+RL），是 toC 6 个项目中团队最豪华的之一。",
+    "team_score": 5,
+    "tech_moat": "全双工实时语音（可打断/插嘴/追问）+ 3D 空间音效 + 本地隐私 / 云端混合架构 + 语音-文档协同",
+    "competitors": [
+      "Sesame（实时语音）",
+      "Sindarin",
+      "OpenAI Realtime API",
+      "字节豆包实时语音",
+      "Character.AI Voice"
+    ],
+    "market_tam": "全球语音 AI 市场 $30B+（2030 估算），实时对话 AI 细分 $5-10B。toC 陪伴/伴侣 AI 已被 Character.AI（$10B+ 估值）和 Replika 验证付费意愿；语音作为下一代核心交互模态被 OpenAI（Sky 事件）、Sesame（$45M 种子）抬高估值锚点。中国市场字节豆包实时语音免费策略对独立创业者构成结构性挤压风险。",
+    "valuation_range": "$30-100M pre-money（参照 Sesame $45M 种子估值带）",
+    "risks": [
+      "字节豆包实时语音大模型已免费开放，孙长昊'前东家'反过来成为最大竞品，结构性挤压定价空间",
+      "极早期无产品无 demo，技术承诺（全双工/3D 音效/本地云混合）未经验证，纯团队押注",
+      "团队 credential 中 Coze/文心一言'核心成员'职级未经独立第三方背书，需推荐人尽调"
+    ],
+    "strengths": [
+      "团队 6 项目中技术深度最厚：科学家+语音工程+RL+Agent 完整配置，覆盖全链路",
+      "全双工实时语音 + 3D 空间音效是被 OpenAI/Sesame 验证的下一代交互方向，赛道正确",
+      "孙长昊连续主导 10+ AI 产品 0 到 1，加上字节/百度/腾讯/旷视全栈履历，连续创业者打过仗"
+    ],
+    "recommendation": 3,
+    "verdict": "团队最豪华但风险最高，需对标 Sesame 验证差异化"
+  },
+  {
+    "id": "F04",
+    "name": "Humanify 人格智能",
+    "website_status": "无独立官网（PRD site 字段为空），WebSearch 命中的公开报道来自新浪财经、网易、ByDrug、知乎专访、搜狐天眼等多个一手媒体源，融资新闻覆盖完整。早期阶段无 landing page 但有强势 PR，符合'融资先于产品'打法，匹配其'模型+OS 基础设施'的重资产路线。媒体定调'97 年创始人不卷 AI 智商、押注类人认知'，已建立差异化叙事壁垒。",
+    "repo_status": "无公开 GitHub（典型基础设施公司在模型未发布前不开源）。融资信息已通过新浪财经、网易、搜狐独立验证：人格智能（杭州）有限公司 2024 年成立，2026 年 1 月完成数千万元种子轮，五源资本领投，奇绩创坛（陆奇）跟投。注册资本 100 万 RMB，法定代表人易和阳。核心团队来自浙大/清华 AI 模型算法+系统工程+产品设计三类人才完整覆盖。创始人专访（知乎长文）已建立思想领袖姿态，对 AGI 的定义和 Humanify 命名理念阐述清晰。",
+    "team_score": 5,
+    "tech_moat": "类人认知模型基座（情商/人格/意图/情绪/长期记忆）+ 模型即 OS 范式 + 五源+奇绩双背书",
+    "competitors": [
+      "Rabbit R1 OS",
+      "Humane Pin（已挫折）",
+      "Character.AI（情感 AI）",
+      "Inflection Pi（已被微软收购）",
+      "Replika"
+    ],
+    "market_tam": "若'模型即 OS' 范式成立，可对标全球操作系统市场（iOS+Android 累计 $200B+ 生态价值），但目前是纯想象空间。短期可寻址市场为 AI 陪伴/情感 AI（Character.AI $10B+ 估值参照），约 $5-20B。这是 toC 6 项目中 TAM 想象力天花板最高的，但落地路径最长。",
+    "valuation_range": "$60-250M pre-money（参照 Rabbit / Humane 同期估值带，五源领投通常 post-money $50-80M，下一轮跳到 $200M+ 概率高）",
+    "risks": [
+      "'模型即 OS' 范式过于宏大，从'类人认知'到真正落地为 OS 路径漫长，估值已透支多年预期",
+      "Rabbit R1 / Humane Pin 等 AI OS 先行者均在硬件商业化阶段挫折，Humanify 走纯软件版同样面临分发渠道难题",
+      "97 年创始人虽 Web3 有百万用户经验，但 AI 基础设施所需要的科研深度+长周期烧钱能力需进一步验证"
+    ],
+    "strengths": [
+      "F 区 6 项目中唯一一家融资节点+投资方+金额三要素全公开验证的项目（新浪/网易/搜狐多源交叉）",
+      "五源资本领投+陆奇博士跟投，机构背书强度全场最高，下一轮 markup 概率大",
+      "差异化叙事'类人认知 vs AI 智商军备竞赛'清晰且被主流财经媒体接受，已占领心智位"
+    ],
+    "recommendation": 5,
+    "verdict": "F 区 TOP1 标的，机构背书+叙事强度全场最高"
+  },
+  {
+    "id": "F05",
+    "name": "锡鸟游戏 All Our Broken Parts",
+    "website_status": "Steam 商店页面 HTTP 200 OK，AppID 3473430 已上架（store.steampowered.com/app/3473430/All_Our_Broken_Parts/）。Steam 页面已发售前预热阶段是叙事独立游戏标准 GTM 节奏。社媒矩阵 QQ 群+B 站+小黑盒+小红书已就绪，符合中国独游团队'多平台分发养粉'打法。Steam 愿望单（wishlist）是首发销量核心指标，需要尽调时通过 SteamDB 等工具看具体数据。",
+    "repo_status": "无 GitHub（商业游戏项目正常）。团队 credential 较扎实：CEO 班春晖前网易关卡设计师 + 10+ Gamejam 经验 + indieplay 入围；CTO 丁耘天前华为工程师；叙事陈子钦前网易+库洛；艺术周子迁前鹰角重力井（《明日方舟》母公司）。配置覆盖创意/技术/叙事/美术四大独游核心岗位，但都是中级经验非超级明星，需评估首作完成度风险。",
+    "team_score": 3,
+    "tech_moat": "'机器人情绪是流动的特征电流'独特叙事设定 + 网易/鹰角美术叙事血脉 + Steam 全球分发",
+    "competitors": [
+      "Papers Please",
+      "Her Story",
+      "Unpacking",
+      "Disco Elysium（叙事独游 benchmark）",
+      "中国独游：戴森球计划/烟火"
+    ],
+    "market_tam": "全球独立游戏市场 Steam 年规模 $4B+，单款叙事独游天花板由 Unpacking（~$15M）、Papers Please（~$8M）、Her Story（~$5M）等定义。中国叙事独游近两年《烟火》《三伏》验证国内付费意愿但天花板有限。本项目 TAM 估算 $5-30M 销售额上限，对应公司估值天花板 $10-30M。",
+    "valuation_range": "$5-20M pre-money（独立游戏赛道结构性偏低）",
+    "risks": [
+      "独立游戏发售前估值/融资缺少标准锚点，奇绩路演孵化逻辑（量产+复利）与独游单品逻辑错配",
+      "团队均为中级经验，首款商业作品完成度+营销能力未经验证，叙事独游容错率极低",
+      "Steam 中国区结算/海外宣发对小团队挑战大，'2026 年发售'是否能按时上线存疑"
+    ],
+    "strengths": [
+      "Steam 已上架预热，发售路径明确，比纯概念阶段游戏团队稳一档",
+      "网易关卡设计师+鹰角概念设计美术+库洛叙事 = 国内一线游戏公司经验配齐，团队基本功扎实",
+      "'机器人维修+情绪诊疗'差异化叙事设定，在 Papers Please 框架上叠加治愈系情感线，有 IP 想象力"
+    ],
+    "recommendation": 2,
+    "verdict": "独游单品逻辑与 VC 复利逻辑错配，更适合发行渠道而非股权融资"
+  },
+  {
+    "id": "F06",
+    "name": "STACK ANYWAY 观点跃迁",
+    "website_status": "无独立官网（PRD site 字段为空）。'技术社区粉丝破一万'但无公开链接，无法核验社区类型（B 站？知乎？微信？）。WebSearch 未能找到 STACK ANYWAY/观点跃迁/Text to Device 平台的任何独立第三方报道，对一个声称'全球首个'+'央视撒贝宁/老罗/影视飓风 Tim 亲自带货'的项目来说，公开足迹严重不足。徐世哲'帝国理工+皇家艺术学院+IF DIA IDEA 大满贯'背景较硬但 WebSearch 未交叉验证。",
+    "repo_status": "无公开 GitHub。Rico Li'14nm 芯片独立操盘+ISCA 顶会'是非常硬的 credential（ISCA 是计算机体系结构最顶会，独立做 14nm 流片个人能完成的极少），如属实则团队架构能力远超同期硬件创业团队。李卓霖 ml5.js 核心开发者 + 20+ app 上架 + 过亿流量也属于可独立验证（ml5.js 是知名开源项目）。陈炳州'年营收 3000 万的硬件嵌入式校长+培养 300+ Maker 进入麻省/哈佛/帝国理工'是 STEM 教培背景，配合 Maker 社区基因。",
+    "team_score": 4,
+    "tech_moat": "Text-to-Device 自然语言转电子硬件设计 + 14nm 流片经验 + Maker 社区 1 万粉",
+    "competitors": [
+      "Tinkercad（Autodesk）",
+      "Fusion 360（Autodesk）",
+      "LabVIEW（NI）",
+      "Wokwi（在线电子仿真）",
+      "Arduino IDE + Copilot"
+    ],
+    "market_tam": "全球电子设计自动化（EDA）市场 $15B（Synopsys/Cadence/Mentor 三巨头垄断），消费级硬件 Maker 工具市场 $1-3B。'硬件版 Claude Code'若能跑通，可对标软件 Cursor/Claude Code 的 toC 估值带，但硬件设计涉及物理元件采购+焊接+调试，AI 端到端难度远高于纯软件。教育/Maker 市场切入容易但 TAM 偏小（$200-500M）。",
+    "valuation_range": "$30-80M pre-money",
+    "risks": [
+      "'硬件版 Claude Code'技术难度极高，从自然语言到 PCB 设计到元件采购到原型组装的端到端闭环未见 demo",
+      "Tinkercad/Fusion 360 已被 Autodesk 收购整合，AI 增强版本可能由 Autodesk 自己推出形成正面竞争",
+      "团队 credential 强但公开足迹弱，'央视带货国民级产品'等强 claim 无法 WebSearch 验证，需尽调环节核实"
+    ],
+    "strengths": [
+      "Rico Li 14nm 独立流片+ISCA 顶会属于硬件赛道稀缺人才（如果属实），团队架构深度强",
+      "ml5.js 核心开发者 + 20+ app 上架，软件应用层执行力可独立核验",
+      "教培营收 3000 万 + 1 万 Maker 社区粉丝，自带早期用户池，GTM 比纯技术团队顺畅"
+    ],
+    "recommendation": 3,
+    "verdict": "团队深度强但执行难度极高，需核验央视带货等强 claim"
+  },
+  {
+    "id": "F07",
+    "name": "海伦阿姨的厨房",
+    "website_status": "未提供官网链接；项目处于早期销售验证期，可能仅有微店/淘宝/抖音店铺。在首年 0 市场费用情况下售出 100 万包是关键销售证据，但缺乏可公开追溯的品牌官网会影响品牌资产沉淀和投资人信任建立。建议尽快搭建独立 D2C 站点对接 Shopify/有赞，作为转化和复购入口。",
+    "repo_status": "无 GitHub。作为快消 D2C 项目，技术栈不公开属于正常；但团队 highlight 提到「全自研 AI 工具覆盖研发到交付全链路」需要在 DD 现场要求 demo 验证（例如 AI 配方迭代、视觉陈列工具、需求预测）。若 AI 工具只是 ChatGPT wrapper，则技术差异化 narrative 失真。",
+    "team_score": 4,
+    "tech_moat": "AI 全链路工具 + 模块化陈列方案（一步式 SKU 适配多场景）",
+    "competitors": [
+      "麦富迪（乖宝，国产 TOP1，GMV 5000W+/月）",
+      "Pet Honesty（美国功能性零食 D2C）",
+      "Wuffes（北美宠物保健 DTC）",
+      "弗列加特（乖宝高端线，95%+ 增速）",
+      "宠粮新锐如 RedDog、卫仕"
+    ],
+    "market_tam": "中国宠物食品 2026E 1140 亿元（德勤），其中零食赛道 CAGR 25% 为最快子类；犬猫零食渗透率仍快速上行，互动型零食 75%、功能型 51%。全域快消零售（含线下便利店/社区货架）打开 SKU 单包高频复购天花板，TAM 测算 200-400 亿可触达 GMV，渗透 1% 即可做到 2-4 亿营收。",
+    "valuation_range": "$15-30M pre-money。首年 100 万包销售 + 前小米国际化团队溢价，但仍属重运营+毛利天花板较低的快消，估值受 LTV/CAC 和复购率约束，难给纯互联网倍数。",
+    "risks": [
+      "宠物零食赛道国产高度内卷（麦富迪/弗列加特/比瑞吉）+ 国际品牌（Royal Canin、皇家）双夹击；首年 100 万包是否含赠品/补贴需澄清",
+      "「模块化陈列」是线下零售概念，意味着重 BD 和供应链运营，对前小米互联网团队是 capability gap，存在「降维打击」叙事 vs 实操能力的错配",
+      "AI 自研工具尚未拿出可验证 demo；若停留在 PPT，highlight 中的科技 narrative 折损严重"
+    ],
+    "strengths": [
+      "团队前小米国际化背景，邓 + 张 + 涵宇三人覆盖 PM/设计/履约，海外 0-1 经验在宠物出海窗口有协同",
+      "首年 0 营销费售出 100 万包是真实早期 PMF 信号（需进一步看 SKU/客单/复购）",
+      "切入点「随时随地一包」属于品类未被满足的「便利购」场景，对标可乐分销逻辑，理论 TAM 大"
+    ],
+    "recommendation": 3,
+    "verdict": "PMF 信号真实但赛道拥挤，须深入验证复购与陈列网络可执行性"
+  },
+  {
+    "id": "F08",
+    "name": "想通了",
+    "website_status": "未提供官网；产品尚处 PMF 验证前期。AI 心理陪伴赛道国内监管对「心理咨询」类宣称有严格红线（不可宣称诊断/治疗），缺少品牌独立站会限制内容沉淀和合规自证。建议尽快上线 Web/微信小程序入口并明确「思维伙伴/陪伴」定位规避监管。",
+    "repo_status": "无 GitHub。CTO 吴合风 13 项专利 + 8 篇论文可侧面佐证算法能力，但「动态人格认知系统」缺乏开源/论文级别 benchmark，需在 DD 时要求模型评估指标（长期记忆一致性、人格漂移率、用户认知模型回归测试）。",
+    "team_score": 5,
+    "tech_moat": "动态人格认知系统 + 用户心智模型长期演化（清华艺术×自动化×北大心理跨学科）",
+    "competitors": [
+      "Replika（北美情感陪伴 TOP）",
+      "Rosebud Journal（AI 日记 + 心理）",
+      "Character.ai（角色陪伴）",
+      "聆心智能/CharacterGLM（清华系国内对标）",
+      "Pi.ai/Inflection（情绪陪伴）"
+    ],
+    "market_tam": "全球 AI 心理陪伴 / 情绪陪伴 2026E $30-50 亿，其中 Character.ai 已验证 MAU 2000 万+。国内年轻人心理咨询渗透率仍低（<5%），但替代品咨询贵且供给少，AI「过来人」定位卡位「轻心理 + 思维教练」垂直，TAM 测算 100-200 亿人民币。",
+    "valuation_range": "$25-50M pre-money。清华+北大跨学科团队溢价 + Rosebud/Replika 早期估值锚（Rosebud 种子轮 $6M / 估值 $30M+）。如能拿出 30 天留存与日均会话深度数据，可向上突破。",
+    "risks": [
+      "AI 心理陪伴国内合规红线高（不可宣称诊断、不可承诺疗效），监管事件可能瞬间冻结增长",
+      "Character.ai/Replika 已用「情感+长期记忆」教育市场，差异化「过来人平等身份」是叙事层而非技术壁垒，易被大模型基座方碾压",
+      "三人创始团队学术背景厚但缺乏明确的运营/增长担当，C 端增长曲线如何起步是关键缺口"
+    ],
+    "strengths": [
+      "跨学科组合（艺术设计/算法/心理博士）是 AI 心理产品稀缺配置，沈子维北大心理博士给「心智模型」叙事 credibility",
+      "韩瑜思维认知赛道万粉博主自带冷启动流量 + 内容运营经验，规避 0-1 流量荒",
+      "「过来人」平等身份切入差异化清晰，规避「AI 不懂我」的传统 chatbot 痛点"
+    ],
+    "recommendation": 4,
+    "verdict": "团队背景顶配 + 切入点细腻；监管与增长执行是双重不确定性"
+  },
+  {
+    "id": "F09",
+    "name": "Kuku",
+    "website_status": "https://www.kuku.mom/ HTTP 200 正常，Cloudflare 托管；产品定位清晰（macOS local-first AI Markdown 编辑器），公开 beta 期间 Pro tier 免费试用，正式定价 $10/月 Free→Pro→Team $15/seat 分层合理。已开放 Homebrew + GitHub Release v0.5.4 下载，技术细节真实可验证。",
+    "repo_status": "未公开主仓库 URL，但官网披露 MIT 开源 + Tauri v2 + React 19 + SolidJS + ProseMirror 重写、Rust 后端、本地 Whisper + Gemini Agent。技术栈与 highlight 一致，无包装嫌疑。",
+    "team_score": 3,
+    "tech_moat": "Tauri+Rust 原生 15MB/80MB 极致体积 + local-first + Cursor 风格 diff 审查的 AI Agent",
+    "competitors": [
+      "Obsidian（PKM 标杆，1000 万用户）",
+      "Cursor（AI 编辑器范式定义者）",
+      "Reflect.app（AI Notes）",
+      "Heptabase（卡片笔记 + AI）",
+      "Bear/Logseq/Notion AI"
+    ],
+    "market_tam": "全球 PKM/笔记软件 SAM $30-50 亿（Notion $10B 估值锚、Obsidian 千万用户）。AI-native Markdown 编辑器是 Obsidian 之后的代际机会，但用户基数受限于 macOS + Markdown 重度用户（开发者/研究员/写作者），TAM 测算 $5-10 亿可触达 ARR。",
+    "valuation_range": "$15-40M pre-money。Reflect.app 同阶段估值 $30M 可锚定；产品已上线 v0.5.x + 开源 MIT 路线可加分，但赛道挑战 Obsidian 既有用户心智门槛极高。",
+    "risks": [
+      "Obsidian 社区生态（插件 + Sync + Publish）已形成强网络效应，迁移成本是 PKM 类产品最大门槛，「换编辑器」转化率历史上极低",
+      "仅 macOS（Win/Linux 待发布）严重限制用户基数；Gemini AI Agent 单依赖一家模型供应商存在 vendor risk",
+      "团队信息未公开（founder 留空），无法评估 PMF 执行力与商业化经验"
+    ],
+    "strengths": [
+      "产品已实打实交付（v0.5.4 + Homebrew + 真实 Tauri/Rust 工程），技术执行力得到验证",
+      "Cursor 风格 diff 审查 + local-first 是对 Obsidian AI plugin 路径的代际升级，差异化清晰",
+      "MIT 开源降低用户决策成本，可借鉴 Obsidian/Logseq 社区驱动增长打法"
+    ],
+    "recommendation": 3,
+    "verdict": "工程素质过硬但团队不透明且赛道用户迁移壁垒高"
+  },
+  {
+    "id": "F10",
+    "name": "skardi.ai",
+    "website_status": "https://skardi.ai 301 → https://www.skardi.ai/ 200 正常，Cloudflare 托管，主页定位「the data plane your AI agents are missing」。Delaware C-Corp 美国主体 + 西雅图运营，对接美国 enterprise 客户（法律/招聘/AI 访谈头部公司 POC）路径成立。",
+    "repo_status": "https://github.com/SkardiLabs/skardi 公开 Apache 2.0；74 stars / 6 forks / Rust 96.8% / v0.4.0（2026-05-01）。功能与 highlight 完全一致：DataFusion in-process SQL 引擎 + CSV/Parquet/JSON/S3/Postgres/Mongo/Iceberg/Lance/SeekDB 统一查询、RAG embeddings、参数化 SQL → REST、可观测性。月级别迭代节奏（v0.1→v0.4 仅 5 周）显示团队工程密度极高。",
+    "team_score": 5,
+    "tech_moat": "Agent 原生 data plane + DataFusion 高性能 SQL + 统一连接/权限/血缘/回滚",
+    "competitors": [
+      "Apache Spark / Databricks（传统数据平台）",
+      "DuckDB / MotherDuck（in-process OLAP）",
+      "Apache DataFusion 直接生态",
+      "LangChain / LlamaIndex 数据层",
+      "RisingWave / Materialize（流式数仓 Agent 场景）"
+    ],
+    "market_tam": "Databricks $43B 估值锚定数据平台 TAM 千亿美元级；Agent 数据平面是子集，但属于「Agent 落地最后一英里」必经基建。AI infra 投资 2026 仍是 hot money，企业级 Agent 部署需求爆发期，3-5 年 SAM 测算 $50-100 亿。",
+    "valuation_range": "$30-60M pre-money。Seed $5M USD 计划 + 法律 10B 估值客户接触 + 头部 AI 招聘/访谈公司 POC = 强 signal；UIUC 双 CS + AWS/Kafka Committer/Rockset(OpenAI)/Tubi 履历可对标顶级 infra 团队，类比 Modal Labs/Replicate 早期估值。",
+    "risks": [
+      "Databricks/Snowflake/MotherDuck 等巨头均在布局 Agent 数据接入层，时间窗口约 12-18 个月，需要在大厂下场前锁定头部客户和 OSS mindshare",
+      "OSS 商业化路径未明确（74 stars 仍属早期 mindshare），如何从 self-host 走向 SaaS 定价/Enterprise 合同需要演练",
+      "美国主体 + 中国创始团队 + 美国客户的 GTM 距离感，BD 资源是否到位是种子轮后最大变量"
+    ],
+    "strengths": [
+      "技术与产品 narrative 完全对齐（GitHub 真材实料、Apache 2.0、Rust 高性能、月度发版），DD 可信度顶级",
+      "团队是稀缺的「数据 infra + Agent」双线 senior（Kafka Committer + Rockset/OpenAI + AWS query engine），赛道天然壁垒",
+      "客户进展具体（头部法律 Agent / AI 招聘 POC / AI 访谈集成）超出种子轮均值，B2B 早期 traction 强"
+    ],
+    "recommendation": 5,
+    "verdict": "本批最稀缺标的，infra 真功夫 + 早期客户落地双确认"
+  },
+  {
+    "id": "F11",
+    "name": "Memova.ai",
+    "website_status": "https://memova.ai 200 正常但官网信息极少，主页仅「The Most Intuitive AI Agent」标语，无 team/feature/pricing 公开页。早期产品状态：可能 waitlist 阶段。在美元架构 + 硅谷创始人 narrative 下，官网透明度严重不足是 GTM 减分项。",
+    "repo_status": "无公开 GitHub。技术宣称「全球首个无门槛 Agent 闭环工作流平台」「普惠 Claude+Obsidian 能力」很大，需在 DD 时要求 demo 实证 multimodal 录音/笔记/网页/图片 → 结构化知识库 → Agent 调用全链路。",
+    "team_score": 4,
+    "tech_moat": "Agent 闭环工作流 + 多模态信息碎片 → 结构化私有知识库",
+    "competitors": [
+      "Day One / Rosebud Journal（AI 日记）",
+      "Otter.ai（语音转录 + summary）",
+      "Mem.ai（OpenAI 投，AI 笔记）",
+      "Notion AI / Granola.ai",
+      "Mindsera / Reflectly（结构化反思）"
+    ],
+    "market_tam": "AI 个人生产力 + 第二大脑 2026E SAM $50-100 亿（Notion $10B / Otter.ai $2B / Mem.ai $110M 估值）。无门槛 Agent 是 long-term 平权 narrative，但短期 TAM 受限于 prosumer 高频内容创作者群体，$5-20 亿可触达。",
+    "valuation_range": "$25-50M pre-money。种子 $150 万 + 硅谷连续创业者（CAC Auto Group 3000 万 USD ARR / EZDealer 已验证）+ 斯坦福医学院助理教授 CTO + OpenAI / Meta 创始团队科学家阵容，团队溢价显著。但产品成熟度落后于 Memo.ai/Granola，估值上限受限于 traction。",
+    "risks": [
+      "宣传词「普惠 Claude+Obsidian」野心大但需对应产品能力，过承诺-欠交付风险显著",
+      "AI Journal/语音笔记赛道（Day One/Granola/Rosebud/Otter）拥挤且巨头均在做 Memory 层，差异化窗口缩窄",
+      "孙明雨履历（Carvana 汽车 D2C/SaaS）与个人 AI 知识库赛道领域跨度大，团队心智迁移与用户洞察是否到位待验证"
+    ],
+    "strengths": [
+      "团队配置接近全明星（OpenAI 数据科学家 + Meta 研究科学家 + 斯坦福助理教授 CTO + 二次创业 CEO），技术深度与 narrative 信誉双强",
+      "创始人 ASD+ADHD 自述切入 personal alignment 是有共情的 founder-market fit 信号",
+      "美元架构 + 杭州/旧金山双引擎对接中美 AI 资本与用户，未来上轨融资路径清晰"
+    ],
+    "recommendation": 4,
+    "verdict": "团队顶级但官网/产品透明度不足，需 demo 实证后再判"
+  },
+  {
+    "id": "F12",
+    "name": "Thennote",
+    "website_status": "无独立官网（仅通过奇绩小程序展示），对 C 端 AI 工作空间产品是严重早期信号——意味着尚未到公开 beta 或获客阶段，仍处概念/Demo 期。Notion/Cursor 这类对标产品早期均依赖官网 → waitlist → 社区驱动增长，独立站缺失影响 GTM 节奏。",
+    "repo_status": "无公开 GitHub。产品「Context Aware + Proactive AI + Playable Notebook」三支柱需 demo 验证，特别是 Playable Notebook（write/run/preview/build）涉及代码执行沙箱与 Cursor 级别工程量。",
+    "team_score": 3,
+    "tech_moat": "Proactive Agent 主动预测 + Playable Notebook 可执行 + 全局 Context",
+    "competitors": [
+      "Notion + Notion AI（AI workspace 标杆 $10B 估值）",
+      "Cursor（AI IDE，年化 ARR $200M+）",
+      "ChatGPT Canvas / Claude Projects",
+      "Cluely（proactive AI 副驾驶）",
+      "Granola / Notebook LM / Coze"
+    ],
+    "market_tam": "AI 工作空间 / 知识工作者 SAM $50-100 亿，Notion + Cursor 双锚证明 prosumer 付费意愿强。但「主动 Agent + Playable Notebook」复合定位需要在 Notion 工作流 + Cursor 代码执行 + Granola 预测之间找到差异锚点，可触达 $2-5 亿 ARR。",
+    "valuation_range": "$15-35M pre-money。种子加轮 $150 万 + 智谱 Zread 项目负责人光环可锚 $20-30M；但单创始人（CEO/CTO/CDO 一人扛）+ 无核心团队披露 + 三支柱宏大叙事缺乏 demo，估值受限。Cluely 早期估值 $120M 是同赛道上限参考。",
+    "risks": [
+      "单 founder 结构对 AI workspace 这种全栈复杂产品是高风险——Notion/Cursor 早期均为强联创结构，刘荣轩需在 3-6 个月内补齐 CTO/技术合伙人",
+      "三支柱（全局上下文 + 主动 AI + Playable Notebook）每一条都是 100 人团队产品矩阵，单 founder 同时推进 = 聚焦失败的高概率信号",
+      "Notion AI/Cursor/Claude Projects 强势挤压；Slogan「最值钱的是心流」属营销叙事而非产品壁垒，对企业付费决策弱"
+    ],
+    "strengths": [
+      "刘荣轩智谱 AI Coding PM + Zread 项目负责人，对 AI 产品/工程/增长复合理解强（Zread 是智谱明星产品，公开报道丰富）",
+      "种子加轮 $150 万拿到说明天使期获得资本认可，奇绩入营是额外背书",
+      "「Proactive AI」概念与 Cluely、Granola 同向，2026 年 AI 副驾驶心智窗口已打开，时机合理"
+    ],
+    "recommendation": 3,
+    "verdict": "PM 背景亮眼但单 founder 扛三支柱叙事是结构性风险"
+  }
+];
+const PROJECT_DATA = {
+  "meta": {
+    "title": "奇绩创坛 2026 春季路演日 · 项目全景报告",
+    "subtitle": "56 个录取项目全景调研（v4.0 · 微信文章一手补全）",
+    "date": "2026-06-07",
+    "version": "v4.0",
+    "source": "图片项目卡 + 路演现场照 + 奇绩创坛官方微信文章（https://mp.weixin.qq.com/s/03QbrGJc1zmpe94_51EQmA）",
+    "stats": {
+      "total": 56,
+      "overseas_pct": 43,
+      "research_driven_pct": 45,
+      "master_or_above_pct": 62,
+      "by_track": {
+        "智能体 (Agent)": 39,
+        "具身&物理智能": 19,
+        "数据": 10,
+        "FDE&新组织": 10,
+        "AI4Science": 12,
+        "出海": 22
+      },
+      "by_industry": {
+        "智能体": 39,
+        "具身与物理智能": 19,
+        "数据": 10,
+        "AI 基础设施": 14,
+        "FDE & AI 咨询": 10
+      },
+      "recruitment_rate": "1%",
+      "researcher_founder_pct": 45
+    },
+    "lu_qi_keynote": "我们正处在通用智能「相变」开启的新生产力时代——以 Claude Code 为代表的能动性智能体开始独立操作各类认知工具，使认知工作的边际成本趋近于零。工具本身具备了智能，并且能够进行自主规划和长程执行。在新的生产力中，研究成为直接生产力，算力成为核心生产工具，数据成为重要生产要素，创新需要「从 -1 到 1，从研究到价值」——研究、工程、产品和商业化需要一起做。新生产力催生新组织与新人才，研究型创业组织（Researcher Founder）成为新的创新力量，本届路演项目中 Researcher Founder 占比 45%。"
+  },
+  "zones": [
+    {
+      "zone": "A区",
+      "theme": "前沿科技",
+      "count": 11,
+      "color": "#1E40AF",
+      "projects": [
+        {
+          "id": "A01",
+          "name": "VibeChip / 芯辰启源",
+          "tagline": "为模拟射频芯片设计公司提供模型/Agent/下一代设计平台",
+          "direction": "AI 模型 + Agent + 下一代设计平台辅助模拟射频芯片设计，以芯片数据的定义和标注作为核心护城河",
+          "founder": "梁进帆 — 创始人 / CEO",
+          "team": "首席科学家：清华大学教授，发表百余篇 SCI，致力于 IC 自动化设计十余年。梁进帆（CEO）：清华大学 IC 博士，连续创业者，博士研究方向是 AI 驱动芯片设计；多次流片经验、多篇论文专利；同时兼具商业思维，在家族企业历练过。饶立明（CTO）：清华大学 IC 硕士。葛瑞琪（CMO，融资和法务负责人）：北大法硕，连续创业者，做出全网百万级恋综。何超然（算法负责人）：北工大计科，大一手搓植物大战僵尸。",
+          "company": "芯辰启源",
+          "site": "",
+          "github": "",
+          "funding": "未公开融资金额；公司已完成模型和 Agent 的原型开发以及下一代原生芯片设计平台的整体方案设计",
+          "benchmarks": "Synopsys/Cadence (AI 辅助射频)、DeepChip、InstaChip",
+          "highlight": "由清华大学教授领头，AI/IC 交叉领域硕博生 + 北大法学/金融背景硕士构成；模型 + Agent + 平台三位一体",
+          "star": true
+        },
+        {
+          "id": "A02",
+          "name": "鸿鹄聚变",
+          "tagline": "商业可控核聚变 · 高温超导仿星器",
+          "direction": "高温超导仿星器路线的商业聚变",
+          "founder": "戴立忠（实控人/投资人）",
+          "team": "戴立忠：1968 年生，北大化学 → 普林斯顿博士 → MIT 博后；圣湘生物（688289.SH）董事长、全国人大代表，以 99% 持股实控。CEO 席鹏伟（兼量晶科技 CEO）",
+          "company": "鸿鹄聚变（上海）能源科技有限公司",
+          "site": "",
+          "github": "",
+          "funding": "戴立忠个人投资创立；4 年内建成国际首台高温超导仿星器",
+          "benchmarks": "Type One Energy、Renaissance Fusion、Proxima Fusion ($1.5 亿 A 轮)、东昇聚变",
+          "highlight": "国内首家专注高温超导仿星器的商业聚变企业；2025 工博会首次亮相",
+          "star": true
+        },
+        {
+          "id": "A03",
+          "name": "LorentzKracht 洛伦原力",
+          "tagline": "具身智能大模型专属的无线通讯",
+          "direction": "推出全球首款 AI 驱动 6G 模组，实现 3 Gbps 超大上行速率与亚毫秒确定性时延；将昂贵的大模型算力直接无缝卸载至边缘云端",
+          "founder": "曾健安 — 创始人 / CEO",
+          "team": "曾健安：墨尔本大学工学博士，澳大利亚经济加速器领军企业家；曾任澳洲专网企业 CTO；中国创新创业大赛国际赛大奖；曾领衔诺基亚贝尔实验室、中国移动、罗克韦尔自动化等巨头的 R&D 项目；联合研究促成 ITU-T 国际标准制定。André Gygax（联创 / CPO）：墨尔本大学博士与科罗拉多大学 MBA；曾深度参与联合创办「米菲兔（Miffy）」母公司的家族企业。Sampath Edirisinghege（联创 / 无线 AI 系统总监）：墨尔本大学工学博士，全球 AI 驱动无线接入网（RAN）、6G 与信号处理领域的先锋科学家。Nicholas O'Keefe（联创 / 无线硬件总工程师）：墨尔本大学工学硕士，10 年+ 毫米波无线通信经验。",
+          "company": "LorentzKracht（澳洲团队）",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "高通 5G/6G、Nokia Bell Labs",
+          "highlight": "全球首款 AI 驱动 6G 模组；让机器人无需再背负沉重高功耗 AI 显卡",
+          "star": true
+        },
+        {
+          "id": "A04",
+          "name": "石岱重储",
+          "tagline": "把废弃矿山变成巨型充电宝：安全，长时，零衰减",
+          "direction": "利用废弃矿山与竖井的天然高度差，为 AIDC 提供 12 小时以上、50 年零衰减、8 年后纯赚钱的充电宝",
+          "founder": "唐霄汉（董事）、欧阳倩（法定代表人/高管）",
+          "team": "研发团队来自清华大学多个院系；关联企业含青海星际重储、嘉兴石岱科技",
+          "company": "北京石岱重储科技有限公司（2024 年成立，注册资本 1170 万 / 实缴 800 万）",
+          "site": "",
+          "github": "",
+          "funding": "拥有全国唯一并网的重力储能装备；行业首创单通道循环超大功率发电技术，功率提升 10 倍，成本降低 60%",
+          "benchmarks": "Energy Vault（瑞士上市）、Gravitricity（英国）、天楹重力储能",
+          "highlight": "英伟达 AI 生态合作伙伴 / 北京市创新型中小企业 / 北京市专精特新入板企业 / 毕马威中国「新能源科技 50 企业」",
+          "star": true
+        },
+        {
+          "id": "A05",
+          "name": "慧化科技 InsightChemy",
+          "tagline": "AI+化学：合成化学空间与新分子发现",
+          "direction": "AI 智能体探索合成化学空间，挑战 GPCR/抗体/环肽等复杂分子设计",
+          "founder": "田阳 — 创始人 / CEO",
+          "team": "田阳：清华大学药学院在读博士，济南市海右产业领军人才。邓雅婷（创始人 / 副总经理 / COO）：中国科学院国家纳米科学中心化学博士（25 岁博士毕业），师从聂广军教授，发表包括 Nature 系列期刊等多篇论文。范逍宇（CTO）：清华大学药学院在读博士，本科就读于清华大学计算机系。",
+          "company": "山东慧化网研医药科技有限公司（北京 / 济南）",
+          "site": "",
+          "github": "",
+          "funding": "A 轮 2000 万人民币；产品已签下知名药企；累积 5 万种畅销化学品数据",
+          "benchmarks": "Iktos、Insilico Medicine、晶泰科技",
+          "highlight": "AI+化学产业化先锋；二代产品贝达系一类创新药销售利润 700 余万",
+          "star": true
+        },
+        {
+          "id": "A06",
+          "name": "心片科技",
+          "tagline": "AI 原生的芯片设计平台",
+          "direction": "AI 设计数字 IP 和进行芯片设计服务；以 Scala 设计全自主研发的 eDSL、以 MLIR 作为硬件编译器框架，以经过量产验证的大算力 RISC-V Vector 处理器 IP 为基座",
+          "founder": "刘玖阳 — 创始人 / CEO（GitHub @sequencer）",
+          "team": "刘玖阳：ex-SiFive，Chisel 主要开发者，RocketChip 维护者；研发的设计语言和 SoC 设计平台支持了 SiFive 的 IP 和香山处理器等知名项目。核心团队还包括：qinjun-li（ex-SiFive，RTL 主程序员，量产过 28nm/14nm 高性能计算芯片）、FanShupei（清华大学）、felixonmars（Arch Linux 主研发）、Avimitin（前中科院）。",
+          "company": "心片科技",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "Tenstorrent、SiFive、Synopsys、Cadence",
+          "highlight": "通过 Chip Agent 调用 IP 使用 AI 全自动完成芯片设计，并使用自研 FPGA 平台进行仿真评估和后端设计；团队来自 SiFive + Chisel + Arch Linux 等顶级开源/IC 项目",
+          "star": true
+        },
+        {
+          "id": "A07",
+          "name": "RustFS",
+          "tagline": "GitHub 27,000 star · 全球增长最快的 AI 存储",
+          "direction": "技术驱动的开源 AI 基础设施公司；通过深度结合英伟达 STX 技术与 DPU（数据处理器）硬件加速，提供具备极致性能的统一的 AI 存储解决方案",
+          "founder": "李文凯 (Kevin Li) — 创始人 / CEO",
+          "team": "李文凯：拥有 20 年开源实战经验，顶尖的分布式系统与存储专家，作为主导 RustFS 架构的灵魂人物，深耕云存储与大语言模型应用开发领域。马景贺（CTO）：前 IBM 与 GitLab 等全球顶级开源企业核心技术骨干。周翼松（商业合伙人 / CMO）：华为公司中东业务负责人。团队源自百度、腾讯、好未来等公司的存储架构师。",
+          "company": "RustFS, Inc.（Delaware C-Corp）",
+          "site": "https://rustfs.com",
+          "github": "https://github.com/rustfs/rustfs",
+          "funding": "500 万美元；27,000+ GitHub Stars，9 次登顶全球榜单，70% 部署来自美国市场；已签 AI 黑马客户 Twin Labs；正成功交付中国移动、中国国家电网等头部客户",
+          "benchmarks": "MinIO (AGPLv3)、Amazon S3、Ceph、SeaweedFS",
+          "highlight": "Apache 2.0；100% S3 兼容；93MB 镜像；4KB 小对象吞吐量 2.3× MinIO；读 323GB/s、写 183GB/s；与 Dify、Milvus 等深度集成",
+          "star": true
+        },
+        {
+          "id": "A08",
+          "name": "灵泷 LynnReal",
+          "tagline": "空间智能时代无感视觉交互界面",
+          "direction": "AI 原生底层技术公司；三维显示原理为核心，深度融合 AI 与物理建模技术",
+          "founder": "马炜杰 — 创始人 / CEO",
+          "team": "马炜杰：复旦大学与上海创智学院联培博士，两年达成博士毕业，复旦特奖得主；以独立一作身份发表了国人团队在三维显示领域的第一篇 Nature 正刊。芮少昊（算法负责人）：上海交通大学直博生；发表多篇顶会论文 CVPR Highlight、ICML 等；曾在大厂主导世界模型架构设计与训练。",
+          "company": "上海灵泷视界科技有限公司（中外合资 JV 架构）",
+          "site": "",
+          "github": "",
+          "funding": "天使轮 3000 万人民币",
+          "benchmarks": "Looking Glass（裸眼 3D）、Light Field Lab、CREAL",
+          "highlight": "完全不用特制光学元件，用 AI 算法实现逆向计算光场；零毫米级光场显示。物理智能时代的 3D I/O Infra",
+          "star": true
+        },
+        {
+          "id": "A09",
+          "name": "力场采样",
+          "tagline": "针对药物研发的分子动态计算引擎",
+          "direction": "分子模拟力场、AI 药物设计、环肽/抗体类/GPCR",
+          "founder": "彭向达 — 创始人 / CEO",
+          "team": "彭向达：智峪生科计算生物负责人、创新中心负责人、高级研究员；芝加哥大学生物物理系博士后研究员；博士毕业于中科院大连化学物理研究所；与 John Jumper（AlphaFold 负责人、诺贝尔化学奖得主）合作开发过一系列机器学习分子力场 Upside。徐晓喆（资深算法工程师）：上海理工大学计算药物硕士。周凡（资深研发工程师）：南昌航空大学化学硕士。",
+          "company": "上海力场采样科技",
+          "site": "",
+          "github": "",
+          "funding": "1 个月内签下 2 项来自创新药企业的高难度研发订单；2022-2026 年积累丰富药物设计实战经验",
+          "benchmarks": "OpenMM、GROMACS+AI 增强采样、TorchMD",
+          "highlight": "新一代分子模拟力场——同时具备精度与速度优势（精度同等下 5 倍速率提升），AI4Science 赛道",
+          "star": true
+        },
+        {
+          "id": "A10",
+          "name": "摩湃分子 MolplusAI",
+          "tagline": "AI 科学家重塑生命科学 CRO 的交付能力",
+          "direction": "构建自主、能自进化超越博士级别的 AI 科学家团队和企业级数据「记忆大脑」，深度嵌入药企 R&D 工作流，从靶点发现到 IND；覆盖包含酶在内的所有药物类型（All Modality）",
+          "founder": "王俊毅 — 联合创始人 / CEO",
+          "team": "王俊毅：连续创业者；曾创立小分子 AI 制药平台主导 JAK1 等药物管线研发；曾与 Abbvie、BMS 等 MNC 有过项目合作；拥有多年生命科学和人工智能领域研究经验；曾受邀在 AIBC 等多种论坛分享 AI4S 研究报告。赵成成（联创 / CTO）：化学计算专家，曾任职于硅康医药 Silicon Therapeutics、朗睿生物；通过分子动力学模拟结合机器学习方法预测蛋白动态功能。",
+          "company": "摩湃分子 MolplusAI",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "Iktos、Insilico Medicine、晶泰、Schrödinger",
+          "highlight": "STAT6 从头设计到命中只需 3 天，纳米抗体亲和力成熟只需 6 小时；对话即可实现小分子、抗体、融合蛋白、酶等多模态设计",
+          "star": true
+        },
+        {
+          "id": "A11",
+          "name": "芯引力（待核实）",
+          "tagline": "（公开信息有限）",
+          "direction": "推测：芯片/AI 硬件方向",
+          "founder": "未公开",
+          "team": "",
+          "company": "",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "",
+          "highlight": "未在文章中详细介绍，待补充"
+        }
+      ]
+    },
+    {
+      "zone": "B区",
+      "theme": "具身智能与硬件",
+      "count": 19,
+      "color": "#047857",
+      "projects": [
+        {
+          "id": "B01",
+          "name": "HiveMind",
+          "tagline": "跨品牌异构机器人群体智能操作系统",
+          "direction": "全球首创跨品牌异构机器人群体智能系统",
+          "founder": "陈明 — 创始人 / CEO",
+          "team": "陈明：瑞典查尔姆斯理工大学博士，连续创业者，曾任爱立信中国首席技术官，国家 5G 重大专项技术负责人，2018 年获评'中国十大 5G 领军人物'，2024 年带领团队发射全球首颗 5G NTN（星上处理）低轨卫星'中国移动 01 星'。李现民（首席架构师）：中国科学院大学博士，曾任爱立信网络产品系统部总经理，超 20 年电信级网络产品研发管理经验。王先生（商业拓展）：曾任亦庄机器人 4S 项目负责人。",
+          "company": "北京拓恩科技有限公司 / Beijing Tokennology Co. Ltd.",
+          "site": "",
+          "github": "",
+          "funding": "天使+轮，计划 2000 万人民币；2026 年 4 月已在北京首个'交警机器人项目'、亦庄机器人马拉松'异构机器人啦啦队舞团'实现商业落地；2026 有望千万营收；2026 年 6 月与中国移动研究院签署 6G+ 具身智能战略合作",
+          "benchmarks": "Shield AI Hivemind、NVIDIA Isaac Swarm、ROS 2+VDA5050",
+          "highlight": "已与 8 个品牌 10 个型号机器人/机器狗/机械臂适配；定位能力可从 3 厘米提升到 1 毫米；分布式多智能体协同大幅降低端到端大模型成本，效率提升 90%",
+          "star": true
+        },
+        {
+          "id": "B02",
+          "name": "影控机器人",
+          "tagline": "人形机器人全身操作驾驶舱系统",
+          "direction": "全身操作驾驶舱：将任意大尺度操作空间压缩到 1.2 平米，支持上肢与下肢总计超 53 DoF 全身动作输入",
+          "founder": "王子峣 — 创始人 / CEO / CTO",
+          "team": "王子峣：东南大学控制科学与工程博士；日本理化研究所访问学者；中国发明家协会会员；发表顶级期刊会议论文十余篇，授权国内外专利 12 项；保研排名第一，毕业直接选择创业。丁佳琛（联创 / 技术总监）：东南大学控制科学与工程硕士；负责控制算法和定位算法研究、机器人运控算法研究；参与算法研究工作 5 年。",
+          "company": "影控机器人",
+          "site": "",
+          "github": "",
+          "funding": "未公开。业务对外输出成套驾驶舱软硬件系统，服务机器人企业与科研院所，提供遥操即服务（TaaS）与数据资产双重核心价值",
+          "benchmarks": "1X Technologies、Sanctuary AI、科幻智能",
+          "highlight": "业内唯一具备大尺度空间全身协同操控和数据采集能力团队；可提供最稀缺的真实场景全身协同数据",
+          "star": true
+        },
+        {
+          "id": "B03",
+          "name": "SoftSync 柔偕科技",
+          "tagline": "千元级软体仿生灵巧手，赋能碳基与硅基",
+          "direction": "核心产品 SoftSync FlexHand V1 是全球首款千元级软体仿生灵巧手，通过软体结构与仿生设计，让灵巧手具备低成本、高安全性和真实世界自适应抓取能力",
+          "founder": "林森源 — CEO / CTO",
+          "team": "林森源：香港大学机械工程博士（软体机器人方向）；10 岁开始制作机器人，曾任工艺工程师，具备从结构、材料、制造到工程化落地的完整研发能力。黄晓慧（联创 / CMO）：社企连续创业者。陈永华（专家顾问）：香港大学机械工程系前副教授，软体机器人领域重要学者。",
+          "company": "SoftSync 柔偕科技",
+          "site": "",
+          "github": "",
+          "funding": "未公开。先从义肢场景切入，获取真实手部操作数据，未来进一步迁移至机器人训练",
+          "benchmarks": "Shadow Robot、Festo、因时机器人、帕西尼感知、灵心巧手、傲意科技 OYMotion",
+          "highlight": "全球首款千元级软体仿生灵巧手；自研柔格结构 + 弹性材料 + 线驱控制，让手本身吸收误差、自适应抓取复杂物体",
+          "star": true
+        },
+        {
+          "id": "B04",
+          "name": "星荧科技",
+          "tagline": "千元级家用 AI 康复机器人",
+          "direction": "AI 家庭医疗赛道，主打严肃医疗临床标准 + 多应用场景中心效果量化评价的 AI 软硬件一体化医疗器械；重点布局下肢运动障碍康复、睡眠健康、慢病调理、精神调理",
+          "founder": "陈博宇 — CEO",
+          "team": "陈博宇：北京科技大学本硕博，10 年外骨骼机器人设计经验；曾任铁甲钢拳 CTO、科大讯飞医疗外骨骼机器人 CTO；主持落地外骨骼产品 4 项，获批二类医疗器械注册证 2 张，获批专利 50 余项。胡浩然（产品总监）：北科大机械硕士，10 年产品研发落地经验。赵超（算法总监）：北科大材料本硕，香港城市大学算法博士。",
+          "company": "星荧科技",
+          "site": "",
+          "github": "",
+          "funding": "未公开。深度合作三甲核心科室，建立行业稀缺私有垂直医疗数据集",
+          "benchmarks": "傲鲨智能、傅利叶智能、司羿智能",
+          "highlight": "贯通三甲临床、社区康养、家庭居家全场景；以机器人 + 医疗 AI 双技术底座；前铁甲钢拳 / 科大讯飞医疗 CTO 创立",
+          "star": true
+        },
+        {
+          "id": "B05",
+          "name": "雪梦未来 Snow Origin",
+          "tagline": "Physical AI 时代的人类操控数据平台",
+          "direction": "Physical AI 时代的人类操控数据平台；通过神经腕带、全景头环等可穿戴设备，结合神经电信号解码技术，持续获取真实世界的人类操控数据",
+          "founder": "秦旭（董事长）+ 王智林（CEO）",
+          "team": "秦旭（联创 & 董事长）：北京大学计算机学院硕士，专业为计算机应用技术；中关村 U30、胡润 U30；来自高文院士、智源黄铁军院长领衔的北京大学编解码国家工程实验室团队；曾在人工智能、模式识别、计算机视觉等领域发表多篇国际顶级学术会议论文，单篇论文引用量 2200+。王智林（联创 & CEO）：北京航空航天大学软件开发环境国家重点实验室硕士；在人工智能、计算机视觉等领域的国际顶级学术会议发表多篇论文；曾就职于头部科技企业。",
+          "company": "雪梦未来 Snow Origin",
+          "site": "https://snoworigin.tech",
+          "github": "",
+          "funding": "种子轮/天使轮阶段（金额未披露）",
+          "benchmarks": "Meta CTRL-labs（被收购 ~$10 亿）、Thalmic Labs Myo、Rool'in EMG",
+          "highlight": "短期为机器人、AI 眼镜及智能设备提供低摩擦、隐蔽、连续的人机交互入口；长期构建 Human Manipulation Data（人类操控数据层）",
+          "star": true
+        },
+        {
+          "id": "B06",
+          "name": "小鹰锐视",
+          "tagline": "构建通用防抖减震能力，打造最精准的物理 AI 感知基础设施",
+          "direction": "面向机器人、AI 穿戴平台摄像头受运动抖动影响的痛点；研发紧凑型 SMA 防抖减震模组，模拟生物前庭-眼动反射 (VOR) 闭环，实现主动光学防抖；同时采用世界模型防抖算法，通过扩散模型根据运动轨迹重新生成稳定帧",
+          "founder": "付际 — CEO",
+          "team": "付际：北京大学智能材料与振动声学实验室博士，连续创业者，视觉中国签约摄影师，对高清影像痛点有敏锐嗅觉。复合型研发团队汇集了 CES 创新奖和红点奖获得者、千万级出货产品研发专家。",
+          "company": "小鹰锐视",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "OIS/EIS 防抖模组、Insta360、SMA Actuator 厂商",
+          "highlight": "模拟生物 VOR 反射闭环；前瞻性的生成式防抖（World Model + Diffusion）",
+          "star": true
+        },
+        {
+          "id": "B07",
+          "name": "Elecholic Tech 异核科技",
+          "tagline": "下一代空间输入的基础设施，零门槛毫米级全身动作捕捉",
+          "direction": "在 4 立方米内实现毫米级空间定位；消费级产品面向 XR 游戏与虚拟主播；企业级产品用于具身智能数据采集与机器人遥操",
+          "founder": "卢子寅 — CEO",
+          "team": "卢子寅：华南理工大学光电信息科学与工程；Robomaster 2018 全国冠军；乐队鼓手，参加过 6000 人规模演出。陈思瀚（CTO）：华南理工大学信息工程；华为技术有限公司 FPGA 芯片设计 / 高速硬件工程师，技术骨干。李宇轩（CMO）：本科哈尔滨工业大学航天工程与力学系；硕士德国斯图加特大学机械工程；在 3 个国家级研究所做过科研，曾任职于博世，ITT 工业集团。",
+          "company": "Elecholic Tech 异核科技",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "UWB、Vicon/OptiTrack、HTC Vive Lighthouse、NDI Aurora",
+          "highlight": "团队致力于降低定位设备的成本与使用门槛，让具身智能数据采集实现 Scaling law，加速物理操作边际成本趋近于零",
+          "star": true
+        },
+        {
+          "id": "B08",
+          "name": "MirrorSpace 映界科技",
+          "tagline": "机器人空间大脑",
+          "direction": "RGB+LiDAR+Thermal 多源融合，动态 4D 空间表征；为复杂环境下机器人提供空间感知能力",
+          "founder": "金依力 — 创始人",
+          "team": "金依力：加拿大麦吉尔大学 & Mila 研究院博士，长期深耕空间智能与沉浸式媒体方向，第一作者顶会/期刊论文十余篇，累计引用逾千次。胡凯源（联创）：麦吉尔 & Mila 博士生，最年轻 IJCAI 2025、ICC 2026 分会场主席。段西泽（联创）：麦吉尔 & Mila 博士生，腾讯 AI Lab 与港大背景。",
+          "company": "映界科技有限公司（深圳）",
+          "site": "",
+          "github": "",
+          "funding": "天使+轮（金额未披露）",
+          "benchmarks": "Looking Glass、Mirror Labs",
+          "highlight": "业界首创的标准化软硬件一体化解决方案；目前已与石油央企、物理 AI 模型提供商、头部机器人本体厂商及国内外高校研究院达成开发合作",
+          "star": true
+        },
+        {
+          "id": "B09",
+          "name": "潇湘智控",
+          "tagline": "有色冶金行业首个物理智能基座",
+          "direction": "工业级巡检机器人 + 全栈式智控系统，主要服务海内外铝电解头部厂商",
+          "founder": "计昊天 — 创始人 / CEO",
+          "team": "计昊天：中南大学机械工程/工商管理双学士，香港大学工业工程与管理硕士；2025 中国电解铝优秀工程师；拥有十余项在审/授权国家专利。乔楠（联创 / CTO）：中南大学+新加坡国立大学，传音控股/奥斯达/硅谷科技背景。苏畅（首席 AI 科学家）：清华统计 AI 博士，师从朱军教授，NeurIPS/ICLR 一作；前宽德/BOSCH 大模型研究员。何骄阳（首席工程师）：上海交大机械动力博士，RoboMaster 金奖带头人。陈晓方（首席科学家）：中南大学自动化三级教授，副院长，师承中国工程院院士桂卫华。",
+          "company": "湖南省潇湘智控科技有限公司（长沙/上海/香港）",
+          "site": "https://aiagent2025.com/projects/3ci83ytqb3tk",
+          "github": "",
+          "funding": "Pre A 轮 2000 万人民币；已挂牌湖南股权交易所；可获取行业龙头一线生产数据，掌握七家铝厂 3105 台电解槽 10 万+小时真实生产数据",
+          "benchmarks": "中铝集团、广域 428、宝武智慧冶炼",
+          "highlight": "央国企&龙头企业客户矩阵（国家电投、中国铝业、魏桥集团），覆盖全国超 3000 万吨产能；30+ 厂次实地试验；可延伸至铜/铅/锌/镍等火法冶金全场景",
+          "star": true
+        },
+        {
+          "id": "B10",
+          "name": "Kynooe — 可重构个人 AI 机器人",
+          "tagline": "打造机器人时代的乐高，让用户自由创造具身智能",
+          "direction": "全球首个可重构个人 AI 机器人平台；首创可重构机器人架构，将机器人拆解为可自由组合的运动单元；通过开放的 Robot Skills 平台持续扩展能力",
+          "founder": "蓝国伟 — CEO",
+          "team": "蓝国伟：苏黎世联邦理工大学（ETH Zürich），师从 ANYbotics 及 Amazon RIVR 联合创始团队；连续创业者，长期专注机器人与具身智能。刘佳桥（CTO）：德国不伦瑞克工业大学，曾参与德国国家自动驾驶中心及大众汽车相关项目，拥有机器人系统与自动驾驶研发经验。团队核心成员来自欧洲顶尖机器人与自动驾驶体系，兼具科研与产业化经验。",
+          "company": "Kynooe",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "Cubelets、Cellrobot、Embodied Inc（Moxie）、Living.AI（Eilik）",
+          "highlight": "同一套平台可灵活组成机械臂、移动机器人、宠物机器人等多种形态；用户可以像下载 App 一样部署机器人技能",
+          "star": true
+        },
+        {
+          "id": "B11",
+          "name": "Oki Home",
+          "tagline": "本地 AI 记忆助手",
+          "direction": "隐私优先的本地 AI 个人记忆硬件",
+          "founder": "陈洛飞 — CEO（华裔加拿大人）",
+          "team": "陈洛飞（CEO）：UC Berkeley M.E.T. 机械工程与工商管理双学位；连续创业者；曾打造本地消费级 PC 产品及硅谷 AI 企业服务产品，客户包括 Duolingo 等；在 Oki 负责战略、硬件和商业化。Aayush（CTO，印裔美国人）：UC Berkeley EECS；曾任 Ramp、Robinhood 前 50 号员工，见证公司从早期 50 到 4000 号人到上市的各个阶段。Noah（Founding Designer，德裔美国人）：UC Berkeley + ETH Zürich；负责用户体验、硬件设计和品牌形象。团队 7 年合伙背景，YC W25。",
+          "company": "Oki",
+          "site": "https://okihome.ai/",
+          "github": "https://github.com/oki-apps/okihome-angular",
+          "funding": "Y Combinator 孵化（轮次/金额未公开）",
+          "benchmarks": "Limitless AI Pendant、Humane Ai Pin、Friend、Rabbit R1",
+          "highlight": "一台放在家里，和你一起成长的个人 AI 系统；本地随时待命，无需支付 Token 费用，数据和权限始终由用户掌控",
+          "star": true
+        },
+        {
+          "id": "B12",
+          "name": "增元造物",
+          "tagline": "DIY 多色 3D 打印机",
+          "direction": "DIY 高速多色 3D 打印机；核心技术包括「换墨囊」式多色方案、性状替换模型、换色算法",
+          "founder": "许康瑞 — 项目负责人 / CTO",
+          "team": "许康瑞：宿州学院数据科学与大数据技术专业；复旦 MEM；3D 打印行业资深玩家、创业者，独立完成交付 3D 及汽车美改、无人机、高空光缆机器人等众多项目。张春林（CTO）：3D 打印资深极客；在读期间组装销售百余台 3D 打印机；具备从硬件设计到软件算法的全栈开发能力。王佳（COO）：宿州学院 + 南大 EMBA；6 年 3D 打印行业资深玩家。",
+          "company": "",
+          "site": "",
+          "github": "",
+          "funding": "早鸟价 2499 元仅为同类机型的三分之一到二分之一",
+          "benchmarks": "Bambu Lab 拓竹（AMS）、Voron Design（开源 DIY）、Prusa MMU、Creality Hi Combo",
+          "highlight": "AI 时代的 Maker 创意入口"
+        },
+        {
+          "id": "B13",
+          "name": "歌渡科技",
+          "tagline": "面向机器人精细操作的数据引擎",
+          "direction": "结合可穿戴视觉触觉采集、全身位姿捕捉、VSLAM 定位能力；使用自研的指套采集方案，在正常工作过程中直接采集视觉、触觉、全身位姿等多模态数据",
+          "founder": "白纯歌 — 创始人 / CEO",
+          "team": "白纯歌：清华大学 AI 方向硕士；2023 年拒绝 CMU Robotics Institute 全奖 PhD 成为智元第一个应届生；xlab 感知定位负责人；两篇学术论文第一作者，引用量 470+。臧煜（技术合伙人）：北邮计算机本硕；负责 Agent 大脑交互全链路（语音系统、动作生成、动作重定向、人类骨骼关节提取）；应用于智元灵犀事业线，Demo 视频累计播放 400w+；模型训练于 2024 年底在 3 个具身 Benchmark 达到 SOTA。",
+          "company": "歌渡科技",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "戴盟机器人、穹彻智能 Noematrix、Skild AI、Physical Intelligence(π)、DreamZero",
+          "highlight": "解决具身智能发展中真实触觉数据稀缺、仿真触觉信号失真、精细操作数据成本高等问题；前智元第一个应届生创立",
+          "star": true
+        },
+        {
+          "id": "B14",
+          "name": "Monako Glass",
+          "tagline": "全球首款可穿戴 Linux 电脑｜戴在脸上的 IDE 随时随地 vibe coding",
+          "direction": "48g ARM Cortex A7 智能眼镜，运行 Buildroot Linux (MonoOS)，支持 Claude Code/Codex + Unreal Engine/Blender",
+          "founder": "薛来 — 创始人 / CEO",
+          "team": "薛来：连续创业者，20Under20 Thiel Fellowship，英特尔全球最年轻全职工程师之一；16 岁拥有以其名命名的小行星'25580 薛来星'；2009 年全球首款 Passthrough AR 头显的发明者；曾创立 AR 公司 Ractiv、3D 引擎 Lingo3D（10 万+下载、2000+ GitHub Stars、WAIC2022'元境小镇'共 50 万人在线体验）。Percy Lau（首席设计师）：中央圣马丁大学，ITS YKK Award 最年轻获奖者；时尚眼镜设计师，作品曾被 Lady Gaga 等国际明星佩戴。Candy Liu（联创 & COO）：牛津 MBA，曾任职 LVMH、Pepsi，操盘过年销售超 10 亿的品牌，曾创下 24 小时售出 1 万支娇兰口红。Zisu（首席架构师）：曾打造拥有 1.2 万+用户、TVL 峰值 500 万美元的 DEX，以太坊 EIP 贡献者。张纪翔（首席产品官）：西湖大学博士在读，研究方向涵盖机器人、神经科学、AI、医学与脑机接口。",
+          "company": "莫奈可（上海）科技有限公司",
+          "site": "https://www.monako.ai/",
+          "github": "",
+          "funding": "天使轮 $2-3M；人民币/美元双币架构；预售 $399 + $19 定金；2026 年 6 月发布，7 月深圳量产",
+          "benchmarks": "Meta Ray-Ban、Brilliant Labs Frame、Even Realities G1、XREAL、Friend AI",
+          "highlight": "全球首款眼镜形态可穿戴 Linux 电脑；2026 年 6 月 3 日产品一经发布，48 小时内 0 投放在 X 获得百万级浏览，引发硅谷众多极客大 V 讨论热潮，一举拿下 1000+ 付费订单",
+          "star": true
+        },
+        {
+          "id": "B15",
+          "name": "溯洄智能",
+          "tagline": "个人健康机器人 · AI 刷牙机器人",
+          "direction": "将具身智能技术应用于日常健康护理场景；首款产品为儿童 AI 刷牙机器人，通过机器人技术（感知、决策、执行）实现全自动、标准化的口腔清洁",
+          "founder": "刘欢 — 创始人 / CEO",
+          "team": "刘欢：广西大学电气工程博士休学创业；拥有 60 余项专利及康复机器人落地经验；成功获取医疗器械注册证并实现百台销售。曾光煜（技术联创）：全栈硬件工程师，10 年厂龄；具备机器人关节电机、嵌入式系统全栈开发能力。徐建（市场运营总监）：供应链 & 软件工程双学士；连续创业者，10 年营销老兵，日用品品牌创始人。",
+          "company": "溯洄智能",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "babahu X1、Y-Brush、Philips Sonicare、Oral-B AI、Foreo Issa",
+          "highlight": "解决成年人「不会刷、刷伤牙」和儿童「不爱刷牙」的核心痛点；从硬件入口切入，以口腔场景为深度根据地",
+          "star": true
+        },
+        {
+          "id": "B16",
+          "name": "Sportix AI",
+          "tagline": "人类动作的特斯拉 FSD · 让运动可计算",
+          "direction": "Match Intelligence Engine + Player Intelligence System + Simulation Engine + 链上分析师声誉系统",
+          "founder": "沈书涵 — 创始人兼 CEO",
+          "team": "沈书涵（CEO）：连续创业者，最强大脑选手；13 岁第一次创业，中学做出全球 20 万用户的产品。创始团队中学时代就在一起做事，有 10 多年的深度链接：有初中手搓特斯拉线圈的航模金牌、有高中创业做机器人并与 Google、NASA 合作的天才工程师、也有 CVPR 一作博士和射击射箭冠军。",
+          "company": "南京/北京/美国",
+          "site": "https://sportix.ai",
+          "github": "",
+          "funding": "天使轮 1500 万人民币/等额美元；国家体育总局官方合作；奥运金牌、世界第一背书；5 万个人用户 + 460+ 教练&俱乐部用户；从射箭迁移到射击、高尔夫——2000 台硬件新品订单；2 天 157 个模型实验，Benchmark 评分+6%",
+          "benchmarks": "Sportradar、Stats Perform、Genius Sports、Hudl、Second Spectrum",
+          "highlight": "单一运动国内 Top1，正在出海；Q2 2026 计划正式发布。备注：路演卡显示已完成此天使轮，部分外部报道亦提及 Animoca Ventures 等参投 $3.2-3.5M",
+          "star": true
+        },
+        {
+          "id": "B17",
+          "name": "肆爱科技",
+          "tagline": "具身智能导航大脑",
+          "direction": "聚焦室内真实世界数据的规模化生产与供应；依托独创的「外卖骑手众包网络」解决具身智能与 AR 产业的核心瓶颈——高质量室内数据极度稀缺",
+          "founder": "张哲宁 — 创始人 / CEO",
+          "team": "张哲宁：导师师承 2019 Computer Graphics 图灵奖得主；前北美 Tesla 工程师，前北美 Amazon Go Robotics Applied Scientist；主导世界模型架构设计，具备硬科技从 0 到 1 落地能力。王湛翔（联创 / COO）：中央财经大学金融学院；负责公司融资、财务规划与商业落地；「元青年俱乐部」联合发起人，「北航投资」创业导师。技术团队覆盖多模态 SLAM、深度学习、嵌入式软硬件系统；团队来自 Tesla、Amazon Go Robotics、海康威视、豪恩汽电。",
+          "company": "肆爱科技",
+          "site": "",
+          "github": "",
+          "funding": "目前已积累近 100TB Ego Video 仿真与真实数据，覆盖北京、上海多个核心商圈的高精地图，并持续扩张",
+          "benchmarks": "Skydio、Waymo Lidar 路网、Anduril Vision",
+          "highlight": "「数据飞轮」——海量真实数据训练出更强的导航算法与生产力工具，工具反哺骑手提升配送效率，效率提升吸引更多骑手加入网络；前 Tesla + Amazon Go Robotics 团队",
+          "star": true
+        },
+        {
+          "id": "B18",
+          "name": "Oryn Tech 向原科技",
+          "tagline": "构建真正共情人的 Personal AI + 硬件接口",
+          "direction": "打造下一代具备深度共情能力的 Personal AI；通过结合前沿的智能穿戴硬件与多模态生理语义 LLM，为用户提供能够敏锐感知情绪、提供坚定情感支持的「赛博陪伴者」",
+          "founder": "杨思敏 — 创始人 / CEO",
+          "team": "杨思敏：香港科技大学博士，前大疆产品经理；曾主导 10 万+ 用户规模产品；技术方向覆盖可穿戴设备、嵌入式系统、多模态感知、低延迟通信。王娴（联创 / COO）：香港理工大学计算机博士；已发表或录用 16 篇论文及 1 项专利，覆盖 IEEE TVCG、ACM Multimedia、CHI、IJHCI、IEEE Haptics、ICMI。李涛（联创 / CTO）：10 年+ 智能硬件及互联网开发经验，全栈工程师。赖映桦（硬件工程师）：华南理工大学华南虎战队硬件组组长；曾获 RoboMaster 全国季军。",
+          "company": "Oryn Tech 向原科技",
+          "site": "https://oryn.tech/",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "",
+          "highlight": "目标是打破传统智能设备冰冷的数据说教，让科技不再制造焦虑，真正实现从「量化自我」向「共情自我」的跨越",
+          "star": true
+        },
+        {
+          "id": "B19",
+          "name": "LYNOOK 灵诺科技",
+          "tagline": "给喜欢的角色一个家 · Anime × AI × Hardware",
+          "direction": "面向欧美男性二次元核心用户，通过完全 AI 内容驱动，为二次元提供一个角色生活在可持续生长场景中的桌面陪伴空间",
+          "founder": "罗镜民 — 创始人",
+          "team": "罗镜民：视觉算法 × 资深二次元，武汉大学；本科腾讯 AI LAB；初中二次元社区站长，初中 Discuz! 官方插件版版主。张佳怡（联创）：投资 × 商业全链条，悉尼大学本硕，太古集团 CVC 及地产管培生，30 年消费电子渠道浸泡，曾获 IF 奖。团队成员还包含：二次元游戏官方 coser、二次元妆娘、资深乙游研究、动漫社程序员。",
+          "company": "LYNOOK 灵诺科技",
+          "site": "https://www.lynook.com/",
+          "github": "",
+          "funding": "未找到公开融资信息；有 Discord 社区",
+          "benchmarks": "Tamagotchi、AI 陪伴硬件（ACG 垂直版）",
+          "highlight": "自研空间计算和渲染技术，提供从卧室到街区、从森林到大海的丰富可交互三维场景空间；首创独立生活状态机打破传统 AI 的「奴性」交互——角色有自己的日程、喜好和生活轨迹；多设备磁吸堆叠，角色之间可互为「邻居」",
+          "star": true
+        }
+      ]
+    },
+    {
+      "zone": "E区",
+      "theme": "Agent toB",
+      "count": 12,
+      "color": "#7C2D12",
+      "projects": [
+        {
+          "id": "E01",
+          "name": "点漾科技",
+          "tagline": "AI 硬件生成平台",
+          "direction": "正在构建 AI 硬件生成平台，致力于让硬件像软件一样即时迭代；公司从 PCB 制造切入，先让 AI 学会 PCB 制造，再实现桌面级制造，随后由制造反推设计，最终构建完整的 AI 硬件生成平台",
+          "founder": "孔德超 — 创始人 / CEO",
+          "team": "孔德超：前百度高级架构师；华南理工大学电路与系统硕士；曾参与 100+ AI 项目交付与落地；从 0-1 组建多个业务团队；深入 PCB 工厂驻场 1.5 年。许振华（联创 / CTO）：前百度高级研发工程师；华南理工大学本科；工业软件首席架构师；多个亿级并发系统核心研发。黄旭新（联创）：前百度高级研发工程师；北京邮电大学硕士；AI Agent 专家。廖德杰（CPO）：Agent 产品专家，深圳大学硕士。胡心雨（CMO）：60 天覆盖 Top50 PCB 工厂 80% 管理层。",
+          "company": "点漾科技",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "Flux.ai、JITX、CELUS、Blueprint.am",
+          "highlight": "团队 5 人均深入 PCB 工厂驻场 1.5 年；从 PCB 制造切入，制造反推设计的闭环",
+          "star": true
+        },
+        {
+          "id": "E02",
+          "name": "奇点引擎 Singularity Engine（Video Harness）",
+          "tagline": "企业 AI FDE 部署公司 · Video Harness 改写视频生产",
+          "direction": "采用 FDE（前线部署工程）模式，深入企业现场，把 AI 接入市场、内容与广告生产场景；第一个切口是企业媒体广告中心：Video Harness 将品牌简报、素材、脚本、分镜、模型调用、版本修改、交付记录和客户反馈沉淀为可复用的视频生产系统",
+          "founder": "曹瑞鹏 — 创始人兼 CEO",
+          "team": "曹瑞鹏：Johns Hopkins University 商业分析与风险管理硕士；他的核心成果不是'会做视频'，而是搬运实实在在的现实印刷里：客户需求如何收敛、风格如何复刻、瑕疵如何把控；负责管理家族工业企业与印刷制造系统，负责生产流程、质量控制、SOP、数据化管理和 AI 落地。",
+          "company": "Singularity Engine, Inc.（Delaware, United States）",
+          "site": "",
+          "github": "",
+          "funding": "Seed US$5M（Post-money SAFE，US$40M post-money，出让 ~12.5%）；已完成 40+ 校友与品牌视频端到端验证，并产生付费交付；商业化路径为 FDE 部署费、系统年费与用量收入",
+          "benchmarks": "OpenAI Sora、Runway、Pika",
+          "highlight": "AI 视频从'能生成'推进到'品牌级、批量可交付、越用越强'；A11 路演日的 80% 投放就由 Video Harness 生产",
+          "star": true
+        },
+        {
+          "id": "E03",
+          "name": "飞咔",
+          "tagline": "AI 时代的内容表达入口",
+          "direction": "AI 自动完成内容理解、用户匹配与表达生成；做最理解用户、最理解内容的专业表达",
+          "founder": "王哲 — CEO",
+          "team": "王哲：南京大学博士，连续创业者，自本科阶段开始创业，累计服务百余家企事业单位，实现销售额超 700 万元。长期深耕内容创作与数字表达领域，曾与新华社、人民网、光明日报、共青团中央等机构合作，内容累计曝光超 2 亿次。朱德霖（技术负责人）：南京航空航天大学，曾任华为 Cloud BU 全栈工程师（SP Offer），以 FFmpeg 为核心构建专业级视频处理能力。戴田（产品负责人）：南京航空航天大学，2017 年起与王哲共同创业。",
+          "company": "飞咔（苏州）科技有限公司",
+          "site": "",
+          "github": "",
+          "funding": "Pre-A 1000 万人民币（股权出让 8%）；移动端上线 8 个月，累计用户 130 万+，过去 30 天新增 80 万+",
+          "benchmarks": "剪映、CapCut、Canva、Adobe Express",
+          "highlight": "覆盖内容理解、用户理解与表达生成全链路；累计生成 50 万+ 内容空间",
+          "star": true,
+          "site_note": "飞咔 App 本体无独立官网"
+        },
+        {
+          "id": "E04",
+          "name": "明悉科技 InsightSec",
+          "tagline": "打造面向企业与组织的 AI 风险捕获平台",
+          "direction": "用 AI 时代催生的全新增量风险捕获方法，攻击与防御共生攻防一体化",
+          "founder": "沈明航 — 创始人 / CEO",
+          "team": "沈明航：中国人民解放军陆军工程大学，前腾讯安全玄武实验室安全研究员，浙江大学企业导师，曾就职字节跳动、腾讯、华为；连续两年 GeekPwn 冠军，拥有数百枚 CVE 漏洞编号，研究成果发表于 ACM CCS、BlackHat USA/Asia/Europe、HITB Singapore 等国际顶尖工业会议。焦彦铭（联创 / COO）：前阿里巴巴 BU bug 数据安全与安全合规负责人。林超阳（联创 / CTO）：中国科学院大学，曾就职阿里巴巴、腾讯玄武实验室、字节跳动等。",
+          "company": "明悉科技（杭州）有限公司",
+          "site": "",
+          "github": "",
+          "funding": "天使轮 1500 万人民币",
+          "benchmarks": "Mandiant、CrowdStrike、奇安信、深信服",
+          "highlight": "首创'以明悉天枢'主动捕获系统，覆盖全域、全主体；目前已签 10+ 项公共安全与国家级风险关系人任务",
+          "star": true
+        },
+        {
+          "id": "E05",
+          "name": "ArcherSmart.AI",
+          "tagline": "智能工厂的 Harness 驾驶舱——让工厂像自动驾驶一样运行",
+          "direction": "面向离散制造业的 Harness 驾驶舱；通过自研 ArcherSmart 可连接 ERP、MES、WMS、IoT、机器人等数百种工业软件与自动化设备",
+          "founder": "陈广博 — 创始人兼 CEO",
+          "team": "陈广博：创始人 & CEO，连续创业者，拥有丰富的 AI Infra 与制造业行业经验；从 0 到 1 打造过千万级 ARR 营收产品，参与过 2 家硅谷创业公司并成功并购退出：从 Misfit 到 Fossil（数亿美金）；从 Rancher 到 SUSE（数亿美金）。核心团队（5 人）：兼具 AI Infra 能力与制造业 Know-how，核心成员共事超过 5 年，主要来自 Rancher 等国际领先云计算企业，曾服务过 BBA、施耐德等全球制造业头部客户。",
+          "company": "巨蕖智能科技（深圳）有限公司",
+          "site": "https://github.com/archersmart",
+          "github": "https://github.com/archersmart",
+          "funding": "天使轮 1500 万人民币；千人级工厂验证（已在 2 家千人级制造企业完成落地部署，连续应定标行业超过 6 个月）；PoC 客户两个月增长 4 倍；覆盖船舶制造/机器人/汽车零部件/PCBA",
+          "benchmarks": "GE Predix、Siemens MindSphere、海尔卡奥斯",
+          "highlight": "行业首创船舶焊接机器人 Harness 驾驶舱，率先推出面向离散制造业的 Harness 驾驶舱；从人协调到机器+系统协同的跃迁",
+          "star": true
+        },
+        {
+          "id": "E06",
+          "name": "Meridian 子午线",
+          "tagline": "让中国出海销售拥有本地销冠的判断力",
+          "direction": "为中国出海企业提供本地销冠级的 AI 销售决策系统；通过 AI Agent 持续监控交易信号、深度调研本地市场、生成行动建议",
+          "founder": "周玉林 — CEO",
+          "team": "周玉林：北美生活工作 10 年，中英文双母语能力者；硅谷 B2B SaaS 销冠；曾任职 Uber 客户经理和 Equals.app（David Sacks 和 a16z 领投）创始销售；前 B 轮中国出海企业大客户销售总监。蒋正兴（创始技术负责人）：前苏州 AI 公司技术 VP；主导过多个企业级 AI 应用从 0 到 1 落地；2024 中国计算机学会 AI 创新应用大赛 AI + 工业制造全国第三名。",
+          "company": "Meridian 子午线",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "Gong.io、Salesloft、海外销售 AI 工具",
+          "highlight": "让中国销售员无需依赖百万美金的海外本地团队即可获得本地化的销售判断力；100 倍加速中资企业出海",
+          "star": true
+        },
+        {
+          "id": "E07",
+          "name": "NextBanker",
+          "tagline": "用 AI 挖掘'潜在独角兽'",
+          "direction": "AI Sourcing 平台 + AI 雷达挖掘 + AI 触达 + 闭环；'AI 时代的埃森哲+高盛'",
+          "founder": "王新宇 — 创始人 / CEO",
+          "team": "王新宇：创始人 & CEO，清华本科+金融硕士；中金公司投资银行部五年工作经验；河南省化学奥林匹克竞赛省代表队，清华大学「拔尖计划」河南省前五；AI 领域连续创业者。杨洪利（联创 / COO）：北京邮电大学本科 + 硕士；量化私募、奇绩创坛工作经验；曾获 2024 红点至尊奖、2024 德国 IF 设计奖、2023 日本 G-Mark 优良设计奖。马浩然（联创 / CTO）：8 岁开始写码；字节跳动抖音用户增长部门工程师、SRE 专家小组成员；在字节期间独立发现公司级痛点、推出自动化系统并接入全国多条业务线，获得公司嘉奖。",
+          "company": "潮汐效应（北京）科技有限责任公司",
+          "site": "https://nextbanker.cn",
+          "github": "",
+          "funding": "天使轮 1000-1500 万人民币；产品已上线内测且获得用户自发式传播",
+          "benchmarks": "Kensho、贝叶斯思维/iBinding、Analyticoms",
+          "highlight": "金融+计算机的'铁三角'：CEO 清华本硕；COO 计算机背景+拿过国际红点奖；CTO 8 岁写代码，帮字节抖音解决过全国级痛点",
+          "star": true
+        },
+        {
+          "id": "E08",
+          "name": "TocLean 万象智能体",
+          "tagline": "用 TOC + LEAN AI 赋能制造业打造端到端 Agent 军团",
+          "direction": "掌握工业 4.0 端到端全栈技术，聚焦智能制造；用精益 LEAN + 约束管理 TOC 双引擎，提供与企业 ERP 等运营系统完全融合的全流程 Agent 解决方案",
+          "founder": "夏乐冰 — 创始人",
+          "team": "夏乐冰：原福耀集团 CIO，主导福耀全球智能制造；拥有超百家工厂落地经验（含美德）；管理顾问和 AI 创新技术复合人才，有数十项软硬件专利。叶国瑞（联创）：曾从 0 到 1 创办著名 IT 上市公司。",
+          "company": "TocLean 万象智能体",
+          "site": "",
+          "github": "",
+          "funding": "未公开。以 RaaS（结果即服务）模式敢对赌，不卖设备而卖确定的降本增效结果",
+          "benchmarks": "Siemens MindSphere、海尔卡奥斯、富士康",
+          "highlight": "帮助企业家自主打造能 24 小时运转的 AI Agent 军团；从底层重构企业核心系统",
+          "star": true
+        },
+        {
+          "id": "E09",
+          "name": "树为智能",
+          "tagline": "具身智能物理因果数据引擎，教会机器人物理规律",
+          "direction": "致力于让具身智能学会物理因果规律与因果推理；基于具身智能物理因果数据引擎，为具身模型与世界模型提供真机实采物理真值标注、物理因果具身仿真合成数据及模型训练与仿真评测服务",
+          "founder": "张鑫 — CEO / CTO",
+          "team": "张鑫博士：CEO & CTO；接触动力学博士，计算机博士后，985 高校机器人专业副教授；深厚的底层物理理解，50 余篇顶刊论文。郭金宇博士（核心研究员）：负责具身智能、世界模型方向研发；剑桥大学计算机系联培博士；40 余篇 AI 顶会顶刊论文。王效愚（销售 VP）：ABB、GE 等 500 强工业大厂近 20 年销售经历。黄真峰（CMO）：10 余年市场与融资经历。",
+          "company": "树为智能",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "Causaly、Causal AI、Aitia、Pearl；帕西尼、穹彻智能（Noematrix）",
+          "highlight": "从数据引擎切入，逐步构建具身智能训练所缺失的物理因果数据体系，进一步演化为具身世界模型",
+          "star": true
+        },
+        {
+          "id": "E10",
+          "name": "天穹智算",
+          "tagline": "用卫星遥感、公开数据和 AI Agent，将真实世界事件转化为金融市场可用的另类数据",
+          "direction": "一家地理空间 Agent 公司；围绕港口拥堵、农业产量、能源设施、自然灾害和地缘冲突等事件，帮助商品交易员、宏观投资者和风险管理机构更快获得物理世界证据",
+          "founder": "徐子谏 — CEO",
+          "team": "徐子谏：康奈尔大学系统工程硕士；曾在华为 2012 实验室参与持续学习、零阶优化和大模型微调算法研究。王子逸（GeoAI & AI Agent 研究工程师）：香港理工大学博士；曾在清华大学航天航空学院参与 GeoAI 与 Earth Agent 项目；AAAI、ICASSP 等。罗振期（遥感算法负责人）：康奈尔大学 Soil and Crop Sciences 博士。张铧兮（另类数据创始顾问）：南开大学金融学院青年学者。董戈教授（首席科学家）：清华大学航天航空学院研究员，俄罗斯自然科学院外籍院士。",
+          "company": "天穹智算",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "Orbital Insight、Planet Labs、Kensho",
+          "highlight": "通过 Agent 工作流自动完成事件拆解、数据源选择、证据提取、报告生成和持续监测；首席科学家是俄罗斯自然科学院外籍院士",
+          "star": true
+        },
+        {
+          "id": "E11",
+          "name": "枢宇科技",
+          "tagline": "模拟光电子芯片的 Agentic 设计引擎",
+          "direction": "首家跑通模拟芯片设计 Agentic 闭环；以自研多智能体框架重构模拟与光电子芯片设计范式",
+          "founder": "汪嘉成 — 创始人 / CEO",
+          "team": "汪嘉成：创始人 & CEO，清华大学电子信息博士，兼具 EDA、模拟芯片设计与 LLM 智能体系统的稀缺复合背景。陈睿（创始人 & CTO）：清华大学电子信息硕士，实战派工业智能体专家。宋健（创始人 & 首席科学家）：清华 EE85，清华大学教授，IEEE Fellow，致力于推动光载信息产业发展。",
+          "company": "北京市枢宇科技有限公司（深圳/北京/上海）",
+          "site": "",
+          "github": "",
+          "funding": "天使轮 1000W；4 家头部客户 POC，3 个月验证通过（紫光展锐、卓胜微、芯炽科技、奇捷科技均已进入 POC 阶段）；较现有最强 LLM，Orvix LLM 拓扑一次成功率提升 127%",
+          "benchmarks": "Cadence（Cerebrus AI）、Synopsys（DSO.ai）、Flux.ai、Silimate",
+          "highlight": "核心产品 Orvix Pilot；首创 Agentic RL 平台，自研垂直 LLM 突破数据瓶颈；联合华大九天（Empyrean Technology）构建覆盖芯片、光电子器件与空间光信道的全链路 EDA 底座，兼容 Cadence、Synopsys 主流设计流程",
+          "star": true
+        },
+        {
+          "id": "E12",
+          "name": "合睿智信",
+          "tagline": "本土企业 AI 落地咨询与交付新模式",
+          "direction": "以'专家诊断+落地+员工内化'的模式，在首年用 1 专家加 3 名学员的方式，完成 7 个项目交付",
+          "founder": "王瑞 — 创始人 / CEO",
+          "team": "王瑞：创始人 & CEO，中科院大学前沿交叉学院 & 物理所博士生，本科毕业于清华大学材料学院；二级券商及一级私募行研经历。房泽锐（联创 / CTO）：中科院大学前沿交叉学院 & 微电子所博士生，AI Infra 及应用方向，曾就职于字节跳动、寒武纪、燧原；获得 AI 芯片推理相关国家级奖项、两项国家发明专利。郑博元（生态伙伴）：中国科学院大学他山学科交叉创新协会创始人；举办 10 届交叉沙龙，覆盖 40+ 院所的 800+ 硕博生。李瑀旸（首席 AI 专家）：上海人工智能实验室「AGI4S 攀登者计划」、中国科协青托博士。徐喆（运营 PR）：理学博士，美国访问学者；5 年+ 社群运营经验。",
+          "company": "北京（人民币架构）",
+          "site": "",
+          "github": "",
+          "funding": "种子+轮 600 万人民币；目前已完成 7 个项目交付，第一次真正让业务人员自主拥抱 AI 重构日常工作，解决了组织内长期困扰的 AI 协同断层问题",
+          "benchmarks": "埃森哲、麦肯锡、贝恩等咨询公司的 AI 落地服务",
+          "highlight": "'AI 即增长，数智见实效'，合睿智信致力于做企业 AI 落地的战略伙伴；'懂运营+懂 AI+懂落地'三位一体；最大中科院社群（链接 1500+本硕博专家，70+ 科研院所合作单位）",
+          "star": true
+        }
+      ]
+    },
+    {
+      "zone": "F区",
+      "theme": "Agent toC",
+      "count": 12,
+      "color": "#86198F",
+      "projects": [
+        {
+          "id": "F01",
+          "name": "时空码头 KsanaDock",
+          "tagline": "游戏开发 Agent，让 AI 做出生产级游戏",
+          "direction": "致力于把 AI 带入游戏开发的核心环节；目前已上线 AI 游戏资产平台 ksanadock.ai；正在研发面向游戏开发的 AI Agent",
+          "founder": "李豪 — 创始人 / CEO",
+          "team": "李豪：前华为软件工程师，华东理工大学机械自动化专业；会画画和编曲的程序员；曾独立完成开源游戏《Microverse》的美术、音乐、特效与软件开发工作，GitHub 2.3K+ 星标；小红书自媒体博主（粉丝 5.9K+）。曹一新（联创）：前华为软件工程师，应用数学背景；负责时空码头 Agent 核心算法的设计与开发。",
+          "company": "KsanaDock 时空码头",
+          "site": "https://ksanadock.ai/",
+          "github": "https://github.com/KsanaDock/Microverse",
+          "funding": "未公开；GitHub 2064+ Stars, 354 Forks, MIT 开源",
+          "benchmarks": "Stanford Generative Agents/AI 小镇、a16z AI Town、The Sims、Inworld AI",
+          "highlight": "目前已上线 AI 游戏资产平台 ksanadock.ai；正在研发的 Agent 不止生成代码，还能与游戏引擎直接打通、分析游戏在运行时的数据状态、打磨游戏体验",
+          "star": true
+        },
+        {
+          "id": "F02",
+          "name": "UseIt AI",
+          "tagline": "做 AI for Design 最好的驾驶舱——交付即源文件",
+          "direction": "Computer Use Agent 垂类商业化，目标人群是长时间与专业软件交互的设计师群体",
+          "founder": "郜迪飞 — 创始人 / CEO",
+          "team": "郜迪飞：中科院计算所博士，NUS 博士后，Computer Use Agent 方向最早期开拓学者，发表顶会论文 40 余篇，多次获最佳论文奖与 AI 顶会竞赛冠军，学术项目 GitHub 7K+ Stars。陈芷恒（联创 / 增长负责人）：新加坡国立大学硕士，高中起深耕 AI，自然语言与机器语言双修。丁云培（联创 / 产品负责人）：UCL 计算机视觉硕士，文理工三学位，连续创业者。刘佳琦（联创 / 技术负责人）：北工大人工智能博士，连续创业者，前 AIGC 创作分享平台技术负责人。",
+          "company": "USEIT PTE. LTD.（新加坡，美元架构）",
+          "site": "",
+          "github": "https://github.com/UseIt-AI/use-it-agent",
+          "funding": "Pre-A 200 万美元；公司将持续推动 AIGC 工具与专业软件的深度融合，构建全新的 AI Native 的设计工作流",
+          "benchmarks": "Anthropic Claude Computer Use、OpenAI Operator、Google Project Mariner、AutoGPT",
+          "highlight": "通用 Computer Use Agent 模拟人的键鼠操作，在专业设计软件中效率低、易出错；UseIt 自研的 Agent Harness 让 Agent 既懂构图、也懂专业软件；端到端跑完草图、图层复刻、瑕疵校验到精修打磨的完整流程，最终交付可继续编辑的 PSD/AI/SVG 工程文件",
+          "star": true
+        },
+        {
+          "id": "F03",
+          "name": "Lulula AI",
+          "tagline": "实时语音智能体 + AI 音频世界",
+          "direction": "新一代实时语音智能体，致力于打破传统 AI 回合制范式；产品以全双工实时语音为核心，支持插嘴、打断和追问，并将语音回复、动作反馈、环境声音与 3D 空间音效融为一体",
+          "founder": "孙长昊 — 创始人 / CEO",
+          "team": "孙长昊：字节 Coze 早期核心成员，百度文心一言创始团队核心成员；曾在腾讯、旷视负责 AI 产品与智能硬件业务，主导/参与 10+ AI 产品从 0 到 1。Dr.Sam（首席语音科学家）：长期深耕语音方向，发表论文 20 余篇，多次在国际赛事中获得冠军。孙靖凯（联创 / 核心工程负责人）：前百度 MEG AIGC 创作研发组核心成员，主导视频 AI 剪辑与动态漫编辑器。Brick（业务架构师 / 语音工程化负责人）：前滴滴语音工程负责人，长期负责 TTS/ASR/VAD 等语音系统工程化落地。Agent 团队（记忆系统/Agent 框架/RL 训练）：核心成员来自百度文心一言、字节 Coze 与豆包 Agent 平台。",
+          "company": "Lulula AI",
+          "site": "",
+          "github": "",
+          "funding": "极早期",
+          "benchmarks": "Inworld AI、Sesame、Sindarin、OpenAI Realtime API",
+          "highlight": "本地隐私加云端路由的混合架构；面向长程任务的共享文档协同；让语音不再是一次性指令通道，而是与任务文档实时联动",
+          "star": true
+        },
+        {
+          "id": "F04",
+          "name": "Humanify",
+          "tagline": "AI 原生操作系统（投资价值 TOP1）",
+          "direction": "打造'像人的 AI'：具备情商、人格属性、意图、情绪、长期记忆及自主行动动机的 AI 模型 + AI 原生操作系统；打破 GUI OS 范式",
+          "founder": "易和阳 (Aaron Yee) — 创始人",
+          "team": "易和阳：1997 年生，浙江大学人工智能博士，连续创业者。此前有 Web3 创业经历，曾创立服务超百万用户、支付级可靠性的生态基础设施。核心创始团队来自浙大、清华。",
+          "company": "人格智能（杭州）有限公司（成立于 2024 年）",
+          "site": "",
+          "github": "",
+          "funding": "数千万元人民币种子轮（2026 年 1 月），五源资本 5Y Capital 领投，奇绩创坛（陆奇博士）跟投",
+          "benchmarks": "Rabbit R1 OS、Humane Pin、各类 Agent OS 框架",
+          "highlight": "toC 赛道融资信息最明确、投资阵容最强的项目",
+          "star": true,
+          "double_star": true
+        },
+        {
+          "id": "F05",
+          "name": "爱与机器人维修技术 All Our Broken Parts",
+          "tagline": "叙事独立游戏",
+          "direction": "在机器人都市中拆开机器人的后脑与胸腔，寻找病因，倾听、诊断、治疗",
+          "founder": "班春晖 — CEO / 创意总监",
+          "team": "班春晖：CEO & 创意总监；毕业于中国传媒大学游戏设计本科；曾就职于网易游戏，担任关卡设计师；10+ 次 Gamejam 经验，获得 indieplay 最佳 Gamejam 以及最佳学生作品入围。丁耘天（CTO）：毕业于华南理工大学信息工程专业；曾任职于华为技术有限公司担任软件工程师。陈子钦（叙事 & 音频总监）：毕业于华南理工大学自动化专业；曾任职于网易游戏，担任叙事设计师；曾任职于库洛游戏。周子迁（艺术总监）：毕业于湖北美术学院数字媒体艺术专业；曾就职于鹰角游戏重力井部门，担任概念设计。",
+          "company": "广州锡鸟科技有限公司",
+          "site": "https://store.steampowered.com/app/3473430/All_Our_Broken_Parts/",
+          "github": "",
+          "funding": "预计 2026 年正式发售；QQ 群 325268983，B 站/小黑盒/小红书官方账号",
+          "benchmarks": "Papers Please、Her Story、Unpacking（叙事型独立游戏）",
+          "highlight": "机器人的'情绪'是流动在模块电路里的'特征电流'"
+        },
+        {
+          "id": "F06",
+          "name": "STACK ANYWAY 观点跃迁",
+          "tagline": "全球首个 Text to Device AI 电子设备生成实现平台",
+          "direction": "世界首个 Text-To-Device 电子硬件设计实现平台；硬件版 Claude Code；让任何有创意的 Maker 或潜在 Maker，只需自然输入想法，即可转化为高质完备的电子硬件设计，并全流程加速落地为可运行电子硬件原型",
+          "founder": "徐世哲 — CEO",
+          "team": "徐世哲：帝国理工学院，英国皇家艺术学院毕业；IF DIA IDEA 等全球设计奖大满贯资深硬件 Maker；前头部硬件大厂 AI 创新业务负责人；央视撒贝宁、老罗、影视飓风 Tim 亲自带货的国民级 C 端硬件产品创造者。Rico Li：美国华盛顿大学计算机科学硕博连读；曾独立操盘 14nm 芯片落地，成果发表在 ISCA 等顶会，是既能定义下一代计算架构又能亲手把芯片做出来并成功流片的极少数硬件全栈玩家。李卓霖（软件应用负责人）：美国华盛顿大学、上海纽约大学 Interactive Media Arts & Math 硕士；曾上架过 20 多款 app，过亿流量应用开发者，ml5.js 机器学习框架核心开发者。陈炳州：美国 U-Iowa SCAD 硕士；曾任职华为、达美航空；年营收超 3000 万的硬件嵌入式校长，曾培养并送出超 300 位 Maker 进入麻省、哈佛、帝国理工等。",
+          "company": "STACK ANYWAY",
+          "site": "",
+          "github": "",
+          "funding": "已支持总计数千万预算硬件项目的原型研发，技术社区粉丝破一万人",
+          "benchmarks": "Tinkercad、Fusion 360、LabVIEW",
+          "highlight": "硬件版 Claude Code；大幅降低电子硬件创新门槛",
+          "star": true
+        },
+        {
+          "id": "F07",
+          "name": "海伦阿姨的厨房",
+          "tagline": "建立宠物友好场景的全域快消零售网，让一亿养宠人随时随地买一包",
+          "direction": "销售宠物零食及一步式陈列解决方案；通过模块化陈列和数字工具，让产品适应所有场景、像可乐一样方便购买",
+          "founder": "邓牧雨 — CEO",
+          "team": "邓牧雨：科罗拉多大学博尔德分校计算机科学、经济学学士；前小米高级国际化产品经理；擅长需求洞察，将营收低于 10 万的低优项目做到超过亿营收；作为项目负责人获得集团内部最高奖项「质量奖」。张乐山（联创）：原小米资深设计师，主导小米海外视觉系统定义；后任快消公司设计总监主导多个商业项目，累计销售额 1.2 亿。涵宇（联创）：原小米高级产品经理、青年工程师；在多国完成小米交付、履约和物流体系的 0-1 落地。",
+          "company": "海伦阿姨的厨房",
+          "site": "",
+          "github": "",
+          "funding": "首年 0 市场费用的情况下售出 100 万包",
+          "benchmarks": "Pet Honesty、Wuffes、麦富迪",
+          "highlight": "团队全自研 AI 工具覆盖从研发到交付全链路；以快销和互联网思维重塑万亿宠物市场的消费基础设施；前小米国际化团队",
+          "star": true
+        },
+        {
+          "id": "F08",
+          "name": "想通了",
+          "tagline": "让 AI 以「过来人」的平等身份帮你理清困扰",
+          "direction": "构建自研动态人格认知系统，通过长期会话记忆、思维模式识别与用户心智模型持续演化，使 AI 能够在长期互动中逐步理解用户",
+          "founder": "韩瑜 — 创始人 / CEO",
+          "team": "韩瑜：清华大学艺术设计本硕；连续创业者；思维认知赛道万粉自媒体博主；具备产品设计、心理认知、内容运营多项全能。吴合风（联创 / CTO）：清华大学自动化系硕士，十年算法工作经验，连续创业者；北京市人工智能中级专业工程师；申报及授权专利 13 项，发表专业论文 8 篇。沈子维（联创 / COO）：北京大学心理学在读博士，AI + 人类情绪研究方向；负责心理认知方法的架构设计。",
+          "company": "想通了",
+          "site": "",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "Replika、Rosebud、Character.ai",
+          "highlight": "清华艺术 + 清华自动化 + 北大心理的跨学科组合；动态人格认知系统",
+          "star": true
+        },
+        {
+          "id": "F09",
+          "name": "Kuku",
+          "tagline": "macOS AI 原生 Markdown 编辑器（Obsidian meets Cursor）",
+          "direction": "macOS 原生 AI Markdown 编辑器和知识工作区；Tauri v2+Rust 构建，体积约 15MB，内存约 80MB",
+          "founder": "未公开",
+          "team": "",
+          "company": "",
+          "site": "https://www.kuku.mom/",
+          "github": "",
+          "funding": "未公开",
+          "benchmarks": "Obsidian、Notion、Logseq、Reflect、Bear、Heptabase",
+          "highlight": "本地优先(Local-first)、双向链接、图谱视图、全文搜索、离线 Whisper 语音转文字、Gemini AI Agent 可搜索/编辑笔记库、Cursor 风格可审查 diff；通过 Homebrew 安装",
+          "star": true
+        },
+        {
+          "id": "F10",
+          "name": "skardi.ai",
+          "tagline": "Databricks for Agent · 填补 Agent 在生产环境落地的最后一英里",
+          "direction": "给 Agent 做的数据平台，通过统一数据入口来对 Agent 对数据逻辑的执行做包括连接、权限、血缘、对原始数据的加工在内的功能，以实现让 Agent 在生产环境中的行为做到可控制可审计和可回滚",
+          "founder": "魏鑫 (Xin Wei / BT) — CEO",
+          "team": "魏鑫：Query engine & semantic search lead AWS → Pokémon GO → Tubi；Led query engines & ML infra at 10M+ scale；BS/MS in CS @ UIUC。陈博旸（CTO）：Real-time ingestion & platform staff eng；Apache Kafka Committer → Rockset (OpenAI) → ClickUp；Author of 9 Kafka KIPs；Led 10M-user DB migration；BS/MS in CS @ UIUC。",
+          "company": "Delaware C-Corp（美国西雅图）",
+          "site": "https://skardi.ai",
+          "github": "https://github.com/SkardiLabs/skardi",
+          "funding": "计划融资 500 万 USD 种子轮；领跑头部 Agent 赛道：法律赛道的 10B+ 估值 agent 公司主动接触，建立早期合作意向；头部 AI 招聘公司深度 POC；本地化部署打破 ATS 信息壁垒；顶级 AI 访谈公司来与产品集成",
+          "benchmarks": "Apache Spark、DuckDB、Apache DataFusion、RisingWave、Infinity",
+          "highlight": "Agent 原生架构；市面上唯一同时支持理解、统一和安全的数据平台；基于 Apache DataFusion 的 Rust 高性能 SQL 查询引擎",
+          "star": true
+        },
+        {
+          "id": "F11",
+          "name": "Memova.ai",
+          "tagline": "让每个人零门槛使用理解自己的 Agent，重构工作流",
+          "direction": "Memova 是一个让任何普通人都像硅谷高级工程师一样用 AI agent 的个人超级对齐平台。它为所有工作流打开入口，将现实世界里的信息碎片，包括笔记、录音、网页、图片，都变成你结构化的私有知识库",
+          "founder": "孙明雨 — 联合创始人 & CEO",
+          "team": "孙明雨：联合创始人 & CEO，硅谷连续创业者，普渡大学机械工程硕士；读研时创立 CAC Auto Group，O2O 汽车销售服务公司，第三年达到 3000 万美金年营收；后在湾区转型 SaaS+AI 创立 EZDealer，以及联合创立数据平台+AI 公司 Abfy.ai；擅长 AI 工作流设计，自身 ASD+ADHD 人群，对表达与理解高度敏感，长期系统化方式思考问题。杜天蔚（联创 & CTO）：斯坦福大学医学院助理教授，普渡大学心理学博士；深度研究人际过程与人格机制。陈晨（创始团队成员 & 首席数据科学家）：OpenAI 数据科学家，斯坦福大学工程博士；负责数据智能、用户行为建模、知识库评估体系。程漾（创始团队成员 & 首席算法科学家）：Meta 研究科学家，普渡大学工程博士；负责核心算法架构、多模态理解与个性化记忆模型。",
+          "company": "杭州 / 旧金山（美元架构）",
+          "site": "https://memova.ai",
+          "github": "",
+          "funding": "种子轮 150 万美元；硅谷连续创业者 + 斯坦福助理教授团队",
+          "benchmarks": "Day One、Rosebud Journal、Mindsera、Reflectly、Otter.ai",
+          "highlight": "全球首个无门槛 Agent 闭环工作流平台；用户只需说话、录音或者做笔记，Memova 自动生成 Agent 可用的长期上下文，并让 Agent 完成计划、执行和产出；普惠给所有人 Claude+Obsidian 的能力，达成科技和信息平权",
+          "star": true
+        },
+        {
+          "id": "F12",
+          "name": "Thennote",
+          "tagline": "主动 Agent 驱动的一站式 AI 工作空间",
+          "direction": "面向学生、产品经理、研究员、创业者等上下文密集型知识工作者；产品将文档、上下文、多模态能力和 AI 工具整合合一个工作空间中",
+          "founder": "刘荣轩 — 创始人 / CEO",
+          "team": "刘荣轩：本科毕业于爱丁堡大学 AI 专业，曾任智谱 AI Coding 产品经理，Zread 项目负责人；从 0 到 1 推动多个 AI 产品落地，具备产品、工程、设计和增长的复合能力",
+          "company": "Thennote",
+          "site": "（公众号文章未给出独立官网；官方介绍页通过奇绩创坛小程序查看）",
+          "github": "",
+          "funding": "种子加轮 150 万美元",
+          "benchmarks": "Notion、ChatGPT、Cursor、Cluely",
+          "highlight": "三大支柱：Context Aware 全局上下文（文件、网页、文件夹、历史记录）+ Proactive AI 主动式 AI（AI predicts, suggest, 真正融入你的工作流）+ Playable Notebook 可演化笔记本（Write, run, preview, build）。Slogan：'最值钱的，是心流' / '5× 心流里的效率' / '23 min 一次打断需要找回'",
+          "star": true
+        }
+      ]
+    }
+  ]
+};
+
+// Merge: dd by id + project basics
+const projMap = {};
+PROJECT_DATA.zones.forEach(z => z.projects.forEach(p => projMap[p.id] = {...p, zone: z.zone, zoneTheme: z.theme}));
+
+const ROWS = DD_DATA.map(dd => {
+  const p = projMap[dd.id] || {};
+  // Parse valuation lower bound for sorting
+  const m = String(dd.valuation_range || '').match(/\$(\d+(?:\.\d+)?)[ -–]/);
+  const valuation_num = m ? parseFloat(m[1]) : 0;
+  return {
+    ...p, ...dd, valuation_num,
+    zone_letter: dd.id[0],
+  };
+});
+
+function esc(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function recStars(n) {
+  n = parseInt(n) || 0;
+  return '★'.repeat(n) + '☆'.repeat(5-n);
+}
+
+let sortKey = 'recommendation', sortDir = -1;
+let searchQ = '', zoneQ = '', recQ = '';
+
+function render() {
+  const tbody = document.getElementById('ddBody');
+  let rows = ROWS.filter(r => {
+    if (zoneQ && r.zone_letter !== zoneQ) return false;
+    if (recQ && String(r.recommendation) !== recQ) return false;
+    if (searchQ) {
+      const q = searchQ.toLowerCase();
+      const blob = [r.name, r.tagline, r.founder, r.tech_moat, r.verdict].join(' ').toLowerCase();
+      if (!blob.includes(q)) return false;
+    }
+    return true;
+  });
+  rows.sort((a, b) => {
+    const av = a[sortKey], bv = b[sortKey];
+    if (typeof av === 'number' || typeof bv === 'number') {
+      return ((av||0) - (bv||0)) * sortDir;
+    }
+    return String(av || '').localeCompare(String(bv || '')) * sortDir;
+  });
+  document.getElementById('statsBar').textContent = `${rows.length} / ${ROWS.length} 项目`;
+  tbody.innerHTML = rows.map(r => `
+    <tr data-id="${r.id}">
+      <td><span class="pill pill-${r.zone_letter}">${r.id}</span></td>
+      <td>
+        <div class="proj-name">${esc(r.name)}</div>
+        <div class="proj-tag founder">${esc(r.founder || '')}</div>
+      </td>
+      <td class="col-tagline" style="color:var(--muted);max-width:280px;">${esc(r.tagline || '')}</td>
+      <td class="col-team" style="text-align:center;">${'●'.repeat(r.team_score||0)}<span style="color:#475569">${'●'.repeat(5-(r.team_score||0))}</span></td>
+      <td class="col-tam" style="color:var(--muted);max-width:200px;font-size:12px;">${esc(r.market_tam || '')}</td>
+      <td><span class="val-range">${esc(r.valuation_range || '')}</span></td>
+      <td><span class="rec r${r.recommendation||0}">${recStars(r.recommendation)}</span></td>
+      <td style="max-width:280px;color:rgba(232,236,245,0.88);">${esc(r.verdict || '')}</td>
+    </tr>
+  `).join('');
+  // Update sort indicators
+  document.querySelectorAll('th').forEach(th => th.classList.remove('sort-asc','sort-desc'));
+  const th = document.querySelector(`th[data-sort="${sortKey}"]`);
+  if (th) th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+}
+
+document.querySelectorAll('th').forEach(th => th.addEventListener('click', () => {
+  const k = th.dataset.sort;
+  if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = -1; }
+  render();
+}));
+document.getElementById('search').addEventListener('input', e => { searchQ = e.target.value; render(); });
+document.getElementById('zoneFilter').addEventListener('change', e => { zoneQ = e.target.value; render(); });
+document.getElementById('recFilter').addEventListener('change', e => { recQ = e.target.value; render(); });
+
+// Drawer
+const drawer = document.getElementById('drawer');
+const mask = document.getElementById('drawerMask');
+function openDrawer(id) {
+  const r = ROWS.find(x => x.id === id);
+  if (!r) return;
+  document.getElementById('drawerContent').innerHTML = `
+    <span class="pill pill-${r.zone_letter}" style="font-size:12px;">${r.id}  ·  ${r.zone}</span>
+    <h2>${esc(r.name)}</h2>
+    <div class="badge-row">
+      <span>团队 ${'●'.repeat(r.team_score||0)}<span style="color:#475569">${'●'.repeat(5-(r.team_score||0))}</span></span>
+      <span style="color:var(--gold)">推荐 ${recStars(r.recommendation)}</span>
+      <span style="color:var(--accent)">${esc(r.valuation_range || '')}</span>
+    </div>
+    <div style="color:var(--accent);font-size:13.5px;margin-bottom:6px;">${esc(r.tagline || '')}</div>
+    <div class="links-row">
+      ${r.site ? `<a target="_blank" href="${esc(r.site)}">官网 ↗</a>` : ''}
+      ${r.github ? `<a class="repo" target="_blank" href="${esc(r.github)}">GitHub ↗</a>` : ''}
+    </div>
+
+    <section>
+      <h3>创始人 · 团队</h3>
+      <p style="color:var(--gold);font-weight:600;margin-bottom:6px;">${esc(r.founder || '')}</p>
+      <p>${esc(r.team || '')}</p>
+    </section>
+
+    <section>
+      <h3>一句话判断</h3>
+      <p style="font-size:14.5px;color:#fff;line-height:1.7;">${esc(r.verdict || '')}</p>
+    </section>
+
+    <section>
+      <h3>站点 / Repo 状态</h3>
+      <div class="kv">
+        <b>Website</b><span>${esc(r.website_status || '—')}</span>
+        <b>Repo</b><span>${esc(r.repo_status || '—')}</span>
+      </div>
+    </section>
+
+    <section>
+      <h3>护城河 · 风险 · 优势</h3>
+      <div class="kv" style="margin-bottom:10px;">
+        <b>护城河</b><span>${esc(r.tech_moat || '—')}</span>
+        <b>TAM</b><span>${esc(r.market_tam || '—')}</span>
+        <b>估值依据</b><span>${esc(r.valuation_range || '—')}</span>
+      </div>
+      <p style="color:#fb7185;font-size:11px;letter-spacing:1px;margin-bottom:4px;">RISKS</p>
+      <ul style="color:rgba(232,236,245,0.85);">
+        ${(r.risks || []).map(x => `<li>${esc(x)}</li>`).join('')}
+      </ul>
+      <p style="color:var(--green);font-size:11px;letter-spacing:1px;margin:8px 0 4px;">STRENGTHS</p>
+      <ul style="color:rgba(232,236,245,0.85);">
+        ${(r.strengths || []).map(x => `<li>${esc(x)}</li>`).join('')}
+      </ul>
+    </section>
+
+    <section>
+      <h3>竞品矩阵</h3>
+      ${(r.competitors || []).map(c => `
+        <div class="comp-row">
+          <b>${esc(c.name || '')}</b>
+          <span class="stage">${esc(c.stage || '')}</span>
+          <span style="color:var(--muted);">${esc(c.note || '')}</span>
+        </div>
+      `).join('')}
+    </section>
+
+    ${r.funding ? `
+    <section>
+      <h3>融资进展（项目卡披露）</h3>
+      <p>💰 ${esc(r.funding)}</p>
+    </section>` : ''}
+  `;
+  drawer.classList.add('show');
+  mask.classList.add('show');
+}
+function closeDrawer() { drawer.classList.remove('show'); mask.classList.remove('show'); }
+document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+mask.addEventListener('click', closeDrawer);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+document.getElementById('ddBody').addEventListener('click', e => {
+  const tr = e.target.closest('tr[data-id]');
+  if (tr) openDrawer(tr.dataset.id);
+});
+
+render();
+</script>
+</body>
+</html>
