@@ -323,8 +323,6 @@
   <h1>奇绩创坛 2026 春季 · 56 项目尽职调查表</h1>
   <p class="subtitle">8 维度 DD：站点验证 / Repo 活跃度 / 团队评分 / 技术护城河 / 竞品 / TAM / 估值区间 / 推荐度 — 由 7 路调研 agent 并行产出</p>
   <a class="back-link" href="./">← 回到全景主页</a>
-  <a class="back-link" href="story.html" style="margin-left:12px;">📝 实战记 · 怎么做的</a>
-  <a class="back-link" href="https://github.com/zhanglunet/demo-day-dossier" target="_blank" rel="noopener" style="margin-left:12px;">⌥ GitHub 源码</a>
 </header>
 
 <div class="toolbar">
@@ -377,8 +375,7 @@
   数据源：奇绩创坛官方项目卡 + 微信文章 + 7 路 DD agent 并行调研 ｜
   报告版本 v1.0 · 2026-06-07 ｜
   <a href="./">🌐 回到全景主页</a> ｜
-  <a href="https://mp.weixin.qq.com/s/03QbrGJc1zmpe94_51EQmA" target="_blank">官方文章</a> ｜
-  <a href="https://github.com/zhanglunet/demo-day-dossier" target="_blank" rel="noopener">📦 GitHub 源码</a>
+  <a href="https://mp.weixin.qq.com/s/03QbrGJc1zmpe94_51EQmA" target="_blank">官方文章</a>
   <br><br>
   仅供学习研究参考。估值/推荐度是基于公开信息的二手分析，不构成投资建议。
 </footer>
@@ -2360,10 +2357,10 @@ const DD_DATA = [
 const PROJECT_DATA = {
   "meta": {
     "title": "奇绩创坛 2026 春季路演日 · 项目全景报告",
-    "subtitle": "56 个录取项目全景调研（v4.0 · 微信文章一手补全）",
+    "subtitle": "54 个项目全景调研（v5.0 · 加入路演现场 pitch 转录）",
     "date": "2026-06-07",
-    "version": "v4.0",
-    "source": "图片项目卡 + 路演现场照 + 奇绩创坛官方微信文章（https://mp.weixin.qq.com/s/03QbrGJc1zmpe94_51EQmA）",
+    "version": "v5.0",
+    "source": "图片项目卡 + 路演现场照 + 奇绩创坛官方微信文章 + 2026-06-07 现场会议纪要转录 5 份",
     "stats": {
       "total": 56,
       "overseas_pct": 43,
@@ -2499,7 +2496,14 @@ const PROJECT_DATA = {
           "funding": "500 万美元；27,000+ GitHub Stars，9 次登顶全球榜单，70% 部署来自美国市场；已签 AI 黑马客户 Twin Labs；正成功交付中国移动、中国国家电网等头部客户",
           "benchmarks": "MinIO (AGPLv3)、Amazon S3、Ceph、SeaweedFS",
           "highlight": "Apache 2.0；100% S3 兼容；93MB 镜像；4KB 小对象吞吐量 2.3× MinIO；读 323GB/s、写 183GB/s；与 Dify、Milvus 等深度集成",
-          "star": true
+          "star": true,
+          "live_pitch": {
+            "date": "2026-06-07",
+            "presenter": "刘雅",
+            "summary": "刘雅（润凡创始人）介绍 RustFS——全球增长最快的 AI 存储基础设施。当前 AI 生态瓶颈已从算力转移至存储，L1/L2 层吞吐不足与缓存命中率低制约 GPU 利用率。RustFS 以 RDMA 替代传统以太网提升存储吞吐，并采用独家 MQM 算法大幅提升缓存命中率，使 GPU 利用率达到95%。\n\n9个月内在 GitHub 社区获得27,000 star，全球服务器安装量达100万节点（其中70%来自美国市场）。商业客户包括 AMD、渣打银行，中国移动、国家电网及欧洲明星企业。团队具备20年开源经验，曾参与 IBM 顶级开源项目，完成数亿元海外营收。判断下一波最持续盈利的赛道是 AI 存储生态，非算力。[对应 projects.json #A07]",
+            "source_meeting": "runfan-ai-storage-26-06-07",
+            "wiki_path": "Jason/wiki/meetings/runfan-ai-storage-26-06-07.html"
+          }
         },
         {
           "id": "A08",
@@ -2544,21 +2548,36 @@ const PROJECT_DATA = {
           "funding": "未公开",
           "benchmarks": "Iktos、Insilico Medicine、晶泰、Schrödinger",
           "highlight": "STAT6 从头设计到命中只需 3 天，纳米抗体亲和力成熟只需 6 小时；对话即可实现小分子、抗体、融合蛋白、酶等多模态设计",
-          "star": true
+          "star": true,
+          "live_pitch": {
+            "date": "2026-06-07",
+            "presenter": "王俊毅",
+            "summary": "演讲者介绍构建「科学通用型人工智能」的愿景：目标是用6个月完成目前需10-20年才能实现的获奖级科研成果。当前生物医药领域 AI 停留在辅助研发层面，泛化能力弱，各药物类型之间无法互相学习。\n\n团队从三个方向布局：分子设计（省时间）、虚拟科学家（省脑力）、自驱动实验室（少动手）。技术亮点是全球首个 ODesign 分子设计模型——以单一模型同时覆盖多种药物靶点类型，设计出竞品未曾生成的候选分子，且多项指标达到国内乃至全球领先。底层技术支柱包括分子模型、跨模块交互推理优化，以及实验结果反馈自适应闭环体系。\n\n核心团队大多来自「datafaker」实验室（诺贝尔奖蛋白质设计先驱团队）。愿景是一个月内实现「从有科学依据的想法→实验室迭代→可供实验粉末」的全闭环。[对应 projects.json #A10]",
+            "source_meeting": "biotech-26-06-07",
+            "wiki_path": "Jason/wiki/meetings/biotech-26-06-07.html"
+          }
         },
         {
           "id": "A11",
-          "name": "芯引力（待核实）",
-          "tagline": "（公开信息有限）",
-          "direction": "推测：芯片/AI 硬件方向",
+          "name": "数宇科技",
+          "tagline": "模拟→光电子全链路 EDA AI · agentic 设计引擎",
+          "direction": "从模拟到光电子的全链路 EDA 仿真平台 + agentic 设计引擎，让模型在虚拟环境中自主流片",
           "founder": "未公开",
-          "team": "",
+          "team": "团队源于清华1985班，先后量产过11款模拟射频光电子芯片，技术贯通 EDA 底座、芯片设计到 AI Agent 全栈",
           "company": "",
           "site": "",
           "github": "",
           "funding": "未公开",
-          "benchmarks": "",
-          "highlight": "未在文章中详细介绍，待补充"
+          "benchmarks": "Synopsys、Cadence、Mentor Graphics（传统 EDA）；模拟芯片 EDA AI 方向：DeepChip、InstaChip",
+          "highlight": "正在与4家行业头部客户做 POC，3个核心场景已端到端跑通；长期愿景是带领中国芯片迈入光电子时代",
+          "live_pitch": {
+            "date": "2026-06-07",
+            "presenter": "数宇科技创始人",
+            "summary": "演讲者指出模拟芯片设计周期以年计、成本数千万，模拟工程师仍有70%时间耗在手工调参，这一环节从未被自动化。核心障碍是三无困境：无数据集、无标准答案、不容误差。\n\n数宇科技联合业界头部企业搭建首个「模拟到光电子」全链路 EDA 仿真平台，并在此基础上首创「agentic 设计引擎」：让模型在虚拟环境中自主流片成千上万次，以仿真器替代训练局、以端到端 agent 替代工程师，无限数据持续增强，同时解决三大瓶颈。团队源于清华1985班，先后量产过11款模拟射频光电子芯片，技术覆盖 EDA 底座、芯片设计到 AI Agent 全栈。\n\n目前正与四家行业头部客户进行 POC，三个核心场景已端到端跑通。长期愿景是打通光电子芯片从设计底座到量产应用的全链路闭环，助力中国芯片迈入光电子时代。（注：projects-hint 中未找到精确匹配，疑为 A11 芯引力或其他未公开项目）",
+            "source_meeting": "analog-chip-26-06-07",
+            "wiki_path": "Jason/wiki/meetings/analog-chip-26-06-07.html"
+          },
+          "star": true
         }
       ]
     },
@@ -2596,7 +2615,14 @@ const PROJECT_DATA = {
           "funding": "未公开。业务对外输出成套驾驶舱软硬件系统，服务机器人企业与科研院所，提供遥操即服务（TaaS）与数据资产双重核心价值",
           "benchmarks": "1X Technologies、Sanctuary AI、科幻智能",
           "highlight": "业内唯一具备大尺度空间全身协同操控和数据采集能力团队；可提供最稀缺的真实场景全身协同数据",
-          "star": true
+          "star": true,
+          "live_pitch": {
+            "date": "2026-06-07",
+            "presenter": "王子峣",
+            "summary": "影控机器人（B02）介绍其面向人形机器人的全身操作驾驶舱系统。核心观点：仿真数据和桌面数据无法支撑通用机器人发展，唯一出路是真实世界的全身协同数据采集。（纪要原文仅保留开场判断句，详细技术与商业化内容被截断。）",
+            "source_meeting": "kp-keynote-26-06-07",
+            "wiki_path": "Jason/wiki/meetings/kp-keynote-26-06-07.html"
+          }
         },
         {
           "id": "B03",
@@ -2731,7 +2757,14 @@ const PROJECT_DATA = {
           "funding": "Y Combinator 孵化（轮次/金额未公开）",
           "benchmarks": "Limitless AI Pendant、Humane Ai Pin、Friend、Rabbit R1",
           "highlight": "一台放在家里，和你一起成长的个人 AI 系统；本地随时待命，无需支付 Token 费用，数据和权限始终由用户掌控",
-          "star": true
+          "star": true,
+          "live_pitch": {
+            "date": "2026-06-07",
+            "presenter": "陈洛飞",
+            "summary": "陈洛飞介绍 Oki Home（产品名 OPHome）——一款软硬件一体的个人 AI 系统，解决用户数字信息碎片化、缺乏统一可信私人 AI 助理的问题。用户将全部数据存于本地设备，插电即用，随时随地通过个人 AI 访问，实现个性化「主管」服务，数据完全自主可控。\n\n核心技术亮点是自研「mention 记忆芯片」：物理上可拔插，承载所有个人上下文，并面向未来机器人、智能体、汽车、脑机接口等场景复用。产品由团队七年合作打磨，已获 YC 与奇绩创坛双重投资，全员 Berkeley 毕业，三个月内在上海完成软硬件及产品体验落地。宣布产品将于7月26日正式上线。",
+            "source_meeting": "kp-keynote-26-06-07",
+            "wiki_path": "Jason/wiki/meetings/kp-keynote-26-06-07.html"
+          }
         },
         {
           "id": "B12",
@@ -2919,7 +2952,14 @@ const PROJECT_DATA = {
           "funding": "天使轮 1500 万人民币",
           "benchmarks": "Mandiant、CrowdStrike、奇安信、深信服",
           "highlight": "首创'以明悉天枢'主动捕获系统，覆盖全域、全主体；目前已签 10+ 项公共安全与国家级风险关系人任务",
-          "star": true
+          "star": true,
+          "live_pitch": {
+            "date": "2026-06-07",
+            "presenter": "沈明航",
+            "summary": "演讲者以「AI 让攻击变多、变广、变狠」为切入点：某车企遭一次 AI 水军袭击损失215亿，是波舒爆炸案（21亿损失）的10倍，AI 时代安全威胁呈指数级放大。公司定位为帮助企业守护商业安全的 AI 风险情报平台，而非传统扫描器/防火墙赛道。\n\n商业路径：从国家安全切入→取得公安市场背书→进入商业安全市场，三条线均有进展。已完成十多项国家级安全任务、获数百万订单，头部 MCN 公司已签约。标杆案例：华领导人重要安全保障任务中，从上亿条信息里锁定数百个卫星节点，阻止潜在恐怖袭击；帮助头部 MCN 艺人锁定 AI 换脸冒牌带货视频主体及背后主体。成员陆伟然即将飞赴香港与知名艺人签约。\n\n团队具备军校背景、顶尖黑客能力，曾在大厂负责合规、内控、廉政，覆盖模型训练与 Agent 落地全链路。定位为「中国版 Palo Alto」，瞄准万亿级 AI 风险情报市场。[对应 projects.json #E04]",
+            "source_meeting": "ai-security-26-06-07",
+            "wiki_path": "Jason/wiki/meetings/ai-security-26-06-07.html"
+          }
         },
         {
           "id": "E05",
@@ -3384,6 +3424,18 @@ function openDrawer(id) {
       <h3>融资进展（项目卡披露）</h3>
       <p>💰 ${esc(r.funding)}</p>
     </section>` : ''}
+
+    ${(() => {
+      const proj = (PROJECT_DATA?.zones || []).flatMap(z => z.projects).find(p => p.id === r.id);
+      const lp = proj?.live_pitch;
+      if (!lp) return '';
+      return `
+        <section>
+          <h3>🎤 2026-06-07 路演现场 pitch</h3>
+          <p style="color:var(--accent);font-size:12.5px;margin-bottom:6px;">演讲人: ${esc(lp.presenter || '—')}</p>
+          <p style="line-height:1.75;white-space:pre-wrap;color:rgba(232,236,245,0.92);">${esc(lp.summary || '')}</p>
+        </section>`;
+    })()}
   `;
   drawer.classList.add('show');
   mask.classList.add('show');
