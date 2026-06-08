@@ -235,14 +235,40 @@ skills/demo-day-dossier/scripts/deploy_cloudflare.sh ~/myrun my-cohort-slug "v1.
 ### 此后每次发布
 
 ```bash
-# 本地编辑 → 推到 GitHub
-git add -A
-git commit -m "update v5.0: ..."
-git push
-# Cloudflare 监听到 main 分支 push 后自动 build & deploy（30-60 秒）
+# 1. 改 projects.json (项目信息变更的唯一入口)
+$EDITOR output/projects.json
+
+# 2. 一键同步 wiki + index.html / dd.html 的内嵌 JSON
+make sync
+
+# 3. push 触发 CF Pages 自动部署
+git add -A && git commit -m "..." && git push
 ```
 
-无需 GitHub Secret、无需 `wrangler login`、无需 GitHub Actions —— CF 原生 Git 集成全包。
+`make sync` 会跑 `python3 scripts/sync-wiki.py`, 整条链:
+
+```
+output/projects.json
+        ↓ scripts/projects_to_batch4.py  (54 项目 → entity + 创始人 → person)
+output/wiki/data/raw/batch-4.json
+        ↓ scripts/_lib/fix_json.py       (idempotent JSON 修复)
+        ↓ scripts/_lib/merge.py          (合并 batch-1/2/3/4 → extracted.json)
+        ↓ scripts/_lib/render.py         (渲染所有 wiki HTML)
+output/wiki/**/*.html  +  data/extracted.json  +  data/search-index.json
+        ↓ 重新内嵌 projects.json 到 index.html / dd.html
+done
+```
+
+batch-1/2/3 (会议纪要 / OCR / 调研) 是一次性产出, 不被 sync 触碰; 只有 batch-4 (项目+创始人) 从 projects.json 派生。
+
+### CI 守护
+
+`.github/workflows/sync-check.yml` 在 PR + push 时自动跑 `make check`:
+- 跑 `sync-wiki.py`
+- 跑 `git status --porcelain output/`, 若有变化则 fail
+- 防止「改了 projects.json 但忘了 `make sync`」
+
+无需 GitHub Secret、无需 `wrangler login` —— CF Pages 原生 Git 集成自动 build & deploy。
 
 ### 部署验证（可选）
 

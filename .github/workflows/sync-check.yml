@@ -1,0 +1,42 @@
+name: wiki sync check
+
+# 守护 output/ 与 projects.json 同步。
+# 任何修改 projects.json 但忘了 `make sync` 的 PR 都会被这条工作流拦下来。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'output/projects.json'
+      - 'output/wiki/data/raw/**'
+      - 'scripts/**'
+      - 'Makefile'
+  pull_request:
+    paths:
+      - 'output/projects.json'
+      - 'output/wiki/data/raw/**'
+      - 'scripts/**'
+      - 'Makefile'
+
+jobs:
+  check-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run sync and check for drift
+        run: |
+          python3 scripts/sync-wiki.py
+          if [ -n "$(git status --porcelain output/)" ]; then
+            echo "::error::output/ 与 projects.json 不同步。请本地跑 'make sync' 后重新提交。"
+            echo "Files out of sync:"
+            git status --short output/
+            echo ""
+            echo "Diff preview (first 200 lines):"
+            git diff output/ | head -200
+            exit 1
+          fi
+          echo "✓ output/ 与 projects.json 已同步"

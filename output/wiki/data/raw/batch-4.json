@@ -1,7 +1,7 @@
 {
   "batch_id": "batch-4",
   "files_processed": [
-    "output/projects.json (54 projects → entities + parsed founders → people)"
+    "output/projects.json"
   ],
   "meetings": [],
   "people": [
