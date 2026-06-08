@@ -1,0 +1,267 @@
+{
+  "batch_id": "batch-2",
+  "files_processed": [
+    "项目目录/1-22.jpg + N-2.jpg (40 张)",
+    "Monova/(10 张)",
+    "then note/(11 张)",
+    "路演照片/(4 张)",
+    "1全部照片/抽样 30 张"
+  ],
+  "meetings": [],
+  "people": [
+    {
+      "slug": "du-tianwei",
+      "name": "杜天蔚",
+      "aliases": [],
+      "role": "Memova.ai CTO",
+      "department": null,
+      "first_seen_meeting": "biotech-26-06-07",
+      "summary": "斯坦福心理学助理教授 + 普渡博士。Memova.ai 联合创始人,负责技术架构。"
+    },
+    {
+      "slug": "chen-chen-memova",
+      "name": "陈晨",
+      "aliases": [],
+      "role": "Memova.ai Head of Data",
+      "department": null,
+      "first_seen_meeting": "biotech-26-06-07",
+      "summary": "OpenAI 数据科学家 + 斯坦福博士。Memova.ai 数据负责人。"
+    },
+    {
+      "slug": "cheng-yang",
+      "name": "程漾",
+      "aliases": [],
+      "role": "Memova.ai Head of ML",
+      "department": null,
+      "first_seen_meeting": "biotech-26-06-07",
+      "summary": "Meta 研究科学家 + 普渡博士。Memova.ai 机器学习负责人。"
+    },
+    {
+      "slug": "sun-mingyu",
+      "name": "孙明雨",
+      "aliases": [],
+      "role": "Memova.ai 联合创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "biotech-26-06-07",
+      "summary": "Memova.ai (前 Monova) 创始人, 硅谷连续创业者。自述 ASD + ADHD, 这是「理解和对齐人」产品方向的个人动机来源。"
+    },
+    {
+      "slug": "liu-rongxuan",
+      "name": "刘荣轩",
+      "aliases": [
+        "xuan Liu"
+      ],
+      "role": "Thennote 创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "Thennote 创始人。同时是 Zread 项目负责人(开源代码语义阅读工具,亦被收入 MCP 生态)。展板英文署名「xuan Liu」。"
+    },
+    {
+      "slug": "xu-chenxi",
+      "name": "徐晨曦",
+      "aliases": [],
+      "role": "Thennote CTO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "清华 + 港科大背景, 专注 Agentic & Embody AI。Thennote 技术负责人。"
+    },
+    {
+      "slug": "lu-xintong",
+      "name": "路昕瞳",
+      "aliases": [],
+      "role": "Thennote CMO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "耶鲁大学, 前 VC + 10 年内容创作者。Thennote 市场负责人。"
+    },
+    {
+      "slug": "peng-xiangda",
+      "name": "彭向达",
+      "aliases": [],
+      "role": "力场采样 (A09) 创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "biotech-26-06-07",
+      "summary": "芝加哥大学博士后, 与 AlphaFold 诺奖得主 John Jumper 同门, 小蛋白质预测全球领先。"
+    },
+    {
+      "slug": "tian-yang",
+      "name": "田阳",
+      "aliases": [],
+      "role": "慧化科技 InsightChemy (A05) 创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "biotech-26-06-07",
+      "summary": "Omnichem™ 品牌创建者。慧化科技与贝达药业合作披露 700 万利润, 展位海报披露详尽。"
+    },
+    {
+      "slug": "cao-ruipeng",
+      "name": "曹瑞鹏",
+      "aliases": [],
+      "role": "奇点引擎 Singularity Engine / Video Harness (E02) 创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "biotech-26-06-07",
+      "summary": "披露 US$3M Seed Post-money SAFE 融资, 出让约 12.5% 股份; 客户付费第16天即收 ¥6,800, 30 天目标 ¥13,000/月。"
+    },
+    {
+      "slug": "wang-xinyu",
+      "name": "王新宇",
+      "aliases": [],
+      "role": "NextBanker (E07) 创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "NextBanker 创始人。展位号 E07 + 联系电话 13001259211 在展位牌上明确。"
+    },
+    {
+      "slug": "jin-yili",
+      "name": "金依力",
+      "aliases": [],
+      "role": "MirrorSpace 映界科技 (B08) 创始人",
+      "department": null,
+      "first_seen_meeting": "biotech-26-06-07",
+      "summary": "MirrorSpace 三位联创均来自加拿大麦吉尔大学 + Mila 研究院博士。展位号 B08 在卡片上明确标注。"
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "ghost-ui",
+      "name": "Ghost UI",
+      "category": "产品方法论",
+      "definition": "Thennote 提出的产品交互范式: 隐形浮现 + Tab 采纳 + 淡出退出, 不打断用户心流。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "you-xiao-zhi-neng",
+      "name": "有效智能公式",
+      "category": "AI/技术",
+      "definition": "Memova.ai 路演公式: 有效智能 = 模型能力 × 知识库 × 工作流。强调三者乘积关系。",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "quick-capture",
+      "name": "Quick Capture",
+      "category": "产品方法论",
+      "definition": "Memova.ai 演示场景: 从一段汽车销售录音, 20 分钟一键生成可分享入职礼物 HTML 网页(Amazon 新员工 4 款德国 AWD 豪华车推荐 case)。",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "alignment-for-rest",
+      "name": "Alignment, for the rest of the world",
+      "category": "战略",
+      "definition": "Memova.ai 英文 slogan, 创始人 ASD + ADHD 的产品哲学映射到面向「未被对齐的人群」。",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "omnichem",
+      "name": "Omnichem™",
+      "category": "AI/技术",
+      "definition": "慧化科技 InsightChemy 的核心 AI 化学合成产品品牌, 已与贝达药业合作产生 700 万利润。",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "jak2-24h-hit",
+      "name": "JAK2 24h Hit",
+      "category": "AI/技术",
+      "definition": "摩湃分子 MolplusAI 路演现场展示的 case: 针对 JAK2 靶点 24 小时内生成 Hit 化合物。",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "xin-flow-23min",
+      "name": "心流 5× / 23min 恢复",
+      "category": "产品方法论",
+      "definition": "Thennote 路演引用的关键量化指标: 心流时效率 5×、被打断后恢复需 23 分钟; 是产品设计「不打断心流」的依据。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "motion-as-a-service",
+      "name": "Motion as a Service",
+      "category": "AI/技术",
+      "definition": "Kynooe (B10) 路演定位: 把机器人运动控制能力变成 service。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "video-harness-safe",
+      "name": "Video Harness SAFE 融资结构",
+      "category": "投资并购",
+      "definition": "奇点引擎 E02 披露的早期融资结构: US$3M Seed Post-money SAFE, 出让约 12.5%, 客户付费第 16 天回收 ¥6,800, 30 天目标 ¥13,000/月。",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "qiji-cohort-74-vs-54",
+      "name": "本届录取 74 / 路演 54",
+      "category": "战略",
+      "definition": "奇绩 2026 春季创业营录取 74 个项目(行业分布图统计口径), 但路演日展示 54 个(展区代码 A01-A11 + B01-B19 + E01-E12 + F01-F12)。",
+      "first_meeting": "kp-keynote-26-06-07"
+    }
+  ],
+  "entities": [
+    {
+      "slug": "zread",
+      "name": "Zread",
+      "type": "product",
+      "description": "刘荣轩(Thennote 创始人)同时主导的开源代码语义阅读工具, 已被纳入 MCP 工具生态。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "datawhale",
+      "name": "Datawhale",
+      "type": "external-company",
+      "description": "在 144507 路演 stage 展示中被列为 FDE 人才培养体系的合作方。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "otto-motors",
+      "name": "OTTO MOTORS",
+      "type": "customer",
+      "description": "162142 路演 stage 展示中被提及, 疑为 E05 ArcherSmart.AI 客户。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "twin-labs",
+      "name": "Twin Labs",
+      "type": "customer",
+      "description": "亿级估值 AI 企业, 已完成 RustFS (A07) 的商业交付。",
+      "first_meeting": "runfan-ai-storage-26-06-07"
+    },
+    {
+      "slug": "beda-pharma",
+      "name": "贝达药业",
+      "type": "customer",
+      "description": "慧化科技 InsightChemy (A05) 合作伙伴, 披露 700 万利润。",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "alphafold-jumper",
+      "name": "John Jumper / AlphaFold",
+      "type": "external-company",
+      "description": "诺奖得主 John Jumper(AlphaFold)与力场采样 A09 创始人彭向达为同门, 是项目技术背书。",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "memova-card",
+      "name": "Memova.ai 项目卡 + 展位",
+      "type": "other",
+      "description": "F11 Memova(原 Monova)项目卡 + 10 张深度展位图。展示「有效智能 = 模型能力 × 知识库 × 工作流」公式、Quick Capture 演示、ASD+ADHD 创始人动机叙事。",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "thennote-card",
+      "name": "Thennote 项目卡 + 展位",
+      "type": "other",
+      "description": "F12 Thennote 项目卡 + 11 张深度展位图。Ghost UI 交互、心流 5× / 23min 恢复、TAM $50B+、6 个月 5 万 DAU 目标、明确竞品: 飞书 + Notion。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "industry-distribution-74",
+      "name": "本届 74 项目行业分布表",
+      "type": "other",
+      "description": "奇绩 2026 春季录取 74 项目分布: 智能体 2B 24 / 智能体 2C 15 / 具身与物理智能 19 / 前沿硬科技 16。每个父类下还有 3 个子分类。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "demo-day-directory-54",
+      "name": "2026 春季路演日展区名录 (54 项目)",
+      "type": "other",
+      "description": "路演日官方目录: A 区前沿科技 11 + B 区具身与硬件 19 + E 区 Agent toB 12 + F 区 Agent toC 12 = 54。与 projects.json 名称的 7 处差异已记录。",
+      "first_meeting": "kp-keynote-26-06-07"
+    }
+  ]
+}
