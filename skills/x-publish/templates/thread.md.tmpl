@@ -1,0 +1,98 @@
+# X Thread 模板（英文 8-12 条）
+
+> 用法：Claude 按本模板把长文压成 8-12 条英文 tweet，每条 ≤ 280 字符。
+> 输出 JSON 给 md2thread.py 校验：
+>
+> ```json
+> {
+>   "tweets": [
+>     {"i": 1, "text": "...", "image": "01-cover.png"},
+>     {"i": 2, "text": "..."},
+>     ...
+>     {"i": 11, "text": "... link.url", "image": "04-cta.png"}
+>   ]
+> }
+> ```
+
+---
+
+## 标准 10 条结构
+
+| # | 角色 | 内容要点 | 图 |
+|---|------|----------|---|
+| 1 | **Hook** | 钩子句 + 「Here's how 🧵」+ 1 张大图 | ✅ cover |
+| 2 | **Pain** | 为什么这事难，1 个具体数字 | — |
+| 3 | **Insight** | 解法的核心洞察（"It's a scheduling problem"）| — |
+| 4 | **Setup** | 你准备了什么（素材 / 工具） | — |
+| 5 | **Method** | 关键步骤展开 + 1 张架构图 | ✅ pipeline |
+| 6 | **Detail-1** | 一个让读者觉得"真的下手做了"的细节 | — |
+| 7 | **Detail-2** | 第二个细节 / pitfall（"this is where I got stuck"）| — |
+| 8 | **Result** | 数据 / 截图 + 一句反共识金句 | ✅ stat |
+| 9 | **Implication** | 这件事更大的意义（"what this changes about X"）| — |
+| 10 | **CTA** | GitHub 链接 + 主页 + 邀请互动 | ✅ cta |
+
+---
+
+## 字符数规则
+
+- X 每条 280 字符上限（URL 一律按 23 字符算，不管原始长度）
+- emoji 1 字符（但占视觉宽度）
+- 留 5-10 字符余量给 X 自动加的 thread 链 hint
+
+---
+
+## 风格 Do / Don't
+
+| Do ✅ | Don't ❌ |
+|------|---------|
+| 短句 + line breaks | 段落墙 |
+| 第一人称（"I did X"）| 中性 ("It was done") |
+| 数字（"28h → 30m"）| 形容词（"very fast"）|
+| 主动语态 | 被动语态 |
+| 具体（"GitHub API"）| 抽象（"public APIs"）|
+| 一条一个 idea | 一条塞 5 个 ideas |
+
+不要：
+
+- ❌ BREAKING / Just / 🚨 开头（钓鱼信号）
+- ❌ 每条都带图（注意力分散）
+- ❌ 中间条带 URL（algo 降权）
+- ❌ @ 任何人（强求互动）
+- ❌ "Like this thread if you..." 求 RT 句式
+- ❌ thread 超 15 条
+- ❌ 在 hook 里写完全部信息（无 cliffhanger）
+
+---
+
+## 示例 hook（前 3 条）
+
+✅ 好的：
+```
+1/ I just DD'd 56 startups in one night with Claude.
+   Investment-grade dossier. 8 dimensions. 7 parallel agents.
+   Here's how 🧵
+   [+ image]
+
+2/ Why was this hard?
+   A typical DD takes 30 min per startup.
+   56 × 30 = 28 hours of work.
+   No solo founder has 28 hours.
+   VCs spread 5 analysts for a week.
+
+3/ But it's actually a scheduling problem.
+   If 7 analysts ran in parallel,
+   the same 28 hours collapses to ~30 min.
+   I don't have 5 analysts.
+   But I have Claude. ↓
+```
+
+❌ 不好的（同样信息但失败）：
+```
+1/ AI is amazing! I used it for VC due diligence on 56 startups
+   and it completely changed how I think about investing.
+   Let me share what I learned 🚀🔥
+   [+ 4 images all at once]
+```
+
+第一版有 cliffhanger ("Here's how"), 数字, 具体描述, 单图聚焦。
+第二版万金油 + 没具体内容 + 信息密度低 + 多图分散。

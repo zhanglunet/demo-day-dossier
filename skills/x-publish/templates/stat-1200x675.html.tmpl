@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  :root {
+    --accent: #fbbf24; --teal: #5eead4; --pink: #fb7185;
+    --green: #34d399; --orange: #fb923c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 675px; overflow: hidden;
+    font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: #fff;
+    background:
+      radial-gradient(800px 500px at 50% -10%, rgba(251,191,36,0.16), transparent 60%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { padding: 48px 60px; height: 100%; display: flex; flex-direction: column; }
+  .title { font-size: 14px; letter-spacing: 4px; color: var(--accent); font-weight: 800; }
+  h2 { font-size: 44px; line-height: 1.15; font-weight: 900; margin: 8px 0 6px; letter-spacing: -1px;
+    background: linear-gradient(135deg, #fff, #c2c9dc);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .sub { font-size: 18px; line-height: 1.5; color: rgba(255,255,255,0.6); margin-bottom: 20px; font-weight: 600; }
+
+  .pyramid { flex: 1; display: flex; flex-direction: column; gap: 6px;
+    align-items: center; justify-content: center; }
+  .row {
+    display: flex; align-items: center; gap: 18px;
+    padding: 13px 24px; border-radius: 999px;
+    font-weight: 800; border: 2px solid currentColor;
+    box-shadow: 0 0 22px 0 currentColor;
+  }
+  .row .stars { font-size: 18px; letter-spacing: 2px; min-width: 130px; }
+  .row .lbl { font-size: 14px; color: rgba(255,255,255,0.85); min-width: 130px; font-weight: 700; }
+  .row .bar { height: 8px; background: currentColor; border-radius: 4px; min-width: 18px; }
+  .row .n { font-size: 32px; font-weight: 900; color: #fff; min-width: 44px; text-align: right; }
+
+  .r5 { color: var(--accent); width: 78%; }
+  .r5 .bar { width: 320px; }
+  .r4 { color: var(--green); width: 86%; }
+  .r4 .bar { width: 400px; }
+  .r3 { color: var(--teal); width: 84%; }
+  .r3 .bar { width: 370px; }
+  .r2 { color: var(--orange); width: 56%; }
+  .r2 .bar { width: 100px; }
+  .r1 { color: var(--pink); width: 50%; }
+  .r1 .bar { width: 30px; }
+
+  .takeaway {
+    margin-top: 14px; padding: 18px 24px;
+    background: linear-gradient(135deg, rgba(251,191,36,0.10), rgba(94,234,212,0.05));
+    border-left: 4px solid var(--accent); border-radius: 10px;
+    font-size: 20px; line-height: 1.5; color: #fff; font-weight: 700;
+  }
+  .takeaway b { color: var(--accent); font-weight: 900; }
+  .takeaway s { color: rgba(255,255,255,0.45); text-decoration-color: var(--pink); }
+</style></head>
+<body>
+<div class="frame">
+  <div class="title">RESULT · 54 PROJECTS</div>
+  <h2>The distribution is a healthy pyramid<br><span style="color:var(--accent)">— not a fan letter.</span></h2>
+  <div class="sub">11 strong-buy + 20 watch = 57% upper interest. The rest stays at "monitor" or below.</div>
+
+  <div class="pyramid">
+    <div class="row r5"><span class="stars">★★★★★</span><span class="lbl">Strong-buy</span><span class="bar"></span><span class="n">11</span></div>
+    <div class="row r4"><span class="stars">★★★★</span><span class="lbl">Watch</span><span class="bar"></span><span class="n">20</span></div>
+    <div class="row r3"><span class="stars">★★★</span><span class="lbl">Monitor</span><span class="bar"></span><span class="n">18</span></div>
+    <div class="row r2"><span class="stars">★★</span><span class="lbl">High-risk</span><span class="bar"></span><span class="n">4</span></div>
+    <div class="row r1"><span class="stars">★</span><span class="lbl">Not enough info</span><span class="bar"></span><span class="n">1</span></div>
+  </div>
+
+  <div class="takeaway">
+    💡 If all 56 came back ★★★★★ — <s>that wouldn't be DD</s>, that would be a <b>fan letter</b>.
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  :root {
+    --bg: #0a0f1e; --accent: #fbbf24; --teal: #5eead4; --pink: #fb7185;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 675px; overflow: hidden;
+    font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: #fff;
+    background:
+      radial-gradient(900px 600px at 18% 12%, rgba(94,234,212,0.20), transparent 60%),
+      radial-gradient(800px 500px at 90% 92%, rgba(251,113,133,0.18), transparent 55%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { position: absolute; inset: 0; padding: 56px 64px; display: flex; flex-direction: column; justify-content: space-between; }
+  .top { display: flex; gap: 14px; align-items: center; }
+  .badge {
+    font-size: 14px; letter-spacing: 4px; font-weight: 800;
+    padding: 9px 18px; border-radius: 999px;
+    background: rgba(94,234,212,0.1); color: var(--teal);
+    border: 1px solid rgba(94,234,212,0.35);
+  }
+  .badge.pink { color: var(--pink); border-color: rgba(251,113,133,0.4); background: rgba(251,113,133,0.08); }
+
+  .center { display: flex; flex-direction: column; gap: 18px; }
+  h1 {
+    font-size: 76px; line-height: 1.08; font-weight: 900;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #fff 0%, #c2c9dc 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  h1 .glow {
+    background: linear-gradient(135deg, var(--accent), var(--pink));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 24px rgba(251,191,36,0.5));
+  }
+  .sub {
+    font-size: 26px; line-height: 1.5; color: #c2c9dc; font-weight: 500;
+    max-width: 940px;
+  }
+  .sub b { color: var(--accent); font-weight: 800; }
+
+  .bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    color: rgba(255,255,255,0.5); font-size: 16px; font-weight: 600; letter-spacing: 1px;
+  }
+  .bottom .lhs b { color: var(--teal); }
+  .bottom .rhs {
+    padding: 10px 20px; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px;
+    color: #fff; font-size: 16px; font-weight: 700;
+  }
+</style></head>
+<body>
+<div class="frame">
+  <div class="top">
+    <span class="badge">⚡ AI x VC</span>
+    <span class="badge pink">🧵 A THREAD</span>
+  </div>
+  <div class="center">
+    <h1>I DD'd <span class="glow">56 startups</span><br>in one night with Claude.</h1>
+    <div class="sub">
+      Turned an accelerator demo day's slate into an <b>investment-grade dossier</b>
+      <br>— with <b>7 parallel AI agents</b> doing the busywork. Here's the playbook.
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="lhs">2026 · Miracle Plus Spring Demo Day · <b>1% acceptance rate</b></div>
+    <div class="rhs">↓ scroll the thread</div>
+  </div>
+</div>
+</body></html>

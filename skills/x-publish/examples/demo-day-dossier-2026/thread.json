@@ -1,0 +1,48 @@
+{
+  "tweets": [
+    {
+      "i": 1,
+      "text": "I DD'd 56 startups in one night with Claude.\n\nInvestment-grade dossier: 8 dimensions, 7 parallel AI agents, panoramic site + DD table + Word reports — auto-deployed.\n\nHere's how 🧵",
+      "image": "01-cover.png"
+    },
+    {
+      "i": 2,
+      "text": "Why was this hard?\n\nA proper DD takes ~30 min per startup. 56 × 30 = 28 hours of solo work.\n\nVCs spread 5 analysts over a week to do this.\n\nA single founder can't.\nBut a single founder + Claude can."
+    },
+    {
+      "i": 3,
+      "text": "Insight:\n\nIt's actually a scheduling problem.\n\nIf 7 analysts ran in parallel, 28h collapses to ~30min.\n\nI don't have 5 analysts.\n\nBut Claude Code lets me send 7 sub-agents in a SINGLE message — they truly run concurrently."
+    },
+    {
+      "i": 4,
+      "text": "What I had walking out of the demo day:\n\n• 22 project-card screenshots\n• 1 photo of the exhibit wall (the index)\n• 1 official WeChat article with full team bios\n\nThat's it. No founder Twitter follows, no warm intros."
+    },
+    {
+      "i": 5,
+      "text": "I wrapped the workflow into a Claude Code Skill. 5 phases:\n\n0. inventory the assets\n1. extract structured JSON (with naming cross-checks)\n2. panoramic landing page + first Word report\n3. 7 parallel DD agents (the core)\n4. merge → DD table + CSV + Word\n5. deploy to Cloudflare",
+      "image": "02-pipeline.png"
+    },
+    {
+      "i": 6,
+      "text": "The 7-agent fan-out is the magic moment.\n\nOne message → 7 sub-agents, each owning ~8 projects.\n\nEvery agent fills the same 8-dimension DD JSON: site status, GitHub activity, team score, moat, comps, TAM, valuation range, verdict.\n\nHarness pings me as each finishes."
+    },
+    {
+      "i": 7,
+      "text": "Counter-intuitive detail:\n\nValuation hallucinates if you let agents price in a vacuum.\n\nSo the skill INJECTS a 25-vertical pre-money comp table into every agent's prompt.\n\nNow every quote is anchored: \"$15-30M, comp: InstaChip Seed.\"\n\nNo more $1B for a stealth team of 2."
+    },
+    {
+      "i": 8,
+      "text": "Results across 54 of the 56 (2 had insufficient info):\n\n• 11 strong-buy ★★★★★\n• 20 watch ★★★★\n• 18 monitor ★★★\n• 4 high-risk ★★\n• 1 not-enough-info ★\n\nIt's a healthy pyramid.\n\nIf all 56 came back ★★★★★ — that wouldn't be DD, it'd be a fan letter.",
+      "image": "03-stat.png"
+    },
+    {
+      "i": 9,
+      "text": "What this changes:\n\nDD used to require: 1 PM + 5 analysts + 1 editor + 1 week.\n\nNow: 1 person + Claude + 30 minutes.\n\nNot \"AI replaces analysts.\" Rather: the kind of analysis that used to need a team is now within reach of a curious solo. Same for journalists, GPs, scouts."
+    },
+    {
+      "i": 10,
+      "text": "Made the full pipeline open source — skill + scripts + first-run reference dataset (56 projects, 54 DD entries).\n\nDrop your next demo day's project cards in. 30 min later it's a dossier.\n\nRepo: github.com/zhanglunet/demo-day-dossier\nLive: qiji-roadshow-2026.pages.dev",
+      "image": "04-cta.png"
+    }
+  ]
+}

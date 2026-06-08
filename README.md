@@ -77,7 +77,7 @@
 .
 ├── README.md                                ← 当前文件
 ├── LICENSE                                  ← MIT
-├── skills/                                  ← 仓库自带的三个 Claude Code Skill
+├── skills/                                  ← 仓库自带的四个 Claude Code Skill
 │   ├── demo-day-dossier/                   ← Skill 1：路演项目卷宗流水线
 │   │   ├── SKILL.md                        ← 5 阶段流水线 SOP
 │   │   ├── README.md
@@ -90,13 +90,20 @@
 │   │   ├── scripts/                        ← md2wechat / wechat_publish / render-image
 │   │   │                                     / set-clipboard-html / send-cmd-v
 │   │   └── examples/demo-day-dossier-2026/ ← 首跑案例：实战记 4200 字
-│   └── xiaohongshu-publish/                ← Skill 3：长文到小红书图文笔记的半自动管道
-│       ├── SKILL.md                        ← 4 阶段 SOP（改写 / 5 张竖图 / 贴 / 人工发）
+│   ├── xiaohongshu-publish/                ← Skill 3：长文到小红书图文笔记的半自动管道
+│   │   ├── SKILL.md                        ← 4 阶段 SOP（改写 / 5 张竖图 / 贴 / 人工发）
+│   │   ├── README.md
+│   │   ├── templates/                      ← post.md + 5 个 3:4 竖屏插图模板
+│   │   ├── scripts/                        ← md2xhs / xhs_publish / set-clipboard-text
+│   │   │                                     ＋ symlink 复用 wechat 的 render-image/send-cmd-v
+│   │   └── examples/demo-day-dossier-2026/ ← 首跑案例：xhs 笔记 19 字标题 + 5 图
+│   └── x-publish/                          ← Skill 4：长文到 X 英文 thread 的全自动管道（API）
+│       ├── SKILL.md                        ← 4 阶段 SOP（thread / 4 张 16:9 / API 发 / 验证）
 │       ├── README.md
-│       ├── templates/                      ← post.md + 5 个 3:4 竖屏插图模板
-│       ├── scripts/                        ← md2xhs / xhs_publish / set-clipboard-text
-│       │                                     ＋ symlink 复用 wechat 的 render-image/send-cmd-v
-│       └── examples/demo-day-dossier-2026/ ← 首跑案例：xhs 笔记 19 字标题 + 5 图
+│       ├── templates/                      ← thread.md + 4 张 16:9 模板（cover/pipeline/stat/cta）
+│       ├── scripts/                        ← md2thread / post_thread_api (tweepy)
+│       │                                     / post_thread_browser / verify_thread
+│       └── examples/demo-day-dossier-2026/ ← 首跑案例：10 条英文 thread + 4 图
 ├── examples/                                ← demo-day-dossier 的参考数据集
 │   ├── projects.qiji-2026.json
 │   └── dd_data.qiji-2026.json
@@ -120,7 +127,7 @@
 
 ### 1. 当作 Claude Code Skill 使用（推荐）
 
-本仓库自带 **三个** skill，分别拷贝到 Claude Code 的 skills 目录：
+本仓库自带 **四个** skill，分别拷贝到 Claude Code 的 skills 目录：
 
 ```bash
 # 路演项目卷宗流水线
@@ -131,6 +138,9 @@ cp -r skills/wechat-article-publish ~/.claude/skills/wechat-article-publish
 
 # 长文到小红书图文笔记的半自动管道
 cp -r skills/xiaohongshu-publish ~/.claude/skills/xiaohongshu-publish
+
+# 长文到 X 英文 thread 的全自动管道（API）
+cp -r skills/x-publish ~/.claude/skills/x-publish
 ```
 
 之后在 Claude Code 里直接调用：
@@ -139,15 +149,20 @@ cp -r skills/xiaohongshu-publish ~/.claude/skills/xiaohongshu-publish
 /demo-day-dossier ~/Downloads/yc-demo-day-w26 https://www.ycombinator.com/blog/yc-winter-2026-batch
 /wechat-article-publish ~/dev/my-finished-project
 /xiaohongshu-publish ~/dev/my-finished-project/docs/story.md
+/x-publish ~/dev/my-finished-project/docs/story.md
 ```
 
-| Skill | 任务 |
-|-------|------|
-| [`demo-day-dossier`](./skills/demo-day-dossier/SKILL.md) | 路演素材 → 全景页 + DD 表 + Word 报告 + 部署（5 阶段） |
-| [`wechat-article-publish`](./skills/wechat-article-publish/SKILL.md) | 项目 → 公众号长文 + 7 张 16:9 配图 + 半自动贴（5 阶段） |
-| [`xiaohongshu-publish`](./skills/xiaohongshu-publish/SKILL.md) | 长文 → 小红书 3 段式 + 5 张 3:4 竖图 + 半自动贴（4 阶段） |
+| Skill | 任务 | 自动化 |
+|-------|------|--------|
+| [`demo-day-dossier`](./skills/demo-day-dossier/SKILL.md) | 路演素材 → 全景页 + DD 表 + Word 报告 + 部署 | 全自动 |
+| [`wechat-article-publish`](./skills/wechat-article-publish/SKILL.md) | 项目 → 公众号长文 + 7 张 16:9 配图 + 半自动贴 | 半自动（个人号无 API）|
+| [`xiaohongshu-publish`](./skills/xiaohongshu-publish/SKILL.md) | 长文 → 小红书 3 段式 + 5 张 3:4 竖图 + 半自动贴 | 半自动（个人号无 API）|
+| [`x-publish`](./skills/x-publish/SKILL.md) | 长文 → X 英文 thread + 4 张 16:9 配图 + 自动发 | **全自动**（tweepy + OAuth 1.0a）|
 
-**一次写作，多平台分发** —— 第三个 skill 设计为消费第二个 skill 的产出（公众号 markdown），用更短的标题、emoji 化的正文、3:4 竖图、跳过外链。
+**一次写作，多平台分发** —— 同源内容 + 平台特化改写：
+- 公众号：4200 字中文叙事 + 7 张 16:9
+- 小红书：695 字中文 emoji 化 + 5 张 3:4 + 6 hashtag
+- **X**：10 条英文 thread + 4 张 16:9（API 全自动 8 秒发完）
 
 ### 2. 手动跑脚本
 

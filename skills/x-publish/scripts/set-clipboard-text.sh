@@ -1,0 +1,1 @@
+../../xiaohongshu-publish/scripts/set-clipboard-text.sh

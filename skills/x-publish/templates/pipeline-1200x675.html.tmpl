@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  :root { --accent: #fbbf24; --teal: #5eead4; --pink: #fb7185;
+    --A: #60a5fa; --B: #34d399; --E: #fb923c; --F: #c084fc; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 675px; overflow: hidden;
+    font-family: -apple-system, "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: #fff;
+    background:
+      radial-gradient(800px 500px at 50% -10%, rgba(94,234,212,0.18), transparent 60%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { padding: 44px 56px; height: 100%; display: flex; flex-direction: column; }
+  .title { font-size: 14px; letter-spacing: 4px; color: var(--accent); font-weight: 800; }
+  h2 { font-size: 44px; line-height: 1.18; font-weight: 900; margin: 8px 0 6px; letter-spacing: -1px;
+    background: linear-gradient(135deg, #fff, #c2c9dc);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .sub { font-size: 20px; color: rgba(255,255,255,0.65); margin-bottom: 24px; font-weight: 600; }
+
+  .container { flex: 1; display: grid; grid-template-columns: 1fr 1.3fr; gap: 30px; }
+
+  /* Left: lead agent → 7 sub-agents */
+  .left { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .lead-box {
+    padding: 14px 22px; border: 2px solid var(--accent);
+    background: rgba(251,191,36,0.12);
+    border-radius: 14px; font-weight: 800; font-size: 16px; color: var(--accent);
+    text-align: center;
+  }
+  .lead-box .lbl { display: block; font-size: 10px; letter-spacing: 3px; opacity: 0.8; margin-bottom: 3px; }
+  .fanout { color: rgba(255,255,255,0.3); font-size: 13px; letter-spacing: 4px; margin: 3px 0; }
+  .agents { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; width: 100%; }
+  .agent {
+    padding: 8px 4px; border-radius: 8px; text-align: center;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    font-size: 11px; font-weight: 700; line-height: 1.2;
+  }
+  .agent .nm { font-size: 14px; color: var(--accent); }
+  .agent.A { border-color: rgba(96,165,250,0.4); }
+  .agent.A .nm { color: var(--A); }
+  .agent.B { border-color: rgba(52,211,153,0.4); }
+  .agent.B .nm { color: var(--B); }
+  .agent.E { border-color: rgba(251,146,60,0.4); }
+  .agent.E .nm { color: var(--E); }
+  .agent.F { border-color: rgba(192,132,252,0.4); }
+  .agent.F .nm { color: var(--F); }
+
+  .timing {
+    text-align: center; padding: 10px 12px; margin-top: 10px;
+    background: rgba(94,234,212,0.08); border: 1px solid rgba(94,234,212,0.3);
+    border-radius: 10px; font-size: 16px; line-height: 1.4;
+    width: 100%;
+  }
+  .timing .lbl { font-size: 10px; letter-spacing: 3px; color: var(--accent); margin-bottom: 4px; }
+  .timing s { color: rgba(255,255,255,0.45); text-decoration-color: var(--pink); }
+  .timing b { color: var(--accent); font-weight: 900; }
+
+  /* Right: 8-dim framework */
+  .dims {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 18px 22px;
+    display: flex; flex-direction: column;
+  }
+  .dims h3 {
+    font-size: 14px; color: var(--accent); margin-bottom: 12px;
+    letter-spacing: 2px; font-weight: 800;
+  }
+  .dim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; }
+  .dim { display: flex; gap: 8px; align-items: baseline; font-size: 12px; }
+  .dim .ix { color: var(--accent); font-weight: 900; font-size: 12px; min-width: 14px; }
+  .dim .lbl { color: #e8ecf5; font-weight: 700; }
+  .dim .desc { color: rgba(255,255,255,0.5); font-size: 10.5px; }
+  .dims-foot {
+    margin-top: auto; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.55;
+  }
+  .dims-foot b { color: var(--pink); font-weight: 800; }
+</style></head>
+<body>
+<div class="frame">
+  <div class="title">CORE INSIGHT · ONE-MESSAGE FAN-OUT</div>
+  <h2>Send 7 sub-agents in a single message<br><span style="color:var(--teal)">= 30 minutes, not 28 hours</span></h2>
+  <div class="sub">Each agent owns ~8 projects, runs an 8-dimension DD, returns JSON.</div>
+  <div class="container">
+    <div class="left">
+      <div class="lead-box"><span class="lbl">LEAD AGENT</span>Claude (you)</div>
+      <div class="fanout">↓ ↓ ↓ ↓ ↓ ↓ ↓</div>
+      <div class="agents">
+        <div class="agent A"><div class="nm">A</div><div>Frontier</div></div>
+        <div class="agent B"><div class="nm">B1</div><div>Robotics</div></div>
+        <div class="agent B"><div class="nm">B2</div><div>Robotics</div></div>
+        <div class="agent E"><div class="nm">E1</div><div>Agent toB</div></div>
+        <div class="agent E"><div class="nm">E2</div><div>Agent toB</div></div>
+        <div class="agent F"><div class="nm">F1</div><div>Agent toC</div></div>
+        <div class="agent F"><div class="nm">F2</div><div>Agent toC</div></div>
+        <div class="agent" style="opacity:0.4;"><div class="nm">—</div><div>spare</div></div>
+      </div>
+      <div class="timing">
+        <div class="lbl">SERIAL VS PARALLEL</div>
+        <s>28 hours</s> &nbsp;→&nbsp; <b>30 minutes</b>
+      </div>
+    </div>
+    <div class="dims">
+      <h3>8-DIMENSION DD (PER PROJECT)</h3>
+      <div class="dim-grid">
+        <div class="dim"><span class="ix">1</span><div><div class="lbl">Site status</div><div class="desc">curl HTTP + redirect chain</div></div></div>
+        <div class="dim"><span class="ix">2</span><div><div class="lbl">Repo activity</div><div class="desc">GH API stars / pushed_at</div></div></div>
+        <div class="dim"><span class="ix">3</span><div><div class="lbl">Team score 1-5</div><div class="desc">edu + prior employers</div></div></div>
+        <div class="dim"><span class="ix">4</span><div><div class="lbl">Tech moat</div><div class="desc">≤ 40 chars summary</div></div></div>
+        <div class="dim"><span class="ix">5</span><div><div class="lbl">Competitors 3-5</div><div class="desc">name + stage + note</div></div></div>
+        <div class="dim"><span class="ix">6</span><div><div class="lbl">Market TAM</div><div class="desc">TAM + CAGR one-liner</div></div></div>
+        <div class="dim"><span class="ix">7</span><div><div class="lbl">Valuation</div><div class="desc">pre-money + comps</div></div></div>
+        <div class="dim"><span class="ix">8</span><div><div class="lbl">Risk / Rec / Verdict</div><div class="desc">3+3 + rec 1-5</div></div></div>
+      </div>
+      <div class="dims-foot">
+        ⚠ Rule: <b>never fabricate</b> founder names / funding numbers.<br>
+        Inject a 25-vertical pre-money comp table — agents don't price in a vacuum.
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>
