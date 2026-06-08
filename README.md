@@ -372,8 +372,28 @@ curl -s https://qiji-roadshow-2026.pages.dev/README.md | head -5
 
 ---
 
+## ⚠️ 免责声明 · Disclaimer
+
+> 这一段对应 [线上版同款 disclaimer](https://qiji-roadshow-2026.pages.dev/#disclaimer)，转载请保留全文。
+
+1. **非官方独立项目**。本仓库及部署的站点 `qiji-roadshow-2026.pages.dev` 是 **独立调研整理**，**非奇绩创坛官方**，亦未获得任何参展项目方背书或授权。涉及的项目名称、商标、Logo 归原权利人所有。
+
+2. **信息来源透明**。全部内容基于公开渠道——项目卡 / 路演现场照片 / 微信公众号 / 财经媒体 / 招股书 / 官方网站等——以及 AI 辅助 OCR、结构化抽取与多源交叉验证产出。每个 wiki entity 描述中已标注信息源与置信度（如 "投资关系未公开确认"）。
+
+3. **不构成投资建议**。8 维度 DD 评分、估值区间、推荐度、TAM 估算均为 **基于公开信息的二手分析**，仅供研究学习参考。**不构成任何形式的投资建议**。投资决策应以企业官方披露和独立尽调为准。
+
+4. **时效性提示**。数据截至 **2026-06-08**，部分信息可能已过期；具体融资进度、估值、产品发布状态请以企业官方披露为准。AI 抽取过程可能存在 OCR 误读或语义偏差，发现错误请提 [GitHub Issue](https://github.com/zhanglunet/demo-day-dossier/issues)。
+
+5. **隐私与肖像**。路演现场照片 / 项目卡仅用于场景记录与项目识别。如果您是项目方或现场嘉宾，认为本站使用了不希望公开的图像 / 信息，请通过 [GitHub Issue](https://github.com/zhanglunet/demo-day-dossier/issues) 联系作者，48 小时内审核处理。
+
+6. **第三方品牌**。文中提及的 Y Combinator、奇绩创坛、月之暗面、百川智能、智元、帕西尼、斯坦德、基流以及其他公司名称、产品名称、Logo 仅为客观描述用途，归各自权利人所有。
+
+7. **代码与方法论**。本仓库的 Skill / 脚本 / 流水线本身 (`skills/` / `scripts/`) 以 [MIT 许可](./LICENSE) 开放，可自由复用到您自己的 demo day / accelerator batch；案例数据 (`output/` 中的 `projects.json` 等具体调研产出) 是首跑案例参考，复用时请重新执行流水线而非直接搬运。
+
+---
+
 ## 许可
 
 MIT — 见 [LICENSE](./LICENSE)。
 
-数据声明：`output/` 与 `examples/` 中的 DD 评估、估值区间、推荐度仅作研究参考，**不构成投资建议**。
+数据声明：`output/` 与 `examples/` 中的 DD 评估、估值区间、推荐度仅作研究参考，**不构成投资建议**。完整免责声明见上节。
