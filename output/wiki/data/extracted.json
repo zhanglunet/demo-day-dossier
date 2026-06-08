@@ -3,11 +3,13 @@
     {
       "slug": "lu-qi",
       "name": "陆奇",
-      "aliases": [],
-      "role": "奇绩创坛创始人",
+      "aliases": [
+        "Qi Lu"
+      ],
+      "role": "奇绩创坛创始人 / CEO; 前 YC China / Baidu COO / Microsoft EVP",
       "department": null,
       "first_seen_meeting": "kp-keynote-26-06-07",
-      "summary": "在路演日开场发表主题演讲，以「硅基生产力+硅基生产关系」框架描绘 AI 时代产业机会图谱，强调研究型创业者是本轮驱动力量，并宣布奇绩已投资加速667家企业、本届录取54个项目。"
+      "summary": "奇绩创坛创始人兼 CEO(2019-11-21 至今), 前 Y Combinator 中国创始人兼 CEO(2018-08-15 - 2019-11)。职业履历: 复旦大学计算机系本硕(1984/1987) → CMU 计算机科学博士(1996, 导师 Mahadev Satyanarayanan) → IBM Almaden(1996-1998) → 雅虎(1998-2008, 工程师晋升至 EVP) → 微软(2008-12 至 2016-09, EVP 负责 Bing/Office/Skype) → 百度(2017-01 至 2018-05-18, 总裁兼 COO) → YC China → 奇绩创坛。1961-09-03 生于上海(文革期间被送至江苏农村)。持有 40 余项美国专利。在 2026-06-07 路演日开场发表主题演讲, 以「硅基生产力 + 硅基生产关系」框架描绘 AI 时代产业机会图谱, 强调研究型创业者是本轮驱动力量, 并宣布奇绩已加速 667 家企业、本届录取 54 项目。投资哲学: 录取即 100% 投资 / 像联合创始人陪跑 / 在源头驱动创新 / Researcher Founder 优先。"
     },
     {
       "slug": "chen-luofei",
@@ -174,6 +176,73 @@
       "department": null,
       "first_seen_meeting": "biotech-26-06-07",
       "summary": "MirrorSpace 三位联创均来自加拿大麦吉尔大学 + Mila 研究院博士。展位号 B08 在卡片上明确标注。"
+    },
+    {
+      "slug": "yang-zhilin",
+      "name": "杨植麟",
+      "aliases": [
+        "Yang Zhilin"
+      ],
+      "role": "月之暗面 Moonshot AI 创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "1992 年生于广东汕头, 清华大学计算机系本科 → CMU 计算机学院博士(2019)。曾任 Facebook AI Research 和 Google Brain。XLNet、Transformer-XL 等顶会论文第一作者(引用 22000+)。前公司循环智能(2016)联创。2023-03 创立月之暗面, 2026 年估值突破 200 亿美元, ARR 超 2 亿美元。曾受邀参加奇绩创坛闭门活动(2024-05); 陆奇 2026 路演日开场 PPT 将月之暗面列为明星校友(投资关系未公开确认)。"
+    },
+    {
+      "slug": "wang-xiaochuan",
+      "name": "王小川",
+      "aliases": [],
+      "role": "百川智能创始人 / CEO; 前搜狗创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "搜狗公司创始人, 搜狗被腾讯收购后离职。2023-04 以 5000 万美元个人资金创立百川智能。2026 年公司转型医疗 AI, Baichuan-M3 医疗大模型在 HealthBench 评测领先。账上 30 亿现金, 计划 2027 年前后 IPO。陆奇路演日 PPT 将百川智能列为明星校友(投资关系未公开确认)。"
+    },
+    {
+      "slug": "deng-taihua",
+      "name": "邓泰华",
+      "aliases": [],
+      "role": "智元机器人创始人 / 董事长 / CEO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "华为原副总裁、计算产品线原总裁。电子科技大学 1995 级。2023-02 与彭志辉(稚晖君)联合创立智元机器人。"
+    },
+    {
+      "slug": "peng-zhihui-zhihuijun",
+      "name": "彭志辉",
+      "aliases": [
+        "稚晖君"
+      ],
+      "role": "智元机器人联合创始人 / 总裁 / CTO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "1993 年生。电子科技大学信通学院硕士(2018)。OPPO 研究院 AI 实验室 → 2020 年华为「天才少年计划」加入华为, 从事昇腾 AI 芯片研究 → 2022 年底离职 → 2023-02 联合创立智元机器人。B 站知名科技 UP 主, 网名「稚晖君」。"
+    },
+    {
+      "slug": "xu-jincheng",
+      "name": "许晋诚",
+      "aliases": [],
+      "role": "帕西尼感知科技创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "日本早稻田大学毕业, 师从机器人学权威菅野重树教授(世界首个人形机器人诞生地)。2021-06 于深圳创立帕西尼感知科技, 名称来自人体触觉受体「帕西尼小体」。获奇绩创坛 2021 年天使轮投资。"
+    },
+    {
+      "slug": "wang-yongkun",
+      "name": "王永锟",
+      "aliases": [],
+      "role": "斯坦德机器人创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "哈尔滨工业大学(哈工大)背景。2016 年创立斯坦德机器人, 是中国最早的移动机器人创业公司之一。团队多名核心来自哈工大机器人竞赛队。获奇绩创坛 2020 年战略投资。"
+    },
+    {
+      "slug": "hu-xiaohe",
+      "name": "胡效赫",
+      "aliases": [],
+      "role": "基流科技创始人 / 董事长 / CEO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "清华大学自动化系本科(2014)、博士(2020)、博士后。2016-2017 赴加州大学伯克利分校访问。博士后期间主导落地首个运营商 Tbps 级商用可编程网络, 在超算平台训练千卡 700 亿参数大模型。清华网络安全实验室走出的第六家创业公司创始人。2023-02 创立基流科技。"
     }
   ],
   "concepts": [
@@ -330,6 +399,41 @@
       "category": "战略",
       "definition": "奇绩 2026 春季创业营录取 74 个项目(行业分布图统计口径), 但路演日展示 54 个(展区代码 A01-A11 + B01-B19 + E01-E12 + F01-F12)。",
       "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "qi-ji-tou-zi-tiao-kuan",
+      "name": "奇绩投资条款",
+      "category": "投资并购",
+      "definition": "奇绩创坛标准投资条款: 30 万美元(或等值人民币约 218 万元) / 7% 股权 / 3 个月加速营; 无对赌、无回购、不占董事席位、不要求一票否决权; 非大陆团队可选 SAFE 结构; 另提供最高 100 万人民币算力配额(免费, 不折算股权)。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "yc-china",
+      "name": "Y Combinator 中国 (YC China)",
+      "category": "投资并购",
+      "definition": "Y Combinator 在美国以外设立的首个海外分支(2018-08-15 由陆奇创立)。2019 年 YC 总部战略收缩、关闭中国分部, 陆奇与原班人马全面本土化独立运营, 于 2019-11-21 启动「奇绩创坛」品牌。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "co-founder-philosophy",
+      "name": "Co-Founder 陪跑哲学",
+      "category": "战略",
+      "definition": "陆奇形容奇绩创坛对所投项目的定位: 不是普通投资人, 而是「像联合创始人(Co-Founder)一样陪创始人一起创业」。该定位决定了奇绩的高密度陪伴模式、3 个月加速营 + Demo Day 闭环。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "lu-qi-co-founder-position",
+      "name": "录取即 100% 投资",
+      "category": "投资并购",
+      "definition": "奇绩创坛的关键投资策略: 一旦项目被加速营录取, 即按标准条款 100% 投资, 不存在「录取但不投」的情况。先投资再加速。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "qiji-compute-support",
+      "name": "Compute Support 算力扶持计划",
+      "category": "AI/技术",
+      "definition": "奇绩创坛在标准 30 万美元投资之外, 额外提供每个项目最高 100 万人民币的算力额度, 免费、不折算股权、支持全球远程接入。",
+      "first_meeting": "kp-keynote-26-06-07"
     }
   ],
   "entities": [
@@ -337,7 +441,7 @@
       "slug": "qi-zhi-chuang-tan",
       "name": "奇绩创坛",
       "type": "external-company",
-      "description": "陆奇创立的创业加速器，7年内已投资加速667家企业、支持1640余位创业者，2026春季营为第14届，本届录取54个项目。",
+      "description": "奇绩创坛(MiraclePlus), 注册主体「奇绩创坛(北京)投资管理有限责任公司」, 注册日期 2019-03-06, 品牌正式发布 2019-11-21。前身为 Y Combinator 中国(2018-08-15 陆奇创立)。总部: 北京市海淀区成府路 150 号(清华园三才堂 7 号, 智源大厦)六层 603 号。投资条款: 30 万美元 / 7% 股权 / 3 个月加速营 / 无对赌无回购 / 100 万 RMB 算力配额。截至 2026 春季营累计 14 届 / 667 家创业公司 / 1640+ 创始人。LP 阵容: 比尔·盖茨、孙正义、红杉中国、高瓴、刘强东夫妇等。美元一期基金规模约 5500 万美元(2019-10 SEC 文件), 总基金规模约 1 亿美元。路演日后 3 天内, 超 40% 入营公司收到投资条款书(TS)。官网: https://www.miracleplus.com",
       "first_meeting": "kp-keynote-26-06-07"
     },
     {
@@ -493,6 +597,85 @@
       "type": "other",
       "description": "路演日官方目录: A 区前沿科技 11 + B 区具身与硬件 19 + E 区 Agent toB 12 + F 区 Agent toC 12 = 54。与 projects.json 名称的 7 处差异已记录。",
       "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "moonshot-ai",
+      "name": "月之暗面 Moonshot AI",
+      "type": "external-company",
+      "description": "杨植麟创立(2023-03), 产品 Kimi。2026-05 完成约 20 亿美元新一轮融资, 投后估值突破 200 亿美元(1456 亿人民币)。半年累计融资 39 亿美元, 总融资 376 亿元人民币。ARR 超 2 亿美元。主要投资人: 红杉中国、真格、阿里、腾讯、美团龙珠、IDG、CPE 源峰、中国移动。陆奇 2026-06-07 路演日 PPT 列为明星校友(直接投资关系未公开确认 — 可能为生态/嘉宾关系)。"
+    },
+    {
+      "slug": "baichuan-ai",
+      "name": "百川智能 Baichuan AI",
+      "type": "external-company",
+      "description": "王小川(搜狗创始人)以 5000 万美元个人资金创立(2023-04)。已战略转向医疗 AI 赛道, Baichuan-M3 医疗大模型在 HealthBench 评测领先。2024-07 A 轮 50 亿元, 投后估值约 200 亿人民币。王小川 2026 初透露账上 30 亿现金, 计划 2027 前后 IPO。陆奇路演日 PPT 列为明星校友(直接投资关系未公开确认)。"
+    },
+    {
+      "slug": "agibot-zhiyuan",
+      "name": "智元机器人 AgiBot",
+      "type": "external-company",
+      "description": "邓泰华(华为前副总裁)与彭志辉(稚晖君, 华为天才少年)联合创立(2023-02)。产品: 远征系列通用人形机器人、具身基座模型 Embodied GPT、四足机器人。**奇绩创坛 2023-04 天使轮投资**(与高瓴同批)。2025-07 通过入股科创板「上纬新材(688585)」约 29.99% 实现资本市场间接连接。2026-03 第 10000 台远征 A3 下线。港股 IPO 进行中(中金 + 中信 + 摩根士丹利保荐), 目标 2026-Q3/Q4 上市, 估值约 400 亿港元。"
+    },
+    {
+      "slug": "paxini-tech",
+      "name": "帕西尼感知科技 PaXini",
+      "type": "external-company",
+      "description": "许晋诚(早稻田大学菅野重树教授门下)2021-06 于深圳创立, 名称来自人体「帕西尼小体」触觉受体。产品矩阵: 多维触觉传感器(PX-6AX-GEN3 系列)→ 多维触觉灵巧手 → 人形机器人 TORA ONE / TORA DOUBLE ONE。**奇绩创坛 2021 年天使轮**(数百万人民币)。后续获新奥资本、北汽产投、比亚迪超亿元战略投资(比亚迪在具身智能领域最大单笔)。"
+    },
+    {
+      "slug": "standard-robots",
+      "name": "斯坦德机器人 Standard Robots",
+      "type": "external-company",
+      "description": "王永锟(哈工大系)2016 年创立, 中国最早的移动机器人创业公司之一。产品: 工业自主移动机器人 AMR。融资路径: Pre-A(2017)→ A(2018)→ **奇绩创坛 2020 战略投资** → B 轮 1 亿元(光速中国 + 源码资本)→ C 轮数亿元(小米产投领投)。2025-06-23 向港交所递表(18C 章程, 特专科技公司主板上市), 估值约 21 亿元, 小米产投持股 8.4%, 无锡国资为第二大股东。"
+    },
+    {
+      "slug": "jiliu-tech",
+      "name": "基流科技 Jiliu Tech",
+      "type": "external-company",
+      "description": "胡效赫(清华自动化博士后)与谢文奇、王旭阳 2023-02 创立。产品: AI 算力集群基础设施 / 高速组网与集合通信 / 万卡集群管控调度。**奇绩创坛种子轮**(2023 春季路演参展项目)。3 年 11 轮融资累计近 22 亿元, 最新估值 91.6 亿人民币。收入从 2023 年 0.32 亿元增至 2025 年 5.2 亿元(年复合增长率 304.5%), 2025 年技术支持 GPU 卡数超 9 万张。2026-04-29 向港交所递表, 冲刺「AI 基础设施第一股」。"
+    },
+    {
+      "slug": "y-combinator",
+      "name": "Y Combinator",
+      "type": "external-company",
+      "description": "美国知名创业孵化器, 2005 年由 Paul Graham 创立。奇绩创坛前身 YC China 是其在美国以外首个海外分支(2018-08-15, 由陆奇创立)。2019 年 YC 总部战略收缩、关闭中国分部, 中国团队独立为「奇绩创坛」。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "baidu",
+      "name": "百度 Baidu",
+      "type": "external-company",
+      "description": "陆奇 2017-01 至 2018-05-18 任百度集团总裁兼 COO, 2018-02 同时任董事及董事会副主席, 2018-03 兼任智能驾驶事业群组总经理。"
+    },
+    {
+      "slug": "microsoft",
+      "name": "微软 Microsoft",
+      "type": "external-company",
+      "description": "陆奇 2008-12 至 2016-09 任微软 EVP(执行副总裁), 直接向 CEO 汇报, 负责 Bing 搜索、Office/Office365、Skype、MSN 等。是大陆华人在外资科技公司本部任职最高级别之一。"
+    },
+    {
+      "slug": "yahoo",
+      "name": "雅虎 Yahoo",
+      "type": "external-company",
+      "description": "陆奇 1998-08-17 至 2008 在雅虎, 从工程师晋升至 SVP 再到 EVP, 主导搜索和广告技术。"
+    },
+    {
+      "slug": "ibm-almaden",
+      "name": "IBM Almaden 研究实验室",
+      "type": "external-company",
+      "description": "陆奇 1996-1998 任职 IBM Almaden 研究实验室研究员, 这是其 CMU 博士毕业后首份工作。"
+    },
+    {
+      "slug": "cmu",
+      "name": "卡内基梅隆大学 CMU",
+      "type": "external-company",
+      "description": "陆奇 1992-1996 在 CMU 攻读计算机科学博士, 导师 Professor Mahadev Satyanarayanan, 论文为《Improving Data Consistency in Mobile File Access Using Isolation-Only Transactions》。"
+    },
+    {
+      "slug": "fudan",
+      "name": "复旦大学",
+      "type": "external-company",
+      "description": "陆奇本科(1984 毕业)、硕士(1987 毕业)、并任教 1 年(1987-1988)的母校, 专业为计算机科学。"
     }
   ],
   "meetings": [
