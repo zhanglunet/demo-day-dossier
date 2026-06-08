@@ -1,0 +1,48 @@
+{
+  "tweets": [
+    {
+      "i": 1,
+      "text": "一晚上，一个人，用 Claude Code 把奇绩 2026 春季路演 56 个项目全做了一份投资级 DD。\n\n8 维度、估值有锚定、7 路 AI 调研并行、全景页 + DD 表 + Word 报告 + Cloudflare 一键部署。\n\n怎么干的 ↓ 🧵",
+      "image": "01-cover.png"
+    },
+    {
+      "i": 2,
+      "text": "为什么这事难？\n\n一个项目认真做 DD ~30 分钟。56 × 30 = 28 小时。\n\nVC 派 5 个分析师摊一周。\n\n一个人摊不开。\n一个人 + Claude 可以。"
+    },
+    {
+      "i": 3,
+      "text": "本质是调度问题。\n\n7 个分析师并行，28 小时塌成 30 分钟。\n\n我没有 5 个分析师。\n\n但 Claude Code 让我在一条消息里同时发 7 个 sub-agent —— 真并发，不是排队。"
+    },
+    {
+      "i": 4,
+      "text": "走完展厅，我手机里有：\n\n• 22 张项目卡截图\n• 1 张展区墙照片（索引）\n• 1 篇官方公众号长文（团队 bio 都在里面）\n\n仅此而已。没创始人 X 关注，没暖关系约见。"
+    },
+    {
+      "i": 5,
+      "text": "把流程封进一个 Claude Code Skill，5 阶段：\n\n0. 盘点素材\n1. 抽 JSON（命名以官方文章为准）\n2. 全景页 + 首版 Word\n3. 7 路 DD agent 并发（核心）\n4. 合并 → DD 表 + CSV + Word\n5. push GitHub → Cloudflare 自动部署",
+      "image": "02-pipeline.png"
+    },
+    {
+      "i": 6,
+      "text": "7 路 fan-out 是关键时刻。\n\n一条消息 → 7 个 sub-agent，每个领 ~8 个项目。\n\n每个 agent 填同一份 8 维度 DD JSON：站点状态、GitHub 活跃度、团队评分、护城河、竞品、TAM、估值区间、推荐度。\n\n每完成一个，harness 主动通知我。"
+    },
+    {
+      "i": 7,
+      "text": "反直觉细节：\n\n让 agent 在真空里报估值 = 必出 hallucination。\n\n所以 skill 把一张 25 赛道 Pre-money 对标表注入每个 agent 的 prompt。\n\n现在每个报价都有锚：「$15-30M，参照 InstaChip 种子轮」。\n\n不会再出现 2 人 stealth 团队估 10 亿。"
+    },
+    {
+      "i": 8,
+      "text": "54 个项目最终分布（2 个信息不足未入 DD）：\n\n• 11 强烈推荐 ★★★★★\n• 20 关注 ★★★★\n• 18 可观察 ★★★\n• 4 高风险 ★★\n• 1 信息不足 ★\n\n健康的金字塔。\n\n如果 56 个全 ★★★★★，那不是 DD，是粉丝信。",
+      "image": "03-stat.png"
+    },
+    {
+      "i": 9,
+      "text": "这件事真正改变的：\n\n以前 DD 需要 1 PM + 5 分析师 + 1 总编 + 1 周。\n现在 1 人 + Claude + 30 分钟。\n\n不是「AI 替代分析师」。\n而是：以前一个团队的活，现在一个好奇的人就能干。\n\n记者、GP、scout 都一样。"
+    },
+    {
+      "i": 10,
+      "text": "全套开源了 —— skill + 脚本 + 首跑参考数据（56 项目 / 54 DD）。\n\n把你下一场 demo day 的项目卡丢进去，30 分钟后就是一份卷宗。\n\n源码：github.com/zhanglunet/demo-day-dossier\n线上：qiji-roadshow-2026.pages.dev",
+      "image": "04-cta.png"
+    }
+  ]
+}

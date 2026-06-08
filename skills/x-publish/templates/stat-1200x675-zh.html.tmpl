@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><style>
+  :root {
+    --accent: #fbbf24; --teal: #5eead4; --pink: #fb7185;
+    --green: #34d399; --orange: #fb923c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 675px; overflow: hidden;
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: #fff;
+    background:
+      radial-gradient(800px 500px at 50% -10%, rgba(251,191,36,0.16), transparent 60%),
+      linear-gradient(180deg, #0a0f1e 0%, #07091a 100%);
+  }
+  .frame { padding: 38px 56px; height: 100%; display: flex; flex-direction: column; }
+  .title { font-size: 13px; letter-spacing: 4px; color: var(--accent); font-weight: 800; }
+  h2 { font-size: 40px; line-height: 1.18; font-weight: 900; margin: 6px 0 4px; letter-spacing: 0;
+    background: linear-gradient(135deg, #fff, #c2c9dc);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .sub { font-size: 17px; line-height: 1.5; color: rgba(255,255,255,0.65); margin-bottom: 14px; font-weight: 600; }
+
+  .pyramid { display: flex; flex-direction: column; gap: 5px;
+    align-items: center; }
+  .row {
+    display: flex; align-items: center; gap: 16px;
+    padding: 9px 22px; border-radius: 999px;
+    font-weight: 800; border: 2px solid currentColor;
+    box-shadow: 0 0 18px 0 currentColor;
+  }
+  .row .stars { font-size: 16px; letter-spacing: 2px; min-width: 116px; }
+  .row .lbl { font-size: 14px; color: rgba(255,255,255,0.9); min-width: 112px; font-weight: 700; }
+  .row .bar { height: 7px; background: currentColor; border-radius: 4px; min-width: 16px; }
+  .row .n { font-size: 28px; font-weight: 900; color: #fff; min-width: 40px; text-align: right; }
+
+  .r5 { color: var(--accent); width: 78%; }
+  .r5 .bar { width: 320px; }
+  .r4 { color: var(--green); width: 86%; }
+  .r4 .bar { width: 400px; }
+  .r3 { color: var(--teal); width: 84%; }
+  .r3 .bar { width: 370px; }
+  .r2 { color: var(--orange); width: 56%; }
+  .r2 .bar { width: 100px; }
+  .r1 { color: var(--pink); width: 50%; }
+  .r1 .bar { width: 30px; }
+
+  .takeaway {
+    margin-top: 14px; padding: 16px 22px;
+    background: linear-gradient(135deg, rgba(251,191,36,0.10), rgba(94,234,212,0.05));
+    border-left: 4px solid var(--accent); border-radius: 10px;
+    font-size: 19px; line-height: 1.4; color: #fff; font-weight: 700;
+  }
+  .takeaway b { color: var(--accent); font-weight: 900; }
+  .takeaway s { color: rgba(255,255,255,0.45); text-decoration-color: var(--pink); }
+</style></head>
+<body>
+<div class="frame">
+  <div class="title">结果 · 54 个项目</div>
+  <h2>健康的金字塔分布<br><span style="color:var(--accent)">—— 不是粉丝信</span></h2>
+  <div class="sub">11 强烈推荐 + 20 关注 = 57% 上层意向。剩下的落到「可观察」或更低。</div>
+
+  <div class="pyramid">
+    <div class="row r5"><span class="stars">★★★★★</span><span class="lbl">强烈推荐</span><span class="bar"></span><span class="n">11</span></div>
+    <div class="row r4"><span class="stars">★★★★</span><span class="lbl">关注</span><span class="bar"></span><span class="n">20</span></div>
+    <div class="row r3"><span class="stars">★★★</span><span class="lbl">可观察</span><span class="bar"></span><span class="n">18</span></div>
+    <div class="row r2"><span class="stars">★★</span><span class="lbl">高风险</span><span class="bar"></span><span class="n">4</span></div>
+    <div class="row r1"><span class="stars">★</span><span class="lbl">信息不足</span><span class="bar"></span><span class="n">1</span></div>
+  </div>
+
+  <div class="takeaway">
+    💡 如果 56 个全 ★★★★★ —— <s>那不是 DD</s>，那是一封 <b>粉丝信</b>。
+  </div>
+</div>
+</body></html>

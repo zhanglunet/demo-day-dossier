@@ -15,6 +15,22 @@
 - 📝 实战记（怎么做的）：<https://qiji-roadshow-2026.pages.dev/story> · [markdown 原文](./docs/story.md)
 - 📰 **微信公众号推文版**：<https://mp.weixin.qq.com/s/oqPryhI-V3VOOmmoo-hFYg>（2026-06-08 发布于「张路的碎碎念」）
 - 📕 **小红书图文笔记版**：<https://www.xiaohongshu.com/discovery/item/6a2601120000000022009de4>（2026-06-08 发布于「林雷」，19 字标题 + 695 字正文 + 5 张 3:4 竖图）
+- 🐦 **X 中文 thread 版**：<https://x.com/zhanglu/status/2063789867855974665>（2026-06-08 发布于 [@zhanglu](https://x.com/zhanglu)，10 条 thread + 4 张 16:9 配图，**浏览器兜底**发布 —— X API Free tier 已废）
+
+### X 中文 thread 配图预览
+
+<table>
+<tr>
+<td width="50%"><a href="https://x.com/zhanglu/status/2063789867855974665"><img src="./skills/x-publish/examples/demo-day-dossier-2026-zh/images/01-cover.png" alt="Tweet 1 · hook + cover" /></a><br/><sub><b>Tweet 1 · hook</b> — 一晚 DD 完 56 个奇绩项目</sub></td>
+<td width="50%"><a href="https://x.com/zhanglu/status/2063789867855974665"><img src="./skills/x-publish/examples/demo-day-dossier-2026-zh/images/02-pipeline.png" alt="Tweet 5 · pipeline" /></a><br/><sub><b>Tweet 5 · pipeline</b> — 一条消息派 7 个 sub-agent</sub></td>
+</tr>
+<tr>
+<td width="50%"><a href="https://x.com/zhanglu/status/2063789867855974665"><img src="./skills/x-publish/examples/demo-day-dossier-2026-zh/images/03-stat.png" alt="Tweet 8 · data" /></a><br/><sub><b>Tweet 8 · data</b> — 54 项目推荐度金字塔</sub></td>
+<td width="50%"><a href="https://x.com/zhanglu/status/2063789867855974665"><img src="./skills/x-publish/examples/demo-day-dossier-2026-zh/images/04-cta.png" alt="Tweet 10 · CTA" /></a><br/><sub><b>Tweet 10 · CTA</b> — 开源 skill + 线上链接</sub></td>
+</tr>
+</table>
+
+> 详细发布复盘见 [`skills/x-publish/examples/demo-day-dossier-2026-zh/README.md`](./skills/x-publish/examples/demo-day-dossier-2026-zh/README.md) —— 含 X 加权字数、字体陷阱、Free tier 402 实测、兜底流程实际耗时。
 
 ---
 
@@ -103,7 +119,9 @@
 │       ├── templates/                      ← thread.md + 4 张 16:9 模板（cover/pipeline/stat/cta）
 │       ├── scripts/                        ← md2thread / post_thread_api (tweepy)
 │       │                                     / post_thread_browser / verify_thread
-│       └── examples/demo-day-dossier-2026/ ← 首跑案例：10 条英文 thread + 4 图
+│       └── examples/
+│           ├── demo-day-dossier-2026/      ← 首跑案例：10 条英文 thread + 4 图（API 路径）
+│           └── demo-day-dossier-2026-zh/   ← 中文首发案例：10 条中文 thread + 4 张中文图（浏览器兜底）
 ├── examples/                                ← demo-day-dossier 的参考数据集
 │   ├── projects.qiji-2026.json
 │   └── dd_data.qiji-2026.json
@@ -157,12 +175,15 @@ cp -r skills/x-publish ~/.claude/skills/x-publish
 | [`demo-day-dossier`](./skills/demo-day-dossier/SKILL.md) | 路演素材 → 全景页 + DD 表 + Word 报告 + 部署 | 全自动 |
 | [`wechat-article-publish`](./skills/wechat-article-publish/SKILL.md) | 项目 → 公众号长文 + 7 张 16:9 配图 + 半自动贴 | 半自动（个人号无 API）|
 | [`xiaohongshu-publish`](./skills/xiaohongshu-publish/SKILL.md) | 长文 → 小红书 3 段式 + 5 张 3:4 竖图 + 半自动贴 | 半自动（个人号无 API）|
-| [`x-publish`](./skills/x-publish/SKILL.md) | 长文 → X 英文 thread + 4 张 16:9 配图 + 自动发 | **全自动**（tweepy + OAuth 1.0a）|
+| [`x-publish`](./skills/x-publish/SKILL.md) | 长文 → X thread + 4 张 16:9 配图 + 发布 | API 全自动 + 浏览器兜底 双路径 ⚠️ |
+
+> ⚠️ X API Free tier 实测已废（2026-06-08 验证：v1.1 `media/upload` 和 v2 `tweets` 全部返回 402 CreditsDepleted）。Basic tier $200/月起。**0 元用户走浏览器兜底**（`post_thread_browser.py`，~5 分钟手动 chain 10 条）。详见 [`skills/x-publish/examples/demo-day-dossier-2026-zh/README.md`](./skills/x-publish/examples/demo-day-dossier-2026-zh/README.md)。
 
 **一次写作，多平台分发** —— 同源内容 + 平台特化改写：
 - 公众号：4200 字中文叙事 + 7 张 16:9
 - 小红书：695 字中文 emoji 化 + 5 张 3:4 + 6 hashtag
-- **X**：10 条英文 thread + 4 张 16:9（API 全自动 8 秒发完）
+- **X 英文**：10 条英文 thread + 4 张 16:9（API 全自动 8 秒发完，需 Basic tier）
+- **X 中文**：10 条中文 thread + 4 张中文 16:9（浏览器兜底 ~5 分钟，0 元；中文加权 280 ≈ 140 字）
 
 ### 2. 手动跑脚本
 
