@@ -36,17 +36,18 @@
 
 ## 它能做什么
 
-给定一个工作目录（项目卡截图 + 展区现场照 + 一篇官方文章 URL），跑完 5 个阶段，自动产出：
+给定一个工作目录（项目卡截图 + 展区现场照 + 一篇官方文章 URL + 可选会议纪要），跑完 5 阶段流水线 + 可选 wiki 扩展层，自动产出：
 
 | # | 资产 | 说明 |
 |---|------|------|
-| 1 | `projects.json` | 全部项目的规范化结构数据集 |
-| 2 | `index.html` | 全景式可交互落地页（4 色分区 Tab、TOP 推荐徽章、创始人金框） |
+| 1 | `projects.json` | 全部项目的规范化结构数据集（含 live_pitch / card_team / booth_no 等富字段） |
+| 2 | `index.html` | 全景式可交互落地页（4 色分区 Tab、TOP 推荐徽章、创始人金框、🎤 现场 pitch 高亮、🔍 项目卡 OCR 可展开） |
 | 3 | `dd_data.json` + `dd.html` | 7 路并行调研 agent 产出的 8 维度 DD 表（可排序 / 可筛选 / 抽屉详情） |
 | 4 | `路演项目全景调研报告_vN.0.docx` | 全景 Word 深度报告 |
 | 5 | `路演项目尽职调查报告_vN.0.docx` | DD Word 深度报告 |
 | 6 | `DD_table.csv` | Excel / Numbers 可打开的扁平表 |
-| 7 | Cloudflare Pages 部署 | 一键发布全景页 + DD 表 |
+| 7 | **`output/wiki/`** | 互链 HTML 知识库（人物 / 概念 / 实体 / 纪要四维度，客户端搜索，从 `projects.json` 自动派生） |
+| 8 | Cloudflare Pages 部署 | 一键发布全景页 + DD 表 + Wiki |
 
 ---
 
@@ -67,6 +68,8 @@
 ```
 
 详细执行细节、Prompt 模板、估值参考表见 [`skills/demo-day-dossier/SKILL.md`](./skills/demo-day-dossier/SKILL.md)。
+
+**v6.0 新增**: wiki 互链知识库 + 自动同步机制,详见 [`docs/wiki-and-sync.md`](./docs/wiki-and-sync.md)。
 
 ---
 
@@ -130,13 +133,27 @@
 │   ├── wechat-images.md                    ← 配图清单 + 排版指南
 │   ├── wechat-publish.md                   ← 发文流程速查
 │   └── images/                             ← 7 张配图（CF Pages 公开访问）
-└── output/                                  ← 首跑案例真实产出（CF Pages 部署根）
-    ├── index.html                          ← 全景页
-    ├── dd.html                             ← DD 表
-    ├── story.html                          ← 实战记网页版
-    ├── images/                             ← 镜像 7 张配图（被 wechat 编辑器拉走）
-    ├── projects.json / dd_data.json / DD_table.csv
-    └── docs/*.docx                         ← Word 深度报告
+├── output/                                  ← 首跑案例真实产出（CF Pages 部署根）
+│   ├── index.html                          ← 全景页（projects.json 内嵌）
+│   ├── dd.html                             ← DD 表
+│   ├── story.html                          ← 实战记网页版
+│   ├── images/                             ← 镜像 7 张配图（被 wechat 编辑器拉走）
+│   ├── projects.json / dd_data.json / DD_table.csv
+│   ├── docs/*.docx                         ← Word 深度报告
+│   └── wiki/                               ← v6.0 新增：互链知识库
+│       ├── index.html / meetings/ / people/ / concepts/ / entities/
+│       ├── sources/*.md                    ← 5 份会议纪要原文（去飞书链接）
+│       ├── assets/styles.css + search.js   ← 客户端搜索
+│       └── data/
+│           ├── extracted.json              ← 合并后数据
+│           ├── search-index.json
+│           └── raw/batch-1..4.json         ← 4 批数据源（1=纪要 / 2=OCR / 3=调研 / 4=auto-derived）
+├── scripts/                                 ← v6.0 新增：站点 ↔ wiki 同步工具
+│   ├── sync-wiki.py                        ← 一键入口：projects.json → batch-4 → merge → render → 内嵌
+│   ├── projects_to_batch4.py               ← 54 项目 + 创始人 → wiki entity/person 转换器
+│   └── _lib/{fix_json,merge,render}.py     ← 复用自 ~/.claude/skills/notes-wiki
+├── Makefile                                 ← sync / serve / check / clean
+└── .github/workflows/sync-check.yml         ← CI 守护：跑 sync 后 git diff, 不一致则 fail PR
 ```
 
 ---
@@ -286,7 +303,7 @@ curl -s https://qiji-roadshow-2026.pages.dev/README.md | head -5
 
 ## 首跑案例：奇绩创坛 2026 春季路演日
 
-> 56 个项目 · 4 大分区 · 1 篇官方微信文章 · 22 张项目卡截图 · 7 个 DD agent 并行 25-45 分钟
+> 54 个展示项目(本届录取 74) · 4 大分区 · 1 篇官方微信文章 · 22 张项目卡截图 · 7 个 DD agent · 5 份现场会议纪要 · 360+ 张展厅照片
 
 | 分区 | 主题 | 项目数 |
 |------|------|--------|
@@ -294,11 +311,11 @@ curl -s https://qiji-roadshow-2026.pages.dev/README.md | head -5
 | B 区 | 具身智能与硬件 | 19 |
 | E 区 | Agent toB | 12 |
 | F 区 | Agent toC | 12 |
-| **合计** | | **56** |
+| **合计** | | **54** |
 
-**Cohort 画像**：录取率 1%、Researcher Founder 占比 45%、硕士及以上 62%、海外团队 43%。
+**Cohort 画像**：本届录取 74 个 / 路演展示 54 个、录取率 1%、Researcher Founder 占比 45%、硕士及以上 62%、海外团队 43%。
 
-**DD 推荐度分布**（54 个项目，2 个信息不足未入 DD）：
+**DD 推荐度分布**（54 个项目）：
 
 | 推荐度 | 含义 | 项目数 |
 |--------|------|--------|
@@ -308,19 +325,33 @@ curl -s https://qiji-roadshow-2026.pages.dev/README.md | head -5
 | ★★ | 高风险 | 4 |
 | ★ | 信息不足 | 1 |
 
-线上访问：
-- 全景页 <https://qiji-roadshow-2026.pages.dev/>
-- DD 表 <https://qiji-roadshow-2026.pages.dev/dd>
+### v6.0 数据演化时间线
+
+| 版本 | 数据源 | 关键变化 |
+|------|--------|---------|
+| v3.0 | 22 张项目卡 + 1 篇官方文章 | 首个全景 + DD 表 |
+| v4.0 | + 官方文章一手补全 | 命名/创始人交叉对照 |
+| v5.0 | + 5 份现场会议纪要 + /notes-wiki 知识库 | 6 项目加入 `live_pitch` 现场原话 |
+| **v6.0** | + 364 文件 OCR(项目卡/路演照/Monova/Thennote)+ 35 一手来源调研 + 全 54 项目映射进 wiki | 23 项目补 `card_team`/`booth_no`/`contact`,全 54 项目 entity 化,陆奇 + 6 明星校友 deep bio |
+
+### 4 个线上入口
+
+- 🌐 **全景页** <https://qiji-roadshow-2026.pages.dev/> — 54 项目 + 现场 pitch + 项目卡 OCR 详情
+- 🔍 **DD 表** <https://qiji-roadshow-2026.pages.dev/dd> — 8 维度尽职调查表 + drawer 详情
+- 📚 **现场纪要 Wiki** <https://qiji-roadshow-2026.pages.dev/wiki/> — **5 纪要 · 69 人物 · 27 概念 · 84 实体** 互链知识库, 全文检索, 飞书原始链接 → 本地 .md
+- 📝 **实战记** <https://qiji-roadshow-2026.pages.dev/story> — 怎么用 5 阶段流水线做出来的复盘
 
 ---
 
 ## 设计原则
 
 - **命名优先级**：官方文章 > 项目卡 > 展区墙 > 旧报告。
-- **不编造**：证据不明时写「未公开」「待核实」。
+- **不编造**：证据不明时写「未公开」「待核实」；wiki 实体描述中对未确认事实显式标注 "投资关系未公开确认"。
 - **诚实分布**：DD 推荐度要呈金字塔（rec=5 约 10-20%、rec=4 约 30-40%、其余 rec≤3），不要写成粉丝信。
-- **并行才划算**：7 个 DD agent 一定要 **一条消息里一次性发** 才并发，不要串行。
-- **公开 vs 私有分清**：默认只把 `index.html` 与 `dd.html` 推到 CDN；JSON / Word 报告留本地，需要分享时手动 gate。
+- **并行才划算**：7 个 DD agent / 5 路 OCR agent 一定要 **一条消息里一次性发** 才并发，不要串行。
+- **公开 vs 私有分清**：默认只把 `index.html` / `dd.html` / `wiki/` 推到 CDN；JSON / Word 报告 / 飞书原文 .md 也可上 CDN（本仓库已清理飞书外链）。
+- **单一数据源**：`projects.json` 是唯一的项目信息入口；`index.html` / `dd.html` 内嵌 JSON 与 `wiki/data/raw/batch-4.json` 都从它派生。改完跑 `make sync` 即可。
+- **手工调优受保护**：batch-1/2/3（纪要 / OCR / 调研）是一次性产出，`make sync` 不会覆盖它们；只有 batch-4 是自动生成。
 
 ---
 
