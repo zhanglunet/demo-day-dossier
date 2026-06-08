@@ -338,6 +338,7 @@
   <a class="pill-F" href="#zone-F">F 区 · Agent toC</a>
   <a href="#top-picks" style="border-color: var(--gold); color: var(--gold);">★ 重点 TOP10</a>
   <a href="dd.html" style="border-color: var(--rose); color: var(--rose);">🔍 DD 尽职调查表 →</a>
+  <a href="wiki/" style="border-color: #60A5FA; color: #60A5FA;">📚 现场纪要 Wiki →</a>
 </nav>
 
 <main id="content"></main>
@@ -498,7 +499,7 @@ const DATA = {
             "presenter": "刘雅",
             "summary": "刘雅（润凡创始人）介绍 RustFS——全球增长最快的 AI 存储基础设施。当前 AI 生态瓶颈已从算力转移至存储，L1/L2 层吞吐不足与缓存命中率低制约 GPU 利用率。RustFS 以 RDMA 替代传统以太网提升存储吞吐，并采用独家 MQM 算法大幅提升缓存命中率，使 GPU 利用率达到95%。\n\n9个月内在 GitHub 社区获得27,000 star，全球服务器安装量达100万节点（其中70%来自美国市场）。商业客户包括 AMD、渣打银行，中国移动、国家电网及欧洲明星企业。团队具备20年开源经验，曾参与 IBM 顶级开源项目，完成数亿元海外营收。判断下一波最持续盈利的赛道是 AI 存储生态，非算力。[对应 projects.json #A07]",
             "source_meeting": "runfan-ai-storage-26-06-07",
-            "wiki_path": "Jason/wiki/meetings/runfan-ai-storage-26-06-07.html"
+            "wiki_path": "wiki/meetings/runfan-ai-storage-26-06-07.html"
           }
         },
         {
@@ -550,7 +551,7 @@ const DATA = {
             "presenter": "王俊毅",
             "summary": "演讲者介绍构建「科学通用型人工智能」的愿景：目标是用6个月完成目前需10-20年才能实现的获奖级科研成果。当前生物医药领域 AI 停留在辅助研发层面，泛化能力弱，各药物类型之间无法互相学习。\n\n团队从三个方向布局：分子设计（省时间）、虚拟科学家（省脑力）、自驱动实验室（少动手）。技术亮点是全球首个 ODesign 分子设计模型——以单一模型同时覆盖多种药物靶点类型，设计出竞品未曾生成的候选分子，且多项指标达到国内乃至全球领先。底层技术支柱包括分子模型、跨模块交互推理优化，以及实验结果反馈自适应闭环体系。\n\n核心团队大多来自「datafaker」实验室（诺贝尔奖蛋白质设计先驱团队）。愿景是一个月内实现「从有科学依据的想法→实验室迭代→可供实验粉末」的全闭环。[对应 projects.json #A10]",
             "source_meeting": "biotech-26-06-07",
-            "wiki_path": "Jason/wiki/meetings/biotech-26-06-07.html"
+            "wiki_path": "wiki/meetings/biotech-26-06-07.html"
           }
         },
         {
@@ -571,7 +572,7 @@ const DATA = {
             "presenter": "数宇科技创始人",
             "summary": "演讲者指出模拟芯片设计周期以年计、成本数千万，模拟工程师仍有70%时间耗在手工调参，这一环节从未被自动化。核心障碍是三无困境：无数据集、无标准答案、不容误差。\n\n数宇科技联合业界头部企业搭建首个「模拟到光电子」全链路 EDA 仿真平台，并在此基础上首创「agentic 设计引擎」：让模型在虚拟环境中自主流片成千上万次，以仿真器替代训练局、以端到端 agent 替代工程师，无限数据持续增强，同时解决三大瓶颈。团队源于清华1985班，先后量产过11款模拟射频光电子芯片，技术覆盖 EDA 底座、芯片设计到 AI Agent 全栈。\n\n目前正与四家行业头部客户进行 POC，三个核心场景已端到端跑通。长期愿景是打通光电子芯片从设计底座到量产应用的全链路闭环，助力中国芯片迈入光电子时代。（注：projects-hint 中未找到精确匹配，疑为 A11 芯引力或其他未公开项目）",
             "source_meeting": "analog-chip-26-06-07",
-            "wiki_path": "Jason/wiki/meetings/analog-chip-26-06-07.html"
+            "wiki_path": "wiki/meetings/analog-chip-26-06-07.html"
           },
           "star": true
         }
@@ -617,7 +618,7 @@ const DATA = {
             "presenter": "王子峣",
             "summary": "影控机器人（B02）介绍其面向人形机器人的全身操作驾驶舱系统。核心观点：仿真数据和桌面数据无法支撑通用机器人发展，唯一出路是真实世界的全身协同数据采集。（纪要原文仅保留开场判断句，详细技术与商业化内容被截断。）",
             "source_meeting": "kp-keynote-26-06-07",
-            "wiki_path": "Jason/wiki/meetings/kp-keynote-26-06-07.html"
+            "wiki_path": "wiki/meetings/kp-keynote-26-06-07.html"
           }
         },
         {
@@ -759,7 +760,7 @@ const DATA = {
             "presenter": "陈洛飞",
             "summary": "陈洛飞介绍 Oki Home（产品名 OPHome）——一款软硬件一体的个人 AI 系统，解决用户数字信息碎片化、缺乏统一可信私人 AI 助理的问题。用户将全部数据存于本地设备，插电即用，随时随地通过个人 AI 访问，实现个性化「主管」服务，数据完全自主可控。\n\n核心技术亮点是自研「mention 记忆芯片」：物理上可拔插，承载所有个人上下文，并面向未来机器人、智能体、汽车、脑机接口等场景复用。产品由团队七年合作打磨，已获 YC 与奇绩创坛双重投资，全员 Berkeley 毕业，三个月内在上海完成软硬件及产品体验落地。宣布产品将于7月26日正式上线。",
             "source_meeting": "kp-keynote-26-06-07",
-            "wiki_path": "Jason/wiki/meetings/kp-keynote-26-06-07.html"
+            "wiki_path": "wiki/meetings/kp-keynote-26-06-07.html"
           }
         },
         {
@@ -954,7 +955,7 @@ const DATA = {
             "presenter": "沈明航",
             "summary": "演讲者以「AI 让攻击变多、变广、变狠」为切入点：某车企遭一次 AI 水军袭击损失215亿，是波舒爆炸案（21亿损失）的10倍，AI 时代安全威胁呈指数级放大。公司定位为帮助企业守护商业安全的 AI 风险情报平台，而非传统扫描器/防火墙赛道。\n\n商业路径：从国家安全切入→取得公安市场背书→进入商业安全市场，三条线均有进展。已完成十多项国家级安全任务、获数百万订单，头部 MCN 公司已签约。标杆案例：华领导人重要安全保障任务中，从上亿条信息里锁定数百个卫星节点，阻止潜在恐怖袭击；帮助头部 MCN 艺人锁定 AI 换脸冒牌带货视频主体及背后主体。成员陆伟然即将飞赴香港与知名艺人签约。\n\n团队具备军校背景、顶尖黑客能力，曾在大厂负责合规、内控、廉政，覆盖模型训练与 Agent 落地全链路。定位为「中国版 Palo Alto」，瞄准万亿级 AI 风险情报市场。[对应 projects.json #E04]",
             "source_meeting": "ai-security-26-06-07",
-            "wiki_path": "Jason/wiki/meetings/ai-security-26-06-07.html"
+            "wiki_path": "wiki/meetings/ai-security-26-06-07.html"
           }
         },
         {
@@ -1302,6 +1303,7 @@ function projectCard(p) {
       <div class="live-pitch" style="margin-top:10px;padding:10px 12px;background:linear-gradient(135deg,rgba(96,165,250,0.10),rgba(192,132,252,0.08));border-left:3px solid #60A5FA;border-radius:8px;">
         <div style="font-size:11px;letter-spacing:1px;color:#60A5FA;font-weight:600;margin-bottom:4px;">🎤 2026-06-07 路演现场 · ${esc(p.live_pitch.presenter || '')}</div>
         <div style="font-size:13px;line-height:1.6;color:rgba(232,236,245,0.92);white-space:pre-wrap;">${esc(p.live_pitch.summary || '')}</div>
+        ${p.live_pitch.wiki_path ? `<div style="margin-top:6px;"><a href="${esc(p.live_pitch.wiki_path)}" target="_blank" style="color:#60A5FA;font-size:12px;">📚 完整纪要 →</a></div>` : ''}
       </div>` : ''}
     ${(p.site || p.github) ? `
       <div class="links">

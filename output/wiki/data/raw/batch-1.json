@@ -1,0 +1,394 @@
+{
+  "batch_id": "batch-1",
+  "files_processed": [
+    "文字记录：20260607_133633 2026年6月8日.md",
+    "文字记录：20260607_135006 2026年6月8日.md",
+    "文字记录：20260607_135553 2026年6月8日.md",
+    "文字记录：20260607_140110 2026年6月8日.md",
+    "文字记录：20260607_141822 2026年6月8日.md"
+  ],
+  "meetings": [
+    {
+      "slug": "kp-keynote-26-06-07",
+      "title": "2026春季路演日开场 · 陆奇主题演讲 + 第一波项目展示",
+      "date": "2026-06-07",
+      "type": "路演日开场",
+      "subtype": null,
+      "host": "陆奇",
+      "source_url": "https://ky9m9zun4e.feishu.cn/docx/KYyldPONDoVb7RxLZqacgkpdnwG",
+      "source_file": "文字记录：20260607_133633 2026年6月8日.md",
+      "topics": [
+        {
+          "name": "陆奇主题演讲：硅基生产力与新一代创业生态",
+          "presenters": ["陆奇"],
+          "attendees": [],
+          "documents": [],
+          "summary": "陆奇以工业革命类比当前 AI 变革，指出本轮范式转移的核心是「AI 自己驱动 AI」，底层由硅基生产力（以 Anthropic 全栈能力栈为代表）与硅基生产关系连接器（以 Palantir 为代表）共同构成。他将机会图谱分为四大版块：前沿科学与技术、新产业机会、新生产关系变革工具，以及底层新生产要素（算力、数据、硬件）。\n\n陆奇强调，驱动本轮创业浪潮的核心人才是「研究型创业者」，即从 -1 到 1 的团队。奇绩创坛历经 14 届、投资加速 667 家企业、支持 1640 余位创业者，本届2026春季营共录取项目分布：智能体 toB 24家、toC 15家、具身与物理智能 19家、前沿科技 16家、数据 10家、组织变革 10家，出海 22家，研究驱动创业者占比45%，海外背景占43%。\n\n现场还宣布本届首次上线「龙虾」——展厅 AI Agent，帮助投资人精准导航展位、推荐项目，同时帮助创业者追踪展位访客及对接投资资源。",
+          "actions": [],
+          "anchor_quotes": []
+        },
+        {
+          "name": "Oki Home（OPHome 个人 AI 系统）",
+          "presenters": ["陈洛飞"],
+          "attendees": [],
+          "documents": [],
+          "summary": "陈洛飞介绍 Oki Home（产品名 OPHome）——一款软硬件一体的个人 AI 系统，解决用户数字信息碎片化、缺乏统一可信私人 AI 助理的问题。用户将全部数据存于本地设备，插电即用，随时随地通过个人 AI 访问，实现个性化「主管」服务，数据完全自主可控。\n\n核心技术亮点是自研「mention 记忆芯片」：物理上可拔插，承载所有个人上下文，并面向未来机器人、智能体、汽车、脑机接口等场景复用。产品由团队七年合作打磨，已获 YC 与奇绩创坛双重投资，全员 Berkeley 毕业，三个月内在上海完成软硬件及产品体验落地。宣布产品将于7月26日正式上线。",
+          "actions": [],
+          "anchor_quotes": []
+        },
+        {
+          "name": "影控机器人（人形机器人全身操控驾驶舱）",
+          "presenters": ["王子峣"],
+          "attendees": [],
+          "documents": [],
+          "summary": "影控机器人（B02）介绍其面向人形机器人的全身操作驾驶舱系统。核心观点：仿真数据和桌面数据无法支撑通用机器人发展，唯一出路是真实世界的全身协同数据采集。（纪要原文仅保留开场判断句，详细技术与商业化内容被截断。）",
+          "actions": [],
+          "anchor_quotes": []
+        }
+      ],
+      "people_mentioned": ["陆奇", "陈洛飞", "王子峣"],
+      "concepts_mentioned": ["硅基生产力", "硅基生产关系", "研究型创业者", "AI4Science", "具身与物理智能", "龙虾", "智能体 toB", "智能体 toC", "Token 经济"],
+      "entities_mentioned": ["奇绩创坛", "Anthropic", "Palantir", "Oki Home", "OPHome", "影控机器人"]
+    },
+    {
+      "slug": "runfan-ai-storage-26-06-07",
+      "title": "2026春季路演日 · 润凡 / RustFS AI 存储 pitch",
+      "date": "2026-06-07",
+      "type": "项目 pitch",
+      "subtype": null,
+      "host": null,
+      "source_url": "https://ky9m9zun4e.feishu.cn/docx/Y1wzdSOITobksQxClDCcDJ4bnee",
+      "source_file": "文字记录：20260607_135006 2026年6月8日.md",
+      "topics": [
+        {
+          "name": "RustFS 润凡（AI 存储基础设施）",
+          "presenters": ["刘雅"],
+          "attendees": [],
+          "documents": [],
+          "summary": "刘雅（润凡创始人）介绍 RustFS——全球增长最快的 AI 存储基础设施。当前 AI 生态瓶颈已从算力转移至存储，L1/L2 层吞吐不足与缓存命中率低制约 GPU 利用率。RustFS 以 RDMA 替代传统以太网提升存储吞吐，并采用独家 MQM 算法大幅提升缓存命中率，使 GPU 利用率达到95%。\n\n9个月内在 GitHub 社区获得27,000 star，全球服务器安装量达100万节点（其中70%来自美国市场）。商业客户包括 AMD、渣打银行，中国移动、国家电网及欧洲明星企业。团队具备20年开源经验，曾参与 IBM 顶级开源项目，完成数亿元海外营收。判断下一波最持续盈利的赛道是 AI 存储生态，非算力。[对应 projects.json #A07]",
+          "actions": [],
+          "anchor_quotes": []
+        }
+      ],
+      "people_mentioned": ["刘雅"],
+      "concepts_mentioned": ["AI 存储", "RDMA", "GPU 利用率", "缓存命中率", "开源"],
+      "entities_mentioned": ["RustFS", "润凡", "AMD", "渣打银行", "中国移动", "国家电网", "IBM"]
+    },
+    {
+      "slug": "biotech-26-06-07",
+      "title": "2026春季路演日 · 生物医药 AI pitch（摩湃分子 MolplusAI）",
+      "date": "2026-06-07",
+      "type": "项目 pitch",
+      "subtype": null,
+      "host": null,
+      "source_url": "https://ky9m9zun4e.feishu.cn/docx/DZ4cdZZtzonZ9bxR2DNc40k6nDf",
+      "source_file": "文字记录：20260607_135553 2026年6月8日.md",
+      "topics": [
+        {
+          "name": "摩湃分子 MolplusAI（科学通用 AI · 生物医药）",
+          "presenters": ["王俊毅"],
+          "attendees": [],
+          "documents": [],
+          "summary": "演讲者介绍构建「科学通用型人工智能」的愿景：目标是用6个月完成目前需10-20年才能实现的获奖级科研成果。当前生物医药领域 AI 停留在辅助研发层面，泛化能力弱，各药物类型之间无法互相学习。\n\n团队从三个方向布局：分子设计（省时间）、虚拟科学家（省脑力）、自驱动实验室（少动手）。技术亮点是全球首个 ODesign 分子设计模型——以单一模型同时覆盖多种药物靶点类型，设计出竞品未曾生成的候选分子，且多项指标达到国内乃至全球领先。底层技术支柱包括分子模型、跨模块交互推理优化，以及实验结果反馈自适应闭环体系。\n\n核心团队大多来自「datafaker」实验室（诺贝尔奖蛋白质设计先驱团队）。愿景是一个月内实现「从有科学依据的想法→实验室迭代→可供实验粉末」的全闭环。[对应 projects.json #A10]",
+          "actions": [],
+          "anchor_quotes": []
+        }
+      ],
+      "people_mentioned": ["王俊毅"],
+      "concepts_mentioned": ["AI4Science", "科学通用 AI", "分子设计", "虚拟科学家", "自驱动实验室", "ODesign"],
+      "entities_mentioned": ["摩湃分子 MolplusAI", "datafaker 实验室"]
+    },
+    {
+      "slug": "analog-chip-26-06-07",
+      "title": "2026春季路演日 · 模拟芯片 EDA AI pitch（数宇科技）",
+      "date": "2026-06-07",
+      "type": "项目 pitch",
+      "subtype": null,
+      "host": null,
+      "source_url": "https://ky9m9zun4e.feishu.cn/docx/TrPJdDa3Po51hexdZ2BcUeM9nrf",
+      "source_file": "文字记录：20260607_140110 2026年6月8日.md",
+      "topics": [
+        {
+          "name": "数宇科技（模拟芯片 EDA AI · 光电子芯片全链路）",
+          "presenters": ["数宇科技创始人"],
+          "attendees": [],
+          "documents": [],
+          "summary": "演讲者指出模拟芯片设计周期以年计、成本数千万，模拟工程师仍有70%时间耗在手工调参，这一环节从未被自动化。核心障碍是三无困境：无数据集、无标准答案、不容误差。\n\n数宇科技联合业界头部企业搭建首个「模拟到光电子」全链路 EDA 仿真平台，并在此基础上首创「agentic 设计引擎」：让模型在虚拟环境中自主流片成千上万次，以仿真器替代训练局、以端到端 agent 替代工程师，无限数据持续增强，同时解决三大瓶颈。团队源于清华1985班，先后量产过11款模拟射频光电子芯片，技术覆盖 EDA 底座、芯片设计到 AI Agent 全栈。\n\n目前正与四家行业头部客户进行 POC，三个核心场景已端到端跑通。长期愿景是打通光电子芯片从设计底座到量产应用的全链路闭环，助力中国芯片迈入光电子时代。（注：projects-hint 中未找到精确匹配，疑为 A11 芯引力或其他未公开项目）",
+          "actions": [],
+          "anchor_quotes": []
+        }
+      ],
+      "people_mentioned": ["数宇科技创始人"],
+      "concepts_mentioned": ["模拟芯片", "EDA", "光电子芯片", "agentic 设计引擎", "仿真平台"],
+      "entities_mentioned": ["数宇科技"]
+    },
+    {
+      "slug": "ai-security-26-06-07",
+      "title": "2026春季路演日 · AI 安全 / 风险情报 pitch（明悉科技 InsightSec）",
+      "date": "2026-06-07",
+      "type": "项目 pitch",
+      "subtype": null,
+      "host": null,
+      "source_url": "https://ky9m9zun4e.feishu.cn/docx/LnXLdJbkSogiSvxi4dkcUVUXnP8",
+      "source_file": "文字记录：20260607_141822 2026年6月8日.md",
+      "topics": [
+        {
+          "name": "明悉科技 InsightSec（AI 风险情报 · 商业安全）",
+          "presenters": ["沈明航"],
+          "attendees": [],
+          "documents": [],
+          "summary": "演讲者以「AI 让攻击变多、变广、变狠」为切入点：某车企遭一次 AI 水军袭击损失215亿，是波舒爆炸案（21亿损失）的10倍，AI 时代安全威胁呈指数级放大。公司定位为帮助企业守护商业安全的 AI 风险情报平台，而非传统扫描器/防火墙赛道。\n\n商业路径：从国家安全切入→取得公安市场背书→进入商业安全市场，三条线均有进展。已完成十多项国家级安全任务、获数百万订单，头部 MCN 公司已签约。标杆案例：华领导人重要安全保障任务中，从上亿条信息里锁定数百个卫星节点，阻止潜在恐怖袭击；帮助头部 MCN 艺人锁定 AI 换脸冒牌带货视频主体及背后主体。成员陆伟然即将飞赴香港与知名艺人签约。\n\n团队具备军校背景、顶尖黑客能力，曾在大厂负责合规、内控、廉政，覆盖模型训练与 Agent 落地全链路。定位为「中国版 Palo Alto」，瞄准万亿级 AI 风险情报市场。[对应 projects.json #E04]",
+          "actions": [],
+          "anchor_quotes": []
+        }
+      ],
+      "people_mentioned": ["沈明航", "陆伟然"],
+      "concepts_mentioned": ["AI 安全", "风险情报", "AI 水军", "AI 换脸", "商业安全"],
+      "entities_mentioned": ["明悉科技 InsightSec", "Palo Alto", "MCN 公司"]
+    }
+  ],
+  "people": [
+    {
+      "slug": "lu-qi",
+      "name": "陆奇",
+      "aliases": [],
+      "role": "奇绩创坛创始人",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "在路演日开场发表主题演讲，以「硅基生产力+硅基生产关系」框架描绘 AI 时代产业机会图谱，强调研究型创业者是本轮驱动力量，并宣布奇绩已投资加速667家企业、本届录取54个项目。"
+    },
+    {
+      "slug": "chen-luofei",
+      "name": "陈洛飞",
+      "aliases": ["洛菲"],
+      "role": "Oki Home 创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "上台介绍 OPHome 个人 AI 系统，产品核心是软硬件一体的本地私人 AI 设备，搭载自研「mention 记忆芯片」，宣布7月26日上线。[对应 projects.json #B11]"
+    },
+    {
+      "slug": "wang-ziyao",
+      "name": "王子峣",
+      "aliases": [],
+      "role": "影控机器人 创始人 / CEO / CTO",
+      "department": null,
+      "first_seen_meeting": "kp-keynote-26-06-07",
+      "summary": "代表影控机器人上台，介绍人形机器人全身操控驾驶舱系统，核心观点是唯有真实世界全身协同数据才能支撑通用机器人发展。[对应 projects.json #B02]"
+    },
+    {
+      "slug": "liu-ya",
+      "name": "刘雅",
+      "aliases": [],
+      "role": "润凡 / RustFS 创始人",
+      "department": null,
+      "first_seen_meeting": "runfan-ai-storage-26-06-07",
+      "summary": "介绍 RustFS AI 存储基础设施，9个月获27,000 GitHub star、全球100万节点安装量，GPU 利用率提升至95%，已签约 AMD、中国移动等头部客户。[注：projects-hint 中 A07 显示 CEO 为李文凯（Kevin Li），刘雅可能为联合创始人]"
+    },
+    {
+      "slug": "wang-junyi",
+      "name": "王俊毅",
+      "aliases": [],
+      "role": "摩湃分子 MolplusAI 联合创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "biotech-26-06-07",
+      "summary": "介绍 MolplusAI 科学通用 AI 平台，以 ODesign 分子设计模型为核心，目标是6个月完成10-20年才能实现的获奖级药物研发。[对应 projects.json #A10]"
+    },
+    {
+      "slug": "shen-minghang",
+      "name": "沈明航",
+      "aliases": [],
+      "role": "明悉科技 InsightSec 创始人 / CEO",
+      "department": null,
+      "first_seen_meeting": "ai-security-26-06-07",
+      "summary": "介绍 AI 风险情报平台明悉科技，从国家安全切入到商业安全市场，已完成十多项国家级安全任务、获数百万订单，定位为「中国版 Palo Alto」。[对应 projects.json #E04]"
+    },
+    {
+      "slug": "lu-weiran",
+      "name": "陆伟然",
+      "aliases": [],
+      "role": "明悉科技 InsightSec 核心成员",
+      "department": null,
+      "first_seen_meeting": "ai-security-26-06-07",
+      "summary": "在 AI 安全 pitch 中被提及，负责赴香港与知名艺人洽谈商业安全签约。"
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "gui-ji-sheng-chan-li",
+      "name": "硅基生产力",
+      "category": "战略",
+      "definition": "以 Anthropic 全栈能力栈为代表的新一代 AI 能力体系，包含运维时、开发时、运行时三层，是区别于碳基人类认知的全新生产力基础。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "gui-ji-sheng-chan-guan-xi",
+      "name": "硅基生产关系",
+      "category": "战略",
+      "definition": "以 Palantir 为代表的连接层，通过资源连接、企业/组织大脑、运营三层将硅基生产力与产业场景结合，实现生产力与生产关系的强强组合。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "yan-jiu-xing-chuang-ye-zhe",
+      "name": "研究型创业者",
+      "category": "战略",
+      "definition": "陆奇定义的本轮 AI 创业浪潮核心人才：具备从 -1 到 1 能力的团队，是这个时代最主要的驱动力量，也是奇绩创坛重点支持的创始人类型，本届占比45%。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "long-xia",
+      "name": "龙虾",
+      "category": "产品方法论",
+      "definition": "奇绩2026届路演日首次上线的展厅 AI Agent：帮助投资人定位展位、推荐项目，同时帮助创业者追踪展位访客数量并对接投资和产业资源。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "ren-zhi-qu-dong-sheng-chan-li",
+      "name": "认知驱动生产力",
+      "category": "战略",
+      "definition": "陆奇对本轮 AI 变革本质的概括：新生产力以认知（基于规则和基于经验两类）为驱动，AI 可逐步承接人类碳基认知的全部工作类型，释放新的产能。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "ju-shen-wu-li-zhi-neng",
+      "name": "具身与物理智能",
+      "category": "AI/技术",
+      "definition": "陆奇在本届营结构分布中提及的创业方向，指物理 AI / 机器人相关创业，本届共19家，是第二大细分方向。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "ai4science",
+      "name": "AI4Science",
+      "category": "AI/技术",
+      "definition": "陆奇在机会图谱顶层左侧描述的方向：用 AI 系统性地做新一代科学、新一代工程和新一代技术，代表最前沿的创业机会领域。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "zhi-neng-ti-to-b",
+      "name": "智能体 toB",
+      "category": "AI/技术",
+      "definition": "陆奇总结的本届智能体创业细分方向之一，面向企业客户的 AI Agent 产品，本届共24家，为最大细分方向。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "zhi-neng-ti-to-c",
+      "name": "智能体 toC",
+      "category": "AI/技术",
+      "definition": "陆奇总结的本届智能体创业细分方向之一，面向消费者的 AI Agent 产品，本届共15家。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "agentic-she-ji-yin-qing",
+      "name": "agentic 设计引擎",
+      "category": "AI/技术",
+      "definition": "数宇科技在模拟芯片 EDA 领域首创的技术架构：让模型在虚拟仿真环境中自主流片成千上万次，以仿真器替代训练局、以端到端 agent 替代工程师，持续积累无限数据。",
+      "first_meeting": "analog-chip-26-06-07"
+    },
+    {
+      "slug": "odesign",
+      "name": "ODesign 分子设计模型",
+      "category": "AI/技术",
+      "definition": "摩湃分子 MolplusAI 提出的全球首个多靶点统一分子设计模型，用单一模型覆盖多种药物靶点类型并实现跨模块交互推理，多项指标达全球领先。",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "ai-feng-xian-qing-bao",
+      "name": "AI 风险情报",
+      "category": "AI/技术",
+      "definition": "明悉科技定义的新一代安全市场核心产品形态：不同于传统扫描器/防火墙，聚焦于在风险发生前发现、锁定并击溃威胁，决定企业生命线，随 AI 模型每次跃迁市场规模同步扩大。",
+      "first_meeting": "ai-security-26-06-07"
+    }
+  ],
+  "entities": [
+    {
+      "slug": "qi-zhi-chuang-tan",
+      "name": "奇绩创坛",
+      "type": "external-company",
+      "description": "陆奇创立的创业加速器，7年内已投资加速667家企业、支持1640余位创业者，2026春季营为第14届，本届录取54个项目。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "anthropic",
+      "name": "Anthropic",
+      "type": "external-company",
+      "description": "陆奇在主题演讲中作为「全栈硅基生产力能力栈」的代表公司提及，涵盖运维时、开发时、运行时三层。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "palantir",
+      "name": "Palantir",
+      "type": "external-company",
+      "description": "陆奇在主题演讲中作为「连接硅基生产力与生产关系」的代表企业提及，底层资源连接、中层企业/组织大脑、上层运营三层架构。",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "oki-home",
+      "name": "Oki Home",
+      "type": "external-company",
+      "description": "陈洛飞创立的软硬件一体个人 AI 系统公司，产品 OPHome 将用户全部数据存于本地，搭载 mention 记忆芯片，已获 YC 与奇绩双重投资，7月26日上线。[对应 projects.json #B11]",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "ying-kong-ji-qi-ren",
+      "name": "影控机器人",
+      "type": "external-company",
+      "description": "王子峣创立，专注人形机器人全身操控驾驶舱系统，核心主张是真实世界全身协同数据是通用机器人发展的唯一出路。[对应 projects.json #B02]",
+      "first_meeting": "kp-keynote-26-06-07"
+    },
+    {
+      "slug": "rustfs",
+      "name": "RustFS 润凡",
+      "type": "external-company",
+      "description": "刘雅创立的 AI 存储基础设施公司，9个月获27,000 GitHub star，全球100万节点，GPU 利用率提升至95%，AMD、中国移动、国家电网等为客户。[对应 projects.json #A07]",
+      "first_meeting": "runfan-ai-storage-26-06-07"
+    },
+    {
+      "slug": "amd",
+      "name": "AMD",
+      "type": "customer",
+      "description": "RustFS 的商业客户，在润凡 AI 存储 pitch 中被提及为世界知名用户之一。",
+      "first_meeting": "runfan-ai-storage-26-06-07"
+    },
+    {
+      "slug": "china-mobile",
+      "name": "中国移动",
+      "type": "customer",
+      "description": "RustFS 的商业客户，在润凡 AI 存储 pitch 中被提及。",
+      "first_meeting": "runfan-ai-storage-26-06-07"
+    },
+    {
+      "slug": "guojia-diangwang",
+      "name": "国家电网",
+      "type": "customer",
+      "description": "RustFS 的商业客户，在润凡 AI 存储 pitch 中被提及。",
+      "first_meeting": "runfan-ai-storage-26-06-07"
+    },
+    {
+      "slug": "molplus-ai",
+      "name": "摩湃分子 MolplusAI",
+      "type": "external-company",
+      "description": "王俊毅创立的科学通用 AI 公司，以 ODesign 模型实现多靶点分子设计，团队来自诺奖蛋白质设计先驱实验室（datafaker），目标6个月完成10-20年级别药物研发。[对应 projects.json #A10]",
+      "first_meeting": "biotech-26-06-07"
+    },
+    {
+      "slug": "shuyu-keji",
+      "name": "数宇科技",
+      "type": "external-company",
+      "description": "清华1985班团队创立，专注模拟芯片 EDA AI 自动化，首创 agentic 设计引擎，已量产11款模拟射频光电子芯片，当前与4家头部客户做 POC，3个核心场景跑通。（projects-hint 中未找到精确 ID 匹配）",
+      "first_meeting": "analog-chip-26-06-07"
+    },
+    {
+      "slug": "insightsec",
+      "name": "明悉科技 InsightSec",
+      "type": "external-company",
+      "description": "沈明航创立的 AI 风险情报平台，从国家安全切入商业安全市场，已完成十多项国家级任务、数百万订单，帮助头部 MCN 艺人追查 AI 换脸冒牌，定位「中国版 Palo Alto」。[对应 projects.json #E04]",
+      "first_meeting": "ai-security-26-06-07"
+    },
+    {
+      "slug": "palo-alto",
+      "name": "Palo Alto Networks",
+      "type": "external-company",
+      "description": "明悉科技在 AI 安全 pitch 中作为对标公司提及，演讲者将自身定位为「中国版 Palo Alto」。",
+      "first_meeting": "ai-security-26-06-07"
+    }
+  ]
+}

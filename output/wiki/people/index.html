@@ -1,0 +1,44 @@
+<!doctype html><html lang=zh-CN><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>人物索引</title>
+<link rel=stylesheet href="../assets/styles.css">
+</head><body>
+<header class=site>
+  <a class=brand href="../index.html">奇绩创坛 2026 春季路演日 · Wiki</a>
+  <nav>
+    <a href="../meetings/index.html">纪要</a>
+    <a href="../people/index.html">人物</a>
+    <a href="../concepts/index.html">概念</a>
+    <a href="../entities/index.html">实体</a>
+  </nav>
+  <div class=search>
+    <input id=q placeholder="搜人物 / 概念 / 实体 / 纪要" autocomplete=off>
+  </div>
+</header>
+<main>
+<h1>人物</h1><div class=subtitle>共 7 位 · 按提及次数排序</div><div class=filter-bar><input id=f placeholder="过滤人物名"><span class=count id=cnt></span></div><div class=grid id=list><div class=card data-name="陆奇"><a class=title href="lu-qi.html">陆奇</a><div class=meta><span>奇绩创坛创始人</span><span>出现 1 次</span></div><p class=summary>在路演日开场发表主题演讲，以「硅基生产力+硅基生产关系」框架描绘 AI 时代产业机会图谱，强调研究型创业者是本轮驱动力量，并宣布奇绩已投资加速667家企业、本届录取54个项目。</p></div><div class=card data-name="陈洛飞洛菲"><a class=title href="chen-luofei.html">陈洛飞 (洛菲)</a><div class=meta><span>Oki Home 创始人 / CEO</span><span>出现 1 次</span></div><p class=summary>上台介绍 OPHome 个人 AI 系统，产品核心是软硬件一体的本地私人 AI 设备，搭载自研「mention 记忆芯片」，宣布7月26日上线。[对应 projects.json #B11]</p></div><div class=card data-name="王子峣"><a class=title href="wang-ziyao.html">王子峣</a><div class=meta><span>影控机器人 创始人 / CEO / CTO</span><span>出现 1 次</span></div><p class=summary>代表影控机器人上台，介绍人形机器人全身操控驾驶舱系统，核心观点是唯有真实世界全身协同数据才能支撑通用机器人发展。[对应 projects.json #B02]</p></div><div class=card data-name="刘雅"><a class=title href="liu-ya.html">刘雅</a><div class=meta><span>润凡 / RustFS 创始人</span><span>出现 1 次</span></div><p class=summary>介绍 RustFS AI 存储基础设施，9个月获27,000 GitHub star、全球100万节点安装量，GPU 利用率提升至95%，已签约 AMD、中国移动等头部客户。[注：projects-hint 中 A07 显示 CEO 为李文凯（Kevin Li），刘雅可能为联合创始人]</p></div><div class=card data-name="王俊毅"><a class=title href="wang-junyi.html">王俊毅</a><div class=meta><span>摩湃分子 MolplusAI 联合创始人 / CEO</span><span>出现 1 次</span></div><p class=summary>介绍 MolplusAI 科学通用 AI 平台，以 ODesign 分子设计模型为核心，目标是6个月完成10-20年才能实现的获奖级药物研发。[对应 projects.json #A10]</p></div><div class=card data-name="沈明航"><a class=title href="shen-minghang.html">沈明航</a><div class=meta><span>明悉科技 InsightSec 创始人 / CEO</span><span>出现 1 次</span></div><p class=summary>介绍 AI 风险情报平台明悉科技，从国家安全切入到商业安全市场，已完成十多项国家级安全任务、获数百万订单，定位为「中国版 Palo Alto」。[对应 projects.json #E04]</p></div><div class=card data-name="陆伟然"><a class=title href="lu-weiran.html">陆伟然</a><div class=meta><span>明悉科技 InsightSec 核心成员</span><span>出现 1 次</span></div><p class=summary>在 AI 安全 pitch 中被提及，负责赴香港与知名艺人洽谈商业安全签约。</p></div></div><script>
+(() => {
+  const f = document.getElementById('f');
+  const list = document.getElementById('list');
+  const cnt = document.getElementById('cnt');
+  const cards = [...list.children];
+  function apply(){
+    const q = (f.value || '').toLowerCase().trim();
+    let n = 0;
+    for (const c of cards){
+      const name = (c.dataset.name || '').toLowerCase();
+      const show = !q || name.includes(q);
+      c.style.display = show ? '' : 'none';
+      if (show) n++;
+    }
+    cnt.textContent = n + ' 项';
+  }
+  f.addEventListener('input', apply); apply();
+})();
+</script></main>
+<footer class=site>
+本地知识库 · 从 5 份纪要抽取
+</footer>
+<script src="../assets/search.js" defer></script>
+</body></html>
